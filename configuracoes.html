@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurações | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+    <div class="page-header animate-fade-up">
+      <div class="page-header-left">
+        <div class="breadcrumb mb-8"><a href="dashboard.html">Dashboard</a><span class="sep">›</span><span>Configurações</span></div>
+        <h1>⚙️ Configurações</h1>
+      </div>
+    </div>
+    <div class="grid-2 animate-fade-up delay-1">
+      <div class="card">
+        <h3 class="mb-16">🎨 Aparência</h3>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--border)">
+          <div>
+            <div style="font-size:0.875rem;font-weight:600;color:var(--text-primary)">Tema</div>
+            <div style="font-size:0.78rem;color:var(--text-muted)">Modo escuro ou claro</div>
+          </div>
+          <button class="btn btn-ghost btn-sm" id="theme-toggle-cfg">Alternar Tema</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="mb-16">👤 Perfil</h3>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div>
+            <label style="font-size:0.78rem;font-weight:600;color:var(--text-muted);display:block;margin-bottom:6px">Nome do Candidato</label>
+            <input type="text" id="cfg-name" placeholder="Seu nome..." style="width:100%;background:var(--bg-secondary);border:1px solid var(--border);border-radius:var(--radius-md);padding:9px 12px;color:var(--text-primary);font-family:inherit;font-size:0.875rem;outline:none">
+          </div>
+          <button class="btn btn-primary btn-sm" id="cfg-save">Salvar Nome</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="mb-16">💾 Dados</h3>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <button class="btn btn-ghost" id="export-btn">⬇️ Exportar Progresso (JSON)</button>
+          <button class="btn btn-ghost" id="import-btn">⬆️ Importar Progresso (JSON)</button>
+          <input type="file" id="import-file" accept=".json" style="display:none">
+          <button class="btn btn-ghost" style="border-color:rgba(239,68,68,0.3);color:var(--red)" onclick="if(confirm('Zerar TODO o progresso?')){DC.Storage.remove('progress');DC.Storage.remove('user');DC.Toast.show('Dados resetados.','info');setTimeout(()=>location.href='dashboard.html',1000)}">🗑️ Resetar Todos os Dados</button>
+        </div>
+      </div>
+      <div class="card">
+        <h3 class="mb-16">⏱️ Pomodoro</h3>
+        <p style="font-size:0.83rem;color:var(--text-muted);margin-bottom:12px">Tempos padrão: 25min foco, 5min pausa, 15min pausa longa.</p>
+        <div class="highlight-box info"><div class="hb-title">Em breve</div>Configuração personalizada dos tempos do Pomodoro.</div>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('./');
+  document.getElementById('theme-toggle-cfg')?.addEventListener('click', () => DC.Theme.toggle());
+  const nameInput = document.getElementById('cfg-name');
+  const user = DC.User.get();
+  if(nameInput) nameInput.value = user.name || '';
+  document.getElementById('cfg-save')?.addEventListener('click', () => {
+    const name = nameInput.value.trim();
+    if(!name) return;
+    const initials = name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2);
+    DC.User.update({name, initials});
+    DC.Toast.show('Nome salvo!', 'success');
+  });
+});
+</script>
+</body>
+</html>

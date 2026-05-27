@@ -1,0 +1,171 @@
+<!-- ================================================
+     DIGITALCRON — Sidebar Component
+     Incluir via JS: DC.loadComponent('sidebar')
+     ================================================ -->
+<aside class="sidebar" id="sidebar">
+
+  <!-- Logo -->
+  <div class="sidebar-logo">
+    <div class="sidebar-logo-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg>
+    </div>
+    <div class="sidebar-logo-text">
+      <div class="brand">DigitalCron</div>
+      <div class="sub">Petrobras · Ênfase 6</div>
+    </div>
+    <!-- Toggle button -->
+    <button class="sidebar-toggle" title="Recolher sidebar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="sidebar-nav">
+
+    <!-- Principal -->
+    <div class="nav-section-label">Principal</div>
+
+    <a href="../../dashboard.html" class="nav-item" data-tooltip="Dashboard">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+      </svg>
+      <span class="nav-text">Dashboard</span>
+    </a>
+
+    <a href="../../progresso.html" class="nav-item" data-tooltip="Progresso">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+      </svg>
+      <span class="nav-text">Progresso</span>
+    </a>
+
+    <a href="../../simulados.html" class="nav-item" data-tooltip="Simulados">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/>
+      </svg>
+      <span class="nav-text">Simulados</span>
+    </a>
+
+    <a href="../../cronograma.html" class="nav-item" data-tooltip="Cronograma">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+      </svg>
+      <span class="nav-text">Cronograma</span>
+    </a>
+
+    <!-- Matérias -->
+    <div class="nav-section-label">Matérias</div>
+
+    <!-- Conhecimentos Básicos -->
+    <div class="nav-item" data-submenu="sub-basicos" data-tooltip="Conhecimentos Básicos">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+      </svg>
+      <span class="nav-text">Conhecimentos Básicos</span>
+      <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+    <div class="nav-submenu" id="sub-basicos">
+      <a href="../../materias/portugues/index.html" class="nav-submenu-item">🇧🇷 Língua Portuguesa</a>
+      <a href="../../materias/ingles/index.html" class="nav-submenu-item">🇺🇸 Língua Inglesa</a>
+    </div>
+
+    <!-- Bloco I -->
+    <div class="nav-item" data-submenu="sub-bloco1" data-tooltip="Bloco I">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+      </svg>
+      <span class="nav-text">Bloco I</span>
+      <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+    <div class="nav-submenu" id="sub-bloco1">
+      <a href="../../materias/arquitetura-dados/index.html" class="nav-submenu-item">🗄️ Arquitetura de Dados</a>
+      <a href="../../materias/arquitetura-dados/sql.html" class="nav-submenu-item" style="padding-left:52px">↳ SQL / DDL / DML</a>
+      <a href="../../materias/arquitetura-dados/modelagem.html" class="nav-submenu-item" style="padding-left:52px">↳ Modelagem</a>
+      <a href="../../materias/arquitetura-dados/nosql.html" class="nav-submenu-item" style="padding-left:52px">↳ NoSQL & Big Data</a>
+      <a href="../../materias/arquitetura-dados/etl.html" class="nav-submenu-item" style="padding-left:52px">↳ ETL & Integração</a>
+      <a href="../../materias/projetos/index.html" class="nav-submenu-item">📋 Gerenc. Projetos & Produtos</a>
+      <a href="../../materias/projetos/scrum-kanban.html" class="nav-submenu-item" style="padding-left:52px">↳ Scrum & Kanban</a>
+      <a href="../../materias/projetos/pmbok.html" class="nav-submenu-item" style="padding-left:52px">↳ PMBOK & SAFe</a>
+    </div>
+
+    <!-- Bloco II -->
+    <div class="nav-item" data-submenu="sub-bloco2" data-tooltip="Bloco II">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+      </svg>
+      <span class="nav-text">Bloco II</span>
+      <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+    <div class="nav-submenu" id="sub-bloco2">
+      <a href="../../materias/governanca-ti/index.html" class="nav-submenu-item">🏛️ Governança de TI & LGPD</a>
+      <a href="../../materias/engenharia-software/index.html" class="nav-submenu-item">⚙️ Engenharia de Software</a>
+      <a href="../../materias/engenharia-software/requisitos.html" class="nav-submenu-item" style="padding-left:52px">↳ Requisitos</a>
+      <a href="../../materias/engenharia-software/testes.html" class="nav-submenu-item" style="padding-left:52px">↳ Testes & Qualidade</a>
+      <a href="../../materias/ux/index.html" class="nav-submenu-item">🎨 UX & Design Thinking</a>
+      <a href="../../materias/ux/mvp.html" class="nav-submenu-item" style="padding-left:52px">↳ MVP & Prototipação</a>
+    </div>
+
+    <!-- Bloco III -->
+    <div class="nav-item" data-submenu="sub-bloco3" data-tooltip="Bloco III">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+      </svg>
+      <span class="nav-text">Bloco III</span>
+      <svg class="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+    </div>
+    <div class="nav-submenu" id="sub-bloco3">
+      <a href="../../materias/bi/index.html" class="nav-submenu-item">📊 Análise de Dados & BI</a>
+      <a href="../../materias/bi/olap-dw.html" class="nav-submenu-item" style="padding-left:52px">↳ OLAP & Data Warehouse</a>
+      <a href="../../materias/logica/index.html" class="nav-submenu-item">🧮 Lógica Matemática</a>
+      <a href="../../materias/seguranca/index.html" class="nav-submenu-item">🔐 Segurança da Informação</a>
+      <a href="../../materias/seguranca/operacao.html" class="nav-submenu-item" style="padding-left:52px">↳ Operação (FW, SIEM...)</a>
+      <a href="../../materias/seguranca/ataques.html" class="nav-submenu-item" style="padding-left:52px">↳ Ataques & Malwares</a>
+      <a href="../../materias/seguranca/identidade.html" class="nav-submenu-item" style="padding-left:52px">↳ Identidade & Acesso</a>
+      <a href="../../materias/seguranca/normas.html" class="nav-submenu-item" style="padding-left:52px">↳ Normas & Frameworks</a>
+    </div>
+
+    <!-- Estratégia -->
+    <div class="nav-section-label">Estratégia</div>
+
+    <a href="../../banca.html" class="nav-item" data-tooltip="Cesgranrio">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+      </svg>
+      <span class="nav-text">Entendendo a Cesgranrio</span>
+    </a>
+
+    <a href="../../materias/revisao.html" class="nav-item" data-tooltip="Revisão">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/>
+      </svg>
+      <span class="nav-text">Revisão Espaçada</span>
+    </a>
+
+    <!-- Config -->
+    <div class="nav-section-label">Sistema</div>
+
+    <a href="../../configuracoes.html" class="nav-item" data-tooltip="Configurações">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 115.93 19.07M19.07 4.93l-2.83 2.83"/>
+      </svg>
+      <span class="nav-text">Configurações</span>
+    </a>
+
+  </nav>
+
+  <!-- Footer -->
+  <div class="sidebar-footer">
+    <div class="nav-item" id="pomodoro-mini" data-tooltip="Pomodoro">
+      <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      </svg>
+      <span class="nav-text" id="pomodoro-sidebar-time">25:00</span>
+      <span class="badge" id="pomodoro-sidebar-state" style="background:rgba(16,185,129,0.2);color:#10B981">▶</span>
+    </div>
+  </div>
+
+</aside>

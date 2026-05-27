@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Língua Portuguesa | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a>
+      <span class="sep">›</span>
+      <span>Conhecimentos Básicos</span>
+      <span class="sep">›</span>
+      <span>Língua Portuguesa</span>
+    </div>
+
+    <!-- Hero -->
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          Conhecimentos Básicos · Língua Portuguesa
+        </div>
+        <h1 class="mb-8">🇧🇷 Língua Portuguesa</h1>
+        <p>Compreensão e interpretação de textos, domínio da ortografia, coesão textual, morfossintaxe e reescrita de frases — conteúdo completo conforme edital Petrobras.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            <span>8 tópicos principais</span>
+          </div>
+          <div class="materia-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>~4h de estudo estimado</span>
+          </div>
+          <div class="materia-meta-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>Alta incidência na prova</span>
+          </div>
+        </div>
+      </div>
+      <!-- Progress Ring -->
+      <div class="materia-progress-ring">
+        <div class="progress-ring-wrap">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle class="ring-bg"   cx="50" cy="50" r="42" fill="none" stroke-width="8"/>
+            <circle class="progress-ring-circle" id="pt-ring" cx="50" cy="50" r="42" fill="none" stroke="#8B5CF6" stroke-width="8" stroke-dasharray="263.9" stroke-dashoffset="263.9" stroke-linecap="round"/>
+          </svg>
+          <div class="progress-ring-label">
+            <span class="progress-ring-pct" id="pt-pct">0%</span>
+            <span class="progress-ring-sub">Progresso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cesgranrio Destaque -->
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header">
+        <span class="crown">👑</span>
+        <h4>O que a Cesgranrio mais cobra em Português</h4>
+      </div>
+      <ul>
+        <li>Interpretação de texto com inferência — o texto não diz explicitamente, você precisa deduzir</li>
+        <li>Reescrita de frases mantendo o sentido — cuidado com trocas de "eficaz" por "eficiente"</li>
+        <li>Crase — especialmente antes de pronomes possessivos e locuções</li>
+        <li>Concordância verbal com sujeito composto e sujeito posposto</li>
+        <li>Colocação pronominal — norma culta formal (próclise, ênclise, mesóclise)</li>
+        <li>Conectivos e valor semântico (adversativo x concessivo x causal)</li>
+      </ul>
+    </div>
+
+    <!-- Topics Grid -->
+    <div class="section-header animate-fade-up delay-3">
+      <div class="section-title"><span class="accent-dot"></span> Tópicos do Edital</div>
+      <span class="badge badge-gold">8 tópicos</span>
+    </div>
+
+    <div class="topics-grid animate-fade-up delay-3">
+
+      <a href="interpretacao.html" class="topic-card" id="tc-pt-interpretacao">
+        <div class="topic-icon" style="background:rgba(139,92,246,0.1)">📖</div>
+        <div class="topic-title">1. Interpretação e Compreensão de Textos</div>
+        <div class="topic-desc">Textos de gêneros variados. Inferência, leitura nas entrelinhas, reconhecimento de tipos textuais.</div>
+        <div class="topic-footer">
+          <span class="badge badge-gold">Alta incidência</span>
+          <span class="text-small text-muted">~45 min</span>
+        </div>
+      </a>
+
+      <a href="coesao.html" class="topic-card" id="tc-pt-coesao">
+        <div class="topic-icon" style="background:rgba(14,165,233,0.1)">🔗</div>
+        <div class="topic-title">2. Mecanismos de Coesão Textual</div>
+        <div class="topic-desc">Referenciação, substituição, conectores, sequenciação. Tempos e modos verbais como coesão.</div>
+        <div class="topic-footer">
+          <span class="badge badge-purple">Média incidência</span>
+          <span class="text-small text-muted">~30 min</span>
+        </div>
+      </a>
+
+      <a href="ortografia.html" class="topic-card" id="tc-pt-ortografia">
+        <div class="topic-icon" style="background:rgba(16,185,129,0.1)">✍️</div>
+        <div class="topic-title">3. Ortografia Oficial</div>
+        <div class="topic-desc">Novo acordo ortográfico. Uso do hífen, acento gráfico, emprego de letras.</div>
+        <div class="topic-footer">
+          <span class="badge badge-green">Baixa incidência</span>
+          <span class="text-small text-muted">~20 min</span>
+        </div>
+      </a>
+
+      <a href="morfossintaxe.html" class="topic-card" id="tc-pt-morfossintaxe">
+        <div class="topic-icon" style="background:rgba(212,175,55,0.1)">⚙️</div>
+        <div class="topic-title">4. Classes de Palavras e Morfossintaxe</div>
+        <div class="topic-desc">Emprego das classes. Coordenação e subordinação. Estrutura do período composto.</div>
+        <div class="topic-footer">
+          <span class="badge badge-purple">Média incidência</span>
+          <span class="text-small text-muted">~40 min</span>
+        </div>
+      </a>
+
+      <a href="pontuacao.html" class="topic-card" id="tc-pt-pontuacao">
+        <div class="topic-icon" style="background:rgba(239,68,68,0.1)">，</div>
+        <div class="topic-title">5. Sinais de Pontuação</div>
+        <div class="topic-desc">Uso da vírgula, ponto e vírgula, dois-pontos. Pontuação e sentido da frase.</div>
+        <div class="topic-footer">
+          <span class="badge badge-gold">Alta incidência</span>
+          <span class="text-small text-muted">~25 min</span>
+        </div>
+      </a>
+
+      <a href="concordancia.html" class="topic-card" id="tc-pt-concordancia">
+        <div class="topic-icon" style="background:rgba(139,92,246,0.1)">🔄</div>
+        <div class="topic-title">6. Concordância Verbal e Nominal</div>
+        <div class="topic-desc">Casos especiais de concordância. Sujeito composto, sujeito coletivo, expressões partitivas.</div>
+        <div class="topic-footer">
+          <span class="badge badge-gold">Alta incidência</span>
+          <span class="text-small text-muted">~35 min</span>
+        </div>
+      </a>
+
+      <a href="regencia-crase.html" class="topic-card" id="tc-pt-regencia">
+        <div class="topic-icon" style="background:rgba(14,165,233,0.1)">à</div>
+        <div class="topic-title">7. Regência e Crase</div>
+        <div class="topic-desc">Regência verbal e nominal. Emprego do sinal indicativo de crase em todos os casos.</div>
+        <div class="topic-footer">
+          <span class="badge badge-gold">Alta incidência</span>
+          <span class="text-small text-muted">~30 min</span>
+        </div>
+      </a>
+
+      <a href="reescrita.html" class="topic-card" id="tc-pt-reescrita">
+        <div class="topic-icon" style="background:rgba(212,175,55,0.1)">✏️</div>
+        <div class="topic-title">8. Reescrita de Frases e Parágrafos</div>
+        <div class="topic-desc">Significação das palavras, substituição sem alterar sentido, colocação pronominal.</div>
+        <div class="topic-footer">
+          <span class="badge badge-gold">Alta incidência</span>
+          <span class="text-small text-muted">~40 min</span>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Checklist de Estudo -->
+    <div class="card animate-fade-up delay-4 mb-24">
+      <div class="section-header">
+        <div class="section-title"><span class="accent-dot"></span> Checklist — Domínio dos Tópicos</div>
+        <button class="btn btn-ghost btn-sm" onclick="DC.Progress.markDone('portugues_hub')">Marcar módulo completo</button>
+      </div>
+      <div id="checklist-portugues"></div>
+    </div>
+
+    <!-- Mini Simulado Preview -->
+    <div class="card card-glow animate-fade-up delay-5">
+      <div class="section-header">
+        <div class="section-title"><span class="accent-dot"></span> Mini Simulado — Português</div>
+        <span class="badge badge-purple">10 questões · Estilo Cesgranrio</span>
+      </div>
+      <p class="mb-16">Teste seus conhecimentos com questões no estilo da banca. Correção automática com feedback detalhado.</p>
+      <div id="quiz-portugues"></div>
+    </div>
+
+  </div><!-- /main-content -->
+</div>
+
+<div id="toast-container"></div>
+
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+
+  // Progress ring
+  const topics = ['interpretacao','coesao','ortografia','morfossintaxe','pontuacao','concordancia','regencia','reescrita'];
+  const done = topics.filter(t => DC.Progress.getTopic('pt_' + t).done).length;
+  const pct  = Math.round((done / topics.length) * 100);
+  const circumference = 263.9;
+  const offset = circumference - (pct / 100) * circumference;
+  const ring = document.getElementById('pt-ring');
+  const pctEl = document.getElementById('pt-pct');
+  if (ring)  setTimeout(() => ring.style.strokeDashoffset = offset, 300);
+  if (pctEl) pctEl.textContent = pct + '%';
+
+  // Mark done topic cards
+  topics.forEach(t => {
+    if (DC.Progress.getTopic('pt_' + t).done) {
+      document.getElementById('tc-pt-' + t)?.classList.add('done');
+    }
+  });
+
+  // Checklist
+  DC.Checklist.init('checklist-portugues', 'portugues', [
+    'Entendo a diferença entre interpretação e inferência',
+    'Domino o uso de conectivos e seus valores semânticos',
+    'Sei aplicar as regras de crase em todos os contextos',
+    'Conheço os casos especiais de concordância verbal',
+    'Domino a regência dos verbos mais cobrados',
+    'Sei identificar e corrigir erros de colocação pronominal',
+    'Consigo reescrever frases sem alterar o sentido',
+    'Conheço os tipos textuais (narração, descrição, dissertação)',
+    'Domino o uso da vírgula em orações subordinadas',
+    'Sei distinguir "eficaz", "eficiente" e "efetivo"'
+  ]);
+
+  // Quiz
+  DC.Quiz.render('quiz-portugues', [
+    {
+      question: 'Assinale a alternativa em que o emprego da crase está CORRETO, conforme a norma culta.',
+      options: [
+        'Refiro-me à um relatório importante.',
+        'Entregou o documento à João.',
+        'Ele se referiu à política de dados da empresa.',
+        'A reunião foi marcada à duas horas.',
+        'Ela estava à par de tudo.'
+      ],
+      answer: 2,
+      explanation: 'Crase é usada antes de palavra feminina precedida de artigo. "À política" = a + a (política). As outras alternativas: "à um" é errada (masculino); "à João" é errada (nome masculino); "à duas horas" deveria ser "às duas horas"; "à par" deveria ser "a par" (sem crase, expressão cristalizada).'
+    },
+    {
+      question: 'Em "Os resultados dos experimentos realizados pela equipe de engenharia foram surpreendentes", o sujeito da oração é:',
+      options: [
+        'Os resultados',
+        'Os resultados dos experimentos',
+        'Os experimentos realizados pela equipe',
+        'A equipe de engenharia',
+        'Os resultados dos experimentos realizados pela equipe de engenharia'
+      ],
+      answer: 0,
+      explanation: 'O sujeito é o núcleo + todos os seus adjuntos. O núcleo é "resultados" e seu determinante é "os". Os demais termos são adjuntos adnominais e complemento nominal que compõem o grupo nominal, mas o sujeito sintático essencial é "Os resultados". A Cesgranrio costuma cobrar essa distinção entre sujeito simples e o grupo nominal completo.'
+    },
+    {
+      question: 'Assinale a alternativa em que a reescrita do trecho "A empresa precisa investir em segurança para proteger seus dados" está INCORRETA por alterar o sentido original.',
+      options: [
+        'Para proteger seus dados, a empresa precisa investir em segurança.',
+        'Investir em segurança é necessário para que a empresa proteja seus dados.',
+        'A empresa necessita de investimento em segurança visando a proteção de seus dados.',
+        'A empresa precisa investir em segurança a fim de proteger seus dados.',
+        'A empresa precisa investir em segurança para que possa vender seus dados.'
+      ],
+      answer: 4,
+      explanation: '"Vender seus dados" altera completamente o sentido de "proteger seus dados" — são ações opostas. As demais alternativas mantêm o sentido de proteção, apenas variando a estrutura sintática ou o conector de finalidade (para / para que / a fim de / visando).'
+    },
+    {
+      question: 'O conectivo sublinhado exprime relação de CONCESSÃO em:',
+      options: [
+        'Não atualizou o sistema, <u>portanto</u> ocorreu a falha.',
+        '<u>Embora</u> o firewall estivesse ativo, o ataque foi bem-sucedido.',
+        'A migração foi cancelada <u>porque</u> o servidor estava instável.',
+        'O projeto atrasou <u>mas</u> a qualidade foi mantida.',
+        'Treine a equipe <u>para que</u> os erros sejam evitados.'
+      ],
+      answer: 1,
+      explanation: '"Embora" é conjunção subordinativa concessiva — indica que algo aconteceu apesar de uma condição contrária (firewall ativo, mas ataque funcionou). "Portanto" = conclusão; "porque" = causa; "mas" = adversidade (coordenada); "para que" = finalidade.'
+    },
+    {
+      question: 'Quanto à colocação pronominal, assinale a alternativa CORRETA segundo a norma culta formal.',
+      options: [
+        'Me disseram que o sistema falhou.',
+        'Entregaram-me o relatório antes do prazo.',
+        'Nos informaram sobre a mudança de protocolo.',
+        'Se encontraram durante a auditoria.',
+        'Te ligaram da matriz.'
+      ],
+      answer: 1,
+      explanation: 'Na norma culta formal, pronome átono não inicia período (descarta A, C, D, E). "Entregaram-me" usa ênclise corretamente após o verbo no pretérito perfeito, sem fator de próclise. As demais iniciam com pronome átono, o que é vetado na norma culta escrita formal (embora aceito na língua oral).'
+    },
+    {
+      question: 'Em "Nenhum dos analistas estava disponível para a reunião", o verbo "estava" está no singular porque:',
+      options: [
+        'O sujeito "analistas" está no plural, o que exige plural.',
+        'A expressão "nenhum dos analistas" tem núcleo "nenhum" no singular.',
+        'Verbos no pretérito imperfeito não variam em número.',
+        'O predicativo "disponível" está no singular.',
+        'A regência do verbo "estar" exige singular.'
+      ],
+      answer: 1,
+      explanation: 'Na expressão "nenhum dos analistas", o núcleo do sujeito é o pronome "nenhum" (singular), e "dos analistas" é um adjunto adnominal. O verbo concorda com o núcleo do sujeito. Essa é uma regra de concordância com pronomes indefinidos — a Cesgranrio a cobra frequentemente.'
+    },
+    {
+      question: 'Assinale a alternativa em que há erro de regência verbal.',
+      options: [
+        'Os usuários aspiram a uma plataforma mais intuitiva.',
+        'O sistema não visa ao lucro imediato.',
+        'O diretor assistiu o documentário técnico.',
+        'A equipe prefere trabalhar de forma remota.',
+        'O gerente implicou com as novas diretrizes.'
+      ],
+      answer: 2,
+      explanation: '"Assistir" no sentido de "ver/presenciar" é verbo transitivo indireto — exige preposição "a": "assistiu AO documentário". Sem a preposição, está errado. "Aspirar a" (desejar), "visar a" (objetivar), "implicar com" (antipatizar) e "preferir" (VTD) estão corretos.'
+    },
+    {
+      question: 'A palavra "mesmo" está empregada como pronome demonstrativo (e não como advérbio) em:',
+      options: [
+        'Ele mesmo resolveu o problema.',
+        'O sistema parou, mesmo após a atualização.',
+        'A solução demorou, mas funcionou mesmo.',
+        'Mesmo cansado, o analista finalizou o relatório.',
+        'O projeto foi aprovado mesmo assim.'
+      ],
+      answer: 0,
+      explanation: '"Ele mesmo" = pronome demonstrativo enfático, retoma e intensifica o sujeito. Nas demais: (B) "mesmo após" = advérbio de concessão; (C) "funcionou mesmo" = advérbio de intensidade/afirmação; (D) "mesmo cansado" = advérbio concessivo; (E) "mesmo assim" = locução adverbial concessiva.'
+    },
+    {
+      question: 'Qual alternativa apresenta período com oração subordinada ADVERBIAL TEMPORAL?',
+      options: [
+        'O sistema falhou porque o banco estava sobrecarregado.',
+        'Quando a migração terminar, os testes serão iniciados.',
+        'O analista, que era experiente, resolveu o problema.',
+        'Espera-se que o deploy ocorra sem falhas.',
+        'O gerente pediu que todos revisassem o código.'
+      ],
+      answer: 1,
+      explanation: '"Quando a migração terminar" é oração introduzida por "quando" — conjunção subordinativa temporal. (A) "porque" = causal; (C) "que era experiente" = adjetiva restritiva (pronome relativo); (D) e (E) "que" introduz oração substantiva objetiva direta (complemento do verbo).'
+    },
+    {
+      question: 'Sobre os tipos textuais, assinale a alternativa CORRETA.',
+      options: [
+        'O texto narrativo tem como objetivo principal convencer o leitor de uma tese.',
+        'O texto descritivo apresenta sequência de ações ordenadas no tempo.',
+        'O texto dissertativo-argumentativo defende um ponto de vista com argumentos.',
+        'O texto injuntivo relata acontecimentos de forma objetiva e imparcial.',
+        'O texto expositivo sempre admite a expressão de opinião do autor.'
+      ],
+      answer: 2,
+      explanation: 'Texto dissertativo-argumentativo = defesa de tese com argumentos. (A) descreve dissertativo, não narrativo; (B) descreve narrativo, não descritivo; (D) "injuntivo" instrui/ordena (receitas, manuais), não relata; (E) expositivo apresenta informações de forma neutra — a opinião é característica do argumentativo.'
+    }
+  ], 'portugues_simulado');
+});
+</script>
+</body>
+</html>

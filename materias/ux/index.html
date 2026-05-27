@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UX & Design Thinking | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <span>Bloco II</span><span class="sep">›</span><span>UX & Design Thinking</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">🎨 Bloco II · Item 3</div>
+        <h1 class="mb-8">UX & <span class="gradient-text">Design Thinking</span></h1>
+        <p>Usabilidade, acessibilidade, histórias de usuário, prototipação, MVP, Design Thinking, personas, storytelling com dados e dashboards interativos.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>📋 8 tópicos</span></div>
+          <div class="materia-meta-item"><span>⏱ ~3h de estudo</span></div>
+          <div class="materia-meta-item"><span>🎯 Média incidência</span></div>
+        </div>
+      </div>
+      <div class="materia-progress-ring">
+        <div class="progress-ring-wrap">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="42" fill="none" stroke-width="8" stroke="var(--bg-tertiary)"/>
+            <circle id="ux-ring" cx="50" cy="50" r="42" fill="none" stroke="#F59E0B" stroke-width="8"
+              stroke-dasharray="263.9" stroke-dashoffset="263.9" stroke-linecap="round"
+              style="transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset 0.8s"/>
+          </svg>
+          <div class="progress-ring-label">
+            <span class="progress-ring-pct" id="ux-pct">0%</span>
+            <span class="progress-ring-sub">Progresso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — UX & Design Thinking</h4></div>
+      <ul>
+        <li>Usabilidade vs. Acessibilidade — usabilidade é eficiência de uso; acessibilidade é inclusão de pessoas com deficiência</li>
+        <li>Heurísticas de Nielsen — as 10 heurísticas são cobradas com exemplos de violações</li>
+        <li>Design Thinking: 5 etapas (Empatia → Definição → Ideação → Prototipação → Teste)</li>
+        <li>MVP — Minimum Viable Product: menor versão que entrega valor e permite aprendizado</li>
+        <li>Persona vs. usuário real — persona é arquétipo baseado em pesquisa, não é fictícia aleatória</li>
+        <li>Storytelling com dados: narrativa que guia o espectador do dado ao insight</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="ux">🎯 UX & Usabilidade</button>
+      <button class="tab-btn" data-tab="dt">💡 Design Thinking</button>
+      <button class="tab-btn" data-tab="mvp">🚀 MVP & Prototipação</button>
+      <button class="tab-btn" data-tab="dados">📊 Dados & Dashboards</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- UX -->
+    <div class="tab-panel active" data-tab="ux">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(245,158,11,0.1)">🎯</div>UX — User Experience</h2>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 UX vs UI</div>
+          <strong>UX (User Experience):</strong> toda a experiência do usuário com o produto — pesquisa, arquitetura de informação, fluxos, emoções.<br>
+          <strong>UI (User Interface):</strong> a interface visual — cores, tipografia, botões, ícones. UI é uma parte da UX.
+        </div>
+
+        <h3>Usabilidade — ISO 9241</h3>
+        <p>Usabilidade é a medida na qual um produto pode ser usado por usuários específicos para alcançar objetivos específicos com <strong>eficácia, eficiência e satisfação</strong> em um contexto de uso específico.</p>
+
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">✅</div><div class="concept-name">Eficácia</div><div class="concept-desc">O usuário consegue completar a tarefa? (Resultado correto)</div></div>
+          <div class="concept-card"><div class="emoji">⚡</div><div class="concept-name">Eficiência</div><div class="concept-desc">Com que custo (tempo, cliques, esforço) o usuário completa a tarefa?</div></div>
+          <div class="concept-card"><div class="emoji">😊</div><div class="concept-name">Satisfação</div><div class="concept-desc">O usuário ficou satisfeito com a experiência? (Subjetivo)</div></div>
+        </div>
+
+        <h3>10 Heurísticas de Nielsen</h3>
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"><span>📋 Ver todas as 10 heurísticas</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <div class="comparison-wrap">
+                <table class="comparison-table">
+                  <thead><tr><th>#</th><th>Heurística</th><th>Exemplo de violação</th></tr></thead>
+                  <tbody>
+                    <tr><td>1</td><td><strong>Visibilidade do status do sistema</strong></td><td>Upload sem barra de progresso</td></tr>
+                    <tr><td>2</td><td><strong>Correspondência entre sistema e mundo real</strong></td><td>Ícone de "salvar" ser um disquete sem contexto</td></tr>
+                    <tr><td>3</td><td><strong>Controle e liberdade do usuário</strong></td><td>Sem botão "desfazer" após excluir item</td></tr>
+                    <tr><td>4</td><td><strong>Consistência e padrões</strong></td><td>Botão "OK" em algumas telas e "Confirmar" em outras</td></tr>
+                    <tr><td>5</td><td><strong>Prevenção de erros</strong></td><td>Campo de data sem validação de formato</td></tr>
+                    <tr><td>6</td><td><strong>Reconhecimento em vez de recordação</strong></td><td>Opções visíveis vs. comandos de memória</td></tr>
+                    <tr><td>7</td><td><strong>Flexibilidade e eficiência de uso</strong></td><td>Sem atalhos de teclado para usuários avançados</td></tr>
+                    <tr><td>8</td><td><strong>Design estético e minimalista</strong></td><td>Tela cheia de informações irrelevantes</td></tr>
+                    <tr><td>9</td><td><strong>Ajuda para reconhecer, diagnosticar e recuperar erros</strong></td><td>Mensagem "Erro 404" sem sugestão de solução</td></tr>
+                    <tr><td>10</td><td><strong>Ajuda e documentação</strong></td><td>Sistema complexo sem help contextual</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div></div>
+          </div>
+        </div>
+
+        <h3>Acessibilidade</h3>
+        <p>Acessibilidade é o design de produtos, dispositivos, serviços e ambientes para pessoas com deficiência. Na web, seguida pelas <strong>WCAG (Web Content Accessibility Guidelines)</strong> do W3C.</p>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Princípio WCAG</th><th>Descrição</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Perceptível</strong></td><td>Informação apresentável de diferentes formas</td><td>Alt text em imagens, legendas em vídeos</td></tr>
+              <tr><td><strong>Operável</strong></td><td>Componentes navegáveis por teclado</td><td>Tab order, skip navigation links</td></tr>
+              <tr><td><strong>Compreensível</strong></td><td>Informação e UI compreensíveis</td><td>Linguagem simples, mensagens de erro claras</td></tr>
+              <tr><td><strong>Robusto</strong></td><td>Compatível com tecnologias assistivas</td><td>HTML semântico, leitores de tela</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Personas</h3>
+        <p>Persona é um <strong>arquétipo de usuário</strong> baseado em pesquisa qualitativa e quantitativa real — não é um personagem fictício inventado. Representa um grupo de usuários com comportamentos, objetivos e motivações similares.</p>
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Pegadinha</div>
+          Persona ≠ usuário real específico. É uma representação composta baseada em dados reais de pesquisa com múltiplos usuários. A banca pode apresentar persona como "personagem completamente fictício" — isso está ERRADO.
+        </div>
+      </div>
+    </div>
+
+    <!-- Design Thinking -->
+    <div class="tab-panel" data-tab="dt">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">💡</div>Design Thinking</h2>
+        <p>Design Thinking é uma abordagem centrada no ser humano para resolução de problemas complexos e inovação. Popularizado pela IDEO e pela Stanford d.school.</p>
+
+        <h3>As 5 Etapas (Modelo Stanford d.school)</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content">
+              <h4>Empatia (Empathize)</h4>
+              <p>Entender profundamente os usuários — seus desejos, necessidades, comportamentos e contexto. Técnicas: entrevistas, observação, imersão, mapa de empatia.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content">
+              <h4>Definição (Define)</h4>
+              <p>Sintetizar os aprendizados da empatia para definir o problema real. Resultado: <strong>Point of View (POV)</strong> — "Como poderíamos [fazer X] para [persona] que [necessidade/insight]?"</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(245,158,11,0.15);color:var(--orange)">3</div>
+            <div class="step-content">
+              <h4>Ideação (Ideate)</h4>
+              <p>Gerar o maior número possível de ideias sem julgamento. Técnicas: brainstorming, SCAMPER, mapa mental, crazy 8s. Quantidade antes de qualidade.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">4</div>
+            <div class="step-content">
+              <h4>Prototipação (Prototype)</h4>
+              <p>Criar representações rápidas e baratas das ideias para aprendizado. Não precisa ser perfeito — o objetivo é aprender. Papel, wireframe, mockup, protótipo interativo.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(239,68,68,0.15);color:var(--red)">5</div>
+            <div class="step-content">
+              <h4>Teste (Test)</h4>
+              <p>Testar protótipos com usuários reais. Observar, não explicar. Coletar feedback para refinar o protótipo ou redefinir o problema. O processo é iterativo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Design Thinking não é linear</div>
+          O processo pode (e deve) retroceder. Após testar, pode-se voltar à empatia ou redefinir o problema. A Cesgranrio pode cobrar essa característica iterativa e não-linear do Design Thinking.
+        </div>
+
+        <h3>Interoperabilidade de Interfaces Web</h3>
+        <p>Interoperabilidade = capacidade da interface funcionar corretamente em <strong>diferentes navegadores</strong> (Chrome, Firefox, Safari, Edge) e dispositivos. Exige testes cross-browser, uso de padrões W3C, CSS resets e polyfills para funcionalidades não suportadas.</p>
+      </div>
+    </div>
+
+    <!-- MVP -->
+    <div class="tab-panel" data-tab="mvp">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">🚀</div>MVP & Prototipação</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ MVP — Minimum Viable Product</div>
+          Versão de um produto com o <strong>mínimo de funcionalidades</strong> necessário para ser lançado, coletar feedback validado de usuários reais e aprender com o menor esforço possível. Conceito central do Lean Startup (Eric Ries).
+        </div>
+
+        <h3>MVP vs. Protótipo</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>Protótipo</th><th>MVP</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Objetivo</strong></td><td>Testar design e usabilidade</td><td>Validar hipótese de negócio com usuários reais</td></tr>
+              <tr><td><strong>Funcionalidade</strong></td><td>Simulada / não funcional</td><td>Real e funcional (mínima)</td></tr>
+              <tr><td><strong>Usuários</strong></td><td>Testado internamente ou em laboratório</td><td>Lançado para usuários reais no mercado</td></tr>
+              <tr><td><strong>Custo</strong></td><td>Baixo (papel, wireframe, Figma)</td><td>Maior (produto real, mesmo que simples)</td></tr>
+              <tr><td><strong>Resultado</strong></td><td>Feedback de usabilidade</td><td>Dados de comportamento real do usuário</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Fidelidade de Protótipos</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">✏️</div><div class="concept-name">Baixa Fidelidade</div><div class="concept-desc">Papel, sketches, wireframes simples. Rápido e barato. Foco na estrutura e fluxo, não no visual.</div></div>
+          <div class="concept-card"><div class="emoji">🖥️</div><div class="concept-name">Média Fidelidade</div><div class="concept-desc">Wireframes digitais (Balsamiq, Axure). Estrutura definida, sem cores finais. Foco em interação.</div></div>
+          <div class="concept-card"><div class="emoji">🎨</div><div class="concept-name">Alta Fidelidade</div><div class="concept-desc">Mockup interativo (Figma, Adobe XD). Visual final. Próximo do produto real. Mais caro e demorado.</div></div>
+        </div>
+
+        <h3>Lean Startup — Ciclo Build-Measure-Learn</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content"><h4>Build (Construir)</h4><p>Transformar hipóteses em MVP — o menor produto que permite testar a hipótese.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content"><h4>Measure (Medir)</h4><p>Coletar dados sobre como os usuários reais interagem com o MVP — métricas de comportamento.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">3</div>
+            <div class="step-content"><h4>Learn (Aprender)</h4><p>Analisar dados para validar ou invalidar hipóteses. Decidir: <strong>Perseverar</strong> (continuar) ou <strong>Pivotar</strong> (mudar direção).</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dados -->
+    <div class="tab-panel" data-tab="dados">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">📊</div>Storytelling com Dados & Dashboards</h2>
+
+        <h3>Storytelling com Dados</h3>
+        <p>Storytelling com dados é a prática de combinar <strong>dados + visualizações + narrativa</strong> para comunicar insights de forma clara e persuasiva, guiando o espectador do dado bruto à decisão.</p>
+
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">📊</div><div class="concept-name">Dados</div><div class="concept-desc">A fundação — fatos, métricas, análises. Precisão e fonte confiável são essenciais.</div></div>
+          <div class="concept-card"><div class="emoji">📈</div><div class="concept-name">Visualizações</div><div class="concept-desc">Gráficos, tabelas, mapas — tornam padrões visíveis e facilmente compreensíveis.</div></div>
+          <div class="concept-card"><div class="emoji">📖</div><div class="concept-name">Narrativa</div><div class="concept-desc">Contexto, sequência lógica e conclusão — dão significado aos dados para o público-alvo.</div></div>
+        </div>
+
+        <h3>Boas Práticas de Dashboards</h3>
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"><span>📊 Tipos de Gráficos e Quando Usar</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <div class="comparison-wrap">
+                <table class="comparison-table">
+                  <thead><tr><th>Gráfico</th><th>Melhor para</th><th>Evitar quando</th></tr></thead>
+                  <tbody>
+                    <tr><td>Barra (vertical/horizontal)</td><td>Comparar categorias</td><td>Muitas categorias (>10)</td></tr>
+                    <tr><td>Linha</td><td>Tendências ao longo do tempo</td><td>Dados sem ordem temporal</td></tr>
+                    <tr><td>Pizza / Donut</td><td>Proporção do todo (&lt;5 partes)</td><td>Muitas fatias ou valores similares</td></tr>
+                    <tr><td>Dispersão (scatter)</td><td>Correlação entre variáveis</td><td>Públicos não técnicos</td></tr>
+                    <tr><td>Mapa de calor</td><td>Padrões em matriz 2D</td><td>Dados esparsos</td></tr>
+                    <tr><td>KPI Card</td><td>Destaque de métricas principais</td><td>Dados que precisam de contexto</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🎯 Princípios de Dashboard Efetivo</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <ul>
+                <li><strong>Hierarquia visual:</strong> informações mais importantes em destaque (maior, mais escuro, mais alto)</li>
+                <li><strong>Simplicidade:</strong> eliminar elementos desnecessários (chart junk)</li>
+                <li><strong>Contexto:</strong> sempre mostrar comparativo (meta, período anterior, benchmark)</li>
+                <li><strong>Consistência:</strong> mesma paleta, mesmos ícones, mesmas escalas em gráficos similares</li>
+                <li><strong>Interatividade:</strong> filtros e drill-down para exploração</li>
+                <li><strong>Mobile-first:</strong> dashboards devem funcionar em qualquer dispositivo</li>
+              </ul>
+            </div></div>
+          </div>
+        </div>
+
+        <h3>Organização e Apresentação de Dados em Relatórios</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Estrutura de Relatório Executivo</div>
+          <strong>1. Sumário executivo</strong> — conclusão principal (leitores ocupados param aqui)<br>
+          <strong>2. Contexto</strong> — por que esse relatório existe?<br>
+          <strong>3. Dados e análise</strong> — evidências que sustentam a conclusão<br>
+          <strong>4. Insights</strong> — o que os dados significam para o negócio?<br>
+          <strong>5. Recomendações</strong> — ações sugeridas com base nos insights
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — UX & Design Thinking</div>
+          <span class="badge badge-gold">8 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-ux"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-ux"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="../engenharia-software/index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Engenharia de Software</div></div>
+      </a>
+      <a href="../bi/index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próxima</div><div>Business Intelligence</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  const topics = ['ux','usabilidade','acessibilidade','heuristicas','personas','dt','mvp','storytelling'];
+  const done = topics.filter(t => DC.Progress.getTopic('ux_'+t).done).length;
+  const pct = Math.round((done/topics.length)*100);
+  setTimeout(() => {
+    const r = document.getElementById('ux-ring'); if(r) r.style.strokeDashoffset = 263.9-(pct/100)*263.9;
+    const p = document.getElementById('ux-pct'); if(p) p.textContent = pct+'%';
+  }, 300);
+
+  DC.Checklist.init('checklist-ux','ux',[
+    'Sei a diferença entre UX e UI',
+    'Domino os 3 componentes da usabilidade (ISO 9241)',
+    'Conheço as 10 Heurísticas de Nielsen',
+    'Entendo os 4 princípios WCAG de acessibilidade',
+    'Sei o que é persona e como difere de usuário real',
+    'Domino as 5 etapas do Design Thinking',
+    'Sei a diferença entre MVP e protótipo',
+    'Conheço o ciclo Build-Measure-Learn (Lean Startup)',
+    'Entendo os tipos de gráficos e quando usar cada um',
+    'Sei estruturar um relatório com storytelling de dados',
+  ]);
+
+  DC.Quiz.render('quiz-ux',[
+    { question:'De acordo com a ISO 9241, usabilidade é definida pelos atributos de:',
+      options:[
+        'Funcionalidade, confiabilidade e manutenibilidade.',
+        'Eficácia, eficiência e satisfação em um contexto de uso específico.',
+        'Acessibilidade, compatibilidade e portabilidade.',
+        'Performance, segurança e disponibilidade.',
+        'Learnability, memorability e error rate.'
+      ], answer:1, explanation:'ISO 9241: Usabilidade = medida na qual um produto pode ser usado por usuários específicos para alcançar objetivos específicos com EFICÁCIA (consegue completar?), EFICIÊNCIA (com que custo?) e SATISFAÇÃO (ficou feliz?) em um contexto específico. Os atributos de Nielsen (learnability, memorability etc.) são complementares mas não são a definição ISO.' },
+    { question:'A heurística de Nielsen "Visibilidade do status do sistema" é violada quando:',
+      options:[
+        'O sistema usa terminologia técnica sem explicação.',
+        'O usuário não consegue desfazer uma ação realizada.',
+        'Um processo longo de upload não exibe barra de progresso ou feedback visual.',
+        'O sistema não oferece ajuda contextual.',
+        'Botões iguais têm rótulos diferentes em telas distintas.'
+      ], answer:2, explanation:'"Visibilidade do status do sistema" = o sistema deve sempre manter o usuário informado sobre o que está acontecendo, com feedback adequado em tempo razoável. Upload sem progresso = usuário não sabe se está processando. Desfazer = heurística 3 (controle). Terminologia técnica = heurística 2. Ajuda = heurística 10. Inconsistência = heurística 4.' },
+    { question:'A diferença entre uma PERSONA e um usuário real é:',
+      options:[
+        'Persona é completamente fictícia; usuário real é quem usa o sistema.',
+        'Persona é um arquétipo baseado em pesquisa com múltiplos usuários; não representa uma pessoa específica real.',
+        'Persona é criada pelo cliente; usuário real é identificado pela equipe de UX.',
+        'Persona só é usada em metodologias ágeis; usuário real em cascata.',
+        'Não há diferença — persona é sinônimo de usuário real.'
+      ], answer:1, explanation:'Persona = representação fictícia mas baseada em DADOS REAIS de pesquisa com usuários reais. É um arquétipo que representa um grupo com comportamentos e objetivos similares. Não é inventada — é sintetizada a partir de pesquisa. A distinção chave: não é uma pessoa real específica, mas tampouco é pura ficção.' },
+    { question:'Na abordagem de Design Thinking, a etapa de DEFINIÇÃO (Define) tem como principal objetivo:',
+      options:[
+        'Gerar o maior número possível de ideias sem julgamento.',
+        'Criar protótipos de baixa fidelidade para teste rápido.',
+        'Sintetizar os aprendizados da empatia para formular o problema real a ser resolvido.',
+        'Testar soluções com usuários reais e coletar feedback.',
+        'Entrevistar usuários e observar seus comportamentos.'
+      ], answer:2, explanation:'A etapa Definição vem após Empatia — sintetiza os dados coletados para formular o problema correto (POV — Point of View). "Como poderíamos [ação] para [persona] que [necessidade/insight]?". Gerar ideias = Ideação. Prototipar = Prototipação. Testar = Teste. Entrevistar = Empatia.' },
+    { question:'MVP (Minimum Viable Product) difere de um protótipo porque:',
+      options:[
+        'MVP é sempre de alta fidelidade; protótipo é de baixa fidelidade.',
+        'MVP tem funcionalidade real e é lançado para usuários de mercado; protótipo é simulado para testes de usabilidade.',
+        'Protótipo gera receita; MVP serve apenas para aprendizado.',
+        'MVP é exclusivo de startups; protótipo é usado em empresas estabelecidas.',
+        'Não há diferença — são termos intercambiáveis no mercado.'
+      ], answer:1, explanation:'MVP = produto mínimo com funcionalidade REAL lançado no mercado para validar hipótese de negócio com usuários reais. Gera dados comportamentais reais. Protótipo = representação simulada (pode não ter backend) usada para testar design/usabilidade em ambiente controlado. MVP valida negócio; protótipo valida design.' },
+    { question:'Storytelling com dados combina três elementos para comunicar insights efetivamente. Assinale a alternativa CORRETA:',
+      options:[
+        'Algoritmos, modelos preditivos e dashboards.',
+        'Planilhas, relatórios e apresentações.',
+        'Dados precisos, visualizações adequadas e narrativa com contexto.',
+        'Big Data, Machine Learning e inteligência artificial.',
+        'Tabelas, fórmulas e gráficos de dispersão.'
+      ], answer:2, explanation:'Storytelling com dados = DADOS (fatos precisos) + VISUALIZAÇÕES (gráficos adequados ao tipo de dado) + NARRATIVA (contexto, sequência lógica, conclusão). Os três juntos transformam dado bruto em insight acionável. Apenas dados sem narrativa = relatório. Apenas narrativa sem dados = opinião.' },
+    { question:'A interoperabilidade de interfaces web entre diferentes navegadores exige:',
+      options:[
+        'Usar frameworks JavaScript proprietários específicos de cada navegador.',
+        'Desenvolver versões separadas do site para cada navegador.',
+        'Aderir a padrões W3C, realizar testes cross-browser e usar polyfills para funcionalidades não suportadas.',
+        'Exigir que todos os usuários usem o mesmo navegador.',
+        'Restringir o uso de CSS avançado e JavaScript.'
+      ], answer:2, explanation:'Interoperabilidade cross-browser = padrões W3C (HTML5, CSS3, ES6+) + testes em múltiplos navegadores (Chrome, Firefox, Safari, Edge) + polyfills (código que implementa funcionalidade não nativa em navegadores mais antigos) + ferramentas de teste como BrowserStack ou Can I Use para verificar suporte.' },
+    { question:'Qual princípio de design de dashboard determina que métricas devem ser sempre apresentadas com um ponto de referência (meta, período anterior ou benchmark)?',
+      options:[
+        'Simplicidade — eliminar elementos desnecessários.',
+        'Hierarquia visual — informações importantes em destaque.',
+        'Contexto — dados sem comparativo não permitem avaliação de desempenho.',
+        'Consistência — mesma paleta e ícones em todo o dashboard.',
+        'Interatividade — permitir drill-down e filtros.'
+      ], answer:2, explanation:'Contexto é fundamental em dashboards: "90% de disponibilidade" não diz nada sem saber se a meta é 99%, se mês passado foi 85% ou se o setor faz 95%. O contexto transforma dado em informação acionável. Sem comparativo (meta, histórico, benchmark), o número é ambíguo e pode levar a conclusões erradas.' },
+  ],'ux_simulado');
+});
+</script>
+</body>
+</html>

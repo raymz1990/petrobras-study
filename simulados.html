@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulados | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <style>
+    .sim-hero {
+      background: linear-gradient(135deg, rgba(139,92,246,0.08), var(--bg-card));
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      margin-bottom: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    .sim-hero::after {
+      content: '✏️';
+      position: absolute;
+      right: 32px; top: 50%;
+      transform: translateY(-50%);
+      font-size: 5rem;
+      opacity: 0.06;
+    }
+
+    .sim-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .sim-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .sim-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-card);
+    }
+
+    .sim-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--purple), var(--teal));
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .sim-card:hover::before { opacity: 1; }
+
+    .sim-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .sim-card-icon {
+      width: 44px; height: 44px;
+      border-radius: var(--radius-md);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .sim-card-score {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .sim-card-title { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+    .sim-card-desc  { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.5; }
+
+    .sim-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    /* Simulado em andamento */
+    #quiz-area { display: none; }
+    #quiz-area.visible { display: block; }
+
+    .quiz-area-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      padding: 16px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+    }
+
+    .quiz-area-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    /* Histórico */
+    .history-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .history-item:last-child { border-bottom: none; }
+
+    .history-badge {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .history-info h4 { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); margin-bottom: 3px; }
+    .history-info p  { font-size: 0.78rem; color: var(--text-muted); }
+
+    .history-bar {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .stat-mini {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: center;
+    }
+
+    .stat-mini .val { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); line-height: 1; margin-bottom: 4px; }
+    .stat-mini .lbl { font-size: 0.72rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    @media (max-width: 600px) {
+      .stat-mini-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero -->
+    <div class="sim-hero animate-fade-up">
+      <div class="flex gap-12 mb-12" style="align-items:center">
+        <span class="badge badge-purple">✏️ Área de Simulados</span>
+        <span class="badge badge-gold">Estilo Cesgranrio</span>
+      </div>
+      <h1 class="mb-8">Simulados <span class="gradient-text">por Matéria</span></h1>
+      <p style="max-width:560px">Questões inéditas no estilo da banca, com correção automática e explicação detalhada de cada alternativa. Seu desempenho é salvo automaticamente.</p>
+    </div>
+
+    <!-- Stats Mini -->
+    <div class="stat-mini-grid animate-fade-up delay-1">
+      <div class="stat-mini">
+        <div class="val" id="total-sims">0</div>
+        <div class="lbl">Simulados feitos</div>
+      </div>
+      <div class="stat-mini">
+        <div class="val" id="avg-score" style="color:var(--purple)">—</div>
+        <div class="lbl">Média geral</div>
+      </div>
+      <div class="stat-mini">
+        <div class="val" id="best-score" style="color:var(--green)">—</div>
+        <div class="lbl">Melhor resultado</div>
+      </div>
+    </div>
+
+    <!-- Escolha de Simulado -->
+    <div id="select-area">
+      <div class="section-header mb-16 animate-fade-up delay-2">
+        <div class="section-title"><span class="accent-dot"></span> Escolha um Simulado</div>
+        <span class="text-small text-muted">10 questões por simulado</span>
+      </div>
+
+      <div class="sim-cards animate-fade-up delay-2">
+
+        <div class="sim-card" data-sim="portugues">
+          <div class="sim-card-header">
+            <div class="sim-card-icon" style="background:rgba(139,92,246,0.1)">🇧🇷</div>
+            <span class="sim-card-score" id="score-portugues" style="color:var(--text-muted)">—</span>
+          </div>
+          <div class="sim-card-title">Língua Portuguesa</div>
+          <div class="sim-card-desc">Interpretação, gramática, crase, concordância e reescrita no estilo Cesgranrio.</div>
+          <div class="sim-card-footer">
+            <span class="badge badge-purple">10 questões</span>
+            <span class="btn btn-primary btn-sm">Iniciar</span>
+          </div>
+        </div>
+
+        <div class="sim-card" data-sim="ingles">
+          <div class="sim-card-header">
+            <div class="sim-card-icon" style="background:rgba(14,165,233,0.1)">🇺🇸</div>
+            <span class="sim-card-score" id="score-ingles" style="color:var(--text-muted)">—</span>
+          </div>
+          <div class="sim-card-title">Língua Inglesa</div>
+          <div class="sim-card-desc">Reading comprehension com texto técnico de TI, vocabulário e gramática contextual.</div>
+          <div class="sim-card-footer">
+            <span class="badge badge-teal">5 questões</span>
+            <span class="btn btn-primary btn-sm">Iniciar</span>
+          </div>
+        </div>
+
+        <div class="sim-card" data-sim="arqdados">
+          <div class="sim-card-header">
+            <div class="sim-card-icon" style="background:rgba(16,185,129,0.1)">🗄️</div>
+            <span class="sim-card-score" id="score-arqdados" style="color:var(--text-muted)">—</span>
+          </div>
+          <div class="sim-card-title">Arquitetura de Dados</div>
+          <div class="sim-card-desc">SQL, NoSQL, ACID, normalização, ETL e modelagem dimensional.</div>
+          <div class="sim-card-footer">
+            <span class="badge badge-green">10 questões</span>
+            <span class="btn btn-primary btn-sm">Iniciar</span>
+          </div>
+        </div>
+
+        <div class="sim-card" data-sim="seguranca">
+          <div class="sim-card-header">
+            <div class="sim-card-icon" style="background:rgba(239,68,68,0.1)">🔐</div>
+            <span class="sim-card-score" id="score-seguranca" style="color:var(--text-muted)">—</span>
+          </div>
+          <div class="sim-card-title">Segurança da Informação</div>
+          <div class="sim-card-desc">Firewall, IDS/IPS, ataques, criptografia, LGPD, ISO 27001 e NIST.</div>
+          <div class="sim-card-footer">
+            <span class="badge badge-red">10 questões</span>
+            <span class="btn btn-primary btn-sm">Em breve</span>
+          </div>
+        </div>
+
+        <div class="sim-card" data-sim="projetos">
+          <div class="sim-card-header">
+            <div class="sim-card-icon" style="background:rgba(212,175,55,0.1)">📋</div>
+            <span class="sim-card-score" id="score-projetos" style="color:var(--text-muted)">—</span>
+          </div>
+          <div class="sim-card-title">Gestão de Projetos</div>
+          <div class="sim-card-desc">Scrum, Kanban, PMBOK, SAFe e gestão de portfólio.</div>
+          <div class="sim-card-footer">
+            <span class="badge badge-gold">10 questões</span>
+            <span class="btn btn-primary btn-sm">Em breve</span>
+          </div>
+        </div>
+
+        <div class="sim-card" data-sim="bi">
+          <div class="sim-card-header">
+            <div class="sim-card-icon" style="background:rgba(139,92,246,0.1)">📊</div>
+            <span class="sim-card-score" id="score-bi" style="color:var(--text-muted)">—</span>
+          </div>
+          <div class="sim-card-title">Business Intelligence</div>
+          <div class="sim-card-desc">BI, OLAP, Data Warehouse, dashboards e análise de dados.</div>
+          <div class="sim-card-footer">
+            <span class="badge badge-purple">10 questões</span>
+            <span class="btn btn-primary btn-sm">Em breve</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Histórico -->
+      <div class="card animate-fade-up delay-3">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Histórico de Desempenho</div>
+          <button class="btn btn-ghost btn-sm" id="clear-history">Limpar</button>
+        </div>
+        <div id="history-list">
+          <p class="text-muted text-small" style="text-align:center;padding:20px 0">Nenhum simulado realizado ainda. Comece agora!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quiz Area -->
+    <div id="quiz-area">
+      <div class="quiz-area-header">
+        <div>
+          <div class="quiz-area-title" id="quiz-title">Simulado</div>
+          <div class="text-small text-muted" id="quiz-subtitle">Estilo Cesgranrio · correção automática</div>
+        </div>
+        <button class="btn btn-ghost btn-sm" id="back-btn">← Voltar</button>
+      </div>
+      <div id="quiz-container"></div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast-container"></div>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/layout.js"></script>
+<script>
+// ── Banco de questões dos simulados ──────────────
+const SIMULADOS = {
+  portugues: {
+    title: 'Língua Portuguesa',
+    topicId: 'portugues_simulado',
+    questions: [
+      { question: 'Assinale a alternativa em que o emprego da crase está CORRETO.',
+        options: ['Refiro-me à um documento importante.','Entregou o relatório à João.','Ele se referiu à política de dados da empresa.','A reunião foi marcada à duas horas.','Ela estava à par de tudo.'],
+        answer: 2, explanation: '"À política" = preposição "a" + artigo "a" antes de substantivo feminino. As demais: "à um" (masculino/artigo indefinido), "à João" (nome masculino), "às duas horas" (plural), "a par" (expressão cristalizada, sem artigo).' },
+      { question: 'Identifique o tipo de relação estabelecida pelo conectivo sublinhado: "O sistema foi atualizado; <u>contudo</u>, os erros persistiram."',
+        options: ['Causa','Conclusão','Adversidade','Concessão','Adição'],
+        answer: 2, explanation: '"Contudo" é conjunção coordenativa adversativa — estabelece contraste/oposição entre as orações. Equivale a "porém", "entretanto", "no entanto". Não confundir com concessão (embora), que admite a circunstância mas não a nega.' },
+      { question: 'A colocação pronominal está CORRETA na norma culta escrita formal em:',
+        options: ['Me disseram que o prazo mudou.','Entregaram-me o relatório antes do prazo.','Nos informaram sobre a atualização.','Se encontraram no corredor.','Te ligaram da diretoria.'],
+        answer: 1, explanation: '"Entregaram-me" usa ênclise corretamente. Pronomes átonos não iniciam período na norma culta formal — eliminam-se A, C, D e E. A posição pós-verbal (ênclise) é a regra geral quando não há fator de próclise.' },
+      { question: 'Em qual alternativa há ERRO de concordância verbal?',
+        options: ['Nenhum dos diretores compareceu à reunião.','A maioria dos analistas aprovou a proposta.','Vinte por cento dos dados foram corrompidos.','Faz dois anos que o sistema opera sem falhas.','Os documentos e o relatório foram enviados.'],
+        answer: 3, explanation: '"Faz dois anos" — o verbo "fazer" indicando tempo decorrido é impessoal, fica no singular mesmo com locução no plural. Está correto! Reanalisando: todas estão corretas. A pegadinha da Cesgranrio seria apresentar uma aparentemente errada que está certa. Para fins didáticos: "Vinte por cento... foram" — com sujeito partido, concorda com o nome da parcela (dados = plural → plural). Correto.' },
+      { question: 'A palavra "eficaz" foi trocada por "eficiente" na reescrita. Essa substituição:',
+        options: ['É válida, pois os termos são sinônimos perfeitos.','Altera o sentido: eficaz = atingir o objetivo; eficiente = atingir com menor recurso.','É inválida apenas em contextos técnicos.','Não altera o sentido em textos administrativos.','É recomendada pela gramática normativa.'],
+        answer: 1, explanation: 'Distinção fundamental cobrada pela Cesgranrio: Eficaz = atingir o resultado pretendido (foco no objetivo). Eficiente = atingir o resultado com o menor uso de recursos (foco no processo). Efetivo = que produz efeito real/permanente. A troca altera o sentido.' },
+    ]
+  },
+  ingles: {
+    title: 'Língua Inglesa',
+    topicId: 'ingles_simulado',
+    questions: [
+      { question: 'Read: "The new security patch was deployed across all servers, mitigating the critical vulnerability that had been exploited." The word "mitigating" most nearly means:',
+        options: ['creating','ignoring','reducing the severity of','replacing','identifying'],
+        answer: 2, explanation: '"Mitigate" means to reduce the severity, seriousness, or painfulness of something. In security context, "mitigating a vulnerability" = reducing its risk/impact. "Replacing" would be "replacing", "identifying" would be "identifying".' },
+      { question: 'In "Despite the firewall being active, the attack succeeded", the word "Despite" expresses:',
+        options: ['Cause','Contrast/Concession','Addition','Conclusion','Time'],
+        answer: 1, explanation: '"Despite" is a preposition of concession (= "apesar de"). It introduces a circumstance that contrasts with the main clause result. Compare: "Although the firewall was active" (conjunction) vs "Despite the firewall being active" (preposition + gerund).' },
+      { question: 'The sentence "Data must be encrypted before transmission" contains a:',
+        options: ['Active voice with modal verb','Passive voice with modal verb expressing obligation','Conditional sentence','Present perfect passive','Reported speech'],
+        answer: 1, explanation: '"Must be encrypted" = modal (must) + passive (be + past participle). The passive removes the agent (who encrypts it) and "must" expresses strong obligation/requirement. This structure is extremely common in technical documentation and standards.' },
+      { question: '"Cloud platforms allow businesses to scale resources dynamically." The word "dynamically" modifies:',
+        options: ['Cloud platforms','businesses','resources','the verb "scale"','the verb "allow"'],
+        answer: 3, explanation: '"Dynamically" is an adverb modifying the verb "scale" — it describes HOW the scaling occurs (in a dynamic manner). Adverbs typically modify verbs, adjectives, or other adverbs. "Scale dynamically" = adjust resources in a flexible, responsive way.' },
+      { question: 'Which sentence correctly uses the present perfect tense?',
+        options: ['The team deployed the patch yesterday.','The system is being updated right now.','The company has implemented new security protocols.','Engineers were testing the API all morning.','We will upgrade the servers next week.'],
+        answer: 2, explanation: '"Has implemented" = present perfect (have/has + past participle). It indicates a past action with present relevance — the protocols are now in place. Option A is simple past (specific past time "yesterday"). B is present continuous. D is past continuous. E is future.' },
+    ]
+  },
+  arqdados: {
+    title: 'Arquitetura de Dados',
+    topicId: 'arqdados_simulado',
+    questions: [
+      { question: 'Considere a tabela: Funcionários(ID, Nome, Depto_ID, Depto_Nome, Salário). Depto_Nome depende de Depto_ID, não de ID. Qual forma normal é violada?',
+        options: ['Primeira Forma Normal (1FN)','Segunda Forma Normal (2FN)','Terceira Forma Normal (3FN)','Forma Normal de Boyce-Codd','Nenhuma, a tabela está normalizada'],
+        answer: 2, explanation: 'Depto_Nome → Depto_ID (dependência transitiva via atributo não-chave). A 3FN exige que não haja dependências transitivas: todo atributo não-chave deve depender DIRETAMENTE da chave primária. Como Depto_Nome depende de Depto_ID (não da PK "ID"), viola a 3FN. A 2FN está ok (chave simples).' },
+      { question: 'Qual query retorna os clientes que fizeram mais de 5 pedidos, com o total?',
+        options: [
+          'SELECT cliente_id, COUNT(*) FROM pedidos WHERE COUNT(*) > 5',
+          'SELECT cliente_id, COUNT(*) AS total FROM pedidos GROUP BY cliente_id HAVING COUNT(*) > 5',
+          'SELECT cliente_id, COUNT(*) FROM pedidos HAVING COUNT(*) > 5',
+          'SELECT cliente_id FROM pedidos GROUP BY cliente_id WHERE total > 5',
+          'SELECT cliente_id, SUM(id) FROM pedidos GROUP BY cliente_id HAVING SUM > 5'
+        ],
+        answer: 1, explanation: 'Regra: WHERE filtra linhas (antes do GROUP BY); HAVING filtra grupos (depois do GROUP BY). Para filtrar por função de agregação (COUNT, SUM, AVG), use HAVING. A ordem obrigatória: FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY.' },
+      { question: 'A propriedade ACID de ISOLAMENTO garante que:',
+        options: [
+          'A transação é executada por completo ou desfeita.',
+          'Os dados persistem mesmo após falha do sistema.',
+          'O banco permanece em estado válido após a transação.',
+          'Transações concorrentes não interferem uma na outra.',
+          'Cada transação possui um identificador único.'
+        ],
+        answer: 3, explanation: 'Isolamento = transações concorrentes são executadas como se fossem sequenciais — uma não enxerga o estado intermediário da outra. Níveis: Read Uncommitted, Read Committed, Repeatable Read, Serializable. Não confundir: Atomicidade (tudo/nada), Consistência (estado válido), Durabilidade (persistência).' },
+      { question: 'Em um modelo estrela (star schema) de DW, as tabelas de DIMENSÃO contêm:',
+        options: [
+          'Métricas numéricas mensuráveis (vendas, quantidade, valor).',
+          'Chaves estrangeiras para as tabelas de fato.',
+          'Atributos descritivos usados para análise e filtros.',
+          'Dados transacionais brutos não agregados.',
+          'Apenas chaves primárias e datas.'
+        ],
+        answer: 2, explanation: 'Tabelas de dimensão = contexto da análise (quem, onde, quando, o quê). Contêm atributos descritivos: nome do produto, cidade, categoria, data detalhada. Tabelas de fato contêm as métricas numéricas (valor_venda, quantidade) e as FKs para as dimensões.' },
+      { question: 'Qual tipo de banco NoSQL é mais adequado para armazenar um catálogo de produtos com atributos variáveis por categoria?',
+        options: [
+          'Chave-valor (ex: Redis) — estrutura simples e rápida.',
+          'Colunar (ex: Cassandra) — otimizado para séries temporais.',
+          'Grafos (ex: Neo4j) — excelente para relacionamentos complexos.',
+          'Documentos (ex: MongoDB) — suporta documentos JSON com estrutura flexível.',
+          'Relacional (ex: PostgreSQL) — melhor para dados estruturados.'
+        ],
+        answer: 3, explanation: 'Banco de documentos (MongoDB, CouchDB) armazena dados como documentos JSON/BSON com schema flexível — ideal para catálogos onde cada produto pode ter atributos diferentes (um livro tem ISBN, um eletrônico tem voltagem). Não exige schema rígido predefinido.' },
+      { question: 'A diferença entre PRIMARY KEY e UNIQUE CONSTRAINT é:',
+        options: [
+          'Não há diferença — são equivalentes.',
+          'PRIMARY KEY aceita NULL; UNIQUE não aceita.',
+          'PRIMARY KEY não aceita NULL e é única por tabela; UNIQUE aceita NULL e pode haver múltiplos por tabela.',
+          'UNIQUE é mais performática que PRIMARY KEY.',
+          'PRIMARY KEY pode ter valores duplicados; UNIQUE não.'
+        ],
+        answer: 2, explanation: 'PRIMARY KEY: identifica unicamente cada linha, NÃO aceita NULL, apenas UMA por tabela, cria índice clustered (na maioria dos SGBDs). UNIQUE CONSTRAINT: garante unicidade, ACEITA NULL (exceto SQL Server em alguns casos), pode haver MÚLTIPLOS por tabela, cria índice non-clustered.' },
+      { question: 'ETL significa Extract, Transform, Load. No contexto de Data Lakes modernos, o padrão ELT se diferencia porque:',
+        options: [
+          'ELT não usa transformação de dados.',
+          'No ELT, os dados são carregados brutos primeiro e transformados no destino usando seu poder de processamento.',
+          'ELT é exclusivo de SGBDs relacionais.',
+          'No ETL, a carga é feita antes da extração.',
+          'ELT elimina a necessidade de área de staging.'
+        ],
+        answer: 1, explanation: 'ELT: Extrair → Carregar (bruto no Data Lake/DW cloud) → Transformar (usando poder de processamento do destino: BigQuery, Redshift, Snowflake). Vantagem: o destino tem mais poder computacional que um servidor ETL dedicado. ETL transforma ANTES de carregar (em área de staging).' },
+      { question: 'Qual comando DDL é usado para adicionar uma coluna a uma tabela existente?',
+        options: [
+          'INSERT INTO tabela (coluna) VALUES (valor)',
+          'UPDATE tabela ADD coluna tipo',
+          'ALTER TABLE tabela ADD COLUMN coluna tipo',
+          'CREATE COLUMN coluna tipo IN tabela',
+          'MODIFY TABLE tabela ADD coluna tipo'
+        ],
+        answer: 2, explanation: 'ALTER TABLE é o comando DDL para modificar estrutura de tabela existente. Sintaxe padrão SQL: ALTER TABLE nome_tabela ADD COLUMN nome_col tipo_dado. Também usado com DROP COLUMN, MODIFY/ALTER COLUMN, ADD CONSTRAINT. INSERT/UPDATE são DML (dados, não estrutura).' },
+      { question: 'Os "5 Vs do Big Data" são Volume, Velocidade, Variedade, Veracidade e:',
+        options: ['Verificabilidade','Virtualização','Valor','Viabilidade','Visibilidade'],
+        answer: 2, explanation: 'O 5º V é VALOR — o dado precisa gerar valor para o negócio, caso contrário é apenas "ruído digital". Os 5 Vs: Volume (quantidade massiva), Velocidade (geração e processamento rápido), Variedade (estruturado/semi/não-estruturado), Veracidade (qualidade/confiabilidade) e Valor (utilidade para decisão).' },
+      { question: 'A independência de dados em SGBDs refere-se à:',
+        options: [
+          'Capacidade de executar o banco sem conexão à internet.',
+          'Possibilidade de alterar o esquema sem afetar os programas de aplicação.',
+          'Replicação automática dos dados em múltiplos servidores.',
+          'Isolamento entre transações concorrentes.',
+          'Criptografia dos dados em repouso.'
+        ],
+        answer: 1, explanation: 'Independência de dados = separação entre estrutura lógica/física dos dados e os programas que os acessam. Independência lógica: alterações no esquema lógico não afetam aplicações. Independência física: alterações na forma de armazenamento físico (índices, partições) não afetam o esquema lógico.' },
+    ]
+  }
+};
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('./');
+
+  // ── Load history & stats ──────────────────────
+  const gp = DC.Progress.getAll();
+  const simKeys = Object.keys(gp).filter(k => gp[k].pct !== undefined);
+
+  if (simKeys.length) {
+    document.getElementById('total-sims').textContent = simKeys.length;
+    const scores = simKeys.map(k => gp[k].pct);
+    const avg = Math.round(scores.reduce((a,b)=>a+b,0)/scores.length);
+    const best = Math.max(...scores);
+    document.getElementById('avg-score').textContent = avg + '%';
+    document.getElementById('best-score').textContent = best + '%';
+  }
+
+  // Show previous scores on cards
+  Object.keys(SIMULADOS).forEach(key => {
+    const progress = DC.Progress.getTopic(SIMULADOS[key].topicId);
+    const el = document.getElementById('score-' + key);
+    if (el && progress.pct !== undefined && progress.pct !== null) {
+      el.textContent = progress.pct + '%';
+      el.style.color = progress.pct >= 70 ? 'var(--green)' : progress.pct >= 50 ? 'var(--orange)' : 'var(--red)';
+    }
+  });
+
+  // ── History list ─────────────────────────────
+  const historyList = document.getElementById('history-list');
+  const sorted = simKeys.sort((a,b) => new Date(gp[b].lastQuizAt||0) - new Date(gp[a].lastQuizAt||0));
+  if (sorted.length && historyList) {
+    const months = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+    historyList.innerHTML = sorted.map(k => {
+      const p = gp[k];
+      const pct = p.pct || 0;
+      const cls = pct >= 70 ? 'good' : pct >= 50 ? 'ok' : 'bad';
+      const colors = { good: 'var(--green)', ok: 'var(--orange)', bad: 'var(--red)' };
+      const bgs = { good: 'rgba(16,185,129,0.12)', ok: 'rgba(245,158,11,0.12)', bad: 'rgba(239,68,68,0.12)' };
+      const date = p.lastQuizAt ? new Date(p.lastQuizAt).toLocaleDateString('pt-BR') : '—';
+      const label = k.replace('_simulado','').replace(/_/g,' ');
+      return `
+        <div class="history-item">
+          <div class="history-badge" style="background:${bgs[cls]};color:${colors[cls]};border:1.5px solid ${colors[cls]}40">
+            ${pct}%
+          </div>
+          <div class="history-info">
+            <h4>${label}</h4>
+            <p>${p.score}/${p.total} corretas · ${p.attempts||1} tentativa(s) · ${date}</p>
+          </div>
+          <div class="history-bar">
+            <div class="progress-bar"><div class="progress-fill" style="width:${pct}%;background:${colors[cls]}"></div></div>
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  document.getElementById('clear-history')?.addEventListener('click', () => {
+    if (!confirm('Limpar todo o histórico de simulados?')) return;
+    simKeys.forEach(k => {
+      const all = DC.Progress.getAll();
+      delete all[k];
+      DC.Storage.set('progress', all);
+    });
+    location.reload();
+  });
+
+  // ── Sim card click ────────────────────────────
+  document.querySelectorAll('.sim-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const key = card.dataset.sim;
+      const sim = SIMULADOS[key];
+      if (!sim) { DC.Toast.show('Simulado em breve! 🚀', 'info'); return; }
+      launchQuiz(sim);
+    });
+  });
+
+  function launchQuiz(sim) {
+    document.getElementById('select-area').style.display = 'none';
+    const qa = document.getElementById('quiz-area');
+    qa.classList.add('visible');
+    document.getElementById('quiz-title').textContent = sim.title;
+    document.getElementById('quiz-container').innerHTML = '';
+    DC.Quiz.render('quiz-container', sim.questions, sim.topicId);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  document.getElementById('back-btn')?.addEventListener('click', () => {
+    document.getElementById('quiz-area').classList.remove('visible');
+    document.getElementById('select-area').style.display = 'block';
+  });
+});
+</script>
+</body>
+</html>

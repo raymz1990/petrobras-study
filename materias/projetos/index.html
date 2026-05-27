@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Projetos e Produtos | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <span>Bloco I</span><span class="sep">›</span>
+      <span>Gestão de Projetos e Produtos</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">📋 Bloco I · Item 2</div>
+        <h1 class="mb-8">Gestão de <span class="gradient-text">Projetos e Produtos</span></h1>
+        <p>Scrum, Kanban, SAFe, PMBOK 6ª ed., gestão de produto vs. projeto, escritório de projetos e portfólio. Alta incidência com questões contextualizadas.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>📋 8 tópicos principais</span></div>
+          <div class="materia-meta-item"><span>⏱ ~5h de estudo</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+      <div class="materia-progress-ring">
+        <div class="progress-ring-wrap">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="42" fill="none" stroke-width="8" stroke="var(--bg-tertiary)"/>
+            <circle id="proj-ring" cx="50" cy="50" r="42" fill="none" stroke="#D4AF37" stroke-width="8"
+              stroke-dasharray="263.9" stroke-dashoffset="263.9" stroke-linecap="round"
+              style="transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset 0.8s"/>
+          </svg>
+          <div class="progress-ring-label">
+            <span class="progress-ring-pct" id="proj-pct">0%</span>
+            <span class="progress-ring-sub">Progresso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Projetos</h4></div>
+      <ul>
+        <li>Diferença entre Projeto vs. Produto — projeto tem início/fim definidos; produto é contínuo</li>
+        <li>Papéis do Scrum: PO (dono do backlog), SM (facilitador), Dev Team (auto-organizado) — nenhum é "gerente"</li>
+        <li>Scrum vs Kanban — Scrum tem sprints fixos; Kanban tem fluxo contínuo sem iterações obrigatórias</li>
+        <li>PMBOK 6ª ed.: 5 grupos de processo, 10 áreas de conhecimento — a banca cobra a estrutura</li>
+        <li>SAFe — escalar ágil em nível organizacional; PI Planning é o evento central</li>
+        <li>PMO: modelos (suporte, controle, diretivo) e diferenças de autoridade</li>
+      </ul>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="scrum">🔄 Scrum & Kanban</button>
+      <button class="tab-btn" data-tab="pmbok">📘 PMBOK</button>
+      <button class="tab-btn" data-tab="safe">🚀 SAFe</button>
+      <button class="tab-btn" data-tab="produto">📦 Gestão de Produto</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- SCRUM & KANBAN -->
+    <div class="tab-panel active" data-tab="scrum">
+      <div class="content-section animate-fade-up">
+
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🔄</div>Scrum</h2>
+
+        <p>Scrum é um framework ágil leve para desenvolver e entregar produtos complexos de forma iterativa e incremental. Não é metodologia — é framework (estrutura mínima de regras).</p>
+
+        <div class="highlight-box info">
+          <div class="hb-title">📌 Definição Oficial (Scrum Guide)</div>
+          Scrum é um framework no qual pessoas podem resolver problemas complexos e adaptativos, enquanto entregam produtos de forma produtiva e criativa com o maior valor possível.
+        </div>
+
+        <h3>Os 3 Papéis do Scrum</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">🎯</div>
+            <div class="concept-name">Product Owner (PO)</div>
+            <div class="concept-desc">Responsável por maximizar o valor do produto. Gerencia e prioriza o Product Backlog. Representa os stakeholders. É UMA pessoa, não um comitê.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🛡️</div>
+            <div class="concept-name">Scrum Master (SM)</div>
+            <div class="concept-desc">Servant-leader. Remove impedimentos, facilita eventos Scrum, promove adoção do framework. NÃO é gerente de projeto.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">👥</div>
+            <div class="concept-name">Dev Team</div>
+            <div class="concept-desc">Auto-organizado e multifuncional. 3–9 pessoas. Entrega o incremento. Decide COMO fazer o trabalho (não o PO nem o SM).</div>
+          </div>
+        </div>
+
+        <h3>Os 5 Eventos do Scrum</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Evento</th><th>Duração (Sprint 4 sem.)</th><th>Quem participa</th><th>Objetivo</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Sprint</strong></td><td>1–4 semanas (fixo)</td><td>Todo o time</td><td>Container de todos os outros eventos; entrega um incremento</td></tr>
+              <tr><td><strong>Sprint Planning</strong></td><td>Máx. 8h</td><td>Todo o time</td><td>Definir o Sprint Goal e selecionar itens do backlog</td></tr>
+              <tr><td><strong>Daily Scrum</strong></td><td>15 min (fixo)</td><td>Dev Team</td><td>Inspecionar progresso e adaptar o Sprint Backlog</td></tr>
+              <tr><td><strong>Sprint Review</strong></td><td>Máx. 4h</td><td>Time + stakeholders</td><td>Inspecionar o incremento e adaptar o Product Backlog</td></tr>
+              <tr><td><strong>Sprint Retrospective</strong></td><td>Máx. 3h</td><td>Todo o time Scrum</td><td>Inspecionar o time e planejar melhorias de processo</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Pegadinha Clássica</div>
+          A Daily Scrum é para o <strong>Dev Team</strong>, não para o Scrum Master ou PO (eles podem assistir, mas não é obrigatório). O SM só participa se solicitado ou para remover impedimentos.
+        </div>
+
+        <h3>Os 3 Artefatos do Scrum</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">📋</div>
+            <div class="concept-name">Product Backlog</div>
+            <div class="concept-desc">Lista ordenada de tudo que pode ser necessário no produto. Gerenciado pelo PO. Nunca está completo — evolui continuamente.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">📝</div>
+            <div class="concept-name">Sprint Backlog</div>
+            <div class="concept-desc">Itens do Product Backlog selecionados para a Sprint + plano para entregá-los. Pertence ao Dev Team.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">✅</div>
+            <div class="concept-name">Incremento</div>
+            <div class="concept-desc">Soma de todos os itens do Product Backlog concluídos na Sprint + sprints anteriores. Deve atender a "Definição de Pronto".</div>
+          </div>
+        </div>
+
+        <h2 style="margin-top:32px"><div class="section-icon" style="background:rgba(14,165,233,0.1)">📊</div>Kanban</h2>
+
+        <p>Kanban é um método de gestão de fluxo de trabalho visual. Originado no Sistema Toyota de Produção. Não é um framework prescritivo como o Scrum — é um método evolucionário.</p>
+
+        <h3>4 Princípios Fundamentais do Kanban</h3>
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"><span>1. Comece com o que você faz agora</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content"><p>Kanban não exige mudança radical imediata. Aplica-se sobre o processo existente e melhora gradualmente. Isso reduz resistência e risco de disrupção.</p></div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>2. Concorde em buscar mudança incremental e evolutiva</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content"><p>Evolução contínua em vez de grandes transformações. Foco em melhoria constante (Kaizen).</p></div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>3. Respeite os papéis e responsabilidades atuais</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content"><p>Não exige mudar títulos ou estrutura organizacional imediatamente — diferente do Scrum, que define papéis específicos.</p></div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>4. Encoraje atos de liderança em todos os níveis</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content"><p>Liderança não é exclusiva da gestão — todos podem propor melhorias no processo.</p></div></div>
+          </div>
+        </div>
+
+        <h3 style="margin-top:20px">Scrum vs. Kanban — Comparativo</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>Scrum</th><th>Kanban</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Iterações</strong></td><td>Sprints com duração fixa</td><td>Fluxo contínuo, sem sprints</td></tr>
+              <tr><td><strong>Papéis</strong></td><td>PO, SM, Dev Team (definidos)</td><td>Não prescreve papéis</td></tr>
+              <tr><td><strong>Mudanças</strong></td><td>Não durante a Sprint</td><td>A qualquer momento</td></tr>
+              <tr><td><strong>Métricas</strong></td><td>Velocity (pontos/sprint)</td><td>Lead Time, Cycle Time, WIP</td></tr>
+              <tr><td><strong>Limite WIP</strong></td><td>Indiretamente (sprint)</td><td>Explícito por coluna</td></tr>
+              <tr><td><strong>Melhor para</strong></td><td>Times novos, mudanças de processo</td><td>Times maduros, manutenção, suporte</td></tr>
+              <tr><td><strong>Retrospectiva</strong></td><td>Obrigatória a cada Sprint</td><td>Sob demanda / quando necessário</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="cesgranrio-box" style="margin-top:20px">
+          <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Ponto Cesgranrio: Scrumban</h4></div>
+          <ul>
+            <li>Scrumban = híbrido entre Scrum e Kanban — muito cobrado em provas recentes</li>
+            <li>Usa a estrutura de sprints do Scrum com o fluxo visual e limites WIP do Kanban</li>
+            <li>Adequado para equipes em transição do Scrum para um fluxo mais contínuo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- PMBOK -->
+    <div class="tab-panel" data-tab="pmbok">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">📘</div>PMBOK 6ª Edição</h2>
+
+        <p>O PMBOK (Project Management Body of Knowledge) é um guia de boas práticas em gerenciamento de projetos publicado pelo PMI. A 6ª edição é a versão exigida no edital.</p>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Definição de Projeto (PMBOK)</div>
+          Um projeto é um esforço <strong>temporário</strong> empreendido para criar um produto, serviço ou resultado <strong>único</strong>. Temporário = tem início e término definidos. Único = resultado diferente do cotidiano operacional.
+        </div>
+
+        <h3>5 Grupos de Processos</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content">
+              <h4>Iniciação</h4>
+              <p>Define e autoriza o projeto ou fase. Documentos: <strong>Termo de Abertura (TAP)</strong> e identificação dos stakeholders. O patrocinador assina o TAP.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content">
+              <h4>Planejamento</h4>
+              <p>Define o escopo, cria o cronograma, orçamento e planos de qualidade, riscos, comunicação. Resultado: <strong>Plano de Gerenciamento do Projeto</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">3</div>
+            <div class="step-content">
+              <h4>Execução</h4>
+              <p>Realiza o trabalho definido no plano. Gerencia equipe, comunicações, qualidade e contratos. Consome a maior parte do orçamento e tempo.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(245,158,11,0.15);color:var(--orange)">4</div>
+            <div class="step-content">
+              <h4>Monitoramento e Controle</h4>
+              <p>Acompanha, revisa e regula o progresso. Identifica variações do plano e implementa ações corretivas. Ocorre em <strong>paralelo a todos os outros grupos</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(239,68,68,0.15);color:var(--red)">5</div>
+            <div class="step-content">
+              <h4>Encerramento</h4>
+              <p>Finaliza formalmente o projeto ou fase. Inclui lições aprendidas, aceite formal do cliente e arquivamento de documentos.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>10 Áreas de Conhecimento</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Área</th><th>Foco</th><th>Principal Processo</th></tr></thead>
+            <tbody>
+              <tr><td>Integração</td><td>Unificar e coordenar todos os processos</td><td>Desenvolver o TAP; Controle integrado de mudanças</td></tr>
+              <tr><td>Escopo</td><td>Garantir que o projeto inclui o trabalho necessário</td><td>Criar EAP (WBS); Validar e controlar escopo</td></tr>
+              <tr><td>Cronograma</td><td>Gerenciar entrega dentro do prazo</td><td>Desenvolver cronograma; Controlar cronograma</td></tr>
+              <tr><td>Custos</td><td>Concluir dentro do orçamento aprovado</td><td>Estimar custos; Controlar custos (EVM)</td></tr>
+              <tr><td>Qualidade</td><td>Satisfazer requisitos de qualidade</td><td>Planejar, gerenciar e controlar qualidade</td></tr>
+              <tr><td>Recursos</td><td>Identificar, adquirir e gerenciar recursos</td><td>Estimar recursos; Desenvolver equipe</td></tr>
+              <tr><td>Comunicações</td><td>Garantia de informações adequadas</td><td>Planejar comunicações; Monitorar comunicações</td></tr>
+              <tr><td>Riscos</td><td>Aumentar probabilidade de eventos positivos</td><td>Identificar, analisar (quali/quanti) e responder riscos</td></tr>
+              <tr><td>Aquisições</td><td>Comprar produtos/serviços externos</td><td>Planejar, conduzir e controlar aquisições</td></tr>
+              <tr><td>Partes Interessadas</td><td>Engajar stakeholders</td><td>Identificar; Gerenciar e monitorar engajamento</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Pegadinha — Grupos vs Fases</div>
+          Grupos de processos <strong>NÃO são fases</strong> do projeto. Um projeto pode ter múltiplas fases, e cada fase pode executar todos os 5 grupos de processos. A banca tenta confundir: "a fase de execução do projeto" ≠ "Grupo de Execução do PMBOK".
+        </div>
+
+        <h3>PMO — Escritório de Projetos</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">📌</div>
+            <div class="concept-name">PMO de Suporte</div>
+            <div class="concept-desc">Função consultiva. Fornece templates, melhores práticas, treinamento e acesso a informações. Baixa autoridade sobre projetos.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">⚙️</div>
+            <div class="concept-name">PMO de Controle</div>
+            <div class="concept-desc">Exige conformidade com metodologias e frameworks. Audita projetos. Autoridade moderada.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🏛️</div>
+            <div class="concept-name">PMO Diretivo</div>
+            <div class="concept-desc">Gerencia diretamente os projetos. Alta autoridade. Os gerentes de projeto reportam ao PMO.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAFe -->
+    <div class="tab-panel" data-tab="safe">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">🚀</div>SAFe — Scaled Agile Framework</h2>
+
+        <p>SAFe é o framework mais popular para escalar práticas ágeis em grandes organizações. Organiza múltiplos times ágeis trabalhando de forma coordenada em torno de um objetivo comum.</p>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Por que SAFe?</div>
+          Scrum funciona para um time (3–9 pessoas). Mas o que fazer quando você precisa de 50, 100 ou 500 pessoas trabalhando em um mesmo produto? SAFe responde a essa pergunta.
+        </div>
+
+        <h3>Níveis do SAFe (configuração completa)</h3>
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🏢 Nível Portfolio — Estratégia e Portfólio</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Alinha investimentos de TI com a estratégia de negócios. Trabalha com <strong>Épicos</strong> (grandes iniciativas) e o <strong>Portfolio Kanban</strong> para priorizar fluxo de valor.</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🏗️ Nível Large Solution — Soluções Complexas</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Para soluções que exigem múltiplos ARTs coordenados. Não é necessário em todas as organizações.</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🚂 Nível Program — Agile Release Train (ART)</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>O <strong>ART</strong> é a principal estrutura do SAFe — grupo de 50–125 pessoas organizadas em times ágeis que entregam valor em ciclos chamados <strong>PI (Program Increment)</strong>, tipicamente de 8–12 semanas.</p>
+              <p>Evento central: <strong>PI Planning</strong> — reunião de 2 dias onde TODOS os times planejam juntos o próximo PI.</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>👥 Nível Team — Times Ágeis (Scrum/Kanban)</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Times individuais usam Scrum ou Kanban. As sprints (2 semanas) se encaixam dentro do PI. Múltiplos times = múltiplas sprints em paralelo, sincronizadas.</p>
+            </div></div>
+          </div>
+        </div>
+
+        <div class="highlight-box gold" style="margin-top:20px">
+          <div class="hb-title">⭐ PI Planning — O Evento mais cobrado do SAFe</div>
+          PI Planning é o coração do SAFe. É uma reunião de 2 dias (presencial ou remota) onde <strong>todos os times do ART</strong> planejam as próximas 8–12 semanas. Resultado: <strong>Program Board</strong> com dependências visuais entre times e <strong>objetivos do PI</strong> de cada time.
+        </div>
+
+        <h3>Valores do SAFe (4 Core Values)</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🔁</div><div class="concept-name">Alinhamento</div><div class="concept-desc">Todos os níveis alinhados à estratégia de negócio</div></div>
+          <div class="concept-card"><div class="emoji">💎</div><div class="concept-name">Qualidade Integrada</div><div class="concept-desc">Qualidade em todos os passos, não só no final</div></div>
+          <div class="concept-card"><div class="emoji">🌊</div><div class="concept-name">Execução do Programa</div><div class="concept-desc">Entregar valor real em cada PI</div></div>
+          <div class="concept-card"><div class="emoji">🤝</div><div class="concept-name">Transparência</div><div class="concept-desc">Visibilidade do progresso em todos os níveis</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gestão de Produto -->
+    <div class="tab-panel" data-tab="produto">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">📦</div>Gestão de Projeto vs. Gestão de Produto</h2>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>Gestão de Projetos</th><th>Gestão de Produto</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Duração</strong></td><td>Temporário — tem fim definido</td><td>Contínuo — enquanto o produto existir</td></tr>
+              <tr><td><strong>Foco</strong></td><td>Entrega dentro de prazo/custo/escopo</td><td>Maximizar valor do produto no mercado</td></tr>
+              <tr><td><strong>Responsável</strong></td><td>Gerente de Projetos (PM)</td><td>Product Manager / Product Owner</td></tr>
+              <tr><td><strong>Sucesso medido por</strong></td><td>Entrega no prazo, custo e qualidade</td><td>Adoção, receita, satisfação do usuário</td></tr>
+              <tr><td><strong>Planejamento</strong></td><td>Detalhado e prescritivo (EAP, cronograma)</td><td>Roadmap de produto (visão de longo prazo)</td></tr>
+              <tr><td><strong>Backlog</strong></td><td>Scope statement / WBS</td><td>Product Backlog (priorizado por valor)</td></tr>
+              <tr><td><strong>Framework típico</strong></td><td>PMBOK, PRINCE2</td><td>Scrum, SAFe, OKRs</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Na Petrobras</div>
+          A empresa usa tanto gestão de projetos (para iniciativas com início/fim, como implantação de sistemas) quanto gestão de produto (para sistemas internos em evolução contínua, como ERPs e plataformas digitais).
+        </div>
+
+        <h3>Portfólio Alinhado à Estratégia</h3>
+        <p>Gestão de portfólio = selecionar, priorizar e controlar o conjunto de projetos/produtos da organização para maximizar o retorno estratégico. No SAFe, o Portfolio Kanban é usado para esse fim.</p>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Entregas Incrementais</div>
+          Entregar incrementalmente = liberar valor em pedaços menores, mais frequentemente. Reduz risco, permite feedback mais rápido e demonstra valor antes do final do projeto. É o princípio por trás do MVP.
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Gestão de Projetos e Produtos</div>
+          <span class="badge badge-gold">10 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-projetos"></div>
+      </div>
+    </div>
+
+    <!-- Checklist -->
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header">
+        <div class="section-title"><span class="accent-dot"></span> Checklist de Domínio</div>
+      </div>
+      <div id="checklist-projetos"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="../arquitetura-dados/index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Arquitetura de Dados</div></div>
+      </a>
+      <a href="../governanca-ti/index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próxima</div><div>Governança de TI & LGPD</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init();
+  DC.Tabs.init();
+
+  const topics = ['scrum','kanban','safe','pmbok','pmo','produto','portfolio','incremental'];
+  const done = topics.filter(t => DC.Progress.getTopic('proj_'+t).done).length;
+  const pct  = Math.round((done / topics.length) * 100);
+  setTimeout(() => {
+    const r = document.getElementById('proj-ring');
+    if(r) r.style.strokeDashoffset = 263.9 - (pct/100)*263.9;
+    const p = document.getElementById('proj-pct');
+    if(p) p.textContent = pct+'%';
+  }, 300);
+
+  DC.Checklist.init('checklist-projetos','projetos',[
+    'Sei os 3 papéis do Scrum e suas responsabilidades',
+    'Conheço os 5 eventos e suas durações máximas',
+    'Sei a diferença entre Scrum e Kanban',
+    'Domino os 5 grupos de processos do PMBOK 6ª ed.',
+    'Conheço as 10 áreas de conhecimento do PMBOK',
+    'Sei os 3 tipos de PMO e suas diferenças de autoridade',
+    'Entendo a estrutura do SAFe e o que é o ART',
+    'Sei o que é PI Planning e por que é o evento central do SAFe',
+    'Entendo a diferença entre gestão de projeto e de produto',
+    'Conheço o conceito de portfólio alinhado à estratégia',
+  ]);
+
+  DC.Quiz.render('quiz-projetos',[
+    {
+      question: 'No Scrum, quem é responsável por ordenar e gerenciar o Product Backlog?',
+      options:['Scrum Master','Dev Team','Product Owner','Gerente de Projeto','Stakeholders'],
+      answer:2,
+      explanation:'O Product Owner é o único responsável pelo Product Backlog — seu conteúdo, disponibilidade e ordenação (priorização). O Dev Team decide COMO fazer o trabalho. O SM facilita o processo. Não existe "Gerente de Projeto" no Scrum.'
+    },
+    {
+      question: 'A Daily Scrum tem duração máxima de 15 minutos e seu principal objetivo é:',
+      options:[
+        'Reportar status para o Scrum Master.',
+        'Inspecionar o progresso em direção ao Sprint Goal e adaptar o Sprint Backlog.',
+        'Revisar o Product Backlog com o Product Owner.',
+        'Identificar e remover impedimentos com o Scrum Master.',
+        'Planejar as atividades de toda a semana.'
+      ],
+      answer:1,
+      explanation:'A Daily Scrum inspeciona o progresso em direção à meta da Sprint e adapta o Sprint Backlog. É para o Dev Team, não um relatório de status. O SM pode participar mas não conduz. A remoção de impedimentos pode ser tratada após a Daily, não durante.'
+    },
+    {
+      question: 'A principal diferença entre Scrum e Kanban é que:',
+      options:[
+        'Scrum usa quadros visuais; Kanban não.',
+        'Kanban tem sprints de duração variável; Scrum tem sprints fixos.',
+        'Scrum trabalha com iterações de duração fixa; Kanban usa fluxo contínuo sem iterações obrigatórias.',
+        'Kanban define papéis fixos (PO, SM, Dev Team); Scrum não prescreve papéis.',
+        'Scrum é exclusivo para desenvolvimento de software; Kanban é para operações.'
+      ],
+      answer:2,
+      explanation:'Scrum = iterações fixas (sprints 1-4 semanas) + papéis definidos + eventos prescritos. Kanban = fluxo contínuo sem iterações obrigatórias + limites de WIP explícitos + métricas de fluxo (lead time, cycle time). Kanban não prescreve papéis; Scrum sim.'
+    },
+    {
+      question: 'No PMBOK 6ª edição, qual grupo de processos ocorre em PARALELO com todos os outros grupos ao longo do projeto?',
+      options:['Iniciação','Planejamento','Execução','Monitoramento e Controle','Encerramento'],
+      answer:3,
+      explanation:'Monitoramento e Controle ocorre durante toda a vida do projeto, em paralelo com os demais grupos. Isso porque o gerente de projeto precisa acompanhar continuamente o progresso, identificar desvios e implementar ações corretivas a qualquer momento do projeto.'
+    },
+    {
+      question: 'Um PMO que exige conformidade das equipes de projeto com metodologias e padrões, realizando auditorias regularmente, é classificado como:',
+      options:['PMO de Suporte','PMO de Controle','PMO Diretivo','PMO Estratégico','PMO Consultivo'],
+      answer:1,
+      explanation:'PMO de Controle: exige conformidade + audita projetos + autoridade moderada. PMO de Suporte: consultivo, baixa autoridade, fornece templates/treinamento. PMO Diretivo: gerencia diretamente os projetos, alta autoridade. O PMBOK define exatamente esses 3 tipos.'
+    },
+    {
+      question: 'No SAFe, o evento central do Agile Release Train (ART) que sincroniza múltiplos times ágeis é:',
+      options:['Sprint Review','Daily Scrum escalado','PI Planning','Portfolio Kanban','System Demo'],
+      answer:2,
+      explanation:'PI Planning é o evento central do SAFe — reunião de 2 dias onde todos os times do ART planejam as próximas 8-12 semanas (Program Increment). Resulta em objetivos do PI por time e um Program Board com dependências. É considerado o coração do SAFe.'
+    },
+    {
+      question: 'A principal distinção entre Gestão de Projetos e Gestão de Produto é:',
+      options:[
+        'Gestão de projetos usa Scrum; gestão de produto usa PMBOK.',
+        'Projetos são temporários com entrega única; produtos são contínuos com foco em valor de longo prazo.',
+        'Gestão de produto tem prazo e orçamento definidos; projetos não.',
+        'Product Manager e Gerente de Projeto são funções equivalentes.',
+        'Gestão de produto é exclusiva de empresas de tecnologia.'
+      ],
+      answer:1,
+      explanation:'Projeto = temporário + resultado único (PMBOK). Produto = ciclo de vida contínuo, orientado a valor de mercado/usuário. O PM (gerente de projetos) foca em entregar dentro de prazo/custo/escopo. O Product Manager foca em maximizar valor e adoção do produto ao longo do tempo.'
+    },
+    {
+      question: 'O conceito de "entrega incremental" no contexto ágil significa:',
+      options:[
+        'Entregar o produto completo apenas ao final do projeto.',
+        'Dividir o projeto em fases sequenciais com uma entrega por fase.',
+        'Liberar partes funcionais do produto de forma frequente, permitindo feedback antecipado.',
+        'Incrementar o orçamento do projeto conforme necessidade.',
+        'Realizar testes incrementais ao longo do desenvolvimento.'
+      ],
+      answer:2,
+      explanation:'Entrega incremental = partes funcionais do produto são liberadas regularmente (a cada sprint, PI ou iteração), permitindo feedback real dos usuários antes que o produto esteja completo. Reduz risco, demonstra valor cedo e permite ajustes de rumo. É o princípio por trás do MVP.'
+    },
+    {
+      question: 'Sobre o Product Backlog no Scrum, assinale a afirmativa CORRETA:',
+      options:[
+        'É criado apenas na Sprint Planning e não muda durante a Sprint.',
+        'É gerenciado pelo Scrum Master para proteger o Dev Team.',
+        'É uma lista ordenada de tudo que pode ser necessário no produto, gerenciada pelo PO.',
+        'Contém apenas histórias de usuário do próximo sprint.',
+        'Deve estar completamente detalhado antes do início do projeto.'
+      ],
+      answer:2,
+      explanation:'Product Backlog: lista ORDENADA (não apenas priorizada) de tudo que pode ser necessário no produto. Gerenciado exclusivamente pelo PO. Nunca está completo — emerge e evolui com o produto. Itens no topo são mais detalhados; itens mais baixos são vagos. O refinamento (grooming) é atividade contínua.'
+    },
+    {
+      question: 'A Sprint Retrospective difere da Sprint Review porque:',
+      options:[
+        'A Review inspeciona o time; a Retrospective inspeciona o produto.',
+        'A Review apresenta o incremento aos stakeholders; a Retrospective inspeciona o time e o processo de trabalho.',
+        'A Retrospective envolve os stakeholders; a Review é apenas para o time Scrum.',
+        'Ambas têm o mesmo objetivo, apenas diferentes participantes.',
+        'A Review ocorre antes da Retrospective em toda Sprint.'
+      ],
+      answer:1,
+      explanation:'Sprint Review: apresenta o INCREMENTO para stakeholders + PO valida o que foi feito + adapta Product Backlog. Sprint Retrospective: inspeciona o PROCESSO e o TIME (como estamos trabalhando?) + planeja melhorias para a próxima Sprint. A Retrospective é interna ao time Scrum; a Review é aberta a stakeholders. A Review ocorre ANTES da Retrospective.'
+    },
+  ],'projetos_simulado');
+});
+</script>
+</body>
+</html>

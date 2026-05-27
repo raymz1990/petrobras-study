@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Engenharia de Software | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <span>Bloco II</span><span class="sep">›</span>
+      <span>Engenharia de Software</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">⚙️ Bloco II · Item 2</div>
+        <h1 class="mb-8">Engenharia de <span class="gradient-text">Software</span></h1>
+        <p>Requisitos, ciclo de vida, paradigmas estruturado e OO, verificação, validação, testes e ambientes de desenvolvimento. Base sólida para analista de sistemas.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>📋 10 tópicos</span></div>
+          <div class="materia-meta-item"><span>⏱ ~6h de estudo</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+      <div class="materia-progress-ring">
+        <div class="progress-ring-wrap">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="42" fill="none" stroke-width="8" stroke="var(--bg-tertiary)"/>
+            <circle id="es-ring" cx="50" cy="50" r="42" fill="none" stroke="#0EA5E9" stroke-width="8"
+              stroke-dasharray="263.9" stroke-dashoffset="263.9" stroke-linecap="round"
+              style="transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset 0.8s"/>
+          </svg>
+          <div class="progress-ring-label">
+            <span class="progress-ring-pct" id="es-pct">0%</span>
+            <span class="progress-ring-sub">Progresso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Engenharia de Software</h4></div>
+      <ul>
+        <li>Verificação vs. Validação — inversão clássica: verificação = "construímos certo?"; validação = "construímos o certo?"</li>
+        <li>Requisitos funcionais vs. não-funcionais — a banca dá um exemplo e pede classificação</li>
+        <li>Modelos de ciclo de vida: cascata, espiral, incremental, ágil — saber quando usar cada um</li>
+        <li>UML: diagramas de caso de uso, classe e sequência — os mais cobrados</li>
+        <li>Testes: unitário, integração, sistema, aceitação — ordem e responsável de cada</li>
+        <li>DevOps e CI/CD — conceitos cada vez mais presentes nas provas recentes</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="requisitos">📋 Requisitos</button>
+      <button class="tab-btn" data-tab="ciclovida">🔄 Ciclo de Vida</button>
+      <button class="tab-btn" data-tab="modelagem">📐 Modelagem</button>
+      <button class="tab-btn" data-tab="testes">🧪 Testes</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Requisitos -->
+    <div class="tab-panel active" data-tab="requisitos">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">📋</div>Requisitos de Software</h2>
+
+        <p>Requisitos descrevem o que o sistema deve fazer (funcionais) e as restrições sob as quais deve operar (não-funcionais). O levantamento inadequado é a principal causa de falha em projetos de software.</p>
+
+        <h3>Tipos de Requisitos</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo</th><th>Definição</th><th>Exemplos</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Funcionais (RF)</strong></td>
+                <td>O que o sistema deve FAZER — funcionalidades, comportamentos, regras de negócio</td>
+                <td>"O sistema deve permitir login com CPF e senha", "Gerar relatório de produção diário"</td>
+              </tr>
+              <tr>
+                <td><strong>Não-Funcionais (RNF)</strong></td>
+                <td>Como o sistema deve SER — qualidade, restrições, atributos</td>
+                <td>Performance, segurança, disponibilidade, usabilidade, escalabilidade</td>
+              </tr>
+              <tr>
+                <td><strong>Negócio</strong></td>
+                <td>Objetivos de alto nível da organização que motivam o sistema</td>
+                <td>"Reduzir tempo de emissão de NF em 30%"</td>
+              </tr>
+              <tr>
+                <td><strong>Usuário</strong></td>
+                <td>O que os usuários precisam fazer com o sistema</td>
+                <td>Histórias de usuário, casos de uso</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Pegadinha — RF vs RNF</div>
+          "O sistema deve responder em menos de 2 segundos" → <strong>RNF</strong> (performance).<br>
+          "O sistema deve calcular o imposto sobre o salário" → <strong>RF</strong> (funcionalidade).<br>
+          "O sistema deve estar disponível 99,9% do tempo" → <strong>RNF</strong> (disponibilidade).<br>
+          A banca frequentemente apresenta RNFs com verbo de ação para confundir.
+        </div>
+
+        <h3>Técnicas de Levantamento</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🗣️</div><div class="concept-name">Entrevista</div><div class="concept-desc">Conversa estruturada ou semiestruturada com stakeholders. Mais eficaz para requisitos complexos.</div></div>
+          <div class="concept-card"><div class="emoji">👥</div><div class="concept-name">Workshop/JAD</div><div class="concept-desc">Joint Application Design — reunião colaborativa com usuários, desenvolvedores e analistas.</div></div>
+          <div class="concept-card"><div class="emoji">📋</div><div class="concept-name">Questionário</div><div class="concept-desc">Para muitos usuários dispersos. Útil para confirmar requisitos já identificados.</div></div>
+          <div class="concept-card"><div class="emoji">🔍</div><div class="concept-name">Observação/Etnografia</div><div class="concept-desc">Analista observa o usuário trabalhando. Revela requisitos implícitos não verbalizados.</div></div>
+          <div class="concept-card"><div class="emoji">📄</div><div class="concept-name">Análise de Documentos</div><div class="concept-desc">Análise de formulários, relatórios e sistemas legados existentes.</div></div>
+          <div class="concept-card"><div class="emoji">🖥️</div><div class="concept-name">Prototipação</div><div class="concept-desc">Criar protótipo para elicitar feedback. Muito eficaz quando usuários têm dificuldade de verbalizar necessidades.</div></div>
+        </div>
+
+        <h3>Histórias de Usuário (User Stories)</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">📌 Formato padrão</div>
+          <strong>Como</strong> [tipo de usuário], <strong>quero</strong> [objetivo/funcionalidade], <strong>para que</strong> [benefício/valor].<br><br>
+          Exemplo: "Como analista de sistemas da Petrobras, <strong>quero</strong> visualizar o histórico de manutenção de equipamentos, <strong>para que</strong> possa identificar padrões de falha preventivamente."
+        </div>
+
+        <p>Critérios de aceitação definem quando uma história está "pronta". As histórias devem seguir o critério <strong>INVEST</strong>: Independent, Negotiable, Valuable, Estimable, Small, Testable.</p>
+      </div>
+    </div>
+
+    <!-- Ciclo de Vida -->
+    <div class="tab-panel" data-tab="ciclovida">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">🔄</div>Ciclo de Vida de Sistemas</h2>
+
+        <h3>Modelos de Ciclo de Vida</h3>
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"><span>💧 Cascata (Waterfall)</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Sequencial e linear: Requisitos → Design → Implementação → Testes → Manutenção. Cada fase só começa quando a anterior é concluída.</p>
+              <p><strong>✅ Melhor para:</strong> requisitos bem definidos, sistemas críticos, contratos governamentais.</p>
+              <p><strong>❌ Problema:</strong> inflexível a mudanças; o cliente só vê o produto no final.</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🌀 Espiral (Boehm)</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Combina iteração com análise de riscos. Cada volta da espiral percorre: <strong>Planejamento → Análise de Riscos → Engenharia → Avaliação do Cliente</strong>.</p>
+              <p><strong>✅ Melhor para:</strong> projetos grandes, alto risco, sistemas inovadores.</p>
+              <p><strong>⭐ Destaque Cesgranrio:</strong> o modelo espiral foi proposto por Barry Boehm e tem foco central em <strong>gestão de riscos</strong>.</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>📦 Incremental</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>O sistema é construído e entregue em partes (incrementos). Cada incremento adiciona funcionalidade ao anterior.</p>
+              <p><strong>✅ Melhor para:</strong> quando partes do sistema precisam ser entregues rapidamente. Permite feedback antecipado.</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🔁 Iterativo</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>O sistema é desenvolvido em ciclos (iterações), refinando e melhorando a cada ciclo. Base dos métodos ágeis.</p>
+              <div class="highlight-box tip"><div class="hb-title">💡 Incremental vs Iterativo</div>Incremental = adiciona partes novas. Iterativo = refina o que já existe. Na prática, os métodos ágeis combinam os dois.</div>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🏃 RUP — Rational Unified Process</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Framework iterativo baseado em casos de uso e centrado na arquitetura. 4 fases: <strong>Concepção, Elaboração, Construção, Transição</strong>.</p>
+              <p>9 disciplinas (Requisitos, Análise e Design, Implementação, Testes...) executadas em diferentes intensidades em cada fase.</p>
+              <p><strong>Usa UML</strong> como linguagem de modelagem padrão.</p>
+            </div></div>
+          </div>
+        </div>
+
+        <h3 style="margin-top:20px">DevOps e CI/CD</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Conceito</th><th>Definição</th></tr></thead>
+            <tbody>
+              <tr><td><strong>DevOps</strong></td><td>Cultura que une Desenvolvimento e Operações para entregar software com mais velocidade e qualidade. Foco em automação e colaboração.</td></tr>
+              <tr><td><strong>CI (Continuous Integration)</strong></td><td>Integrar código frequentemente (várias vezes ao dia) com execução automática de testes a cada integração.</td></tr>
+              <tr><td><strong>CD (Continuous Delivery)</strong></td><td>Código sempre pronto para deploy em produção — o ato de publicar é manual (decisão humana).</td></tr>
+              <tr><td><strong>CD (Continuous Deployment)</strong></td><td>Deploy automático em produção a cada integração que passa nos testes — sem intervenção humana.</td></tr>
+              <tr><td><strong>Pipeline</strong></td><td>Conjunto automatizado de etapas: build → test → deploy. Garante qualidade contínua.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modelagem -->
+    <div class="tab-panel" data-tab="modelagem">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">📐</div>Modelagem — Estruturado e Orientado a Objetos</h2>
+
+        <h3>Paradigma Estruturado</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">📊</div><div class="concept-name">DFD</div><div class="concept-desc">Diagrama de Fluxo de Dados. Mostra fluxo de dados entre processos, entidades e depósitos. Nivelado (contexto → N0 → N1...).</div></div>
+          <div class="concept-card"><div class="emoji">📋</div><div class="concept-name">DER</div><div class="concept-desc">Diagrama Entidade-Relacionamento. Modelo conceitual do banco de dados — entidades, atributos e relacionamentos.</div></div>
+          <div class="concept-card"><div class="emoji">📐</div><div class="concept-name">Dicionário de Dados</div><div class="concept-desc">Documenta cada elemento do DFD — fluxos, processos, depósitos e entidades externas.</div></div>
+        </div>
+
+        <h3>UML — Unified Modeling Language</h3>
+        <p>A UML é a linguagem padrão para modelagem orientada a objetos. Possui <strong>14 tipos de diagramas</strong> divididos em estruturais e comportamentais.</p>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Diagrama</th><th>Tipo</th><th>O que modela</th><th>Incidência</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Caso de Uso</strong></td><td>Comportamental</td><td>Interações entre atores e o sistema. Fronteiras do sistema.</td><td><span class="badge badge-gold">Alta</span></td></tr>
+              <tr><td><strong>Classe</strong></td><td>Estrutural</td><td>Classes, atributos, métodos e relacionamentos (herança, associação, dependência).</td><td><span class="badge badge-gold">Alta</span></td></tr>
+              <tr><td><strong>Sequência</strong></td><td>Comportamental</td><td>Troca de mensagens entre objetos ao longo do tempo.</td><td><span class="badge badge-gold">Alta</span></td></tr>
+              <tr><td><strong>Atividade</strong></td><td>Comportamental</td><td>Fluxo de controle — similar a fluxograma, mas com swimlanes.</td><td><span class="badge badge-purple">Média</span></td></tr>
+              <tr><td><strong>Estado</strong></td><td>Comportamental</td><td>Ciclo de vida de um objeto — estados e transições.</td><td><span class="badge badge-purple">Média</span></td></tr>
+              <tr><td><strong>Componente</strong></td><td>Estrutural</td><td>Organização e dependências entre componentes de software.</td><td><span class="badge badge-green">Baixa</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Conceitos de Orientação a Objetos</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">📦</div><div class="concept-name">Encapsulamento</div><div class="concept-desc">Esconde detalhes internos. Dados acessados apenas via métodos públicos (interface). Reduz acoplamento.</div></div>
+          <div class="concept-card"><div class="emoji">🧬</div><div class="concept-name">Herança</div><div class="concept-desc">Classe filha herda atributos e métodos da classe pai. Promove reutilização de código.</div></div>
+          <div class="concept-card"><div class="emoji">🎭</div><div class="concept-name">Polimorfismo</div><div class="concept-desc">Mesmo método comportando-se diferente em classes diferentes. Sobrescrita (override) e sobrecarga (overload).</div></div>
+          <div class="concept-card"><div class="emoji">🔲</div><div class="concept-name">Abstração</div><div class="concept-desc">Focar nos aspectos essenciais, ignorando detalhes irrelevantes. Classes abstratas e interfaces.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testes -->
+    <div class="tab-panel" data-tab="testes">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">🧪</div>Verificação, Validação e Testes</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Verificação vs. Validação — Definição Clássica (Boehm)</div>
+          <strong>Verificação:</strong> "Estamos construindo o produto CORRETAMENTE?" — conformidade com a especificação. (Interno, equipe técnica)<br>
+          <strong>Validação:</strong> "Estamos construindo o produto CERTO?" — o produto atende às necessidades do usuário. (Externo, com o cliente)
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Pegadinha Clássica da Cesgranrio</div>
+          A banca inverte os conceitos. Decore assim: <strong>Veri</strong>ficação → está <strong>veri</strong>ficando a spec (interno). <strong>Vali</strong>dação → <strong>vali</strong>da com o usuário (externo). Se der branco, lembre: validação tem "usuário/cliente" na resposta.
+        </div>
+
+        <h3>Níveis de Teste</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content">
+              <h4>Teste Unitário</h4>
+              <p>Testa a menor unidade do código (função, método, classe) de forma isolada. Feito pelo <strong>desenvolvedor</strong>. Rápido e automatizável. Ferramentas: JUnit, PyTest, Jest.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content">
+              <h4>Teste de Integração</h4>
+              <p>Verifica a interação entre módulos/componentes. Detecta problemas de interface entre unidades. Feito pelo <strong>desenvolvedor ou QA</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">3</div>
+            <div class="step-content">
+              <h4>Teste de Sistema</h4>
+              <p>Testa o sistema completo contra os requisitos especificados. Feito pelo <strong>time de QA</strong>. Inclui testes funcionais e não-funcionais (performance, segurança).</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">4</div>
+            <div class="step-content">
+              <h4>Teste de Aceitação (UAT)</h4>
+              <p>Feito pelo <strong>cliente/usuário final</strong>. Valida se o sistema atende aos critérios de aceitação de negócio. Última etapa antes do deploy em produção.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Técnicas de Teste</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Técnica</th><th>Também conhecida como</th><th>Baseada em</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Caixa-Branca</strong></td><td>Teste estrutural / glass box</td><td>Estrutura interna do código — cobertura de caminhos, condições, instruções</td></tr>
+              <tr><td><strong>Caixa-Preta</strong></td><td>Teste funcional / behavioral</td><td>Especificação/requisitos — entrada/saída sem conhecer o código interno</td></tr>
+              <tr><td><strong>Caixa-Cinza</strong></td><td>Grey-box</td><td>Combinação — conhecimento parcial da implementação</td></tr>
+              <tr><td><strong>SAST</strong></td><td>Static Application Security Testing</td><td>Análise estática do código-fonte sem executar o programa</td></tr>
+              <tr><td><strong>DAST</strong></td><td>Dynamic Application Security Testing</td><td>Análise dinâmica — testa o sistema em execução (simulando ataques)</td></tr>
+              <tr><td><strong>IAST</strong></td><td>Interactive AST</td><td>Combina SAST e DAST — agente dentro da aplicação em execução</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Engenharia de Software</div>
+          <span class="badge badge-teal">10 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-es"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-es"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="../governanca-ti/index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Governança de TI</div></div>
+      </a>
+      <a href="../ux/index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próxima</div><div>UX & Design Thinking</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  const topics = ['requisitos','rf-rnf','historias','cascata','espiral','rup','devops','uml','oo','testes'];
+  const done = topics.filter(t => DC.Progress.getTopic('es_'+t).done).length;
+  const pct = Math.round((done/topics.length)*100);
+  setTimeout(() => {
+    const r = document.getElementById('es-ring'); if(r) r.style.strokeDashoffset = 263.9-(pct/100)*263.9;
+    const p = document.getElementById('es-pct'); if(p) p.textContent = pct+'%';
+  }, 300);
+
+  DC.Checklist.init('checklist-es','es',[
+    'Sei diferenciar requisitos funcionais e não-funcionais',
+    'Conheço as técnicas de levantamento de requisitos',
+    'Entendo o formato e critérios de histórias de usuário',
+    'Domino os modelos de ciclo de vida (cascata, espiral, incremental)',
+    'Conheço os 4 fases do RUP',
+    'Sei a diferença entre CI, CD (Delivery) e CD (Deployment)',
+    'Conheço os 14 diagramas UML e os 3 mais cobrados',
+    'Domino os 4 pilares da OO (encapsulamento, herança, polimorfismo, abstração)',
+    'Sei a diferença entre verificação e validação',
+    'Conheço os 4 níveis de teste e caixa-branca vs caixa-preta',
+  ]);
+
+  DC.Quiz.render('quiz-es',[
+    { question:'Assinale a alternativa que apresenta APENAS requisitos não-funcionais.',
+      options:[
+        '"O sistema deve calcular o imposto de renda" e "O sistema deve gerar boleto".',
+        '"O sistema deve processar 1.000 transações/seg" e "O sistema deve estar disponível 99,9% do tempo".',
+        '"O sistema deve permitir login" e "O sistema deve ter tempo de resposta < 2s".',
+        '"O sistema deve emitir relatório" e "O sistema deve criptografar senhas".',
+        '"O sistema deve suportar 500 usuários simultâneos" e "O sistema deve cadastrar clientes".'
+      ], answer:1, explanation:'Requisitos não-funcionais (RNF) descrevem COMO o sistema deve ser — performance (1.000 transações/seg), disponibilidade (99,9%), segurança, usabilidade etc. Requisitos funcionais descrevem O QUE o sistema faz — calcular imposto, gerar boleto, emitir relatório, cadastrar clientes são todos RFs.' },
+    { question:'A distinção fundamental entre Verificação e Validação de software é:',
+      options:[
+        'Verificação é feita pelo cliente; validação é feita pela equipe técnica.',
+        'Verificação confirma conformidade com a especificação ("construímos corretamente?"); validação confirma adequação ao uso do cliente ("construímos o certo?").',
+        'Ambas são atividades idênticas executadas em momentos diferentes.',
+        'Verificação ocorre após o deploy; validação ocorre antes.',
+        'Validação é técnica (código); verificação é com o usuário final.'
+      ], answer:1, explanation:'Definição de Boehm: Verificação = "Are we building the product right?" — conformidade com especificação, atividade interna/técnica. Validação = "Are we building the right product?" — adequação ao uso do cliente. A Cesgranrio inverte propositalmente nas alternativas. Decore: veriFICação = espec(IFICAÇÃO); vaLIdação = cLIente.' },
+    { question:'O modelo de ciclo de vida espiral, proposto por Barry Boehm, tem como característica central:',
+      options:[
+        'Desenvolvimento sequencial em fases sem retorno.',
+        'Ênfase na gestão de riscos em cada iteração do espiral.',
+        'Entregas incrementais sem análise de riscos.',
+        'Foco exclusivo em projetos de pequeno porte.',
+        'Ausência de prototipação durante o desenvolvimento.'
+      ], answer:1, explanation:'O modelo espiral de Boehm é iterativo e centrado em análise de riscos. Cada ciclo do espiral percorre: Planejamento → Análise de riscos → Engenharia → Avaliação do cliente. É indicado para projetos grandes e de alto risco, onde riscos precisam ser identificados e mitigados iterativamente.' },
+    { question:'No contexto de DevOps, qual é a diferença entre Continuous Delivery e Continuous Deployment?',
+      options:[
+        'Não há diferença — são termos sinônimos.',
+        'Continuous Delivery automatiza os testes; Continuous Deployment automatiza o build.',
+        'No Continuous Delivery, o deploy em produção é uma decisão humana; no Continuous Deployment, o deploy é automático após os testes.',
+        'Continuous Deployment é mais lento que Continuous Delivery.',
+        'Continuous Delivery é exclusivo para aplicações web; Deployment para mobile.'
+      ], answer:2, explanation:'Continuous Delivery: código sempre pronto para deploy — o ato de publicar em produção é uma DECISÃO HUMANA (aprovação manual). Continuous Deployment: cada integração que passa nos testes é automaticamente deployada em produção, sem intervenção humana. CD Deployment é o estágio mais avançado da automação.' },
+    { question:'Em UML, o Diagrama de Caso de Uso é usado para:',
+      options:[
+        'Modelar a estrutura interna de classes e seus relacionamentos.',
+        'Descrever a troca de mensagens entre objetos ao longo do tempo.',
+        'Representar as interações entre atores externos e o sistema, definindo suas fronteiras.',
+        'Modelar o fluxo de controle entre atividades de um processo.',
+        'Representar os estados e transições de um objeto ao longo do ciclo de vida.'
+      ], answer:2, explanation:'Diagrama de Caso de Uso: mostra os atores (usuários, sistemas externos) e como eles interagem com o sistema através de casos de uso (funcionalidades). Define as FRONTEIRAS do sistema (o que está dentro/fora). É o ponto de partida para levantamento de requisitos. Não mostra detalhes de implementação.' },
+    { question:'O teste de CAIXA-BRANCA (estrutural) baseia-se em:',
+      options:[
+        'Testar o sistema como o usuário final o veria, sem conhecer a implementação.',
+        'Analisar a estrutura interna do código, cobrindo caminhos, condições e instruções.',
+        'Simular ataques ao sistema em produção.',
+        'Validar o sistema contra os requisitos de negócio do cliente.',
+        'Testar apenas a interface gráfica do sistema.'
+      ], answer:1, explanation:'Caixa-Branca (white-box/estrutural): testa com conhecimento da estrutura interna do código. Métricas: cobertura de instruções, caminhos, condições e desvios. Feito pelo desenvolvedor. Caixa-Preta (black-box/funcional): testa apenas entradas/saídas, sem ver o código — baseado na especificação.' },
+    { question:'Qual dos quatro pilares da Orientação a Objetos permite que uma classe filha redefina o comportamento de um método herdado da classe pai?',
+      options:[
+        'Encapsulamento — esconde detalhes internos.',
+        'Abstração — foca nos aspectos essenciais.',
+        'Herança — permite reutilização de código.',
+        'Polimorfismo — mesmo método com comportamentos diferentes em classes distintas.',
+        'Modularidade — divisão em componentes independentes.'
+      ], answer:3, explanation:'Polimorfismo = "muitas formas". Uma subclasse pode sobrescrever (override) um método da superclasse com comportamento específico. Ex: Animal.emitirSom() → Cachorro.emitirSom() = "Au"; Gato.emitirSom() = "Miau". Isso permite tratar objetos de classes diferentes de forma uniforme.' },
+    { question:'A técnica SAST (Static Application Security Testing) diferencia-se do DAST porque:',
+      options:[
+        'SAST testa em tempo de execução; DAST analisa o código estático.',
+        'SAST analisa o código-fonte sem executar a aplicação; DAST testa a aplicação em execução.',
+        'DAST é mais seguro que SAST para produção.',
+        'SAST é exclusivo para linguagens compiladas; DAST para interpretadas.',
+        'Não há diferença técnica — apenas de nomenclatura.'
+      ], answer:1, explanation:'SAST = análise ESTÁTICA = analisa o código-fonte, bytecode ou binário SEM executar. Detecta vulnerabilidades no código (SQL injection, XSS potencial). Integrado no pipeline CI. DAST = análise DINÂMICA = testa a aplicação EM EXECUÇÃO, simulando ataques externos. IAST combina os dois com agente dentro da aplicação.' },
+    { question:'Assinale a alternativa que descreve corretamente o Teste de Aceitação (UAT):',
+      options:[
+        'É realizado pela equipe de desenvolvimento para garantir que o código compila.',
+        'É realizado pelo time de QA para cobrir todos os caminhos do código.',
+        'É realizado pelo cliente/usuário final para validar se o sistema atende aos critérios de aceitação de negócio.',
+        'É um teste automatizado de performance executado em ambiente de staging.',
+        'É realizado antes do teste de integração, logo após o teste unitário.'
+      ], answer:2, explanation:'UAT (User Acceptance Testing): última fase antes do deploy em produção. Realizado pelo CLIENTE ou usuários representativos. Verifica se o sistema satisfaz os critérios de aceitação definidos no início do projeto. Valida o negócio, não aspectos técnicos. Ordem: Unitário → Integração → Sistema → Aceitação.' },
+    { question:'No RUP (Rational Unified Process), as quatro fases do ciclo de vida são:',
+      options:[
+        'Análise, Design, Codificação e Testes.',
+        'Planejamento, Execução, Monitoramento e Encerramento.',
+        'Concepção, Elaboração, Construção e Transição.',
+        'Iniciação, Planejamento, Implementação e Manutenção.',
+        'Requisitos, Arquitetura, Desenvolvimento e Implantação.'
+      ], answer:2, explanation:'RUP tem 4 fases: Concepção (define escopo e viabilidade), Elaboração (arquitetura baseline, mitiga riscos), Construção (desenvolvimento iterativo da maioria das funcionalidades), Transição (deploy, treinamento, suporte). Cada fase contém múltiplas iterações e todas as disciplinas (em diferentes intensidades).' },
+  ],'es_simulado');
+});
+</script>
+</body>
+</html>

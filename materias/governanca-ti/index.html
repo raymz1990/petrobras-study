@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Governança de TI & LGPD | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <span>Bloco II</span><span class="sep">›</span>
+      <span>Governança de TI & LGPD</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">🏛️ Bloco II · Item 1</div>
+        <h1 class="mb-8">Governança de TI <span class="gradient-text">&amp; LGPD</span></h1>
+        <p>Conceitos, segmentos e mercado de TI, princípios de inovação, gerenciamento de serviços de TI e Lei Geral de Proteção de Dados — Lei nº 13.709/2018.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>📋 8 tópicos</span></div>
+          <div class="materia-meta-item"><span>⏱ ~4h de estudo</span></div>
+          <div class="materia-meta-item"><span>🎯 Média/Alta incidência</span></div>
+        </div>
+      </div>
+      <div class="materia-progress-ring">
+        <div class="progress-ring-wrap">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="42" fill="none" stroke-width="8" stroke="var(--bg-tertiary)"/>
+            <circle id="gov-ring" cx="50" cy="50" r="42" fill="none" stroke="#8B5CF6" stroke-width="8"
+              stroke-dasharray="263.9" stroke-dashoffset="263.9" stroke-linecap="round"
+              style="transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset 0.8s"/>
+          </svg>
+          <div class="progress-ring-label">
+            <span class="progress-ring-pct" id="gov-pct">0%</span>
+            <span class="progress-ring-sub">Progresso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Governança de TI & LGPD</h4></div>
+      <ul>
+        <li>LGPD: bases legais do tratamento, direitos do titular, papel do DPO (Encarregado) e da ANPD</li>
+        <li>Dado pessoal vs. dado pessoal sensível — sensíveis têm proteção reforçada</li>
+        <li>Controlador vs. Operador vs. Encarregado — confusão clássica de papéis</li>
+        <li>ITIL: conceito de serviço, valor, garantia e utilidade — a banca cobra definições precisas</li>
+        <li>Princípios de economia da inovação: disrupção, plataformas digitais, ecossistemas</li>
+        <li>Diferença entre governança de TI (direção estratégica) e gestão de TI (execução operacional)</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="lgpd">🔒 LGPD</button>
+      <button class="tab-btn" data-tab="governanca">🏛️ Governança de TI</button>
+      <button class="tab-btn" data-tab="itil">⚙️ Gerenc. de Serviços</button>
+      <button class="tab-btn" data-tab="inovacao">💡 Inovação & TI</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- LGPD -->
+    <div class="tab-panel active" data-tab="lgpd">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🔒</div>LGPD — Lei Geral de Proteção de Dados</h2>
+
+        <p>A Lei nº 13.709/2018 (LGPD) regula o tratamento de dados pessoais no Brasil, inspirada no GDPR europeu. Entrou em vigor em setembro de 2020 e as sanções a partir de agosto de 2021.</p>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Definições Fundamentais</div>
+          <strong>Dado pessoal:</strong> qualquer informação relacionada a pessoa natural identificada ou identificável.<br>
+          <strong>Dado pessoal sensível:</strong> origem racial/étnica, convicção religiosa, saúde, vida sexual, dado genético/biométrico, filiação sindical, opinião política.<br>
+          <strong>Tratamento:</strong> toda operação com dados (coleta, produção, recepção, classificação, uso, acesso, transmissão, armazenamento, eliminação etc.).
+        </div>
+
+        <h3>Os 3 Agentes de Tratamento</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">🎯</div>
+            <div class="concept-name">Controlador</div>
+            <div class="concept-desc">Quem decide sobre o tratamento dos dados — define a finalidade e os meios. Ex: a Petrobras ao coletar dados de clientes.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">⚙️</div>
+            <div class="concept-name">Operador</div>
+            <div class="concept-desc">Quem realiza o tratamento em nome do controlador. Ex: empresa de TI contratada para processar os dados.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🧑‍💼</div>
+            <div class="concept-name">Encarregado (DPO)</div>
+            <div class="concept-desc">Data Protection Officer. Canal entre controlador, titulares e ANPD. Indicado pelo controlador. Pode ser pessoa física ou jurídica.</div>
+          </div>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Pegadinha — Controlador vs Operador</div>
+          O Operador processa dados POR CONTA do controlador, seguindo suas instruções. Se o operador extrapolar as instruções e usar dados para fins próprios, passa a ser considerado <strong>controlador</strong> para aquela operação — e assume responsabilidade.
+        </div>
+
+        <h3>Bases Legais para Tratamento (Art. 7º)</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>#</th><th>Base Legal</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td>I</td><td><strong>Consentimento</strong> do titular</td><td>Aceitar cookies em site</td></tr>
+              <tr><td>II</td><td>Cumprimento de <strong>obrigação legal</strong></td><td>Retenção de dados fiscais</td></tr>
+              <tr><td>III</td><td>Execução de <strong>políticas públicas</strong></td><td>Dados de saúde pelo governo</td></tr>
+              <tr><td>IV</td><td><strong>Estudos e pesquisas</strong> (anonimizados)</td><td>Pesquisa acadêmica</td></tr>
+              <tr><td>V</td><td>Execução de <strong>contrato</strong></td><td>Dados para entrega de produto</td></tr>
+              <tr><td>VI</td><td>Exercício regular de <strong>direitos</strong></td><td>Dados em processo judicial</td></tr>
+              <tr><td>VII</td><td>Proteção à <strong>vida</strong></td><td>Emergência médica</td></tr>
+              <tr><td>VIII</td><td><strong>Tutela da saúde</strong></td><td>Profissional de saúde</td></tr>
+              <tr><td>IX</td><td><strong>Legítimo interesse</strong></td><td>Marketing contextual (com limites)</td></tr>
+              <tr><td>X</td><td><strong>Proteção ao crédito</strong></td><td>Score de crédito</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Direitos do Titular (Art. 18)</h3>
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"><span>📋 Lista completa dos direitos</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <ul>
+                <li><strong>Confirmação</strong> da existência do tratamento</li>
+                <li><strong>Acesso</strong> aos dados</li>
+                <li><strong>Correção</strong> de dados incompletos, inexatos ou desatualizados</li>
+                <li><strong>Anonimização, bloqueio ou eliminação</strong> de dados desnecessários ou excessivos</li>
+                <li><strong>Portabilidade</strong> dos dados a outro fornecedor</li>
+                <li><strong>Eliminação</strong> dos dados tratados com consentimento</li>
+                <li><strong>Informação</strong> sobre compartilhamento com terceiros</li>
+                <li><strong>Revogação do consentimento</strong> a qualquer momento</li>
+                <li>Informação sobre a <strong>possibilidade de não consentir</strong> e suas consequências</li>
+                <li>Revisão de <strong>decisões automatizadas</strong> (art. 20)</li>
+              </ul>
+            </div></div>
+          </div>
+        </div>
+
+        <h3>ANPD — Autoridade Nacional de Proteção de Dados</h3>
+        <p>Órgão da administração pública federal responsável por zelar pela proteção de dados, elaborar diretrizes, fiscalizar e aplicar sanções. As sanções podem chegar a <strong>2% do faturamento</strong>, limitadas a R$ 50 milhões por infração.</p>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Consentimento na LGPD</div>
+          O consentimento deve ser: <strong>livre</strong> (sem coerção), <strong>informado</strong> (finalidade clara), <strong>inequívoco</strong> (manifestação positiva — silêncio não é consentimento) e <strong>específico</strong> (para finalidade determinada). Pode ser revogado a qualquer momento.
+        </div>
+      </div>
+    </div>
+
+    <!-- Governança de TI -->
+    <div class="tab-panel" data-tab="governanca">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">🏛️</div>Governança de TI</h2>
+
+        <p>Governança de TI é o conjunto de processos que garante que a TI suporte e estenda os objetivos e estratégias da organização. É responsabilidade do <strong>conselho e alta gestão</strong> — não da área de TI.</p>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Governança vs. Gestão de TI</div>
+          <strong>Governança:</strong> define direção, avalia e monitora — "estamos fazendo as coisas certas?" (nível estratégico).<br>
+          <strong>Gestão:</strong> planeja, constrói, executa e monitora — "estamos fazendo as coisas corretamente?" (nível operacional).
+        </div>
+
+        <h3>Frameworks de Governança de TI</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Framework</th><th>Foco</th><th>Mantido por</th></tr></thead>
+            <tbody>
+              <tr><td><strong>COBIT 2019</strong></td><td>Governança e gestão corporativa de TI. Define 40 objetivos de governança/gestão.</td><td>ISACA</td></tr>
+              <tr><td><strong>ITIL 4</strong></td><td>Gerenciamento de serviços de TI. Foco em valor e experiência do cliente.</td><td>Axelos</td></tr>
+              <tr><td><strong>ISO/IEC 38500</strong></td><td>Norma internacional para governança corporativa de TI. 6 princípios.</td><td>ISO/IEC</td></tr>
+              <tr><td><strong>TOGAF</strong></td><td>Arquitetura empresarial (Enterprise Architecture). Metodologia ADM.</td><td>The Open Group</td></tr>
+              <tr><td><strong>ISO 27001</strong></td><td>Sistema de Gestão de Segurança da Informação (SGSI).</td><td>ISO/IEC</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>COBIT 2019 — Principais Conceitos</h3>
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🎯 Domínios do COBIT</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>O COBIT 2019 organiza 40 objetivos em <strong>2 domínios de governança</strong> e <strong>4 domínios de gestão</strong>:</p>
+              <ul>
+                <li><strong>EDM</strong> — Evaluate, Direct and Monitor (Governança)</li>
+                <li><strong>APO</strong> — Align, Plan and Organise (Gestão)</li>
+                <li><strong>BAI</strong> — Build, Acquire and Implement (Gestão)</li>
+                <li><strong>DSS</strong> — Deliver, Service and Support (Gestão)</li>
+                <li><strong>MEA</strong> — Monitor, Evaluate and Assess (Gestão)</li>
+              </ul>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>📊 Cascata de Objetivos</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>O COBIT usa uma cascata para alinhar: <strong>Necessidades das partes interessadas → Metas corporativas → Metas de alinhamento → Objetivos de governança/gestão</strong>. Isso garante que TI suporte os objetivos de negócio.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gerenciamento de Serviços -->
+    <div class="tab-panel" data-tab="itil">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">⚙️</div>Gerenciamento de Serviços de TI — ITIL 4</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Definição de Serviço (ITIL 4)</div>
+          Um meio de permitir a cocriação de valor ao facilitar os resultados que os clientes desejam alcançar, sem que eles tenham que gerenciar custos e riscos específicos.
+        </div>
+
+        <h3>Conceitos-chave do ITIL 4</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">💎</div>
+            <div class="concept-name">Valor</div>
+            <div class="concept-desc">Percebido pelo cliente — é a diferença entre benefícios obtidos e custos/riscos assumidos. Cocriado entre provedor e consumidor.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">✅</div>
+            <div class="concept-name">Utilidade</div>
+            <div class="concept-desc">"Fit for purpose" — o serviço faz o que precisa fazer? Suporta o desempenho ou remove restrições.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🛡️</div>
+            <div class="concept-name">Garantia</div>
+            <div class="concept-desc">"Fit for use" — o serviço está disponível quando necessário? Seguro, contínuo e com capacidade adequada.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🔄</div>
+            <div class="concept-name">SVS (Sistema de Valor de Serviço)</div>
+            <div class="concept-desc">Modelo central do ITIL 4. Descreve como todos os componentes de uma organização trabalham juntos para criar valor.</div>
+          </div>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Utilidade vs. Garantia — Pegadinha</div>
+          Para um serviço criar valor, precisa ter AMBOS: utilidade (funcionalidade correta) E garantia (disponibilidade e segurança). Um serviço que funciona perfeitamente mas fica fora do ar metade do tempo NÃO tem garantia adequada.
+        </div>
+
+        <h3>7 Princípios Orientadores do ITIL 4</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>#</th><th>Princípio</th><th>Essência</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><strong>Foco no valor</strong></td><td>Tudo que a organização faz deve criar valor — direta ou indiretamente</td></tr>
+              <tr><td>2</td><td><strong>Comece onde você está</strong></td><td>Avalie o estado atual antes de mudar; não comece do zero sem razão</td></tr>
+              <tr><td>3</td><td><strong>Progrida iterativamente com feedback</strong></td><td>Entregue em incrementos, coletando feedback em cada etapa</td></tr>
+              <tr><td>4</td><td><strong>Colabore e promova visibilidade</strong></td><td>Trabalhe com as partes interessadas e compartilhe informações</td></tr>
+              <tr><td>5</td><td><strong>Pense e trabalhe holisticamente</strong></td><td>Nenhum serviço ou componente existe isoladamente</td></tr>
+              <tr><td>6</td><td><strong>Mantenha-o simples e prático</strong></td><td>Use o mínimo de passos necessários para atingir o objetivo</td></tr>
+              <tr><td>7</td><td><strong>Otimize e automatize</strong></td><td>Maximize o valor do trabalho humano eliminando repetição manual</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inovação -->
+    <div class="tab-panel" data-tab="inovacao">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">💡</div>Inovação, Tecnologia e Mercado de TI</h2>
+
+        <h3>Princípios de Economia da Inovação</h3>
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🌊 Inovação Disruptiva</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Conceito de Clayton Christensen. Uma inovação disruptiva começa atendendo clientes ignorados pelo mercado dominante com uma solução mais simples/barata e, progressivamente, melhora até deslocar os incumbentes. Ex: streaming vs. locadoras, smartphones vs. câmeras digitais.</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🏪 Plataformas Digitais e Efeitos de Rede</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Plataformas conectam dois ou mais grupos (ex: Uber conecta motoristas e passageiros). O valor aumenta com o número de participantes — <strong>efeito de rede</strong>. Empresas como Amazon, Google e Mercado Livre são plataformas.</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🌐 Ecossistemas Digitais</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Conjunto de empresas, tecnologias e serviços interconectados que criam valor juntos. Ex: ecossistema Apple (iPhone + App Store + iCloud + Apple Pay). A Petrobras atua em ecossistemas de energia e tecnologia.</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🔬 P&D — Pesquisa, Desenvolvimento e Indústria</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>A Petrobras investe fortemente em P&D. A Lei do Petróleo exige que concessionários destinem percentual da produção para P&D. O CENPES (Centro de Pesquisas da Petrobras) é um dos maiores laboratórios da América Latina.</p>
+            </div></div>
+          </div>
+        </div>
+
+        <h3>Segmentos do Mercado de TI</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Segmento</th><th>Descrição</th><th>Exemplos</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Hardware</strong></td><td>Equipamentos físicos de computação</td><td>Servidores, dispositivos IoT, sensores</td></tr>
+              <tr><td><strong>Software</strong></td><td>Aplicações, sistemas operacionais, middleware</td><td>ERP SAP, Oracle DB, Linux</td></tr>
+              <tr><td><strong>Serviços de TI</strong></td><td>Consultoria, suporte, outsourcing</td><td>Accenture, IBM Services</td></tr>
+              <tr><td><strong>Cloud Computing</strong></td><td>IaaS, PaaS, SaaS</td><td>AWS, Azure, Google Cloud</td></tr>
+              <tr><td><strong>Telecomunicações</strong></td><td>Redes, conectividade, 5G</td><td>Claro, Vivo, Embratel</td></tr>
+              <tr><td><strong>Segurança Cibernética</strong></td><td>Proteção de ativos digitais</td><td>Palo Alto, CrowdStrike</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Governança de TI & LGPD</div>
+          <span class="badge badge-purple">10 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-gov"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-gov"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="../projetos/index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Gestão de Projetos</div></div>
+      </a>
+      <a href="../engenharia-software/index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próxima</div><div>Engenharia de Software</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  const topics = ['lgpd','controlador','bases','direitos','anpd','governanca','itil','inovacao'];
+  const done = topics.filter(t => DC.Progress.getTopic('gov_'+t).done).length;
+  const pct = Math.round((done/topics.length)*100);
+  setTimeout(() => {
+    const r = document.getElementById('gov-ring'); if(r) r.style.strokeDashoffset = 263.9-(pct/100)*263.9;
+    const p = document.getElementById('gov-pct'); if(p) p.textContent = pct+'%';
+  }, 300);
+
+  DC.Checklist.init('checklist-gov','gov',[
+    'Sei definir dado pessoal e dado pessoal sensível',
+    'Conheço os 3 agentes de tratamento (Controlador, Operador, Encarregado)',
+    'Domino as 10 bases legais do Art. 7º da LGPD',
+    'Conheço os direitos do titular (Art. 18)',
+    'Entendo o papel da ANPD e as sanções',
+    'Sei a diferença entre governança e gestão de TI',
+    'Conheço os domínios do COBIT (EDM, APO, BAI, DSS, MEA)',
+    'Sei utilidade vs. garantia no ITIL 4',
+    'Conheço os 7 princípios orientadores do ITIL 4',
+    'Entendo inovação disruptiva e plataformas digitais',
+  ]);
+
+  DC.Quiz.render('quiz-gov',[
+    { question:'De acordo com a LGPD, qual dos seguintes é classificado como dado pessoal SENSÍVEL?',
+      options:['Nome completo e CPF','Endereço residencial','Convicção religiosa e dado biométrico','Número de telefone','Data de nascimento'],
+      answer:2, explanation:'Dados sensíveis (Art. 5º, II): origem racial/étnica, convicção religiosa, opinião política, filiação sindical, dados de saúde ou vida sexual, dado genético/biométrico. Tratamento exige consentimento específico e destacado ou outra base legal específica. CPF, endereço, telefone e data de nascimento são dados pessoais comuns.' },
+    { question:'Na LGPD, o Operador de dados é:',
+      options:[
+        'O titular dos dados pessoais.',
+        'A ANPD — responsável por fiscalizar o tratamento.',
+        'Quem decide sobre o tratamento e define a finalidade.',
+        'Quem realiza o tratamento em nome do controlador.',
+        'O advogado responsável pelo compliance da empresa.'
+      ], answer:3, explanation:'Operador = realiza o tratamento EM NOME do controlador, seguindo suas instruções. Ex: empresa de cloud que armazena dados do cliente (controlador). Se o operador usar os dados para fins próprios, passa a ser controlador. O Encarregado (DPO) é o canal de comunicação — não decide nem processa.' },
+    { question:'Assinale a base legal da LGPD aplicável quando uma empresa precisa manter dados de funcionários para cumprir obrigações trabalhistas e previdenciárias.',
+      options:['Consentimento do titular','Legítimo interesse','Cumprimento de obrigação legal ou regulatória','Execução de contrato','Tutela da saúde'],
+      answer:2, explanation:'Obrigações trabalhistas (FGTS, INSS, e-Social) são impostas por lei — base legal: "cumprimento de obrigação legal ou regulatória" (Art. 7º, II). Nesse caso, o consentimento do funcionário é desnecessário, pois a lei já autoriza o tratamento. A empresa não pode negar o cumprimento alegando falta de consentimento.' },
+    { question:'O consentimento válido para tratamento de dados na LGPD deve ser:',
+      options:[
+        'Genérico, abrangendo quaisquer finalidades futuras.',
+        'Apenas verbal, manifestado em reunião com o DPO.',
+        'Livre, informado, inequívoco e para finalidade determinada.',
+        'Irrevogável após a primeira manifestação.',
+        'Obrigatório em qualquer hipótese de tratamento.'
+      ], answer:2, explanation:'Consentimento LGPD: livre (sem coerção), informado (finalidade clara), inequívoco (manifestação positiva — silêncio não vale), específico (finalidade determinada). Pode ser REVOGADO a qualquer momento. Além disso, consentimento é apenas UMA das 10 bases legais — o tratamento pode ser legítimo mesmo sem ele.' },
+    { question:'A ANPD — Autoridade Nacional de Proteção de Dados — tem entre suas funções:',
+      options:[
+        'Redigir contratos de tratamento de dados entre empresas.',
+        'Fiscalizar e aplicar sanções em caso de violações à LGPD.',
+        'Atuar como controlador dos dados de cidadãos brasileiros.',
+        'Substituir o DPO nas empresas que não o possuem.',
+        'Autorizar previamente todo tratamento de dados sensíveis.'
+      ], answer:1, explanation:'ANPD: órgão da administração pública federal que zela pela proteção de dados, elabora diretrizes, fiscaliza e aplica sanções (até 2% do faturamento, máx. R$ 50 mi por infração). Não é controladora de dados, não substitui o DPO e não autoriza previamente todo tratamento — apenas emite opiniões e regulamentações.' },
+    { question:'No ITIL 4, a diferença entre UTILIDADE e GARANTIA de um serviço é:',
+      options:[
+        'Utilidade refere-se ao custo; garantia refere-se ao prazo.',
+        'Utilidade é "fit for purpose" (funcionalidade); garantia é "fit for use" (disponibilidade e segurança).',
+        'Garantia é a funcionalidade do serviço; utilidade é a disponibilidade.',
+        'Ambos são sinônimos para valor percebido pelo cliente.',
+        'Utilidade é exclusiva de serviços de TI; garantia é para produtos físicos.'
+      ], answer:1, explanation:'ITIL 4: Utilidade = "fit for purpose" — o serviço faz o que deve fazer, suportando desempenho ou removendo restrições. Garantia = "fit for use" — o serviço está disponível, é seguro e tem capacidade adequada. Um serviço precisa ter AMBOS para criar valor. Sistema que funciona mas fica fora do ar não tem garantia.' },
+    { question:'No COBIT 2019, o domínio EDM refere-se a:',
+      options:[
+        'Execute, Deploy and Monitor — execução operacional de TI.',
+        'Evaluate, Direct and Monitor — processos de governança.',
+        'Enable, Design and Manage — design de serviços.',
+        'Extract, Define and Measure — métricas de desempenho.',
+        'Enterprise Data Management — governança de dados.'
+      ], answer:1, explanation:'EDM = Evaluate, Direct and Monitor — é o único domínio de GOVERNANÇA do COBIT (os outros 4: APO, BAI, DSS, MEA são de gestão). O EDM avalia necessidades das partes interessadas, direciona a TI e monitora o desempenho e a conformidade. É onde o conselho e alta gestão atuam.' },
+    { question:'Qual princípio orientador do ITIL 4 afirma que uma organização deve avaliar sua situação atual antes de determinar a melhor forma de avançar?',
+      options:[
+        'Foco no valor.',
+        'Progrida iterativamente com feedback.',
+        'Comece onde você está.',
+        'Mantenha-o simples e prático.',
+        'Pense e trabalhe holisticamente.'
+      ], answer:2, explanation:'"Comece onde você está" = avalie o estado atual antes de agir — não comece do zero sem verificar o que pode ser reutilizado. Evita desperdício de recursos ao ignorar práticas, processos e ferramentas já existentes que podem ser aproveitados. É análogo ao princípio Kanban de "começar com o que você faz agora".' },
+    { question:'Uma empresa que conecta prestadores de serviço a consumidores finais, aumentando seu valor à medida que mais participantes aderem, opera no modelo de:',
+      options:[
+        'SaaS (Software as a Service).',
+        'Plataforma digital com efeito de rede.',
+        'Inovação incremental de produto.',
+        'Cadeia de valor linear tradicional.',
+        'Ecossistema fechado proprietário.'
+      ], answer:1, explanation:'Plataformas digitais conectam dois ou mais grupos de usuários (modelo multilateral). O efeito de rede ocorre quando o valor da plataforma aumenta com o número de participantes — quanto mais motoristas no Uber, mais atraente para passageiros; e vice-versa. Este é o modelo de negócio de Uber, iFood, Airbnb, Mercado Livre.' },
+    { question:'De acordo com a LGPD, qual direito do titular permite que ele solicite a transferência de seus dados a outro fornecedor de serviço?',
+      options:[
+        'Direito de acesso.',
+        'Direito de correção.',
+        'Direito de portabilidade.',
+        'Direito de eliminação.',
+        'Direito de revogação.'
+      ], answer:2, explanation:'Portabilidade (Art. 18, V): o titular pode solicitar a transferência de seus dados pessoais a outro fornecedor de serviço ou produto, mediante requisição expressa. Semelhante à portabilidade numérica em telecomunicações. A ANPD regulamenta os requisitos técnicos para essa portabilidade.' },
+  ],'gov_simulado');
+});
+</script>
+</body>
+</html>

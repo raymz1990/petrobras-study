@@ -1,0 +1,88 @@
+<!-- ================================================
+     DIGITALCRON — Navbar Component
+     ================================================ -->
+<nav class="navbar" id="navbar">
+
+  <!-- Mobile hamburger -->
+  <button id="mobile-menu-btn" class="navbar-btn hide-desktop" style="display:none" aria-label="Menu">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+  </button>
+
+  <!-- Search -->
+  <div class="navbar-search" style="position:relative">
+    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <input type="text" id="global-search" placeholder="Buscar matérias, tópicos..." autocomplete="off">
+    <!-- Search results dropdown -->
+    <div id="search-results" style="
+      display:none; position:absolute; top:calc(100% + 8px); left:0; right:0;
+      background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius-md);
+      overflow:hidden; z-index:2000; box-shadow:var(--shadow-card)
+    "></div>
+  </div>
+
+  <!-- Right side -->
+  <div class="navbar-right">
+
+    <!-- Streak -->
+    <div class="streak-badge hide-mobile">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      <span class="user-streak">0</span> dias
+    </div>
+
+    <!-- Timer display -->
+    <div class="navbar-btn hide-mobile" id="session-timer" title="Tempo nesta sessão" style="width:auto;padding:0 12px;gap:6px;font-size:0.78rem;font-weight:600;color:var(--text-secondary)">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+      </svg>
+      <span id="session-time-display">0min</span>
+    </div>
+
+    <!-- Theme toggle -->
+    <button class="navbar-btn" id="theme-toggle" title="Alternar tema">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+      </svg>
+    </button>
+
+    <!-- Export -->
+    <button class="navbar-btn hide-mobile" id="export-btn" title="Exportar progresso">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+    </button>
+    <input type="file" id="import-file" accept=".json" style="display:none">
+
+    <!-- Avatar -->
+    <div class="avatar user-initials" title="Perfil">DC</div>
+
+  </div>
+</nav>
+
+<!-- Search result styles (inline for portability) -->
+<style>
+  .search-result-item {
+    display:flex; align-items:center; gap:10px;
+    padding:10px 16px; color:var(--text-secondary);
+    font-size:0.875rem; font-weight:500; transition:var(--transition);
+    border-bottom:1px solid var(--border); text-decoration:none;
+  }
+  .search-result-item:last-child { border-bottom:none; }
+  .search-result-item:hover { background:var(--bg-tertiary); color:var(--text-primary); }
+  .search-result-title { flex:1; }
+
+  @media(max-width:768px){ #mobile-menu-btn { display:flex !important; } }
+</style>
+
+<!-- Session timer update -->
+<script>
+  setInterval(() => {
+    if(window.DC?.StudyTimer) {
+      const el = document.getElementById('session-time-display');
+      if(el) el.textContent = DC.StudyTimer.getElapsed() + 'min';
+    }
+  }, 30000);
+</script>

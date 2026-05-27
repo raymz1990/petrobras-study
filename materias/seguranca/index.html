@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Segurança da Informação | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <span>Bloco III</span><span class="sep">›</span><span>Segurança da Informação</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">🔐 Bloco III · Item 3</div>
+        <h1 class="mb-8">Segurança da <span class="gradient-text">Informação</span></h1>
+        <p>Segurança física e lógica, operação de segurança, ataques, desenvolvimento seguro, IAM, frameworks (NIST, ISO 27001, MITRE ATT&CK) e segurança em nuvem e IoT.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>📋 21 subtópicos</span></div>
+          <div class="materia-meta-item"><span>⏱ ~8h de estudo</span></div>
+          <div class="materia-meta-item"><span>🎯 Altíssima incidência</span></div>
+        </div>
+      </div>
+      <div class="materia-progress-ring">
+        <div class="progress-ring-wrap">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="42" fill="none" stroke-width="8" stroke="var(--bg-tertiary)"/>
+            <circle id="seg-ring" cx="50" cy="50" r="42" fill="none" stroke="#EF4444" stroke-width="8"
+              stroke-dasharray="263.9" stroke-dashoffset="263.9" stroke-linecap="round"
+              style="transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset 0.8s"/>
+          </svg>
+          <div class="progress-ring-label">
+            <span class="progress-ring-pct" id="seg-pct">0%</span>
+            <span class="progress-ring-sub">Progresso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Segurança da Informação</h4></div>
+      <ul>
+        <li>Tríade CID: Confidencialidade, Integridade, Disponibilidade — saber qual ataque viola qual pilar</li>
+        <li>IDS detecta e alerta; IPS detecta e BLOQUEIA — inversão clássica da banca</li>
+        <li>Autenticação (quem é?) vs. Autorização (o que pode?) vs. Auditoria (o que fez?) — AAA</li>
+        <li>RBAC vs. ABAC: baseado em papel vs. baseado em atributos</li>
+        <li>SQL Injection, XSS, CSRF — saber distinguir e exemplificar</li>
+        <li>ISO 27001 vs. ISO 27002: 27001 é certificável (SGSI); 27002 é guia de boas práticas</li>
+        <li>NIST SP 800-61: Resposta a Incidentes — 4 fases: Preparação, Detecção, Contenção/Erradicação, Recuperação</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="fundamentos">🛡️ Fundamentos</button>
+      <button class="tab-btn" data-tab="operacao">⚙️ Operação</button>
+      <button class="tab-btn" data-tab="ataques">💥 Ataques</button>
+      <button class="tab-btn" data-tab="identidade">👤 Identidade & Acesso</button>
+      <button class="tab-btn" data-tab="normas">📋 Normas & Frameworks</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Fundamentos -->
+    <div class="tab-panel active" data-tab="fundamentos">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(239,68,68,0.1)">🛡️</div>Fundamentos de Segurança</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Tríade CID — A Base de Tudo</div>
+          <strong>Confidencialidade:</strong> informação acessível apenas a quem tem autorização.<br>
+          <strong>Integridade:</strong> informação precisa e completa — não foi alterada de forma não autorizada.<br>
+          <strong>Disponibilidade:</strong> informação e sistemas acessíveis quando necessários por usuários autorizados.
+        </div>
+
+        <h3>Qual Ataque Viola Qual Pilar?</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Ataque/Evento</th><th>Pilar Violado</th><th>Por quê</th></tr></thead>
+            <tbody>
+              <tr><td>Ransomware criptografa arquivos</td><td><span class="badge badge-red">Disponibilidade</span></td><td>Arquivos inacessíveis aos usuários</td></tr>
+              <tr><td>Vazamento de dados sigilosos</td><td><span class="badge badge-purple">Confidencialidade</span></td><td>Dados expostos a não-autorizados</td></tr>
+              <tr><td>Atacante altera registros financeiros</td><td><span class="badge badge-teal">Integridade</span></td><td>Dados modificados indevidamente</td></tr>
+              <tr><td>DDoS derruba servidor</td><td><span class="badge badge-red">Disponibilidade</span></td><td>Serviço indisponível</td></tr>
+              <tr><td>SQL Injection extrai dados</td><td><span class="badge badge-purple">Confidencialidade</span></td><td>Dados expostos sem autorização</td></tr>
+              <tr><td>Man-in-the-Middle intercepta mensagens</td><td><span class="badge badge-purple">Confidencialidade</span> <span class="badge badge-teal">Integridade</span></td><td>Intercepção + possível alteração</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Segurança Física vs. Lógica</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Segurança Física</th><th>Segurança Lógica</th></tr></thead>
+            <tbody>
+              <tr><td>Controle de acesso físico (catracas, câmeras)</td><td>Controle de acesso lógico (senhas, MFA)</td></tr>
+              <tr><td>Sala-cofre para servidores</td><td>Firewall, IDS/IPS</td></tr>
+              <tr><td>CFTV e alarmes</td><td>SIEM, EDR, antivírus</td></tr>
+              <tr><td>Destruição de mídias</td><td>Criptografia de dados</td></tr>
+              <tr><td>Controle de visitantes</td><td>VPN, SSO</td></tr>
+              <tr><td>No-break e gerador</td><td>Backup e disaster recovery</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Criptografia</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">🔑</div>
+            <div class="concept-name">Simétrica</div>
+            <div class="concept-desc">Mesma chave para cifrar e decifrar. Rápida. Ex: AES-256, DES, 3DES. Problema: distribuição segura da chave.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🗝️</div>
+            <div class="concept-name">Assimétrica</div>
+            <div class="concept-desc">Par de chaves: pública (cifra) e privada (decifra). Lenta. Ex: RSA, ECC. Resolve o problema de distribuição.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">#️⃣</div>
+            <div class="concept-name">Hash</div>
+            <div class="concept-desc">Função de sentido único — gera digest de tamanho fixo. Não reversível. Ex: SHA-256, MD5 (obsoleto). Verifica integridade.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">✍️</div>
+            <div class="concept-name">Assinatura Digital</div>
+            <div class="concept-desc">Hash cifrado com chave PRIVADA do remetente. Garante autenticidade e não-repúdio. Verificado com chave pública.</div>
+          </div>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Pegadinha — Assinatura Digital</div>
+          Na assinatura digital, cifra-se com a chave <strong>PRIVADA</strong> (não pública) do assinante. Qualquer um com a chave pública pode verificar. Ao contrário: na criptografia assimétrica para confidencialidade, cifra-se com a chave <strong>PÚBLICA</strong> do destinatário.
+        </div>
+      </div>
+    </div>
+
+    <!-- Operação -->
+    <div class="tab-panel" data-tab="operacao">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">⚙️</div>Operação de Segurança</h2>
+
+        <h3>Ferramentas de Segurança</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Ferramenta</th><th>Função</th><th>Detalhe importante</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Firewall</strong></td><td>Filtra tráfego de rede por regras (porta, IP, protocolo)</td><td>Não detecta ataques sofisticados — bloqueia por regras estáticas</td></tr>
+              <tr><td><strong>IDS</strong></td><td>Detecção de Intrusão — monitora e <strong>ALERTA</strong></td><td>Passivo — não bloqueia, apenas notifica</td></tr>
+              <tr><td><strong>IPS</strong></td><td>Prevenção de Intrusão — monitora e <strong>BLOQUEIA</strong></td><td>Ativo — interrompe o tráfego malicioso em tempo real</td></tr>
+              <tr><td><strong>WAF</strong></td><td>Web Application Firewall — protege aplicações web</td><td>Específico para HTTP/HTTPS — detecta SQLi, XSS etc.</td></tr>
+              <tr><td><strong>DLP</strong></td><td>Data Loss Prevention — evita vazamento de dados</td><td>Monitora e bloqueia transferências não autorizadas de dados sensíveis</td></tr>
+              <tr><td><strong>SIEM</strong></td><td>Coleta, correlaciona e analisa logs de segurança</td><td>Visão centralizada — detecta padrões anômalos correlacionando múltiplos eventos</td></tr>
+              <tr><td><strong>EDR</strong></td><td>Endpoint Detection and Response</td><td>Antivírus evoluído — detecta comportamento anômalo no endpoint</td></tr>
+              <tr><td><strong>CASB</strong></td><td>Cloud Access Security Broker</td><td>Segurança entre usuários e serviços cloud — visibilidade e controle</td></tr>
+              <tr><td><strong>Proxy</strong></td><td>Intermediário entre cliente e internet</td><td>Filtra conteúdo, registra acessos, anonimiza origem</td></tr>
+              <tr><td><strong>Antivírus</strong></td><td>Detecta malware por assinatura e comportamento</td><td>Assinatura: banco de vírus conhecidos. Heurística: comportamento suspeito</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ IDS vs IPS — Pegadinha Recorrente</div>
+          <strong>IDS</strong> = Intrusion <strong>Detection</strong> System = só <strong>detecta e alerta</strong> = PASSIVO.<br>
+          <strong>IPS</strong> = Intrusion <strong>Prevention</strong> System = detecta <strong>e bloqueia</strong> = ATIVO.<br>
+          A banca inverte: "O IDS bloqueia o tráfego suspeito automaticamente" → FALSO (isso é o IPS).
+        </div>
+
+        <h3>Backup e Continuidade</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo de Backup</th><th>O que copia</th><th>Restauração</th><th>Espaço</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Completo (Full)</strong></td><td>Todos os dados</td><td>Apenas o último backup</td><td>Maior</td></tr>
+              <tr><td><strong>Incremental</strong></td><td>Mudanças desde o último backup (qualquer tipo)</td><td>Último full + todos os incrementais</td><td>Menor</td></tr>
+              <tr><td><strong>Diferencial</strong></td><td>Mudanças desde o último backup COMPLETO</td><td>Último full + último diferencial</td><td>Médio</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Malwares</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🔒</div><div class="concept-name">Ransomware</div><div class="concept-desc">Criptografa arquivos e exige resgate. Viola disponibilidade e confidencialidade.</div></div>
+          <div class="concept-card"><div class="emoji">🐛</div><div class="concept-name">Worm</div><div class="concept-desc">Auto-replica e se propaga pela rede sem interação humana. Não precisa de hospedeiro.</div></div>
+          <div class="concept-card"><div class="emoji">🐴</div><div class="concept-name">Trojan</div><div class="concept-desc">Parece legítimo mas executa ação maliciosa. Precisa de interação do usuário para ativar.</div></div>
+          <div class="concept-card"><div class="emoji">🕵️</div><div class="concept-name">Spyware</div><div class="concept-desc">Coleta informações do usuário sem consentimento (histórico, senhas, comportamento).</div></div>
+          <div class="concept-card"><div class="emoji">🦠</div><div class="concept-name">Vírus</div><div class="concept-desc">Se anexa a arquivos legítimos e se propaga quando o arquivo infectado é executado.</div></div>
+          <div class="concept-card"><div class="emoji">👻</div><div class="concept-name">Rootkit</div><div class="concept-desc">Oculta sua presença no sistema, dando acesso privilegiado persistente ao atacante.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ataques -->
+    <div class="tab-panel" data-tab="ataques">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(239,68,68,0.1)">💥</div>Ataques e Desenvolvimento Seguro</h2>
+
+        <h3>Principais Ataques Web</h3>
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"><span>💉 SQL Injection (SQLi)</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Inserção de código SQL malicioso em campos de entrada para manipular queries do banco de dados.</p>
+              <div class="code-block"><span class="code-lang">Exemplo</span><pre>SELECT * FROM users WHERE user='admin' AND pass='' OR '1'='1'
+-- '1'='1' é sempre verdadeiro → bypass de autenticação!</pre></div>
+              <p><strong>Prevenção:</strong> Prepared Statements / Parameterized Queries, ORM, validação de entrada, WAF.</p>
+              <p><strong>Pilar violado:</strong> Confidencialidade (extrai dados), Integridade (altera/deleta dados).</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🖥️ XSS — Cross-Site Scripting</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Injeta scripts maliciosos em páginas web que são executados no navegador de outras vítimas.</p>
+              <p><strong>Tipos:</strong></p>
+              <ul>
+                <li><strong>Stored XSS:</strong> script salvo no servidor (banco de dados) e executado toda vez que a página é carregada — mais perigoso.</li>
+                <li><strong>Reflected XSS:</strong> script na URL, retornado imediatamente na resposta — não é persistente.</li>
+                <li><strong>DOM-based XSS:</strong> manipula o DOM no cliente sem passar pelo servidor.</li>
+              </ul>
+              <p><strong>Prevenção:</strong> Sanitização de saída (encoding HTML), Content Security Policy (CSP), validação de entrada.</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🔄 CSRF — Cross-Site Request Forgery</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Engana o usuário autenticado a executar ações não intencionadas em um site confiável.</p>
+              <p><strong>Mecanismo:</strong> Usuário está logado no banco (A). Visita site malicioso (B) que faz requisição para banco (A) usando a sessão ativa do usuário.</p>
+              <p><strong>Prevenção:</strong> CSRF tokens, SameSite cookie attribute, verificação de Origin/Referer header.</p>
+              <div class="highlight-box info"><div class="hb-title">XSS vs CSRF</div>XSS injeta código que roda no navegador da vítima. CSRF usa a sessão autenticada da vítima para fazer requisições não autorizadas. XSS é do lado cliente; CSRF explora a confiança do servidor.</div>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🌊 DDoS — Distributed Denial of Service</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Inunda um servidor/serviço com tráfego de múltiplas origens (botnet) até torná-lo indisponível.</p>
+              <p><strong>Viola:</strong> Disponibilidade (principal pilar afetado).</p>
+              <p><strong>Mitigação:</strong> CDN, rate limiting, scrubbing centers, anycast routing, WAF com proteção DDoS.</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>📁 Path Traversal (Directory Traversal)</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Acessa arquivos fora do diretório permitido pela aplicação usando sequências como <code>../</code>.</p>
+              <div class="code-block"><span class="code-lang">Exemplo</span><pre>https://site.com/download?file=../../../etc/passwd</pre></div>
+              <p><strong>Prevenção:</strong> Validar e sanitizar parâmetros de arquivo, usar caminhos absolutos, whitelist de arquivos permitidos.</p>
+            </div></div>
+          </div>
+        </div>
+
+        <h3>Desenvolvimento Seguro — SAST, DAST, IAST</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Técnica</th><th>Quando</th><th>Como</th><th>Vantagem</th></tr></thead>
+            <tbody>
+              <tr><td><strong>SAST</strong></td><td>Durante desenvolvimento</td><td>Analisa código-fonte estático</td><td>Detecta cedo, sem executar</td></tr>
+              <tr><td><strong>DAST</strong></td><td>Pós-deploy / staging</td><td>Testa app em execução (black-box)</td><td>Detecta vulnerabilidades em runtime</td></tr>
+              <tr><td><strong>IAST</strong></td><td>Durante testes</td><td>Agente dentro da app em execução</td><td>Combina precisão do SAST com realismo do DAST</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Teste de Penetração (Pentest)</h3>
+        <p>Simulação controlada e autorizada de ataques para identificar vulnerabilidades antes que atacantes reais o façam. Fases: <strong>Reconhecimento → Scanning → Exploração → Pós-exploração → Relatório</strong>.</p>
+
+        <h3>Modelagem de Ameaças — STRIDE</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Letra</th><th>Ameaça</th><th>Pilar violado</th></tr></thead>
+            <tbody>
+              <tr><td><strong>S</strong></td><td>Spoofing (falsificação de identidade)</td><td>Autenticidade</td></tr>
+              <tr><td><strong>T</strong></td><td>Tampering (adulteração de dados)</td><td>Integridade</td></tr>
+              <tr><td><strong>R</strong></td><td>Repudiation (repúdio de ações)</td><td>Não-repúdio</td></tr>
+              <tr><td><strong>I</strong></td><td>Information Disclosure (vazamento)</td><td>Confidencialidade</td></tr>
+              <tr><td><strong>D</strong></td><td>Denial of Service (negação de serviço)</td><td>Disponibilidade</td></tr>
+              <tr><td><strong>E</strong></td><td>Elevation of Privilege (escalada de privilégio)</td><td>Autorização</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Identidade -->
+    <div class="tab-panel" data-tab="identidade">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">👤</div>Gestão de Identidade e Acesso (IAM)</h2>
+
+        <h3>AAA — Autenticação, Autorização e Auditoria</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">🪪</div>
+            <div class="concept-name">Autenticação</div>
+            <div class="concept-desc">"Quem é você?" — verifica a identidade. Fatores: algo que você sabe (senha), tem (token), é (biometria).</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🔑</div>
+            <div class="concept-name">Autorização</div>
+            <div class="concept-desc">"O que você pode fazer?" — define permissões após autenticação. RBAC, ABAC, ACL.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">📋</div>
+            <div class="concept-name">Auditoria</div>
+            <div class="concept-desc">"O que você fez?" — registro de ações para rastreabilidade e conformidade. Logs, trilha de auditoria.</div>
+          </div>
+        </div>
+
+        <h3>MFA — Autenticação Multifator</h3>
+        <p>MFA exige dois ou mais fatores de autenticação de categorias diferentes:</p>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Fator</th><th>Tipo</th><th>Exemplos</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Conhecimento</strong></td><td>Algo que você SABE</td><td>Senha, PIN, pergunta secreta</td></tr>
+              <tr><td><strong>Posse</strong></td><td>Algo que você TEM</td><td>Token OTP, smartphone (TOTP), smart card</td></tr>
+              <tr><td><strong>Inerência</strong></td><td>Algo que você É</td><td>Impressão digital, reconhecimento facial, íris</td></tr>
+              <tr><td><strong>Localização</strong></td><td>Onde você ESTÁ</td><td>Geolocalização, IP, rede Wi-Fi</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>RBAC vs. ABAC</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>RBAC (Role-Based Access Control)</th><th>ABAC (Attribute-Based Access Control)</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Base da decisão</strong></td><td>Papel/função do usuário</td><td>Atributos do usuário, recurso e ambiente</td></tr>
+              <tr><td><strong>Exemplo</strong></td><td>Gerente pode aprovar pedidos</td><td>Analista do RJ pode acessar dados do RJ em horário comercial</td></tr>
+              <tr><td><strong>Granularidade</strong></td><td>Menor — por papel</td><td>Maior — por combinação de atributos</td></tr>
+              <tr><td><strong>Complexidade</strong></td><td>Simples de implementar</td><td>Mais complexo, mais flexível</td></tr>
+              <tr><td><strong>Uso ideal</strong></td><td>Organizações com papéis bem definidos</td><td>Ambientes dinâmicos e complexos</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>SSO, VPN e MDM</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🔓</div><div class="concept-name">SSO</div><div class="concept-desc">Single Sign-On — autenticação única que dá acesso a múltiplos sistemas. Protocolos: SAML, OAuth, OpenID Connect.</div></div>
+          <div class="concept-card"><div class="emoji">🔒</div><div class="concept-name">VPN</div><div class="concept-desc">Virtual Private Network — túnel criptografado sobre rede pública. Garante confidencialidade e integridade do tráfego.</div></div>
+          <div class="concept-card"><div class="emoji">📱</div><div class="concept-name">MDM</div><div class="concept-desc">Mobile Device Management — gerencia e protege dispositivos móveis corporativos (BYOD e dispositivos da empresa).</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Normas -->
+    <div class="tab-panel" data-tab="normas">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">📋</div>Normas, Frameworks e Gestão de Riscos</h2>
+
+        <h3>ISO 27001 vs. ISO 27002</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>ISO/IEC 27001</th><th>ISO/IEC 27002</th></tr></thead>
+            <tbody>
+              <tr><td><strong>O que é</strong></td><td>Norma de requisitos para SGSI (Sistema de Gestão de Segurança da Informação)</td><td>Guia de boas práticas e controles de segurança</td></tr>
+              <tr><td><strong>Certificação</strong></td><td><span class="badge badge-green">Sim — auditável e certificável</span></td><td><span class="badge badge-red">Não — apenas referência</span></td></tr>
+              <tr><td><strong>Foco</strong></td><td>O QUÊ implementar (sistema de gestão)</td><td>COMO implementar (controles detalhados)</td></tr>
+              <tr><td><strong>Uso conjunto</strong></td><td>Define os requisitos</td><td>Detalha os controles do Anexo A da 27001</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>NIST SP 800-61 — Resposta a Incidentes</h3>
+        <p>Framework do NIST para gerenciamento de resposta a incidentes de segurança. 4 fases:</p>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content"><h4>Preparação</h4><p>Políticas, equipes (CSIRT), ferramentas e treinamentos antes do incidente ocorrer.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(239,68,68,0.15);color:var(--red)">2</div>
+            <div class="step-content"><h4>Detecção e Análise</h4><p>Identificar e confirmar que um incidente ocorreu. Triagem, priorização e análise de impacto.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(245,158,11,0.15);color:var(--orange)">3</div>
+            <div class="step-content"><h4>Contenção, Erradicação e Recuperação</h4><p>Conter o dano, eliminar a causa raiz e restaurar os sistemas ao estado normal.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">4</div>
+            <div class="step-content"><h4>Atividade Pós-Incidente</h4><p>Lições aprendidas, relatório final e melhoria dos controles para prevenir recorrência.</p></div>
+          </div>
+        </div>
+
+        <h3>MITRE ATT&CK</h3>
+        <p>Base de conhecimento de táticas e técnicas usadas por atacantes reais, baseada em observações do mundo real. Organiza o comportamento do adversário em <strong>14 táticas</strong> (ex: Reconhecimento, Execução, Persistência, Evasão, Exfiltração).</p>
+        <div class="highlight-box info">
+          <div class="hb-title">💡 ATT&CK para Cesgranrio</div>
+          MITRE ATT&CK é usado por equipes de <strong>Threat Hunting</strong> (busca proativa de ameaças) e <strong>Threat Intelligence</strong> (inteligência de ameaças) para entender comportamento de adversários e melhorar controles defensivos.
+        </div>
+
+        <h3>Gestão de Riscos — ISO 31000</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Etapa</th><th>Atividade</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Identificação</strong></td><td>Identificar ativos, ameaças e vulnerabilidades</td></tr>
+              <tr><td><strong>Análise</strong></td><td>Avaliar probabilidade e impacto de cada risco</td></tr>
+              <tr><td><strong>Avaliação</strong></td><td>Priorizar riscos e comparar com critérios de aceitação</td></tr>
+              <tr><td><strong>Tratamento</strong></td><td>Mitigar, transferir (seguro), aceitar ou evitar o risco</td></tr>
+              <tr><td><strong>Monitoramento</strong></td><td>Acompanhar eficácia dos controles continuamente</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Segurança em Nuvem e IoT</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">☁️</div><div class="concept-name">Modelo de Responsabilidade Compartilhada</div><div class="concept-desc">IaaS: cliente gerencia SO, apps, dados. PaaS: provedor gerencia infra+plataforma. SaaS: provedor gerencia quase tudo.</div></div>
+          <div class="concept-card"><div class="emoji">🔐</div><div class="concept-name">CASB</div><div class="concept-desc">Cloud Access Security Broker — visibilidade e controle sobre uso de serviços cloud (Shadow IT, DLP, compliance).</div></div>
+          <div class="concept-card"><div class="emoji">🌐</div><div class="concept-name">Segurança IoT</div><div class="concept-desc">Dispositivos com recursos limitados, muitas vezes sem patches. Riscos: credenciais padrão, firmware desatualizado, falta de criptografia.</div></div>
+          <div class="concept-card"><div class="emoji">🛡️</div><div class="concept-name">Zero Trust</div><div class="concept-desc">"Nunca confie, sempre verifique." Sem perímetro seguro — toda requisição é autenticada e autorizada independente da origem.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Segurança da Informação</div>
+          <span class="badge badge-red">10 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-seg"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-seg"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="../logica/index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Lógica Matemática</div></div>
+      </a>
+      <a href="../../dashboard.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Voltar ao</div><div>Dashboard</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  const topics = ['cid','criptografia','firewall','ids','ips','siem','malware','sqli','xss','csrf','aaa','mfa','rbac','abac','sso','iso27001','nist','mitre','riscos','nuvem','iot'];
+  const done = topics.filter(t => DC.Progress.getTopic('seg_'+t).done).length;
+  const pct = Math.round((done/topics.length)*100);
+  setTimeout(() => {
+    const r = document.getElementById('seg-ring'); if(r) r.style.strokeDashoffset = 263.9-(pct/100)*263.9;
+    const p = document.getElementById('seg-pct'); if(p) p.textContent = pct+'%';
+  }, 300);
+
+  DC.Checklist.init('checklist-seg','seg',[
+    'Domino a tríade CID e sei qual ataque viola qual pilar',
+    'Sei a diferença entre criptografia simétrica e assimétrica',
+    'Entendo como funciona assinatura digital (chave privada cifra)',
+    'Sei a diferença entre IDS (detecta) e IPS (bloqueia)',
+    'Conheço as ferramentas: Firewall, WAF, SIEM, DLP, EDR, CASB',
+    'Conheço os principais malwares e suas características',
+    'Domino SQLi, XSS (stored vs reflected) e CSRF',
+    'Sei a diferença entre SAST, DAST e IAST',
+    'Entendo AAA: Autenticação, Autorização e Auditoria',
+    'Sei os fatores de MFA e a diferença entre RBAC e ABAC',
+    'Conheço as 4 fases do NIST SP 800-61',
+    'Sei a diferença entre ISO 27001 (certificável) e ISO 27002 (guia)',
+    'Entendo o que é o MITRE ATT&CK e para que serve',
+    'Conheço o modelo de responsabilidade compartilhada em nuvem',
+  ]);
+
+  DC.Quiz.render('quiz-seg',[
+    { question:'Um ataque de ransomware criptografou todos os arquivos de uma refinaria, tornando-os inacessíveis. Qual pilar da tríade CID foi PRINCIPALMENTE violado?',
+      options:['Confidencialidade — dados expostos a não-autorizados.','Integridade — dados foram modificados indevidamente.','Disponibilidade — sistemas e dados ficaram inacessíveis.','Autenticidade — identidade dos usuários foi comprometida.','Não-repúdio — ações não puderam ser rastreadas.'],
+      answer:2, explanation:'Ransomware viola DISPONIBILIDADE — os dados existem mas estão inacessíveis (criptografados pelo atacante). Também pode violar confidencialidade (se os dados forem exfiltrados antes de criptografar — técnica "double extortion"). O pilar PRINCIPAL afetado é disponibilidade, pois a operação não consegue acessar os dados.' },
+    { question:'A diferença entre IDS e IPS é que:',
+      options:[
+        'IDS bloqueia tráfego malicioso; IPS apenas detecta.',
+        'IDS e IPS são sinônimos — diferem apenas no fornecedor.',
+        'IDS detecta e alerta (passivo); IPS detecta e bloqueia ativamente o tráfego.',
+        'IPS é mais antigo que IDS e foi substituído por ele.',
+        'IDS analisa tráfego de rede; IPS protege apenas endpoints.'
+      ], answer:2, explanation:'IDS = Intrusion Detection System = PASSIVO — monitora, detecta e ALERTA (gera logs/alertas). IPS = Intrusion Prevention System = ATIVO — detecta e BLOQUEIA o tráfego malicioso em tempo real, sem intervenção humana. O IPS fica inline no tráfego; o IDS pode ser out-of-band (cópia do tráfego).' },
+    { question:'Na assinatura digital, o remetente usa sua chave PRIVADA para assinar. Isso garante:',
+      options:[
+        'Confidencialidade — apenas o destinatário pode ler a mensagem.',
+        'Autenticidade e não-repúdio — prova que foi o remetente quem assinou.',
+        'Integridade — a mensagem não pode ser modificada em trânsito.',
+        'Disponibilidade — a mensagem pode ser acessada a qualquer momento.',
+        'Anonimato — a identidade do remetente é ocultada.'
+      ], answer:1, explanation:'Assinatura digital com chave PRIVADA garante: Autenticidade (só quem tem a chave privada pode ter assinado) e Não-repúdio (o remetente não pode negar que assinou, pois só ele tem a chave privada). A verificação é feita com a chave PÚBLICA do remetente. Não garante confidencialidade — a mensagem em si não está cifrada.' },
+    { question:'Um atacante injeta código JavaScript em um campo de comentário de um blog corporativo. Quando outros usuários visualizam os comentários, o script rouba seus cookies de sessão. Qual ataque é esse?',
+      options:[
+        'SQL Injection — manipulação de queries do banco.',
+        'CSRF — uso da sessão autenticada para fazer requisições.',
+        'XSS Stored (Persistente) — script armazenado no servidor e executado em outros usuários.',
+        'XSS Reflected — script retornado imediatamente via URL.',
+        'Path Traversal — acesso a arquivos não autorizados.'
+      ], answer:2, explanation:'XSS Stored (Persistente): o script malicioso é ARMAZENADO no servidor (banco de dados do blog) e executado no navegador de TODOS os usuários que visualizam a página. Roubo de cookies = comprometimento de sessão. XSS Reflected seria via URL sem persistência. CSRF usa sessão existente, não injeta script. SQLi ataca o banco de dados.' },
+    { question:'O modelo AAA de segurança. A fase de AUTORIZAÇÃO responde à pergunta:',
+      options:[
+        '"Quem é você?" — verifica a identidade do usuário.',
+        '"O que você pode fazer?" — define as permissões após a identidade ser confirmada.',
+        '"O que você fez?" — registra as ações para auditoria.',
+        '"Onde você está?" — verifica a localização do usuário.',
+        '"Quando você acessou?" — registra o horário do acesso.'
+      ], answer:1, explanation:'AAA: Autenticação = "Quem é você?" (verifica identidade). Autorização = "O que você pode fazer?" (define permissões/recursos acessíveis). Auditoria/Accounting = "O que você fez?" (logs e rastreabilidade). A Cesgranrio frequentemente troca autenticação por autorização nas alternativas — atenção à distinção.' },
+    { question:'RBAC difere de ABAC porque:',
+      options:[
+        'RBAC usa atributos dinâmicos; ABAC usa papéis fixos.',
+        'RBAC controla acesso com base no papel/função do usuário; ABAC usa combinação de atributos do usuário, recurso e ambiente.',
+        'ABAC é mais simples de implementar que RBAC.',
+        'RBAC é exclusivo para sistemas cloud; ABAC para sistemas on-premises.',
+        'Não há diferença técnica — são implementações do mesmo conceito.'
+      ], answer:1, explanation:'RBAC (Role-Based): acesso baseado no papel — "Analista sênior pode editar relatórios". Simples mas menos granular. ABAC (Attribute-Based): acesso baseado em múltiplos atributos — "Analista sênior do RJ pode editar relatórios da região Sul em dias úteis das 8h às 18h". Mais flexível e granular, mas mais complexo. ABAC é usado quando RBAC não oferece granularidade suficiente.' },
+    { question:'A ISO/IEC 27001 diferencia-se da ISO/IEC 27002 porque:',
+      options:[
+        '27001 é um guia de boas práticas; 27002 define requisitos para certificação.',
+        '27001 define requisitos para o SGSI e é certificável; 27002 é um guia de controles de segurança, sem certificação.',
+        'Ambas são certificáveis — diferem apenas no escopo.',
+        '27002 substituiu a 27001 na versão mais recente.',
+        '27001 é exclusiva para empresas de TI; 27002 para qualquer setor.'
+      ], answer:1, explanation:'ISO 27001: define REQUISITOS para implementar, manter e melhorar um SGSI. É CERTIFICÁVEL — auditores externos verificam conformidade e emitem certificado. ISO 27002: código de boas práticas, fornece diretrizes detalhadas para os controles referenciados no Anexo A da 27001. Não é certificável — é referência. Uma empresa se certifica na 27001, não na 27002.' },
+    { question:'As 4 fases do NIST SP 800-61 (Resposta a Incidentes), em ordem correta, são:',
+      options:[
+        'Detecção → Contenção → Recuperação → Preparação',
+        'Preparação → Detecção e Análise → Contenção/Erradicação/Recuperação → Pós-Incidente',
+        'Identificação → Proteção → Detecção → Resposta',
+        'Prevenção → Detecção → Resposta → Mitigação',
+        'Análise → Contenção → Erradicação → Lições Aprendidas'
+      ], answer:1, explanation:'NIST SP 800-61 define 4 fases: 1) Preparação (políticas, equipes, ferramentas — ANTES do incidente); 2) Detecção e Análise (identificar e confirmar o incidente); 3) Contenção, Erradicação e Recuperação (isolar, eliminar causa, restaurar); 4) Atividade Pós-Incidente (lições aprendidas, melhoria contínua). É um ciclo, não linear.' },
+    { question:'O MITRE ATT&CK é utilizado principalmente para:',
+      options:[
+        'Certificar sistemas de gestão de segurança da informação.',
+        'Definir requisitos de proteção de dados pessoais.',
+        'Documentar táticas e técnicas de adversários reais para apoiar threat hunting e melhoria de defesas.',
+        'Avaliar maturidade de processos de desenvolvimento seguro.',
+        'Gerenciar riscos operacionais em conformidade com ISO 31000.'
+      ], answer:2, explanation:'MITRE ATT&CK é uma base de conhecimento de táticas, técnicas e procedimentos (TTPs) observados em ataques reais. Usado por equipes de: Threat Intelligence (entender comportamento de grupos APT), Threat Hunting (busca proativa de ameaças), Red Team (simular ataques) e Blue Team (melhorar controles de detecção). Não é norma de certificação.' },
+    { question:'No modelo de responsabilidade compartilhada em cloud, no modelo IaaS:',
+      options:[
+        'O provedor gerencia tudo — cliente não tem responsabilidade.',
+        'O cliente gerencia apenas os dados; o provedor gerencia o resto.',
+        'O provedor gerencia a infraestrutura física; o cliente gerencia SO, middleware, aplicações e dados.',
+        'Ambos compartilham igualmente todas as responsabilidades.',
+        'O modelo IaaS não existe em provedores cloud modernos.'
+      ], answer:2, explanation:'IaaS (ex: AWS EC2, Azure VMs): Provedor = data center, hardware, rede física, virtualização. Cliente = SO, patches, middleware, runtime, aplicações, dados, configurações de rede virtual, identidade. PaaS: provedor também gerencia SO e runtime; cliente gerencia app e dados. SaaS: provedor gerencia quase tudo; cliente configura e gerencia acesso/dados.' },
+  ],'seg_simulado');
+});
+</script>
+</body>
+</html>

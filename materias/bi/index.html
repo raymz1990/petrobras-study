@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Intelligence | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <span>Bloco III</span><span class="sep">›</span><span>Análise de Dados & BI</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">📊 Bloco III · Item 1</div>
+        <h1 class="mb-8">Análise de Dados <span class="gradient-text">&amp; BI</span></h1>
+        <p>Dado, informação, conhecimento e inteligência. BI, OLAP, Data Warehouse, modelagem multidimensional, dashboards interativos e geração de insights para tomada de decisão.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>📋 11 tópicos</span></div>
+          <div class="materia-meta-item"><span>⏱ ~5h de estudo</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+      <div class="materia-progress-ring">
+        <div class="progress-ring-wrap">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="42" fill="none" stroke-width="8" stroke="var(--bg-tertiary)"/>
+            <circle id="bi-ring" cx="50" cy="50" r="42" fill="none" stroke="#10B981" stroke-width="8"
+              stroke-dasharray="263.9" stroke-dashoffset="263.9" stroke-linecap="round"
+              style="transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset 0.8s"/>
+          </svg>
+          <div class="progress-ring-label">
+            <span class="progress-ring-pct" id="bi-pct">0%</span>
+            <span class="progress-ring-sub">Progresso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — BI & Análise de Dados</h4></div>
+      <ul>
+        <li>Hierarquia DIKW: Dado → Informação → Conhecimento → Inteligência/Sabedoria — com exemplos</li>
+        <li>OLAP: operações Drill-down, Roll-up, Slice, Dice e Pivot — a banca dá um cenário e pede a operação</li>
+        <li>DW vs OLTP: DW é orientado a assunto, não-volátil, histórico e integrado</li>
+        <li>Kimball vs Inmon — abordagens distintas de construção de DW</li>
+        <li>Dado estruturado vs não-estruturado — saber classificar exemplos</li>
+        <li>BI como suporte a decisão: diferença entre dados operacionais e analíticos</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="fundamentos">🧠 Fundamentos</button>
+      <button class="tab-btn" data-tab="dw">🏗️ Data Warehouse</button>
+      <button class="tab-btn" data-tab="olap">📦 OLAP</button>
+      <button class="tab-btn" data-tab="bi">📊 BI & Decisão</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Fundamentos -->
+    <div class="tab-panel active" data-tab="fundamentos">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">🧠</div>Hierarquia DIKW</h2>
+
+        <p>A hierarquia DIKW descreve a transformação progressiva de dados brutos em valor para a organização.</p>
+
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">D</div>
+            <div class="step-content">
+              <h4>Dado (Data)</h4>
+              <p>Fatos brutos sem contexto. Sozinhos não têm significado. Ex: <code>42</code>, <code>2024-01-15</code>, <code>SP</code>, <code>150.000</code>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">I</div>
+            <div class="step-content">
+              <h4>Informação (Information)</h4>
+              <p>Dados com contexto e significado. Ex: "Em 15/01/2024, a unidade SP produziu 150.000 barris de petróleo (42 graus API)."</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">K</div>
+            <div class="step-content">
+              <h4>Conhecimento (Knowledge)</h4>
+              <p>Informação processada, compreendida e aplicável. Ex: "A produção de janeiro foi 15% acima da média histórica, indicando melhoria nas técnicas de extração."</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">W</div>
+            <div class="step-content">
+              <h4>Sabedoria / Inteligência (Wisdom)</h4>
+              <p>Conhecimento aplicado para tomar decisões melhores. Ex: "Com base no padrão identificado, expandir técnica para as unidades BA e RN no próximo trimestre."</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Dados Estruturados vs. Não-Estruturados</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo</th><th>Definição</th><th>Exemplos</th><th>Armazenamento</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Estruturado</strong></td>
+                <td>Organizado em linhas e colunas com schema fixo</td>
+                <td>Tabelas de banco relacional, planilhas Excel</td>
+                <td>SGBD relacional (Oracle, PostgreSQL)</td>
+              </tr>
+              <tr>
+                <td><strong>Semi-estruturado</strong></td>
+                <td>Tem estrutura, mas flexível — schema variável</td>
+                <td>JSON, XML, CSV, e-mails, logs</td>
+                <td>MongoDB, Elasticsearch</td>
+              </tr>
+              <tr>
+                <td><strong>Não-estruturado</strong></td>
+                <td>Sem organização predefinida — difícil processar</td>
+                <td>Imagens, vídeos, áudios, textos livres</td>
+                <td>Data Lake, S3, HDFS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Mapeamento de Fontes de Dados</h3>
+        <p>O mapeamento de fontes é a etapa inicial de qualquer projeto de BI — identifica <strong>onde os dados estão</strong>, em que formato, com qual qualidade e como chegam ao DW.</p>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🏭</div><div class="concept-name">Sistemas OLTP</div><div class="concept-desc">ERP, CRM, SCM — sistemas transacionais operacionais. Fonte primária dos dados.</div></div>
+          <div class="concept-card"><div class="emoji">📁</div><div class="concept-name">Arquivos Flat</div><div class="concept-desc">CSVs, TXTs, planilhas — comuns em sistemas legados e integrações simples.</div></div>
+          <div class="concept-card"><div class="emoji">🌐</div><div class="concept-name">APIs & Web</div><div class="concept-desc">Dados externos via API REST, web scraping, redes sociais.</div></div>
+          <div class="concept-card"><div class="emoji">📡</div><div class="concept-name">IoT & Sensores</div><div class="concept-desc">Dados de sensores industriais — muito relevante para a Petrobras (plataformas).</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Warehouse -->
+    <div class="tab-panel" data-tab="dw">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">🏗️</div>Data Warehouse</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Definição de Inmon (pai do DW)</div>
+          Data Warehouse é uma coleção de dados <strong>orientada a assunto</strong>, <strong>integrada</strong>, <strong>não-volátil</strong> e <strong>variante no tempo</strong>, organizada para suporte à tomada de decisão.
+        </div>
+
+        <h3>As 4 Características do DW (Inmon)</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">🎯</div>
+            <div class="concept-name">Orientado a Assunto</div>
+            <div class="concept-desc">Organizado por temas de negócio (vendas, produção, finanças) — não por aplicações ou departamentos como os sistemas OLTP.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🔗</div>
+            <div class="concept-name">Integrado</div>
+            <div class="concept-desc">Dados de múltiplas fontes são padronizados e consolidados. Elimina inconsistências (ex: "M/F" vs "Masculino/Feminino" → padronizado).</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🔒</div>
+            <div class="concept-name">Não-Volátil</div>
+            <div class="concept-desc">Dados carregados não são alterados nem deletados. Apenas operações de leitura e carga. Histórico preservado.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">📅</div>
+            <div class="concept-name">Variante no Tempo</div>
+            <div class="concept-desc">Mantém dados históricos — cada registro tem uma dimensão temporal. Permite análise de tendências e comparativos históricos.</div>
+          </div>
+        </div>
+
+        <h3>DW vs. OLTP</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>OLTP (Operacional)</th><th>Data Warehouse (Analítico)</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Propósito</strong></td><td>Suportar operações do dia a dia</td><td>Suportar análise e decisão</td></tr>
+              <tr><td><strong>Dados</strong></td><td>Atuais, detalhados</td><td>Históricos, sumarizados</td></tr>
+              <tr><td><strong>Operações</strong></td><td>INSERT, UPDATE, DELETE frequentes</td><td>SELECT (leitura) predominante</td></tr>
+              <tr><td><strong>Usuários</strong></td><td>Operadores, sistemas</td><td>Analistas, gestores, executivos</td></tr>
+              <tr><td><strong>Volume por query</strong></td><td>Poucos registros</td><td>Milhões de registros</td></tr>
+              <tr><td><strong>Normalização</strong></td><td>Alta (3FN, BCNF)</td><td>Desnormalizado (star, snowflake)</td></tr>
+              <tr><td><strong>Tempo de resposta</strong></td><td>Milissegundos</td><td>Segundos a minutos (queries complexas)</td></tr>
+              <tr><td><strong>Exemplos</strong></td><td>SAP ERP, Oracle EBS</td><td>Redshift, BigQuery, Snowflake</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Kimball vs. Inmon</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>Inmon (Top-Down)</th><th>Kimball (Bottom-Up)</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Abordagem</strong></td><td>DW corporativo centralizado primeiro, depois data marts</td><td>Data marts primeiro, DW emerge da integração</td></tr>
+              <tr><td><strong>Modelagem</strong></td><td>Normalizada (3FN) no DW</td><td>Dimensional (estrela/floco) desde o início</td></tr>
+              <tr><td><strong>Tempo de entrega</strong></td><td>Mais lento (DW completo primeiro)</td><td>Mais rápido (entrega por data mart)</td></tr>
+              <tr><td><strong>Consistência</strong></td><td>Alta (fonte única da verdade)</td><td>Depende de bus de conformidade</td></tr>
+              <tr><td><strong>Flexibilidade</strong></td><td>Menor</td><td>Maior</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Data Mart</div>
+          Data Mart = subconjunto do DW focado em uma área específica do negócio (ex: Data Mart de Vendas, de RH, de Produção). Mais rápido de implementar. Pode ser dependente (criado a partir do DW) ou independente (criado diretamente das fontes).
+        </div>
+      </div>
+    </div>
+
+    <!-- OLAP -->
+    <div class="tab-panel" data-tab="olap">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">📦</div>OLAP — Online Analytical Processing</h2>
+
+        <p>OLAP é uma tecnologia que permite análise multidimensional de dados de forma interativa e rápida. Os dados são organizados em <strong>cubos</strong> com dimensões e medidas.</p>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Cubo OLAP</div>
+          Um cubo OLAP não é literalmente um cubo — pode ter N dimensões. Ex: cubo de vendas com dimensões <strong>Tempo × Produto × Região</strong>. A interseção de dimensões é uma célula com a <strong>medida</strong> (ex: valor de vendas).
+        </div>
+
+        <h3>Operações OLAP — As Mais Cobradas</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Operação</th><th>O que faz</th><th>Exemplo prático</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Drill-Down</strong> ⬇️</td>
+                <td>Desce no nível de granularidade — vai do geral para o específico</td>
+                <td>Ver vendas por Ano → clicar → ver por Trimestre → clicar → ver por Mês</td>
+              </tr>
+              <tr>
+                <td><strong>Roll-Up</strong> ⬆️</td>
+                <td>Sobe no nível — agrega dados do específico para o geral</td>
+                <td>Ver vendas por Cidade → agregar → ver por Estado → agregar → ver por País</td>
+              </tr>
+              <tr>
+                <td><strong>Slice</strong> 🔪</td>
+                <td>Seleciona um único valor de uma dimensão — reduz o cubo em uma "fatia"</td>
+                <td>Filtrar apenas o mês de Janeiro (uma fatia do cubo temporal)</td>
+              </tr>
+              <tr>
+                <td><strong>Dice</strong> 🎲</td>
+                <td>Seleciona múltiplos valores de múltiplas dimensões — sub-cubo</td>
+                <td>Filtrar Janeiro e Fevereiro + Região Sul e Sudeste + Produto A e B</td>
+              </tr>
+              <tr>
+                <td><strong>Pivot</strong> 🔄</td>
+                <td>Rotaciona o cubo — muda a perspectiva de análise</td>
+                <td>Trocar linhas e colunas: de "Produto × Mês" para "Mês × Produto"</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Pegadinha — Slice vs Dice</div>
+          <strong>Slice:</strong> UMA dimensão com UM valor fixo → resultado é um plano 2D.<br>
+          <strong>Dice:</strong> MÚLTIPLAS dimensões com MÚLTIPLOS valores → resultado é um sub-cubo 3D+.<br>
+          A banca dá o cenário e troca os nomes. Lembre: Dice = Dado (6 faces = múltiplos valores).
+        </div>
+
+        <h3>Tipos de OLAP</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">💾</div>
+            <div class="concept-name">MOLAP</div>
+            <div class="concept-desc">Multidimensional OLAP — dados armazenados em estrutura multidimensional proprietária. Alta performance, mas limitado em volume.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🗄️</div>
+            <div class="concept-name">ROLAP</div>
+            <div class="concept-desc">Relational OLAP — dados no banco relacional, cubo gerado dinamicamente. Escalável para grandes volumes.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🔀</div>
+            <div class="concept-name">HOLAP</div>
+            <div class="concept-desc">Hybrid OLAP — combina MOLAP e ROLAP. Dados sumarizados em MOLAP, detalhados em ROLAP.</div>
+          </div>
+        </div>
+
+        <h3>Modelagem Multidimensional — Revisão</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Elemento</th><th>Definição</th><th>Exemplos</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Fato</strong></td><td>Tabela central com medidas numéricas mensuráveis</td><td>fato_vendas: valor, quantidade, desconto</td></tr>
+              <tr><td><strong>Dimensão</strong></td><td>Contexto da análise — quem, onde, quando, o quê</td><td>dim_tempo, dim_produto, dim_cliente, dim_loja</td></tr>
+              <tr><td><strong>Medida</strong></td><td>Métrica numérica na tabela fato</td><td>valor_venda, qtd_itens, lucro_bruto</td></tr>
+              <tr><td><strong>Hierarquia</strong></td><td>Nível de granularidade dentro de uma dimensão</td><td>Ano → Trimestre → Mês → Dia</td></tr>
+              <tr><td><strong>Granularidade</strong></td><td>Nível de detalhe dos dados no fato</td><td>Por transação vs. por dia vs. por mês</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- BI -->
+    <div class="tab-panel" data-tab="bi">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">📊</div>Business Intelligence</h2>
+
+        <p>BI é o conjunto de técnicas, processos e tecnologias que transformam dados brutos em <strong>informação acionável</strong> para suporte à tomada de decisão empresarial.</p>
+
+        <h3>Componentes do Ecossistema BI</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content">
+              <h4>Fontes de Dados (OLTP, APIs, Arquivos)</h4>
+              <p>Sistemas transacionais, planilhas, APIs externas — onde os dados são gerados.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content">
+              <h4>ETL / ELT (Integração)</h4>
+              <p>Extrai, transforma e carrega os dados nas estruturas analíticas.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">3</div>
+            <div class="step-content">
+              <h4>Data Warehouse / Data Mart</h4>
+              <p>Repositório analítico centralizado e otimizado para consultas.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">4</div>
+            <div class="step-content">
+              <h4>OLAP / Cubos</h4>
+              <p>Camada analítica que permite exploração multidimensional dos dados.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(239,68,68,0.15);color:var(--red)">5</div>
+            <div class="step-content">
+              <h4>Relatórios & Dashboards (Visualização)</h4>
+              <p>Interface para o usuário final — Power BI, Tableau, Qlik, Looker.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Geração de Insights — Tipos de Análise</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo</th><th>Pergunta respondida</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Descritiva</strong></td><td>"O que aconteceu?"</td><td>Relatório de vendas do trimestre</td></tr>
+              <tr><td><strong>Diagnóstica</strong></td><td>"Por que aconteceu?"</td><td>Análise de causas da queda de produção</td></tr>
+              <tr><td><strong>Preditiva</strong></td><td>"O que vai acontecer?"</td><td>Previsão de demanda para próximo mês</td></tr>
+              <tr><td><strong>Prescritiva</strong></td><td>"O que devo fazer?"</td><td>Recomendação de manutenção preventiva</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>BI como Suporte à Tomada de Decisão</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Diferença entre dado operacional e analítico</div>
+          <strong>Dado operacional (OLTP):</strong> "Qual o estoque atual do produto X?" — resposta imediata, dado atual.<br>
+          <strong>Dado analítico (DW/BI):</strong> "Como o estoque do produto X evoluiu nos últimos 3 anos e qual a tendência para o próximo trimestre?" — análise histórica e projeção.
+        </div>
+
+        <h3>Manipulação de Dados em Planilhas</h3>
+        <p>Planilhas (Excel, Google Sheets) são ferramentas básicas de BI para análise exploratória. Funções essenciais cobradas:</p>
+        <div class="code-block">
+          <span class="code-lang">Excel / Planilha</span>
+          <pre>=PROCV(valor; tabela; coluna; FALSO)     ← busca vertical
+=SOMASE(intervalo; critério; soma)       ← soma condicional
+=CONT.SES(int1; crit1; int2; crit2)     ← contagem múltiplos critérios
+=ÍNDICE(matriz; linha; coluna)           ← retorna valor por posição
+=CORRESP(valor; intervalo; tipo)         ← retorna posição do valor
+Tabela Dinâmica (Pivot Table)            ← análise multidimensional
+Segmentação de Dados (Slicer)            ← filtro visual interativo</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — BI & Análise de Dados</div>
+          <span class="badge badge-green">10 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-bi"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-bi"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="../ux/index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>UX & Design Thinking</div></div>
+      </a>
+      <a href="../logica/index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próxima</div><div>Lógica Matemática</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  const topics = ['dikw','estruturado','fontes','dw','inmon','kimball','olap','operacoes','molap','bi','decisao'];
+  const done = topics.filter(t => DC.Progress.getTopic('bi_'+t).done).length;
+  const pct = Math.round((done/topics.length)*100);
+  setTimeout(() => {
+    const r = document.getElementById('bi-ring'); if(r) r.style.strokeDashoffset = 263.9-(pct/100)*263.9;
+    const p = document.getElementById('bi-pct'); if(p) p.textContent = pct+'%';
+  }, 300);
+
+  DC.Checklist.init('checklist-bi','bi',[
+    'Domino a hierarquia DIKW com exemplos',
+    'Sei classificar dados estruturados, semi e não-estruturados',
+    'Conheço as 4 características do DW segundo Inmon',
+    'Sei a diferença entre DW (analítico) e OLTP (operacional)',
+    'Entendo Kimball (bottom-up) vs Inmon (top-down)',
+    'Domino as 5 operações OLAP (Drill-down, Roll-up, Slice, Dice, Pivot)',
+    'Sei a diferença entre Slice e Dice',
+    'Conheço os tipos de OLAP (MOLAP, ROLAP, HOLAP)',
+    'Entendo os 4 tipos de análise (descritiva, diagnóstica, preditiva, prescritiva)',
+    'Sei o ecossistema BI: fontes → ETL → DW → OLAP → Dashboard',
+  ]);
+
+  DC.Quiz.render('quiz-bi',[
+    { question:'Na hierarquia DIKW, qual é a correta progressão do nível mais básico ao mais elevado?',
+      options:[
+        'Conhecimento → Informação → Dado → Sabedoria',
+        'Dado → Informação → Conhecimento → Sabedoria',
+        'Informação → Dado → Sabedoria → Conhecimento',
+        'Dado → Conhecimento → Informação → Sabedoria',
+        'Sabedoria → Conhecimento → Informação → Dado'
+      ], answer:1, explanation:'DIKW: Dado (fato bruto sem contexto) → Informação (dado com contexto e significado) → Conhecimento (informação compreendida e aplicável) → Sabedoria/Inteligência (conhecimento usado para tomar decisões melhores). Cada nível agrega valor ao anterior através de processamento e contextualização.' },
+    { question:'Segundo a definição de Inmon, o Data Warehouse é NÃO-VOLÁTIL. Isso significa que:',
+      options:[
+        'Os dados mudam frequentemente para refletir o estado atual.',
+        'O sistema fica indisponível durante as janelas de carga.',
+        'Os dados carregados não são alterados nem excluídos — apenas lidos e carregados.',
+        'O DW opera sem necessidade de backup.',
+        'As queries são respondidas em tempo real sem latência.'
+      ], answer:2, explanation:'Não-volátil: uma vez carregado no DW, o dado é apenas lido — não sofre UPDATE ou DELETE (diferente do OLTP). Novos dados são adicionados, mas o histórico é preservado. Isso garante que análises históricas sempre retornem os mesmos resultados. A "volatilidade" do OLTP (INSERT/UPDATE/DELETE constantes) não existe no DW.' },
+    { question:'Um analista está analisando vendas por País e decide detalhar os dados para ver vendas por Estado. Qual operação OLAP foi realizada?',
+      options:[
+        'Roll-Up — subindo o nível de agregação.',
+        'Slice — filtrando uma dimensão.',
+        'Drill-Down — descendo para um nível mais granular de detalhe.',
+        'Dice — selecionando múltiplas dimensões.',
+        'Pivot — rotacionando a perspectiva de análise.'
+      ], answer:2, explanation:'Drill-Down = vai do GERAL para o ESPECÍFICO — aumenta a granularidade. País → Estado → Cidade → Loja. Roll-Up é o inverso (Cidade → Estado → País). Slice filtra UM valor de UMA dimensão. Dice filtra múltiplos valores de múltiplas dimensões. Pivot rotaciona linhas e colunas.' },
+    { question:'A operação OLAP que seleciona um subconjunto do cubo fixando UM único valor em UMA dimensão é chamada de:',
+      options:[
+        'Drill-Down','Roll-Up','Pivot','Slice','Dice'
+      ], answer:3, explanation:'Slice = "fatia" — fixa UM valor em UMA dimensão, resultando em um subplano 2D do cubo. Ex: fixar Mês = Janeiro → analisa todas as regiões e produtos apenas para Janeiro. Dice seleciona MÚLTIPLOS valores em MÚLTIPLAS dimensões → sub-cubo. A distinção Slice vs Dice é muito cobrada pela Cesgranrio.' },
+    { question:'A principal diferença entre OLTP e Data Warehouse é:',
+      options:[
+        'OLTP usa SQL; DW usa linguagens proprietárias.',
+        'OLTP suporta operações transacionais do dia a dia com dados atuais; DW suporta análise histórica para decisão.',
+        'DW é mais rápido que OLTP para operações de escrita.',
+        'OLTP armazena dados históricos; DW armazena apenas dados do mês atual.',
+        'Ambos têm o mesmo propósito — diferem apenas na tecnologia usada.'
+      ], answer:1, explanation:'OLTP: transacional, dados atuais, muitas operações de escrita, queries simples, usuários operacionais. DW: analítico, dados históricos, leitura predominante, queries complexas sobre milhões de registros, usuários analistas/gestores. A normalização também difere: OLTP normalizado (3FN), DW desnormalizado (estrela/floco).' },
+    { question:'Na abordagem de Kimball para construção de Data Warehouse, a característica principal é:',
+      options:[
+        'Construir um DW corporativo normalizado centralizado antes de criar data marts.',
+        'Construir data marts dimensionais independentes que se integram pelo Barramento de Conformidade.',
+        'Usar exclusivamente modelagem em floco de neve para máxima normalização.',
+        'Eliminar a camada ETL usando ELT direto no DW.',
+        'Criar um único schema que atende a todos os departamentos simultaneamente.'
+      ], answer:1, explanation:'Kimball (Bottom-Up): começa pelos Data Marts departamentais usando modelagem dimensional (estrela). A integração entre data marts é feita pelo "Barramento de Conformidade" (dimensões e métricas conformadas). Entrega mais rápida (data mart a data mart), mas pode gerar inconsistências se dimensões não forem conformadas. Inmon (Top-Down) é o oposto.' },
+    { question:'O ROLAP (Relational OLAP) difere do MOLAP porque:',
+      options:[
+        'ROLAP armazena dados em estrutura multidimensional; MOLAP usa banco relacional.',
+        'ROLAP usa banco relacional para armazenar os dados e gera cubos dinamicamente; MOLAP armazena em estrutura multidimensional proprietária.',
+        'ROLAP é mais rápido que MOLAP para qualquer tipo de query.',
+        'MOLAP não suporta operações de drill-down.',
+        'Não há diferença técnica — apenas de fornecedor.'
+      ], answer:1, explanation:'MOLAP: dados em estrutura multidimensional proprietária pré-calculada → alta performance, mas limitado em volume e flexibilidade. ROLAP: dados no banco relacional, cubo gerado dinamicamente via SQL → escalável para grandes volumes, mais flexível, mas pode ser mais lento. HOLAP combina os dois.' },
+    { question:'Um gestor da Petrobras pergunta: "Por que a produção da plataforma P-76 caiu 12% em outubro?" Qual tipo de análise ele está buscando?',
+      options:[
+        'Análise descritiva — "o que aconteceu?"',
+        'Análise diagnóstica — "por que aconteceu?"',
+        'Análise preditiva — "o que vai acontecer?"',
+        'Análise prescritiva — "o que devo fazer?"',
+        'Análise exploratória — "o que existe nos dados?"'
+      ], answer:1, explanation:'Diagnóstica = investiga as CAUSAS de um evento já ocorrido. "Por que aconteceu?" → análise de correlações, comparação de variáveis, investigação de causas raiz. Descritiva = "o que aconteceu?" (relatório de produção). Preditiva = "o que vai acontecer?" (forecast). Prescritiva = "o que fazer?" (recomendação de ação).' },
+    { question:'Qual característica do Data Warehouse garante que análises realizadas em datas diferentes sobre o mesmo período histórico retornem os mesmos resultados?',
+      options:[
+        'Orientação a assunto','Integração','Não-volatilidade','Variância no tempo','Granularidade'
+      ], answer:2, explanation:'Não-volatilidade: dados no DW não são alterados após a carga. Isso garante que uma query sobre "vendas de janeiro de 2023" retornará SEMPRE os mesmos resultados, independente de quando for executada. No OLTP, dados mudam constantemente (UPDATE/DELETE), então a mesma query pode retornar resultados diferentes.' },
+    { question:'Um Data Mart DEPENDENTE difere de um Data Mart INDEPENDENTE porque:',
+      options:[
+        'O dependente é criado a partir do DW corporativo; o independente extrai dados diretamente das fontes operacionais.',
+        'O independente é mais caro de manter; o dependente é mais barato.',
+        'O dependente pode existir sem um DW; o independente sempre precisa de um.',
+        'Não há diferença técnica — apenas organizacional.',
+        'O independente usa modelagem estrela; o dependente usa floco de neve.'
+      ], answer:0, explanation:'Data Mart Dependente: criado a partir do DW corporativo — garante consistência com a "fonte única da verdade". Data Mart Independente: alimentado diretamente das fontes operacionais (OLTP, arquivos), sem passar pelo DW corporativo — pode gerar inconsistências entre data marts. A abordagem Inmon favorece marts dependentes; Kimball pode usar independentes integrados por conformidade.' },
+  ],'bi_simulado');
+});
+</script>
+</body>
+</html>

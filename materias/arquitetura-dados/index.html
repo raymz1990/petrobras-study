@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arquitetura de Dados | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a>
+      <span class="sep">›</span>
+      <span>Bloco I</span>
+      <span class="sep">›</span>
+      <span>Arquitetura de Dados</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">🗄️ Bloco I · Arquitetura de Dados</div>
+        <h1 class="mb-8">Arquitetura de <span class="gradient-text">Dados</span></h1>
+        <p>Modelagem, SQL, NoSQL, ETL, ACID, Big Data, Data Lakes e muito mais. Um dos blocos com maior peso na prova Petrobras — exige domínio técnico profundo.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>📋 22 tópicos no edital</span></div>
+          <div class="materia-meta-item"><span>⏱ ~12h de estudo estimado</span></div>
+          <div class="materia-meta-item"><span>🎯 Altíssima incidência</span></div>
+          <div class="materia-meta-item"><span>💡 Recomendado: estudar SQL separado</span></div>
+        </div>
+      </div>
+      <div class="materia-progress-ring">
+        <div class="progress-ring-wrap">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="42" fill="none" stroke-width="8" stroke="var(--bg-tertiary)"/>
+            <circle id="ad-ring" cx="50" cy="50" r="42" fill="none" stroke="#8B5CF6" stroke-width="8" stroke-dasharray="263.9" stroke-dashoffset="263.9" stroke-linecap="round" style="transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset 0.8s"/>
+          </svg>
+          <div class="progress-ring-label">
+            <span class="progress-ring-pct" id="ad-pct">0%</span>
+            <span class="progress-ring-sub">Progresso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cesgranrio -->
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Arquitetura de Dados</h4></div>
+      <ul>
+        <li>SQL com cenário real — a banca mostra um schema e pede resultado de query com JOIN, GROUP BY e HAVING</li>
+        <li>Diferença entre DDL e DML — saber que TRUNCATE é DDL e não DML</li>
+        <li>ACID — saber definir cada propriedade e identificar qual está sendo violada num cenário</li>
+        <li>Normalização — 1FN, 2FN, 3FN, BCNF: saber identificar qual forma está violando</li>
+        <li>NoSQL — saber qual tipo (documento, chave-valor, grafos, colunar) se aplica a qual cenário</li>
+        <li>Modelagem dimensional — diferença entre fato e dimensão, estrela vs floco de neve</li>
+        <li>ETL vs ELT — tendência recente de perguntar sobre ELT em contexto de Data Lake</li>
+      </ul>
+    </div>
+
+    <!-- Sub-tópicos Grid -->
+    <div class="section-header animate-fade-up delay-3">
+      <div class="section-title"><span class="accent-dot"></span> Tópicos do Edital — Bloco I, Item 1</div>
+      <span class="badge badge-gold">22 tópicos</span>
+    </div>
+
+    <div class="topics-grid animate-fade-up delay-3">
+
+      <a href="modelagem.html" class="topic-card" id="tc-ad-modelagem">
+        <div class="topic-icon" style="background:rgba(139,92,246,0.1)">📐</div>
+        <div class="topic-title">1.1 – 1.2 · Modelagem de Dados</div>
+        <div class="topic-desc">Conceitual, lógica e física. Criação e alteração de modelos. Engenharia reversa.</div>
+        <div class="topic-footer"><span class="badge badge-gold">Alta</span><span class="text-small text-muted">~60 min</span></div>
+      </a>
+
+      <a href="relacional.html" class="topic-card" id="tc-ad-relacional">
+        <div class="topic-icon" style="background:rgba(14,165,233,0.1)">🔗</div>
+        <div class="topic-title">1.3 – 1.6 · Modelo Relacional</div>
+        <div class="topic-desc">Abordagem relacional, normalização (1FN a BCNF), integridade referencial, metadados.</div>
+        <div class="topic-footer"><span class="badge badge-gold">Alta</span><span class="text-small text-muted">~50 min</span></div>
+      </a>
+
+      <a href="dimensional.html" class="topic-card" id="tc-ad-dimensional">
+        <div class="topic-icon" style="background:rgba(212,175,55,0.1)">⭐</div>
+        <div class="topic-title">1.7 · Modelagem Dimensional</div>
+        <div class="topic-desc">Tabelas fato e dimensão, esquema estrela, floco de neve, cubos OLAP.</div>
+        <div class="topic-footer"><span class="badge badge-gold">Alta</span><span class="text-small text-muted">~45 min</span></div>
+      </a>
+
+      <a href="sql.html" class="topic-card" id="tc-ad-sql">
+        <div class="topic-icon" style="background:rgba(16,185,129,0.1)">💻</div>
+        <div class="topic-title">1.9 – 1.11 · SQL, DDL e DML</div>
+        <div class="topic-desc">Linguagem SQL completa: SELECT, JOIN, subqueries, DDL (CREATE/ALTER/DROP), DML (INSERT/UPDATE/DELETE).</div>
+        <div class="topic-footer"><span class="badge badge-gold">Altíssima</span><span class="text-small text-muted">~90 min</span></div>
+      </a>
+
+      <a href="sgbd.html" class="topic-card" id="tc-ad-sgbd">
+        <div class="topic-icon" style="background:rgba(239,68,68,0.1)">⚙️</div>
+        <div class="topic-title">1.12 – 1.16 · SGBD e Transações</div>
+        <div class="topic-desc">SGBD, ACID, independência de dados, transações, isolamento, performance.</div>
+        <div class="topic-footer"><span class="badge badge-gold">Alta</span><span class="text-small text-muted">~60 min</span></div>
+      </a>
+
+      <a href="nosql.html" class="topic-card" id="tc-ad-nosql">
+        <div class="topic-icon" style="background:rgba(139,92,246,0.1)">🌐</div>
+        <div class="topic-title">1.17 + 1.22 · NoSQL e Tipos de BD</div>
+        <div class="topic-desc">Documento, chave-valor, colunar, grafos. Comparação com relacional e multidimensional.</div>
+        <div class="topic-footer"><span class="badge badge-gold">Alta</span><span class="text-small text-muted">~50 min</span></div>
+      </a>
+
+      <a href="etl.html" class="topic-card" id="tc-ad-etl">
+        <div class="topic-icon" style="background:rgba(14,165,233,0.1)">🔄</div>
+        <div class="topic-title">1.18 · ETL e Integração</div>
+        <div class="topic-desc">ETL, ELT, transferência de arquivos, integração via base de dados. Ferramentas e padrões.</div>
+        <div class="topic-footer"><span class="badge badge-purple">Média</span><span class="text-small text-muted">~40 min</span></div>
+      </a>
+
+      <a href="bigdata.html" class="topic-card" id="tc-ad-bigdata">
+        <div class="topic-icon" style="background:rgba(212,175,55,0.1)">🌊</div>
+        <div class="topic-title">1.19 – 1.21 · Data Lakes e Big Data</div>
+        <div class="topic-desc">BD em memória, qualidade de dados, Data Lakes, Big Data (5 Vs), soluções de processamento massivo.</div>
+        <div class="topic-footer"><span class="badge badge-purple">Média</span><span class="text-small text-muted">~40 min</span></div>
+      </a>
+
+    </div>
+
+    <!-- Checklist -->
+    <div class="card animate-fade-up delay-4 mb-24">
+      <div class="section-header">
+        <div class="section-title"><span class="accent-dot"></span> Checklist — Arquitetura de Dados</div>
+      </div>
+      <div id="checklist-arqdados"></div>
+    </div>
+
+    <!-- Mini Simulado -->
+    <div class="card card-glow animate-fade-up delay-5">
+      <div class="section-header">
+        <div class="section-title"><span class="accent-dot"></span> Mini Simulado — Arquitetura de Dados</div>
+        <span class="badge badge-purple">10 questões · Estilo Cesgranrio</span>
+      </div>
+      <div id="quiz-arqdados"></div>
+    </div>
+
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+
+  const topics = ['modelagem','relacional','dimensional','sql','sgbd','nosql','etl','bigdata'];
+  const done = topics.filter(t => DC.Progress.getTopic('ad_'+t).done).length;
+  const pct  = Math.round((done / topics.length) * 100);
+  setTimeout(() => {
+    const ring = document.getElementById('ad-ring');
+    if (ring) ring.style.strokeDashoffset = 263.9 - (pct / 100) * 263.9;
+    const pctEl = document.getElementById('ad-pct');
+    if (pctEl) pctEl.textContent = pct + '%';
+  }, 300);
+
+  topics.forEach(t => {
+    if (DC.Progress.getTopic('ad_'+t).done)
+      document.getElementById('tc-ad-'+t)?.classList.add('done');
+  });
+
+  DC.Checklist.init('checklist-arqdados', 'arqdados', [
+    'Sei diferenciar modelos conceitual, lógico e físico',
+    'Domino normalização: 1FN, 2FN, 3FN e BCNF',
+    'Entendo integridade referencial e chaves (PK, FK, UK)',
+    'Sei escrever e interpretar queries SQL com JOIN',
+    'Conheço GROUP BY, HAVING, DISTINCT e funções de agregação',
+    'Sei diferenciar DDL (CREATE/ALTER/DROP) de DML (INSERT/UPDATE/DELETE)',
+    'Domino as 4 propriedades ACID e sei identificar violações',
+    'Conheço os 4 tipos de NoSQL e seus casos de uso',
+    'Sei a diferença entre ETL e ELT',
+    'Entendo modelagem dimensional: fato, dimensão, estrela, floco de neve',
+    'Conheço os 5 Vs do Big Data',
+    'Sei a diferença entre Data Lake e Data Warehouse'
+  ]);
+
+  DC.Quiz.render('quiz-arqdados', [
+    {
+      question: 'Uma tabela "Pedidos" possui os campos: PedidoID, ClienteID, ClienteNome, Produto, Quantidade. Considerando que ClienteNome depende apenas de ClienteID (não da chave primária composta PedidoID+Produto), essa tabela viola:',
+      options: [
+        'Primeira Forma Normal (1FN)',
+        'Segunda Forma Normal (2FN)',
+        'Terceira Forma Normal (3FN)',
+        'Forma Normal de Boyce-Codd (BCNF)',
+        'Nenhuma forma normal'
+      ],
+      answer: 1,
+      explanation: 'A 2FN exige que todo atributo não-chave dependa da chave primária COMPLETA. ClienteNome depende apenas de ClienteID (dependência parcial da chave composta PedidoID+Produto) — violação da 2FN. A 1FN está ok (não há grupos repetidos). A 3FN só é verificada após corrigir a 2FN.'
+    },
+    {
+      question: 'Qual comando SQL retorna os departamentos com mais de 3 funcionários, ordenado pelo total em ordem decrescente?',
+      options: [
+        'SELECT dept, COUNT(*) FROM func WHERE COUNT(*) > 3 ORDER BY 2 DESC',
+        'SELECT dept, COUNT(*) AS total FROM func GROUP BY dept HAVING COUNT(*) > 3 ORDER BY total DESC',
+        'SELECT dept, COUNT(*) AS total FROM func HAVING COUNT(*) > 3 GROUP BY dept ORDER BY total',
+        'SELECT dept, SUM(*) FROM func GROUP BY dept HAVING SUM > 3 ORDER BY 2 DESC',
+        'SELECT dept FROM func GROUP BY dept WHERE COUNT(*) > 3 ORDER BY dept DESC'
+      ],
+      answer: 1,
+      explanation: 'Regra fundamental: WHERE filtra linhas ANTES do agrupamento; HAVING filtra DEPOIS do GROUP BY (sobre grupos/agregações). Nunca use WHERE com funções de agregação. A ordem correta é: SELECT → FROM → WHERE → GROUP BY → HAVING → ORDER BY. A opção B segue essa ordem corretamente.'
+    },
+    {
+      question: 'Em uma transação bancária de transferência, o sistema debita R$1.000 da conta A e, antes de creditar na conta B, ocorre uma falha no servidor. Ao restaurar, nenhuma operação é registrada. Qual propriedade ACID garante esse comportamento?',
+      options: [
+        'Consistência — os dados permanecem em estado válido.',
+        'Isolamento — outras transações não veem o estado intermediário.',
+        'Durabilidade — os dados persistem após o commit.',
+        'Atomicidade — a transação é executada por completo ou desfeita.',
+        'Integridade — as regras de negócio são preservadas.'
+      ],
+      answer: 3,
+      explanation: '"Tudo ou nada" = Atomicidade. A transação de transferência (débito + crédito) deve ser tratada como uma unidade indivisível. Se qualquer parte falhar, tudo é revertido (rollback). Consistência garante estado válido; Isolamento é sobre concorrência; Durabilidade é sobre persistência pós-commit.'
+    },
+    {
+      question: 'Qual dos seguintes comandos SQL pertence exclusivamente à categoria DDL (Data Definition Language)?',
+      options: [
+        'INSERT INTO tabela VALUES (...)',
+        'UPDATE tabela SET coluna = valor',
+        'SELECT * FROM tabela',
+        'TRUNCATE TABLE tabela',
+        'DELETE FROM tabela WHERE id = 1'
+      ],
+      answer: 3,
+      explanation: 'TRUNCATE é DDL — remove todos os registros da tabela, mas afeta a estrutura de forma mais drástica que DELETE (não gera log linha a linha, não pode ter WHERE, e em alguns SGBDs não é reversível por rollback). INSERT/UPDATE/DELETE são DML. SELECT é DQL (alguns autores agrupam com DML). CREATE/ALTER/DROP/TRUNCATE são DDL.'
+    },
+    {
+      question: 'Uma empresa de redes sociais precisa armazenar relações complexas entre usuários (quem segue quem, amizades, grupos). Qual tipo de banco NoSQL é mais adequado?',
+      options: [
+        'Banco de documentos (ex: MongoDB)',
+        'Banco chave-valor (ex: Redis)',
+        'Banco colunar (ex: Cassandra)',
+        'Banco de grafos (ex: Neo4j)',
+        'Banco relacional (ex: PostgreSQL)'
+      ],
+      answer: 3,
+      explanation: 'Bancos de grafos são otimizados para dados altamente conectados — nós (entidades) e arestas (relacionamentos). Redes sociais, recomendações, mapeamento de rotas são casos de uso típicos. MongoDB (documentos) é melhor para dados semi-estruturados hierárquicos. Redis (chave-valor) para cache e sessões. Cassandra (colunar) para séries temporais e alta escrita.'
+    },
+    {
+      question: 'Na modelagem dimensional, a diferença entre esquema estrela (star schema) e floco de neve (snowflake schema) é:',
+      options: [
+        'No estrela, as dimensões são normalizadas; no floco, são desnormalizadas.',
+        'No estrela, as dimensões são desnormalizadas (tabela única); no floco, são normalizadas em sub-dimensões.',
+        'O estrela suporta apenas uma tabela fato; o floco suporta múltiplas.',
+        'O floco de neve é exclusivo para Data Warehouses; o estrela é para OLTP.',
+        'Não há diferença estrutural, apenas de nomenclatura.'
+      ],
+      answer: 1,
+      explanation: 'Star Schema: dimensões desnormalizadas (uma tabela por dimensão, mais simples, consultas mais rápidas). Snowflake Schema: dimensões normalizadas em múltiplas tabelas relacionadas (ocupa menos espaço, mas consultas mais complexas com mais JOINs). A Cesgranrio frequentemente pede essa distinção com foco em qual gera mais performance de leitura (estrela) vs. menos redundância (floco).'
+    },
+    {
+      question: 'No contexto de ETL (Extract, Transform, Load), qual é a principal diferença em relação ao ELT (Extract, Load, Transform)?',
+      options: [
+        'ETL não requer ferramentas específicas; ELT exige ferramentas especializadas.',
+        'No ETL, os dados são transformados antes de serem carregados; no ELT, são carregados brutos e transformados no destino.',
+        'ELT é exclusivo de bancos relacionais; ETL é usado em NoSQL.',
+        'ETL é mais indicado para Data Lakes; ELT é exclusivo de Data Warehouses.',
+        'Não há diferença prática entre ETL e ELT.'
+      ],
+      answer: 1,
+      explanation: 'ETL (tradicional): Extrair → Transformar (em área de staging) → Carregar no destino limpo. ELT (moderno, cloud): Extrair → Carregar no destino (Data Lake/DW) → Transformar usando o poder computacional do destino. ELT é favorecido em ambientes cloud com grande capacidade de processamento (BigQuery, Redshift, Snowflake).'
+    },
+    {
+      question: 'Qual dos seguintes NÃO é um dos "5 Vs" do Big Data?',
+      options: [
+        'Volume — grande quantidade de dados',
+        'Velocidade — alta taxa de geração e processamento',
+        'Variedade — diferentes formatos (estruturado, semi, não-estruturado)',
+        'Verificabilidade — garantia de autenticidade dos dados',
+        'Veracidade — qualidade e confiabilidade dos dados'
+      ],
+      answer: 3,
+      explanation: 'Os 5 Vs do Big Data são: Volume, Velocidade, Variedade, Veracidade e Valor. "Verificabilidade" não é um dos Vs reconhecidos. Atenção: algumas bibliografias citam 3, 4, 5 ou até 7 Vs — para Cesgranrio, foque nos 5 principais. "Veracidade" é o V mais cobrado que candidatos esquecem (após os 3 iniciais).'
+    },
+    {
+      question: 'A diferença entre Data Lake e Data Warehouse é:',
+      options: [
+        'Data Lake armazena apenas dados estruturados; Data Warehouse aceita qualquer formato.',
+        'Data Warehouse é mais barato de manter que o Data Lake.',
+        'Data Lake armazena dados brutos em qualquer formato; Data Warehouse armazena dados processados e estruturados para análise.',
+        'Data Lake é exclusivo de empresas de tecnologia; DW é para qualquer setor.',
+        'Não há diferença — são termos sinônimos.'
+      ],
+      answer: 2,
+      explanation: 'Data Lake: repositório de dados brutos em qualquer formato (estruturado, semi, não-estruturado) sem schema predefinido — "schema on read". Data Warehouse: dados processados, integrados, com schema bem definido para análise — "schema on write". Data Lake é mais flexível e barato; DW tem melhor performance analítica. Muitas empresas usam os dois (arquitetura lakehouse).'
+    },
+    {
+      question: 'Considere as afirmativas sobre índices em banco de dados:\n\nI. Índices sempre aumentam a performance de consultas SELECT.\nII. O excesso de índices pode degradar a performance de operações INSERT, UPDATE e DELETE.\nIII. A chave primária sempre cria um índice automaticamente na maioria dos SGBDs.\n\nEstá CORRETO apenas:',
+      options: [
+        'Apenas I',
+        'Apenas II',
+        'Apenas III',
+        'II e III',
+        'I, II e III'
+      ],
+      answer: 3,
+      explanation: 'I é FALSA: índices melhoram SELECTs mas podem não ajudar se a seletividade for baixa, ou podem ser ignorados pelo otimizador. II é VERDADEIRA: cada índice precisa ser atualizado em escritas — muitos índices degradam DML. III é VERDADEIRA: na maioria dos SGBDs (Oracle, PostgreSQL, MySQL, SQL Server), PK cria índice único automaticamente. Logo, apenas II e III estão corretas.'
+    }
+  ], 'arqdados_simulado');
+});
+</script>
+</body>
+</html>

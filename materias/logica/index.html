@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lógica Matemática | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <span>Bloco III</span><span class="sep">›</span><span>Lógica Matemática</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">🧮 Bloco III · Item 2</div>
+        <h1 class="mb-8">Lógica <span class="gradient-text">Matemática</span></h1>
+        <p>Lógica sentencial e de predicados, conectivos, tabela-verdade, argumentos válidos, sistemas dedutivos e decidibilidade. Exige raciocínio preciso e prática constante.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>📋 9 tópicos</span></div>
+          <div class="materia-meta-item"><span>⏱ ~5h de estudo</span></div>
+          <div class="materia-meta-item"><span>🎯 Média/Alta incidência</span></div>
+        </div>
+      </div>
+      <div class="materia-progress-ring">
+        <div class="progress-ring-wrap">
+          <svg width="100" height="100" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="42" fill="none" stroke-width="8" stroke="var(--bg-tertiary)"/>
+            <circle id="log-ring" cx="50" cy="50" r="42" fill="none" stroke="#D4AF37" stroke-width="8"
+              stroke-dasharray="263.9" stroke-dashoffset="263.9" stroke-linecap="round"
+              style="transform:rotate(-90deg);transform-origin:50px 50px;transition:stroke-dashoffset 0.8s"/>
+          </svg>
+          <div class="progress-ring-label">
+            <span class="progress-ring-pct" id="log-pct">0%</span>
+            <span class="progress-ring-sub">Progresso</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Lógica</h4></div>
+      <ul>
+        <li>Tabela-verdade do condicional (→): FALSO apenas quando P é V e Q é F</li>
+        <li>Negação do condicional: ¬(P→Q) ≡ P ∧ ¬Q — muito cobrado</li>
+        <li>Contrapositiva: (P→Q) ≡ (¬Q→¬P) — equivalência importante</li>
+        <li>Argumento válido: verdade das premissas garante verdade da conclusão</li>
+        <li>Modus Ponens e Modus Tollens — regras de inferência mais cobradas</li>
+        <li>Quantificadores: ∀ (para todo) e ∃ (existe) com negações</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="conectivos">🔗 Conectivos</button>
+      <button class="tab-btn" data-tab="tabela">📊 Tabela-Verdade</button>
+      <button class="tab-btn" data-tab="equivalencias">🔄 Equivalências</button>
+      <button class="tab-btn" data-tab="argumentos">⚖️ Argumentos</button>
+      <button class="tab-btn" data-tab="predicados">∀ Predicados</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Conectivos -->
+    <div class="tab-panel active" data-tab="conectivos">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">🔗</div>Conectivos Lógicos</h2>
+
+        <p>Proposição é um enunciado declarativo que pode ser classificado como <strong>verdadeiro (V)</strong> ou <strong>falso (F)</strong> — nunca os dois ao mesmo tempo.</p>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ O que NÃO é proposição</div>
+          Perguntas ("Você veio?"), exclamações ("Que bonito!"), ordens ("Feche a porta!") e sentenças abertas ("x > 5" sem definir x) <strong>NÃO são proposições</strong> — não têm valor-verdade definido.
+        </div>
+
+        <h3>Os 5 Conectivos Principais</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Conectivo</th><th>Símbolo</th><th>Nome</th><th>Leitura</th><th>Quando é FALSO</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Negação</strong></td>
+                <td><code class="font-mono">¬P</code></td>
+                <td>NÃO</td>
+                <td>"não P"</td>
+                <td>Quando P é Verdadeiro</td>
+              </tr>
+              <tr>
+                <td><strong>Conjunção</strong></td>
+                <td><code class="font-mono">P ∧ Q</code></td>
+                <td>E</td>
+                <td>"P e Q"</td>
+                <td>Quando pelo menos um é Falso</td>
+              </tr>
+              <tr>
+                <td><strong>Disjunção</strong></td>
+                <td><code class="font-mono">P ∨ Q</code></td>
+                <td>OU</td>
+                <td>"P ou Q"</td>
+                <td>Quando AMBOS são Falsos</td>
+              </tr>
+              <tr>
+                <td><strong>Condicional</strong></td>
+                <td><code class="font-mono">P → Q</code></td>
+                <td>SE...ENTÃO</td>
+                <td>"se P então Q"</td>
+                <td><strong>Apenas quando P é V e Q é F</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Bicondicional</strong></td>
+                <td><code class="font-mono">P ↔ Q</code></td>
+                <td>SE E SOMENTE SE</td>
+                <td>"P se e somente se Q"</td>
+                <td>Quando P e Q têm valores diferentes</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ O Condicional — O Mais Cobrado</div>
+          P → Q é <strong>FALSO apenas quando P = V e Q = F</strong>. Nos outros 3 casos, é VERDADEIRO.<br>
+          Interpretação: "Se chover (P), então a rua fica molhada (Q)". É falso apenas se choveu MAS a rua não ficou molhada.<br>
+          Nos outros casos: se não choveu (P=F), não podemos dizer que a promessa foi quebrada → condicional = V.
+        </div>
+
+        <h3>Notações Equivalentes do Condicional</h3>
+        <div class="code-block">
+          <span class="code-lang">P → Q equivale a</span>
+          <pre>"Se P, então Q"
+"P somente se Q"
+"P é condição suficiente para Q"
+"Q é condição necessária para P"
+"Q se P"
+"Não P ou Q"  →  ¬P ∨ Q</pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabela Verdade -->
+    <div class="tab-panel" data-tab="tabela">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">📊</div>Tabela-Verdade</h2>
+
+        <p>A tabela-verdade lista todos os possíveis valores das proposições simples e calcula o valor da proposição composta resultante.</p>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Número de linhas</div>
+          Com <strong>n</strong> proposições simples, a tabela tem <strong>2ⁿ linhas</strong>:<br>
+          1 variável = 2 linhas | 2 variáveis = 4 linhas | 3 variáveis = 8 linhas | 4 variáveis = 16 linhas
+        </div>
+
+        <h3>Tabela Completa dos Conectivos</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>P</th><th>Q</th><th>¬P</th><th>P ∧ Q</th><th>P ∨ Q</th><th>P → Q</th><th>P ↔ Q</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="color:var(--green)"><td>V</td><td>V</td><td>F</td><td>V</td><td>V</td><td>V</td><td>V</td></tr>
+              <tr><td>V</td><td>F</td><td>F</td><td>F</td><td>V</td><td style="color:var(--red);font-weight:700">F</td><td style="color:var(--red)">F</td></tr>
+              <tr><td>F</td><td>V</td><td>V</td><td>F</td><td>V</td><td>V</td><td style="color:var(--red)">F</td></tr>
+              <tr><td>F</td><td>F</td><td>V</td><td>F</td><td style="color:var(--red)">F</td><td>V</td><td>V</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Decorar: casos em que cada conectivo é FALSO</div>
+          <strong>∧ (E):</strong> F quando qualquer um é F (exige todos V)<br>
+          <strong>∨ (OU):</strong> F apenas quando AMBOS são F<br>
+          <strong>→ (SE-ENTÃO):</strong> F apenas quando P=V e Q=F (1 único caso!)<br>
+          <strong>↔ (SSE):</strong> F quando P ≠ Q (valores diferentes)
+        </div>
+
+        <h3>Tautologia, Contradição e Contingência</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">✅</div>
+            <div class="concept-name">Tautologia</div>
+            <div class="concept-desc">Proposição SEMPRE verdadeira, independente dos valores das variáveis. Ex: P ∨ ¬P (Lei do Terceiro Excluído).</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">❌</div>
+            <div class="concept-name">Contradição</div>
+            <div class="concept-desc">Proposição SEMPRE falsa. Ex: P ∧ ¬P (uma coisa não pode ser verdadeira e falsa ao mesmo tempo).</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🔀</div>
+            <div class="concept-name">Contingência</div>
+            <div class="concept-desc">Proposição que pode ser V ou F dependendo dos valores — nem sempre V nem sempre F. A maioria das proposições é contingente.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Equivalências -->
+    <div class="tab-panel" data-tab="equivalencias">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">🔄</div>Equivalências Lógicas</h2>
+
+        <p>Duas proposições são logicamente equivalentes (≡) quando têm a mesma tabela-verdade — os mesmos valores em todas as linhas.</p>
+
+        <h3>Equivalências Essenciais</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Nome</th><th>Equivalência</th><th>Aplicação</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Contrapositiva</strong></td><td><code>(P→Q) ≡ (¬Q→¬P)</code></td><td>Transformar condicional para resolver problemas</td></tr>
+              <tr><td><strong>Negação do Condicional</strong></td><td><code>¬(P→Q) ≡ P ∧ ¬Q</code></td><td>Muito cobrada — negar "se P então Q"</td></tr>
+              <tr><td><strong>Condicional como Disjunção</strong></td><td><code>(P→Q) ≡ (¬P ∨ Q)</code></td><td>Reescrever condicional sem a seta</td></tr>
+              <tr><td><strong>De Morgan 1</strong></td><td><code>¬(P ∧ Q) ≡ ¬P ∨ ¬Q</code></td><td>Negar conjunção = disjunção das negações</td></tr>
+              <tr><td><strong>De Morgan 2</strong></td><td><code>¬(P ∨ Q) ≡ ¬P ∧ ¬Q</code></td><td>Negar disjunção = conjunção das negações</td></tr>
+              <tr><td><strong>Dupla Negação</strong></td><td><code>¬¬P ≡ P</code></td><td>Negar duas vezes = proposição original</td></tr>
+              <tr><td><strong>Bicondicional</strong></td><td><code>(P↔Q) ≡ (P→Q) ∧ (Q→P)</code></td><td>SSE = condicional nos dois sentidos</td></tr>
+              <tr><td><strong>Negação do Bicondicional</strong></td><td><code>¬(P↔Q) ≡ P ↔ ¬Q</code></td><td>XOR exclusivo</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Contrapositiva — Use em Questões Difíceis</div>
+          Se a questão pede para trabalhar com "Se P então Q" e você travar, use a contrapositiva equivalente "Se não Q então não P". Elas são logicamente idênticas e muitas vezes a contrapositiva é mais fácil de raciocinar.
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Cuidado — Inversa e Recíproca NÃO são equivalentes ao original</div>
+          Dado P→Q:<br>
+          <strong>Contrapositiva:</strong> ¬Q→¬P ✅ equivalente<br>
+          <strong>Inversa:</strong> ¬P→¬Q ❌ NÃO equivalente<br>
+          <strong>Recíproca:</strong> Q→P ❌ NÃO equivalente<br>
+          A banca frequentemente apresenta a inversa como sendo equivalente — pegadinha clássica!
+        </div>
+      </div>
+    </div>
+
+    <!-- Argumentos -->
+    <div class="tab-panel" data-tab="argumentos">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">⚖️</div>Argumentos e Sistemas Dedutivos</h2>
+
+        <p>Um <strong>argumento</strong> é um conjunto de proposições onde algumas (premissas) justificam outra (conclusão). Um argumento é <strong>válido</strong> se for impossível que todas as premissas sejam verdadeiras e a conclusão seja falsa.</p>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Validade ≠ Verdade</div>
+          Um argumento pode ser válido mesmo com premissas falsas! Validade é sobre a FORMA lógica, não o conteúdo. Ex: "Todo gato é azul. Fido é gato. Logo, Fido é azul" — argumento VÁLIDO (forma correta), mas com premissa falsa.
+        </div>
+
+        <h3>Regras de Inferência Principais</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Regra</th><th>Forma</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Modus Ponens (MP)</strong></td>
+                <td><code>P→Q, P ⊢ Q</code></td>
+                <td>Se chove → rua molhada. Está chovendo. Logo: rua molhada.</td>
+              </tr>
+              <tr>
+                <td><strong>Modus Tollens (MT)</strong></td>
+                <td><code>P→Q, ¬Q ⊢ ¬P</code></td>
+                <td>Se chove → rua molhada. Rua NÃO está molhada. Logo: NÃO choveu.</td>
+              </tr>
+              <tr>
+                <td><strong>Silogismo Hipotético</strong></td>
+                <td><code>P→Q, Q→R ⊢ P→R</code></td>
+                <td>Se A então B. Se B então C. Logo: Se A então C.</td>
+              </tr>
+              <tr>
+                <td><strong>Silogismo Disjuntivo</strong></td>
+                <td><code>P∨Q, ¬P ⊢ Q</code></td>
+                <td>A ou B. Não A. Logo: B.</td>
+              </tr>
+              <tr>
+                <td><strong>Adição</strong></td>
+                <td><code>P ⊢ P∨Q</code></td>
+                <td>A é verdadeiro. Logo: A ou B é verdadeiro.</td>
+              </tr>
+              <tr>
+                <td><strong>Simplificação</strong></td>
+                <td><code>P∧Q ⊢ P</code></td>
+                <td>A e B são verdadeiros. Logo: A é verdadeiro.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Falácias Comuns — Argumentos INVÁLIDOS</div>
+          <strong>Afirmação do Consequente:</strong> P→Q, Q ⊢ P ❌ (inválido!)<br>
+          Ex: "Se chove, a rua fica molhada. A rua está molhada. Logo, choveu." — INVÁLIDO (pode ter outros motivos).<br><br>
+          <strong>Negação do Antecedente:</strong> P→Q, ¬P ⊢ ¬Q ❌ (inválido!)<br>
+          Ex: "Se chove, a rua fica molhada. Não choveu. Logo, a rua não está molhada." — INVÁLIDO.
+        </div>
+      </div>
+    </div>
+
+    <!-- Predicados -->
+    <div class="tab-panel" data-tab="predicados">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">∀</div>Lógica de Predicados de Primeira Ordem</h2>
+
+        <p>A lógica de predicados estende a lógica sentencial permitindo expressar propriedades de objetos e relações entre eles usando <strong>quantificadores</strong>.</p>
+
+        <h3>Quantificadores</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">∀</div>
+            <div class="concept-name">Universal (∀)</div>
+            <div class="concept-desc">"Para todo x, P(x)" — a propriedade vale para TODOS os elementos do domínio. Basta UM contraexemplo para ser falso.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">∃</div>
+            <div class="concept-name">Existencial (∃)</div>
+            <div class="concept-desc">"Existe pelo menos um x tal que P(x)" — basta UM elemento satisfazendo a propriedade para ser verdadeiro.</div>
+          </div>
+        </div>
+
+        <h3>Negação de Quantificadores — De Morgan Generalizado</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Original</th><th>Negação</th><th>Leitura</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><code>∀x P(x)</code></td>
+                <td><code>∃x ¬P(x)</code></td>
+                <td>"Para todo x, P(x)" → "Existe x tal que NÃO P(x)"</td>
+              </tr>
+              <tr>
+                <td><code>∃x P(x)</code></td>
+                <td><code>∀x ¬P(x)</code></td>
+                <td>"Existe x tal que P(x)" → "Para todo x, NÃO P(x)"</td>
+              </tr>
+              <tr>
+                <td><code>∀x (P(x)→Q(x))</code></td>
+                <td><code>∃x (P(x)∧¬Q(x))</code></td>
+                <td>"Todo P é Q" → "Existe P que não é Q"</td>
+              </tr>
+              <tr>
+                <td><code>∃x (P(x)∧Q(x))</code></td>
+                <td><code>∀x (P(x)→¬Q(x))</code></td>
+                <td>"Algum P é Q" → "Nenhum P é Q"</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Aplicação Prática — Cobrada pela Cesgranrio</div>
+          "Todo analista da Petrobras conhece SQL" → ∀x (Analista(x) → ConheceSQL(x))<br>
+          Negação: "Existe analista da Petrobras que NÃO conhece SQL" → ∃x (Analista(x) ∧ ¬ConheceSQL(x))<br><br>
+          Regra prática: ao negar "todo", vira "existe"; ao negar "existe", vira "todo". E a propriedade interna é negada.
+        </div>
+
+        <h3>Decidibilidade</h3>
+        <p>A <strong>lógica sentencial é decidível</strong> — existe um algoritmo (tabela-verdade) que determina em tempo finito se uma proposição é tautologia, contradição ou contingência.</p>
+        <p>A <strong>lógica de predicados de primeira ordem é semi-decidível</strong> — pode-se provar que uma fórmula é válida, mas não há algoritmo geral para provar que é inválida em tempo finito.</p>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Lógica Matemática</div>
+          <span class="badge badge-gold">10 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-logica"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-logica"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="../bi/index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>BI & Análise de Dados</div></div>
+      </a>
+      <a href="../seguranca/index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próxima</div><div>Segurança da Informação</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  const topics = ['proposicao','conectivos','condicional','tabela','tautologia','equivalencias','contrapositiva','demorgan','argumentos','quantificadores'];
+  const done = topics.filter(t => DC.Progress.getTopic('log_'+t).done).length;
+  const pct = Math.round((done/topics.length)*100);
+  setTimeout(() => {
+    const r = document.getElementById('log-ring'); if(r) r.style.strokeDashoffset = 263.9-(pct/100)*263.9;
+    const p = document.getElementById('log-pct'); if(p) p.textContent = pct+'%';
+  }, 300);
+
+  DC.Checklist.init('checklist-logica','logica',[
+    'Sei identificar o que é e o que não é uma proposição',
+    'Domino os 5 conectivos e seus símbolos',
+    'Sei a tabela-verdade completa dos 5 conectivos',
+    'Memorizei quando o condicional (→) é falso',
+    'Sei distinguir tautologia, contradição e contingência',
+    'Domino as equivalências: contrapositiva, De Morgan, negação do condicional',
+    'Sei as regras Modus Ponens e Modus Tollens',
+    'Conheço as falácias de afirmação do consequente e negação do antecedente',
+    'Domino os quantificadores ∀ e ∃ e suas negações',
+    'Entendo o conceito de argumento válido',
+  ]);
+
+  DC.Quiz.render('quiz-logica',[
+    { question:'Assinale a proposição composta P → Q que é FALSA.',
+      options:[
+        'P = "2 é par", Q = "4 é par"  (V→V)',
+        'P = "2 é ímpar", Q = "4 é par"  (F→V)',
+        'P = "2 é par", Q = "4 é ímpar"  (V→F)',
+        'P = "2 é ímpar", Q = "4 é ímpar"  (F→F)',
+        'P = "todo primo é ímpar", Q = "2 é primo"  (F→V)'
+      ], answer:2, explanation:'O condicional P→Q é FALSO apenas quando P é Verdadeiro e Q é Falso. "2 é par" = V e "4 é ímpar" = F → V→F = FALSO. Nos demais casos: V→V = V; F→V = V; F→F = V. O único caso que "quebra a promessa" é quando a hipótese é verdadeira mas a conclusão é falsa.' },
+    { question:'A negação de "Se o sistema está online (P), então os dados são processados (Q)" é:',
+      options:[
+        '¬P → ¬Q (Se o sistema não está online, então os dados não são processados)',
+        'P → ¬Q (Se o sistema está online, então os dados não são processados)',
+        'P ∧ ¬Q (O sistema está online E os dados não são processados)',
+        '¬P ∨ ¬Q (O sistema não está online OU os dados não são processados)',
+        '¬P ∧ ¬Q (O sistema não está online E os dados não são processados)'
+      ], answer:2, explanation:'¬(P→Q) ≡ P ∧ ¬Q. Negar o condicional = manter o antecedente verdadeiro E negar o consequente. "O sistema está online E os dados NÃO são processados." Lembre: o condicional é falso apenas quando P=V e Q=F — portanto sua negação afirma exatamente isso.' },
+    { question:'Qual das equivalências abaixo está CORRETA?',
+      options:[
+        '(P→Q) ≡ (Q→P)  [recíproca é equivalente]',
+        '(P→Q) ≡ (¬P→¬Q)  [inversa é equivalente]',
+        '(P→Q) ≡ (¬Q→¬P)  [contrapositiva é equivalente]',
+        '¬(P∧Q) ≡ ¬P ∧ ¬Q  [De Morgan da conjunção]',
+        '¬(P∨Q) ≡ ¬P ∨ ¬Q  [De Morgan da disjunção]'
+      ], answer:2, explanation:'Contrapositiva: (P→Q) ≡ (¬Q→¬P) — CORRETO e único equivalente real. Recíproca (Q→P) e inversa (¬P→¬Q) NÃO são equivalentes ao original. De Morgan: ¬(P∧Q) ≡ ¬P ∨ ¬Q (troca ∧ por ∨ e nega ambos) — a opção D troca errado. ¬(P∨Q) ≡ ¬P ∧ ¬Q (troca ∨ por ∧) — a opção E troca errado.' },
+    { question:'Dado o argumento: "Se há falha de segurança (P), o sistema é comprometido (Q). O sistema não foi comprometido (¬Q). Portanto, não há falha de segurança (¬P)." Esse argumento é:',
+      options:[
+        'Inválido — afirmação do consequente.',
+        'Inválido — negação do antecedente.',
+        'Válido — Modus Ponens.',
+        'Válido — Modus Tollens.',
+        'Inválido — silogismo hipotético incorreto.'
+      ], answer:3, explanation:'Forma: P→Q, ¬Q ⊢ ¬P = Modus Tollens — argumento VÁLIDO. "Negar o consequente implica negar o antecedente" — equivale à contrapositiva. Compare com a falácia da afirmação do consequente (P→Q, Q ⊢ P — INVÁLIDO) e negação do antecedente (P→Q, ¬P ⊢ ¬Q — INVÁLIDO).' },
+    { question:'A proposição "P ∨ ¬P" (P ou não-P) é uma:',
+      options:[
+        'Contradição — sempre falsa.',
+        'Contingência — pode ser V ou F.',
+        'Tautologia — sempre verdadeira.',
+        'Proposição aberta — sem valor definido.',
+        'Proposição atômica — sem conectivos.'
+      ], answer:2, explanation:'"P ∨ ¬P" é a Lei do Terceiro Excluído — SEMPRE verdadeira (tautologia). Quando P=V: V ∨ F = V. Quando P=F: F ∨ V = V. Em ambos os casos, o resultado é V. Compare com a contradição P ∧ ¬P (sempre F) — a lei da não-contradição.' },
+    { question:'Usando De Morgan, a negação de "O firewall está ativo (P) E o antivírus está atualizado (Q)" é:',
+      options:[
+        'O firewall não está ativo E o antivírus não está atualizado. (¬P ∧ ¬Q)',
+        'O firewall não está ativo OU o antivírus não está atualizado. (¬P ∨ ¬Q)',
+        'O firewall está ativo OU o antivírus está atualizado. (P ∨ Q)',
+        'O firewall não está ativo OU o antivírus está atualizado. (¬P ∨ Q)',
+        'O firewall está ativo E o antivírus não está atualizado. (P ∧ ¬Q)'
+      ], answer:1, explanation:'De Morgan: ¬(P ∧ Q) ≡ ¬P ∨ ¬Q. Negar uma conjunção = disjunção das negações. "NÃO (firewall ativo E antivírus atualizado)" = "firewall NÃO ativo OU antivírus NÃO atualizado". Basta uma das condições falhar para a conjunção original ser falsa — e isso corresponde a um dos disjuntos ser verdadeiro.' },
+    { question:'A negação de "Todo analista da Petrobras conhece Python" é:',
+      options:[
+        'Nenhum analista da Petrobras conhece Python.',
+        'Algum analista da Petrobras não conhece Python.',
+        'Todo analista da Petrobras não conhece Python.',
+        'Algum analista da Petrobras conhece Python.',
+        'A maioria dos analistas da Petrobras não conhece Python.'
+      ], answer:1, explanation:'Negação de ∀x P(x) = ∃x ¬P(x). "Todo analista conhece Python" (∀x) → negação: "Existe/Algum analista que NÃO conhece Python" (∃x ¬P(x)). A negação do universal é o existencial com a propriedade negada. Basta UM analista sem Python para a afirmação universal ser falsa.' },
+    { question:'Considere as premissas: (1) Se o backup falha (P), os dados são perdidos (Q). (2) Se os dados são perdidos (Q), o sistema fica indisponível (R). Que conclusão pode ser obtida por Silogismo Hipotético?',
+      options:[
+        'Q → P',
+        'P ∧ Q',
+        'P → R',
+        '¬P → ¬R',
+        'R → P'
+      ], answer:2, explanation:'Silogismo Hipotético: P→Q, Q→R ⊢ P→R. Das premissas: "Se backup falha (P) → dados perdidos (Q)" e "Se dados perdidos (Q) → sistema indisponível (R)", concluímos: "Se backup falha (P) → sistema indisponível (R)". A cadeia de condicionais permite "eliminar" o termo intermediário Q.' },
+    { question:'A proposição "P ↔ Q" (bicondicional) é verdadeira quando:',
+      options:[
+        'P é verdadeiro e Q é falso.',
+        'P é falso e Q é verdadeiro.',
+        'P e Q têm o mesmo valor-verdade (ambos V ou ambos F).',
+        'Pelo menos um de P ou Q é verdadeiro.',
+        'P é verdadeiro, independentemente de Q.'
+      ], answer:2, explanation:'Bicondicional P↔Q é VERDADEIRO quando P e Q têm o MESMO valor-verdade: V↔V=V e F↔F=V. É FALSO quando têm valores diferentes: V↔F=F e F↔V=F. Lembre: ↔ é equivalente a (P→Q) ∧ (Q→P) — ambos os condicionais precisam ser verdadeiros simultaneamente.' },
+    { question:'Qual das alternativas apresenta uma falácia lógica (argumento INVÁLIDO)?',
+      options:[
+        'P→Q; P; logo Q (Modus Ponens)',
+        'P→Q; ¬Q; logo ¬P (Modus Tollens)',
+        'P∨Q; ¬P; logo Q (Silogismo Disjuntivo)',
+        'P→Q; Q; logo P (Afirmação do Consequente)',
+        'P→Q; Q→R; logo P→R (Silogismo Hipotético)'
+      ], answer:3, explanation:'Afirmação do Consequente: P→Q, Q ⊢ P — INVÁLIDO (falácia). Saber que Q é verdadeiro não nos diz nada sobre P, pois Q pode ser verdadeiro por outras razões além de P. Ex: "Se chove, a rua molha. A rua está molhada. Logo, choveu." — INVÁLIDO (pode ter sido a mangueira). As outras 4 opções são regras de inferência válidas.' },
+  ],'logica_simulado');
+});
+</script>
+</body>
+</html>
