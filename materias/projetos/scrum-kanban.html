@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scrum & Kanban | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Gestão de Projetos</a><span class="sep">›</span>
+      <span>Scrum & Kanban</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">🔄 Bloco I · 2.1</div>
+        <h1 class="mb-8">Scrum <span class="gradient-text">&amp; Kanban</span></h1>
+        <p>Frameworks ágeis para gestão de trabalho. Papéis, eventos, artefatos do Scrum. Princípios, práticas e métricas do Kanban. Comparativo e Scrumban.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~50 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Scrum & Kanban</h4></div>
+      <ul>
+        <li>PO gerencia o backlog; SM facilita o processo; Dev Team decide COMO fazer</li>
+        <li>Daily Scrum: 15min, para o Dev Team — PO e SM não são obrigados</li>
+        <li>Sprint Planning: define Sprint Goal e seleciona itens do backlog</li>
+        <li>Retrospective inspeciona o PROCESSO; Review inspeciona o PRODUTO</li>
+        <li>Kanban: fluxo contínuo, WIP limits explícitos, sem papéis prescritos</li>
+        <li>Lead Time (requisição até entrega) vs Cycle Time (início do trabalho até entrega)</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="scrum-papeis">👥 Papéis Scrum</button>
+      <button class="tab-btn" data-tab="scrum-eventos">📅 Eventos</button>
+      <button class="tab-btn" data-tab="scrum-artefatos">📋 Artefatos</button>
+      <button class="tab-btn" data-tab="kanban">📊 Kanban</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Papéis Scrum -->
+    <div class="tab-panel active" data-tab="scrum-papeis">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">👥</div>Papéis do Scrum</h2>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Time Scrum</div>
+          O Scrum Guide define o "Scrum Team" como uma unidade coesa de profissionais focada em um objetivo: o Product Goal. O time é composto por exatamente 3 papéis. Não existe "gerente de projeto" no Scrum.
+        </div>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>🎯 Product Owner (PO)</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p><strong>Responsabilidade principal:</strong> Maximizar o valor do produto. É a única pessoa responsável pelo Product Backlog.</p>
+              <h4 style="margin:12px 0 8px;font-size:0.9rem">O PO:</h4>
+              <ul style="color:var(--text-secondary);font-size:0.875rem;padding-left:20px;line-height:1.8">
+                <li>Cria e comunica o Product Goal</li>
+                <li>Cria e mantém os itens do Product Backlog</li>
+                <li>Ordena (prioriza) os itens do Product Backlog</li>
+                <li>Garante que o backlog seja transparente e entendido</li>
+              </ul>
+              <div class="highlight-box warn" style="margin-top:12px">
+                <div class="hb-title">⚠️ O PO NÃO:</div>
+                Não microgerencia o Dev Team. Não decide COMO o trabalho é feito. É UMA pessoa (não comitê). Pode delegar tarefas mas continua responsável.
+              </div>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>🛡️ Scrum Master (SM)</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p><strong>Responsabilidade principal:</strong> Garantir que o Scrum seja entendido e aplicado. É um servant-leader — serve ao time, não o gerencia.</p>
+              <h4 style="margin:12px 0 8px;font-size:0.9rem">O SM serve:</h4>
+              <div class="comparison-wrap">
+                <table class="comparison-table">
+                  <thead><tr><th>Para o Scrum Team</th><th>Para o PO</th><th>Para a Organização</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td>Remove impedimentos, facilita eventos, promove autogestão</td>
+                      <td>Ajuda a definir Product Goal, técnicas de gestão de backlog</td>
+                      <td>Lidera adoção do Scrum, remove obstáculos organizacionais</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="highlight-box warn" style="margin-top:12px">
+                <div class="hb-title">⚠️ SM NÃO é gerente</div>
+                SM não atribui tarefas, não controla cronograma, não reporta status da equipe. É facilitador, não chefe.
+              </div>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>👥 Developers (Dev Team)</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p><strong>Responsabilidade principal:</strong> Criar um Incremento utilizável a cada Sprint. São os profissionais que realizam o trabalho.</p>
+              <div class="concept-grid">
+                <div class="concept-card"><div class="emoji">🔄</div><div class="concept-name">Auto-organizado</div><div class="concept-desc">Decide internamente como executar o Sprint Backlog. Ninguém de fora diz COMO fazer.</div></div>
+                <div class="concept-card"><div class="emoji">🎭</div><div class="concept-name">Multifuncional</div><div class="concept-desc">Possui todas as habilidades necessárias para criar o Incremento — sem depender de externos.</div></div>
+                <div class="concept-card"><div class="emoji">📏</div><div class="concept-name">Tamanho</div><div class="concept-desc">3 a 9 pessoas. Pequeno demais = falta de habilidade. Grande demais = coordenação complexa.</div></div>
+              </div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Eventos -->
+    <div class="tab-panel" data-tab="scrum-eventos">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">📅</div>Eventos do Scrum</h2>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Evento</th><th>Duração máx. (4 sem.)</th><th>Participantes</th><th>Objetivo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Sprint</strong></td>
+                <td>1–4 semanas (fixo)</td>
+                <td>Todo o Scrum Team</td>
+                <td>Container de todos os outros eventos; entrega um Incremento</td>
+              </tr>
+              <tr>
+                <td><strong>Sprint Planning</strong></td>
+                <td>8 horas</td>
+                <td>Todo o Scrum Team</td>
+                <td>Definir Sprint Goal, selecionar itens do backlog, criar plano</td>
+              </tr>
+              <tr>
+                <td><strong>Daily Scrum</strong></td>
+                <td>15 minutos (fixo)</td>
+                <td>Developers</td>
+                <td>Inspecionar progresso ao Sprint Goal, adaptar Sprint Backlog</td>
+              </tr>
+              <tr>
+                <td><strong>Sprint Review</strong></td>
+                <td>4 horas</td>
+                <td>Scrum Team + Stakeholders</td>
+                <td>Inspecionar Incremento, adaptar Product Backlog</td>
+              </tr>
+              <tr>
+                <td><strong>Sprint Retrospective</strong></td>
+                <td>3 horas</td>
+                <td>Scrum Team</td>
+                <td>Inspecionar o time e processo, planejar melhorias</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Review vs Retrospective — A Distinção Mais Cobrada</div>
+          <strong>Sprint Review:</strong> inspeciona o PRODUTO (incremento). Envolve stakeholders. Adapta o PRODUCT BACKLOG.<br>
+          <strong>Sprint Retrospective:</strong> inspeciona o PROCESSO e o TIME. Apenas o Scrum Team. Adapta a FORMA DE TRABALHAR.<br><br>
+          Ordem: Review ocorre ANTES da Retrospective em toda Sprint.
+        </div>
+
+        <h3>Sprint Planning — As 3 Perguntas</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">1</div>
+            <div class="step-content"><h4>Por que esta Sprint é valiosa?</h4><p>Define o <strong>Sprint Goal</strong> — objetivo único e coerente que dá direção à Sprint.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content"><h4>O que pode ser feito nesta Sprint?</h4><p>PO apresenta itens do Product Backlog; Dev Team seleciona o que é viável dentro da Sprint.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">3</div>
+            <div class="step-content"><h4>Como o trabalho escolhido será feito?</h4><p>Dev Team decompõe os itens selecionados em tarefas — cria o Sprint Backlog.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Artefatos -->
+    <div class="tab-panel" data-tab="scrum-artefatos">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">📋</div>Artefatos do Scrum</h2>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">📋</div>
+            <div class="concept-name">Product Backlog</div>
+            <div class="concept-desc">Lista ordenada de tudo que pode ser necessário no produto. Gerenciado pelo PO. Nunca está completo. Comprometimento: Product Goal.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">📝</div>
+            <div class="concept-name">Sprint Backlog</div>
+            <div class="concept-desc">Itens do PB selecionados para a Sprint + plano para entregá-los. Pertence ao Dev Team. Comprometimento: Sprint Goal.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">✅</div>
+            <div class="concept-name">Incremento</div>
+            <div class="concept-desc">Soma de todos os itens concluídos + sprints anteriores. Deve atender a Definition of Done. Comprometimento: Definition of Done.</div>
+          </div>
+        </div>
+
+        <h3>Definition of Done (DoD)</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Definition of Done</div>
+          Critério formal que define quando um item do backlog atende ao padrão de qualidade para ser considerado "Pronto". Cria transparência e qualidade consistente. Ex: código revisado + testes unitários passando + integrado + documentado + sem bugs críticos.
+        </div>
+
+        <h3>Refinamento do Backlog (Grooming)</h3>
+        <p>Atividade contínua de detalhar, estimar e ordenar itens do Product Backlog. Não é evento oficial do Scrum, mas é prática recomendada. Geralmente ocupa até 10% do tempo do Dev Team.</p>
+
+        <h3>Estimativas no Scrum</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Técnica</th><th>Como funciona</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Story Points</strong></td><td>Unidade relativa de esforço/complexidade. Escala Fibonacci (1,2,3,5,8,13,21...). Sem relação direta com horas.</td></tr>
+              <tr><td><strong>Planning Poker</strong></td><td>Membros do Dev Team revelam estimativas simultaneamente. Discussão sobre divergências. Consenso.</td></tr>
+              <tr><td><strong>T-Shirt Sizing</strong></td><td>Tamanhos XS, S, M, L, XL para estimativa rápida de itens do backlog.</td></tr>
+              <tr><td><strong>Velocity</strong></td><td>Média de story points entregues por Sprint. Usado para previsão — não é meta de performance.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kanban -->
+    <div class="tab-panel" data-tab="kanban">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">📊</div>Kanban</h2>
+
+        <p>Kanban é um método de gestão de fluxo de trabalho visual, originado no Sistema Toyota de Produção. É evolutivo — aplicado sobre o processo existente sem grandes mudanças iniciais.</p>
+
+        <h3>6 Práticas Centrais do Kanban</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>#</th><th>Prática</th><th>Descrição</th></tr></thead>
+            <tbody>
+              <tr><td>1</td><td><strong>Visualizar o Fluxo de Trabalho</strong></td><td>Quadro Kanban com colunas representando os estágios do processo</td></tr>
+              <tr><td>2</td><td><strong>Limitar o WIP</strong></td><td>Work In Progress — limitar itens em andamento por coluna para evitar multitarefa excessiva</td></tr>
+              <tr><td>3</td><td><strong>Gerenciar o Fluxo</strong></td><td>Monitorar e otimizar o fluxo de trabalho — identificar e eliminar bloqueios</td></tr>
+              <tr><td>4</td><td><strong>Tornar as Políticas Explícitas</strong></td><td>Documentar regras do processo — critérios de entrada/saída de cada coluna</td></tr>
+              <tr><td>5</td><td><strong>Implementar Loops de Feedback</strong></td><td>Reuniões regulares: Daily Standup, revisão de fluxo, retrospectiva</td></tr>
+              <tr><td>6</td><td><strong>Melhorar Colaborativamente</strong></td><td>Evolução incremental baseada em dados e experimentos</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Métricas Kanban</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">⏱️</div>
+            <div class="concept-name">Lead Time</div>
+            <div class="concept-desc">Tempo desde a REQUISIÇÃO do item até sua entrega ao cliente. Perspectiva do cliente. Inclui tempo de espera.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">⚡</div>
+            <div class="concept-name">Cycle Time</div>
+            <div class="concept-desc">Tempo desde o INÍCIO do trabalho ativo até a entrega. Perspectiva da equipe. Não inclui tempo de espera inicial.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🌊</div>
+            <div class="concept-name">Throughput</div>
+            <div class="concept-desc">Número de itens entregues por unidade de tempo (ex: 8 itens/semana). Capacidade de entrega.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">📊</div>
+            <div class="concept-name">WIP</div>
+            <div class="concept-desc">Work In Progress — itens em andamento. Limitar o WIP reduz o Lead Time (Lei de Little).</div>
+          </div>
+        </div>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Lei de Little</div>
+          Lead Time = WIP / Throughput<br>
+          Para reduzir o Lead Time: reduza o WIP ou aumente o Throughput. Limitar WIP é a prática mais poderosa do Kanban.
+        </div>
+
+        <h3>Scrum vs Kanban — Comparativo Completo</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>Scrum</th><th>Kanban</th></tr></thead>
+            <tbody>
+              <tr><td>Iterações</td><td>Sprints de duração fixa (1-4 sem.)</td><td>Fluxo contínuo sem iterações obrigatórias</td></tr>
+              <tr><td>Papéis</td><td>PO, SM, Developers (prescritos)</td><td>Não prescreve papéis</td></tr>
+              <tr><td>Mudanças</td><td>Não durante a Sprint</td><td>A qualquer momento</td></tr>
+              <tr><td>Métricas</td><td>Velocity (pontos/sprint)</td><td>Lead Time, Cycle Time, Throughput</td></tr>
+              <tr><td>Quadro</td><td>Reset a cada Sprint</td><td>Persistente e contínuo</td></tr>
+              <tr><td>Priorização</td><td>PO ordena o backlog</td><td>Por política da equipe</td></tr>
+              <tr><td>Estimativas</td><td>Story points (necessário)</td><td>Opcional</td></tr>
+              <tr><td>Melhor para</td><td>Times novos, projetos complexos com incerteza</td><td>Times maduros, suporte, manutenção</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Scrum & Kanban</div>
+          <span class="badge badge-gold">8 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-scrum"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-scrum"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Voltar</div><div>Gestão de Projetos</div></div>
+      </a>
+      <a href="pmbok.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>PMBOK & SAFe</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-scrum','scrum',[
+    'Sei os 3 papéis do Scrum e suas responsabilidades',
+    'Entendo que PO gerencia o backlog e SM é servant-leader',
+    'Conheço os 5 eventos e suas durações máximas',
+    'Sei a diferença entre Review (produto) e Retrospective (processo)',
+    'Domino os 3 artefatos e seus comprometimentos',
+    'Entendo a Definition of Done',
+    'Sei as 6 práticas centrais do Kanban',
+    'Domino Lead Time vs Cycle Time',
+    'Conheço a Lei de Little',
+    'Sei comparar Scrum e Kanban em múltiplos aspectos',
+  ]);
+
+  DC.Quiz.render('quiz-scrum',[
+    { question:'No Scrum, quem tem autoridade para cancelar uma Sprint?',
+      options:['O Scrum Master, para proteger o time.','O Dev Team, por votação majoritária.','O Product Owner.','Qualquer membro do Scrum Team.','O patrocinador do projeto.'],
+      answer:2, explanation:'Apenas o Product Owner pode cancelar uma Sprint — quando o Sprint Goal se torna obsoleto (ex: mudança estratégica do negócio torna o objetivo sem sentido). É uma decisão rara e impactante. O SM não cancela, protege o processo. O Dev Team não cancela, executa. A cancela é prerrogativa exclusiva do PO.' },
+    { question:'A Daily Scrum tem como participantes obrigatórios:',
+      options:['Todo o Scrum Team incluindo PO e SM.','Apenas os Developers.','Scrum Master e Developers.','Product Owner e Developers.','Qualquer pessoa interessada no projeto.'],
+      answer:1, explanation:'A Daily Scrum é para os DEVELOPERS. O SM pode participar para garantir que aconteça (mas não é obrigado). O PO pode participar se for também Developer. A Daily não é reunião de status para o SM ou PO — é o Dev Team inspecionando seu próprio progresso ao Sprint Goal e adaptando o Sprint Backlog.' },
+    { question:'A Sprint Retrospective difere da Sprint Review porque:',
+      options:['Review ocorre após a Retrospective.','Review inspeciona o processo; Retrospective inspeciona o produto.','Review apresenta o Incremento a stakeholders; Retrospective inspeciona o time e processo de trabalho.','Retrospective envolve stakeholders externos; Review é apenas para o time.','Ambas têm o mesmo objetivo mas com públicos diferentes.'],
+      answer:2, explanation:'Sprint Review: inspeciona o INCREMENTO (produto) com stakeholders → adapta o Product Backlog. Sprint Retrospective: inspeciona o PROCESSO e o TIME (como trabalhamos?) → plano de melhoria. Ordem: Review (4a semana) → Retrospective (última) → Sprint Planning (nova sprint). Review é sobre "o que fizemos?"; Retrospective é sobre "como trabalhamos?".' },
+    { question:'O Lead Time no Kanban mede:',
+      options:['Tempo que um item fica bloqueado aguardando outra equipe.','Tempo desde o INÍCIO do trabalho ativo até a entrega.','Tempo desde a REQUISIÇÃO do item pelo cliente até sua entrega final.','Número de itens entregues por unidade de tempo.','Tempo total de uma Sprint, do planejamento à retrospective.'],
+      answer:2, explanation:'Lead Time = perspectiva do CLIENTE = da solicitação (entrada no backlog) à entrega. Cycle Time = perspectiva da EQUIPE = do início do trabalho ativo à entrega. Lead Time ≥ Cycle Time (inclui o tempo de espera antes de começar o trabalho). Para reduzir Lead Time: limitar WIP (Lei de Little: Lead Time = WIP / Throughput).' },
+    { question:'Qual prática Kanban reduz diretamente o Lead Time segundo a Lei de Little?',
+      options:['Aumentar o número de desenvolvedores na equipe.','Implementar reuniões diárias de status.','Limitar o Work In Progress (WIP) por coluna do quadro.','Usar sprints de 1 semana em vez de 2.','Eliminar itens do backlog mensalmente.'],
+      answer:2, explanation:'Lei de Little: Lead Time = WIP / Throughput. Para reduzir Lead Time com Throughput constante → reduzir WIP. Limitar WIP força a equipe a terminar itens antes de começar novos, reduz multitarefa (context switching), expõe bloqueios mais cedo e melhora o fluxo. É a prática mais poderosa e característica do Kanban.' },
+    { question:'O Product Backlog no Scrum é caracterizado por ser:',
+      options:['Uma lista fixa criada no início do projeto e não modificada.','Uma lista ordenada emergente de tudo que pode ser necessário no produto, gerenciada pelo PO.','Um documento compartilhado entre PO e Scrum Master para controle.','Um cronograma de entregas com datas fixas para cada funcionalidade.','Uma lista de bugs e débitos técnicos apenas.'],
+      answer:1, explanation:'Product Backlog: lista ORDENADA (não apenas priorizada) e EMERGENTE — nunca está completo, evolui com o produto e o aprendizado. Gerenciado EXCLUSIVAMENTE pelo PO (conteúdo, ordenação, disponibilidade). Qualquer coisa que pode ser necessária no produto pode ser um item. Comprometimento do PB = Product Goal (objetivo de longo prazo do produto).' },
+    { question:'O Scrum Master serve à organização ao:',
+      options:['Reportar o desempenho do time aos gestores.','Garantir que todos os membros cumpram o horário de trabalho.','Liderar, treinar e orientar a organização na adoção do Scrum, removendo obstáculos organizacionais.','Negociar contratos com fornecedores para o projeto.','Aprovar as histórias de usuário antes de entrar no sprint.'],
+      answer:2, explanation:'SM para a organização: lidera e treina a adoção do Scrum, planeja implementações do Scrum dentro da org., ajuda stakeholders a entender o framework, remove impedimentos organizacionais que impactam o time, facilita colaboração entre stakeholders. O SM é agente de mudança organizacional — não gerente, não controlador.' },
+    { question:'No Kanban, "Tornar as Políticas Explícitas" significa:',
+      options:['Publicar o organograma da equipe no quadro Kanban.','Documentar e tornar visíveis as regras do processo — critérios de entrada/saída em cada coluna, definição de "pronto".','Criar um manual formal de procedimentos aprovado pela diretoria.','Registrar o tempo gasto em cada tarefa para controle de produtividade.','Definir a hierarquia de decisão dentro do time Kanban.'],
+      answer:1, explanation:'"Tornar políticas explícitas" = documentar as REGRAS do processo de forma visível: o que faz um item poder entrar em "Em Desenvolvimento"? Quando um item passa para "Revisão"? Qual é a definição de "Pronto"? Políticas explícitas criam entendimento compartilhado, reduzem debates e permitem melhoria baseada em dados. Regras implícitas geram inconsistência e conflito.' },
+  ],'scrum_simulado');
+});
+</script>
+</body>
+</html>

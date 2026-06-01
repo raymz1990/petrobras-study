@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Identidade & Acesso | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Segurança da Informação</a><span class="sep">›</span>
+      <span>Identidade & Acesso</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">👤 Bloco III · 3.9 – 3.10</div>
+        <h1 class="mb-8">Identidade <span class="gradient-text">&amp; Acesso</span></h1>
+        <p>Autenticação, autorização e auditoria (AAA). MFA, SSO, VPN, MDM, RBAC, ABAC — o pilar central da segurança corporativa moderna.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~40 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Identidade & Acesso</h4></div>
+      <ul>
+        <li>AAA: Autenticação (quem é?), Autorização (o que pode?), Auditoria (o que fez?)</li>
+        <li>MFA fatores: conhecimento (senha), posse (token), inerência (biometria)</li>
+        <li>RBAC baseado em papel; ABAC baseado em atributos — ABAC é mais granular</li>
+        <li>SSO: autenticação única para múltiplos sistemas — protocolos SAML e OAuth/OIDC</li>
+        <li>Princípio do menor privilégio: conceder apenas o mínimo necessário</li>
+        <li>Zero Trust: nunca confiar, sempre verificar — independente de localização</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="aaa">🔑 AAA</button>
+      <button class="tab-btn" data-tab="mfa">📱 MFA</button>
+      <button class="tab-btn" data-tab="controleacesso">🛡️ Controle de Acesso</button>
+      <button class="tab-btn" data-tab="federacao">🌐 Federação & SSO</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- AAA -->
+    <div class="tab-panel active" data-tab="aaa">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🔑</div>AAA — Autenticação, Autorização e Auditoria</h2>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">🪪</div>
+            <div class="concept-name">Autenticação</div>
+            <div class="concept-desc">"Quem é você?" — verifica a identidade declarada. Compara credenciais com o que está registrado no sistema. Resultado: acesso negado ou identidade confirmada.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🔑</div>
+            <div class="concept-name">Autorização</div>
+            <div class="concept-desc">"O que você pode fazer?" — define permissões após confirmação de identidade. QUAIS recursos pode acessar e com QUAIS operações (leitura, escrita, exclusão).</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">📋</div>
+            <div class="concept-name">Auditoria (Accounting)</div>
+            <div class="concept-desc">"O que você fez?" — registra todas as ações do usuário autenticado. Trilha de auditoria para rastreabilidade, conformidade e investigação forense.</div>
+          </div>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Pegadinha — Confusão entre Autenticação e Autorização</div>
+          <strong>Autenticação:</strong> Login com usuário/senha → sistema confirma que você é quem diz ser.<br>
+          <strong>Autorização:</strong> Após login, o sistema verifica SE você pode acessar o recurso X.<br><br>
+          Exemplo: Ana (Analista) faz login com sucesso (autenticada). Tenta acessar módulo de RH — acesso negado (não autorizada). A autenticação funcionou; a autorização bloqueou.
+        </div>
+
+        <h3>Fatores de Autenticação</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Fator</th><th>Categoria</th><th>Exemplos</th><th>Vulnerabilidade</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Algo que você SABE</strong></td><td>Conhecimento</td><td>Senha, PIN, resposta secreta, padrão de desbloqueio</td><td>Phishing, força bruta, vazamento</td></tr>
+              <tr><td><strong>Algo que você TEM</strong></td><td>Posse</td><td>Token OTP (TOTP), smartphone (app autenticador), smart card, chave física FIDO2</td><td>Roubo físico, SIM swap</td></tr>
+              <tr><td><strong>Algo que você É</strong></td><td>Inerência/Biometria</td><td>Impressão digital, reconhecimento facial, íris, voz, geometria da mão</td><td>Deepfake, spoofing biométrico</td></tr>
+              <tr><td><strong>Onde você ESTÁ</strong></td><td>Localização</td><td>Geolocalização GPS, endereço IP, rede Wi-Fi confiável</td><td>VPN pode mascarar localização</td></tr>
+              <tr><td><strong>O que você FAZ</strong></td><td>Comportamento</td><td>Padrão de digitação (keystroke dynamics), forma de andar</td><td>Pode variar com estado emocional</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Princípio do Menor Privilégio</h3>
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Least Privilege Principle</div>
+          Cada usuário, processo ou sistema deve ter apenas as permissões <strong>mínimas necessárias</strong> para executar suas funções — nada mais. Reduz a superfície de ataque: se uma conta for comprometida, o dano é limitado ao que aquela conta pode fazer.
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">👁️</div><div class="concept-name">Need-to-Know</div><div class="concept-desc">Informação acessível apenas a quem demonstra necessidade específica para seu trabalho.</div></div>
+          <div class="concept-card"><div class="emoji">✂️</div><div class="concept-name">Segregação de Funções</div><div class="concept-desc">Dividir funções críticas entre múltiplas pessoas — ninguém tem controle total. Ex: quem aprova pagamento ≠ quem executa.</div></div>
+          <div class="concept-card"><div class="emoji">🔄</div><div class="concept-name">Revisão Periódica</div><div class="concept-desc">Revisar e revogar acessos regularmente — especialmente após mudanças de cargo ou desligamento.</div></div>
+          <div class="concept-card"><div class="emoji">⏰</div><div class="concept-name">JIT Access</div><div class="concept-desc">Just-In-Time: conceder acesso privilegiado apenas quando necessário e por tempo limitado.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MFA -->
+    <div class="tab-panel" data-tab="mfa">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">📱</div>MFA — Autenticação Multifator</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ MFA — Definição</div>
+          MFA (Multi-Factor Authentication) exige <strong>dois ou mais fatores de CATEGORIAS DIFERENTES</strong> para autenticar. Senha + PIN = 1 fator (dois itens da mesma categoria "conhecimento"). Senha + SMS OTP = 2 fatores (conhecimento + posse). A combinação de categorias é o que define MFA.
+        </div>
+
+        <h3>Métodos MFA</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Método</th><th>Fator</th><th>Segurança</th><th>Usabilidade</th></tr></thead>
+            <tbody>
+              <tr><td><strong>SMS OTP</strong></td><td>Posse (smartphone)</td><td>⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+              <tr><td><strong>App Autenticador (TOTP)</strong></td><td>Posse (app)</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐</td></tr>
+              <tr><td><strong>Push Notification</strong></td><td>Posse (smartphone)</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+              <tr><td><strong>FIDO2 / Chave Física</strong></td><td>Posse (hardware key)</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
+              <tr><td><strong>Biometria</strong></td><td>Inerência</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+              <tr><td><strong>Smart Card + PIN</strong></td><td>Posse + Conhecimento</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐⭐</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ SMS OTP é o método mais fraco</div>
+          SMS OTP é vulnerável a SIM Swap (atacante transfere número de telefone para seu SIM), SS7 attacks (protocolo de telefonia comprometido) e MFA Fatigue (bombardeio de notificações push). Para sistemas críticos como Petrobras, TOTP ou FIDO2 são preferíveis.
+        </div>
+
+        <h3>TOTP — Time-based One-Time Password</h3>
+        <p>Algoritmo (RFC 6238) que gera um código de 6 dígitos baseado em: <strong>chave secreta compartilhada + timestamp atual</strong>. O código muda a cada 30 segundos. Implementado em Google Authenticator, Microsoft Authenticator, Authy.</p>
+
+        <div class="code-block"><span class="code-lang">TOTP — Como funciona</span><pre>1. Servidor e app compartilham uma CHAVE SECRETA na configuração (QR Code)
+2. A cada 30 segundos: TOTP = HMAC-SHA1(chave_secreta, timestamp/30)
+3. Usuário digita os 6 dígitos que o app mostra
+4. Servidor calcula o mesmo valor e compara
+5. Código válido por ±1 janela de 30s (tolerância de clock skew)</pre></div>
+      </div>
+    </div>
+
+    <!-- Controle de Acesso -->
+    <div class="tab-panel" data-tab="controleacesso">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">🛡️</div>Modelos de Controle de Acesso</h2>
+
+        <h3>RBAC vs ABAC</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>RBAC</th><th>ABAC</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Base da decisão</strong></td><td>Papel/função do usuário na organização</td><td>Atributos do usuário, recurso e contexto ambiental</td></tr>
+              <tr><td><strong>Granularidade</strong></td><td>Menor — todo usuário com o papel X tem as mesmas permissões</td><td>Maior — mesma pessoa pode ter acesso diferente em contextos diferentes</td></tr>
+              <tr><td><strong>Exemplo de regra</strong></td><td>"Gerentes podem aprovar orçamentos até R$50k"</td><td>"Analistas do RJ podem ler dados do RJ, em horário comercial, via rede corporativa"</td></tr>
+              <tr><td><strong>Complexidade</strong></td><td>Simples de implementar e auditar</td><td>Mais complexo — requer mecanismo de políticas (XACML)</td></tr>
+              <tr><td><strong>Escalabilidade</strong></td><td>Pode gerar explosão de papéis em org. complexas</td><td>Escala melhor — políticas dinâmicas</td></tr>
+              <tr><td><strong>Uso ideal</strong></td><td>Org. com papéis bem definidos e estáveis</td><td>Ambientes dinâmicos, cloud, Zero Trust</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Outros Modelos de Controle</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">📋</div><div class="concept-name">DAC — Discretionary</div><div class="concept-desc">O dono do recurso decide quem pode acessar. Ex: permissões de arquivo Unix (chmod). Flexível mas arriscado.</div></div>
+          <div class="concept-card"><div class="emoji">🏛️</div><div class="concept-name">MAC — Mandatory</div><div class="concept-desc">Políticas centralizadas pelo sistema/admin — usuário não pode alterar. Usado em ambientes militares/governamentais (classificação: público, secreto, top-secret).</div></div>
+          <div class="concept-card"><div class="emoji">👤</div><div class="concept-name">RBAC — Role-Based</div><div class="concept-desc">Acesso baseado no papel (cargo/função). Mais comum em corporações.</div></div>
+          <div class="concept-card"><div class="emoji">🏷️</div><div class="concept-name">ABAC — Attribute-Based</div><div class="concept-desc">Acesso baseado em atributos dinâmicos do usuário, recurso e ambiente. Mais granular.</div></div>
+        </div>
+
+        <h3>Zero Trust Architecture</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Zero Trust — "Nunca confie, sempre verifique"</div>
+          Modelo onde <strong>nenhuma entidade é confiável por padrão</strong> — nem dentro da rede corporativa. Cada acesso é verificado independente da localização (dentro ou fora da rede). Contrasta com o modelo tradicional de "perímetro confiável" onde dentro da rede = confiável.<br><br>
+          <strong>Pilares:</strong> Verificar explicitamente (sempre autenticar e autorizar), usar menor privilégio, assumir violação (agir como se já houvesse comprometimento).
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Por que Zero Trust é relevante para Petrobras</div>
+          Com trabalho remoto, cloud e fornecedores externos acessando sistemas internos, o perímetro tradicional de rede não é mais suficiente. Zero Trust garante que mesmo alguém dentro da rede corporativa (seja funcionário, contratado ou malware) precisa se autenticar e ter autorização explícita para cada recurso.
+        </div>
+      </div>
+    </div>
+
+    <!-- Federação & SSO -->
+    <div class="tab-panel" data-tab="federacao">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">🌐</div>Federação de Identidade & SSO</h2>
+
+        <h3>SSO — Single Sign-On</h3>
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ SSO — Definição</div>
+          SSO permite que um usuário se autentique <strong>uma única vez</strong> e acesse múltiplos sistemas sem precisar fazer login novamente em cada um. O token de autenticação é compartilhado entre sistemas confiáveis.
+        </div>
+
+        <h3>Protocolos de Federação</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Protocolo</th><th>Tipo</th><th>Formato</th><th>Uso típico</th></tr></thead>
+            <tbody>
+              <tr><td><strong>SAML 2.0</strong></td><td>Federação corporativa</td><td>XML</td><td>SSO entre sistemas corporativos e provedores de identidade empresariais (IdP)</td></tr>
+              <tr><td><strong>OAuth 2.0</strong></td><td>Autorização delegada</td><td>Token (JWT)</td><td>"Login com Google/Facebook" — delega autorização sem compartilhar senha</td></tr>
+              <tr><td><strong>OpenID Connect</strong></td><td>Autenticação sobre OAuth</td><td>JWT (ID Token)</td><td>Adiciona camada de autenticação ao OAuth 2.0 — identifica quem é o usuário</td></tr>
+              <tr><td><strong>LDAP / AD</strong></td><td>Diretório corporativo</td><td>Protocolo binário</td><td>Autenticação em rede interna Windows (Active Directory)</td></tr>
+              <tr><td><strong>Kerberos</strong></td><td>Autenticação de rede</td><td>Tickets</td><td>Autenticação em ambientes Windows/AD sem transmitir senhas</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 OAuth 2.0 vs OpenID Connect</div>
+          <strong>OAuth 2.0:</strong> protocolo de AUTORIZAÇÃO — permite que aplicativo X acesse recursos do usuário em serviço Y sem ver a senha do usuário. Ex: app de terceiros acessa seus emails do Gmail.<br>
+          <strong>OpenID Connect (OIDC):</strong> protocolo de AUTENTICAÇÃO construído SOBRE OAuth 2.0 — adiciona informações de identidade (quem é o usuário). Ex: "Entrar com Google" que autentica o usuário e fornece nome/email.
+        </div>
+
+        <h3>MDM — Mobile Device Management</h3>
+        <p>MDM gerencia e protege dispositivos móveis (smartphones, tablets) que acessam recursos corporativos.</p>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">📱</div><div class="concept-name">BYOD</div><div class="concept-desc">Bring Your Own Device — funcionário usa dispositivo pessoal para trabalho. MDM segmenta dados corporativos dos pessoais (containerização).</div></div>
+          <div class="concept-card"><div class="emoji">🔒</div><div class="concept-name">Remote Wipe</div><div class="concept-desc">Apagamento remoto de dados corporativos em caso de perda ou roubo do dispositivo.</div></div>
+          <div class="concept-card"><div class="emoji">📋</div><div class="concept-name">Policy Enforcement</div><div class="concept-desc">Forçar PIN, criptografia, bloqueio automático, impedir instalação de apps não aprovados.</div></div>
+          <div class="concept-card"><div class="emoji">🌐</div><div class="concept-name">MAM</div><div class="concept-desc">Mobile Application Management — gerencia apenas as apps corporativas, não o dispositivo inteiro. Menos invasivo para BYOD.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Identidade & Acesso</div>
+          <span class="badge badge-purple">10 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-iam"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-iam"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="ataques.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Ataques & Malwares</div></div>
+      </a>
+      <a href="normas.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>Normas & Frameworks</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-iam','iam',[
+    'Sei as 3 etapas do AAA (Autenticação, Autorização, Auditoria)',
+    'Domino os 5 fatores de autenticação',
+    'Entendo por que MFA exige fatores de CATEGORIAS diferentes',
+    'Conheço os métodos MFA e seus níveis de segurança',
+    'Sei a diferença entre RBAC (papel) e ABAC (atributos)',
+    'Entendo o Princípio do Menor Privilégio e Segregação de Funções',
+    'Sei o conceito de Zero Trust e seus pilares',
+    'Conheço os protocolos de federação (SAML, OAuth, OIDC)',
+    'Sei a diferença entre OAuth 2.0 e OpenID Connect',
+    'Entendo o papel do MDM no gerenciamento de dispositivos móveis',
+  ]);
+
+  DC.Quiz.render('quiz-iam',[
+    { question:'A fase de AUTORIZAÇÃO no modelo AAA responde à pergunta:',
+      options:['"Quem é você?" — verifica identidade.', '"O que você pode fazer?" — define permissões após autenticação.', '"O que você fez?" — registra ações para auditoria.', '"Onde você está?" — verifica localização do usuário.', '"Por que você precisa?" — justifica a necessidade de acesso.'],
+      answer:1, explanation:'AAA: Autenticação = "Quem é você?" (verifica identidade). Autorização = "O que você pode fazer?" (define permissões — quais recursos, quais operações). Auditoria = "O que você fez?" (registra ações). A Cesgranrio frequentemente troca os papéis nas alternativas. Decore: autenti-C-ação = confirma. autori-Z-ação = permissão (z de "acesso permitiZado").' },
+    { question:'Um funcionário usa senha (algo que sabe) + código do Google Authenticator (algo que tem). Isso é:',
+      options:['Autenticação simples — dois fatores da mesma categoria.', 'MFA — dois fatores de categorias diferentes (conhecimento + posse).', 'SSO — autenticação única para múltiplos sistemas.', 'RBAC — controle de acesso baseado em papéis.', 'Biometria — fator de inerência.'],
+      answer:1, explanation:'MFA exige fatores de CATEGORIAS DIFERENTES. Senha = conhecimento. Google Authenticator (TOTP) = posse (app no smartphone). Categorias diferentes → MFA válido. Se fosse senha + PIN = dois itens de "conhecimento" = 2-step verification, não MFA real. A combinação de categorias é o critério definitório do MFA.' },
+    { question:'O modelo ABAC (Attribute-Based Access Control) se diferencia do RBAC porque:',
+      options:['ABAC usa papéis organizacionais; RBAC usa atributos dinâmicos.', 'RBAC é mais granular que ABAC.', 'ABAC toma decisões com base em combinação de atributos do usuário, recurso e ambiente — mais granular e dinâmico que RBAC.', 'ABAC é exclusivo para aplicações cloud; RBAC para sistemas on-premises.', 'Não há diferença técnica — apenas de nomenclatura.'],
+      answer:2, explanation:'RBAC: acesso baseado em papel fixo — "Analistas podem ler relatórios". ABAC: acesso baseado em múltiplos atributos — "Analistas do RJ podem ler relatórios da região Sul, em dias úteis, via rede corporativa, em dispositivos gerenciados". ABAC oferece muito mais granularidade e flexibilidade, mas é mais complexo. Usado em Zero Trust e ambientes cloud.' },
+    { question:'O Princípio do Menor Privilégio estabelece que:',
+      options:['Usuários devem ter acesso a todos os sistemas para maximizar produtividade.', 'Administradores têm acesso irrestrito como padrão.', 'Cada usuário, processo ou sistema deve ter apenas as permissões mínimas necessárias para suas funções.', 'Senhas devem ter o menor número possível de caracteres para facilitar uso.', 'Sistemas críticos devem ter o menor número de usuários cadastrados.'],
+      answer:2, explanation:'Least Privilege Principle: conceder apenas o MÍNIMO necessário para executar as funções. Reduz superfície de ataque — se conta comprometida, dano limitado às suas permissões. Aplicado a: usuários (só lê, não pode deletar), processos (app de vendas não precisa acessar banco de RH), serviços (conta de serviço com permissão mínima no BD).' },
+    { question:'O SSO (Single Sign-On) oferece como principal vantagem:',
+      options:['Elimina completamente a necessidade de senhas.', 'Permite autenticar uma única vez e acessar múltiplos sistemas sem fazer login novamente.', 'Garante que cada sistema use senha diferente automaticamente.', 'Impede que usuários acessem sistemas fora do horário comercial.', 'Substitui o MFA por ser mais seguro.'],
+      answer:1, explanation:'SSO: o usuário autentica uma vez no Identity Provider (IdP) e recebe um token que é aceito por múltiplos Service Providers (SPs) sem nova autenticação. Vantagem para usuário: menos senhas, menos atrito. Vantagem para segurança: gerenciamento centralizado de identidade, revogação única em caso de comprometimento. Risco: se o IdP for comprometido, todos os sistemas são afetados.' },
+    { question:'A diferença entre OAuth 2.0 e OpenID Connect é:',
+      options:['OAuth é para autenticação; OIDC é para autorização.', 'OAuth 2.0 é um protocolo de AUTORIZAÇÃO delegada; OpenID Connect adiciona uma camada de AUTENTICAÇÃO sobre o OAuth, identificando quem é o usuário.', 'OIDC é mais antigo que OAuth.', 'OAuth usa XML; OIDC usa JSON.', 'Ambos são protocolos equivalentes de autenticação.'],
+      answer:1, explanation:'OAuth 2.0: AUTORIZAÇÃO — "Posso acessar seus recursos?" (delega acesso sem compartilhar senha). Ex: app acessa seu Google Drive com permissão limitada. OpenID Connect (OIDC): AUTENTICAÇÃO construída sobre OAuth — adiciona ID Token (JWT) com informações do usuário (nome, email, sub). Ex: "Entrar com Google" que verifica QUEM é o usuário. OAuth pergunta "pode?"; OIDC responde "quem é?".' },
+    { question:'Sobre o modelo Zero Trust, assinale a afirmativa CORRETA:',
+      options:['Zero Trust assume que toda a rede interna é confiável.', 'Zero Trust elimina a necessidade de autenticação para usuários dentro da rede corporativa.', 'No Zero Trust, nenhuma entidade é confiável por padrão — toda requisição é autenticada e autorizada, independente da localização.', 'Zero Trust é aplicável apenas a ambientes cloud, não on-premises.', 'Zero Trust é um produto específico de um fabricante de segurança.'],
+      answer:2, explanation:'Zero Trust: "Never trust, always verify." Contrasta com o modelo tradicional de perímetro (dentro da rede = confiável). No Zero Trust: toda requisição é verificada (identidade + dispositivo + contexto), acesso de menor privilégio, assume que já houve comprometimento. Relevante com trabalho remoto, cloud e fornecedores externos. Não é produto — é arquitetura/filosofia.' },
+    { question:'O SAML 2.0 é utilizado principalmente em contextos de:',
+      options:['Autenticação biométrica em dispositivos móveis.', 'Federação de identidade corporativa para SSO entre sistemas empresariais e Identity Providers.', 'Criptografia de dados armazenados em bancos de dados.', 'Autorização de APIs REST em aplicações mobile.', 'Gerenciamento de dispositivos móveis corporativos.'],
+      answer:1, explanation:'SAML 2.0 (Security Assertion Markup Language): protocolo XML para federação de identidade corporativa. Permite SSO entre sistemas empresariais (Service Providers) e um Identity Provider (ex: ADFS, Okta). Amplamente usado em ambientes corporativos para integrar sistemas legados com provedores de identidade. OAuth/OIDC é preferido para aplicações modernas/APIs.' },
+    { question:'A SEGREGAÇÃO DE FUNÇÕES é uma prática de segurança que:',
+      options:['Separa os dados de produção dos dados de teste.', 'Divide tarefas críticas entre múltiplas pessoas para que nenhuma tenha controle total — reduzindo risco de fraude ou erro.', 'Segrega usuários internos de usuários externos na rede.', 'Separa o ambiente de desenvolvimento do ambiente de produção.', 'Divide as permissões de leitura e escrita em tabelas diferentes.'],
+      answer:1, explanation:'Segregação de Funções (SoD - Separation of Duties): divide responsabilidades críticas entre múltiplas pessoas. Ex financeiro: quem solicita pagamento ≠ quem aprova ≠ quem executa a transferência. Se a mesma pessoa fizesse tudo, poderia desviar fundos sem detecção. Também aplicada em TI: quem desenvolve código ≠ quem faz deploy em produção.' },
+    { question:'O MDM (Mobile Device Management) permite que a empresa:',
+      options:['Monitorar chamadas telefônicas de funcionários.', 'Gerenciar e proteger dispositivos móveis que acessam recursos corporativos, incluindo remote wipe e aplicação de políticas.', 'Substituir autenticação por reconhecimento do dispositivo.', 'Eliminar a necessidade de MFA para usuários com dispositivos gerenciados.', 'Impedir que funcionários usem dispositivos pessoais para qualquer finalidade.'],
+      answer:1, explanation:'MDM: gerencia smartphones, tablets corporativos ou BYOD. Funcionalidades: remote wipe (apaga dados corporativos remotamente), enforça políticas (PIN obrigatório, criptografia, lock automático), impede instalação de apps não aprovados, segrega dados corporativos de pessoais (containerização). Importante para conformidade com LGPD e proteção de dados corporativos em dispositivos móveis.' },
+  ],'iam_simulado');
+});
+</script>
+</body>
+</html>

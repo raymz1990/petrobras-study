@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MVP & Prototipação | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">UX & Design Thinking</a><span class="sep">›</span>
+      <span>MVP & Prototipação</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">🚀 Bloco II · 3.8 – 3.9</div>
+        <h1 class="mb-8">MVP <span class="gradient-text">&amp; Prototipação</span></h1>
+        <p>Minimum Viable Product, ciclo Build-Measure-Learn, fidelidade de protótipos, testes com usuários e validação de hipóteses de negócio.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~35 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Média incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — MVP & Prototipação</h4></div>
+      <ul>
+        <li>MVP tem funcionalidade REAL lançada no mercado; protótipo é simulação para teste de design</li>
+        <li>Build-Measure-Learn: construir o mínimo para aprender, não para entregar tudo</li>
+        <li>Perseverar vs Pivotar: decisão baseada em dados do MVP</li>
+        <li>Protótipo de baixa fidelidade: papel/sketch. Alta fidelidade: Figma/Adobe XD interativo</li>
+        <li>Teste de usabilidade: observar o usuário, não explicar o que deve fazer</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="mvp">🚀 MVP</button>
+      <button class="tab-btn" data-tab="lean">🔄 Lean Startup</button>
+      <button class="tab-btn" data-tab="prototipo">📐 Prototipação</button>
+      <button class="tab-btn" data-tab="teste">🧪 Testes com Usuários</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- MVP -->
+    <div class="tab-panel active" data-tab="mvp">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">🚀</div>MVP — Minimum Viable Product</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Definição de Eric Ries (Lean Startup)</div>
+          MVP é a versão do produto com o <strong>menor esforço e tempo de desenvolvimento</strong> possível que permite ao time coletar a <strong>máxima quantidade de aprendizado validado</strong> sobre os clientes.
+        </div>
+
+        <h3>O que o MVP NÃO é</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Mito</th><th>Realidade</th></tr></thead>
+            <tbody>
+              <tr><td>MVP é um produto de baixa qualidade</td><td>MVP é o menor produto que ainda entrega valor real e permite aprendizado</td></tr>
+              <tr><td>MVP é um protótipo</td><td>MVP tem funcionalidade REAL usada por clientes reais no mercado</td></tr>
+              <tr><td>MVP é a versão 1.0 com todas as funcionalidades básicas</td><td>MVP testa UMA hipótese central com o mínimo necessário</td></tr>
+              <tr><td>MVP é construído uma vez e depois é melhorado</td><td>Cada aprendizado pode gerar um novo MVP (iteração)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Tipos de MVP</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">🎬</div>
+            <div class="concept-name">Vídeo MVP</div>
+            <div class="concept-desc">Dropbox: criou um vídeo demonstrando o produto antes de construí-lo. Validou o interesse com 70k cadastros antes de lançar.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🧑‍🤝‍🧑</div>
+            <div class="concept-name">Concierge MVP</div>
+            <div class="concept-desc">Humanos executam manualmente o serviço que será automatizado. Food on the Table: fundadores faziam a curadoria manualmente para o primeiro cliente.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🧪</div>
+            <div class="concept-name">Smoke Test</div>
+            <div class="concept-desc">Landing page com formulário de interesse antes do produto existir. Mede demanda real antes de investir em desenvolvimento.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">📦</div>
+            <div class="concept-name">Produto de Uma Funcionalidade</div>
+            <div class="concept-desc">Produto real mas com apenas a funcionalidade central. Instagram nasceu com apenas filtros de foto + compartilhamento.</div>
+          </div>
+        </div>
+
+        <h3>MVP vs Protótipo — Diferença Fundamental</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>Protótipo</th><th>MVP</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Funcionalidade</strong></td><td>Simulada / não funcional</td><td>Real e funcional</td></tr>
+              <tr><td><strong>Usuários</strong></td><td>Testado internamente / laboratório</td><td>Usuários reais no mercado</td></tr>
+              <tr><td><strong>Objetivo</strong></td><td>Testar design e usabilidade</td><td>Validar hipótese de negócio</td></tr>
+              <tr><td><strong>Dados gerados</strong></td><td>Feedback qualitativo de design</td><td>Dados comportamentais reais</td></tr>
+              <tr><td><strong>Custo</strong></td><td>Baixo (papel, Figma)</td><td>Maior (desenvolvimento real)</td></tr>
+              <tr><td><strong>Risco</strong></td><td>Nenhum para o usuário final</td><td>Exposição real de marca</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lean Startup -->
+    <div class="tab-panel" data-tab="lean">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🔄</div>Lean Startup — Build-Measure-Learn</h2>
+
+        <p>Lean Startup (Eric Ries, 2011) é uma metodologia para desenvolver negócios e produtos sob condições de extrema incerteza, baseada em ciclos rápidos de aprendizado.</p>
+
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content">
+              <h4>BUILD — Construir o MVP</h4>
+              <p>Transformar hipóteses em produto mínimo testável. A chave: construir apenas o suficiente para testar a hipótese mais crítica. Não construir funcionalidades "por precaução".</p>
+              <div class="highlight-box info" style="margin-top:8px"><div class="hb-title">Hipótese de Valor vs Crescimento</div>Hipótese de valor: os clientes querem isso? Hipótese de crescimento: como adquirir mais clientes? O MVP testa a hipótese de valor primeiro.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content">
+              <h4>MEASURE — Medir com Métricas que Importam</h4>
+              <p>Coletar dados sobre como usuários reais interagem com o MVP. Foco em <strong>métricas acionáveis</strong> (que guiam decisões) vs métricas de vaidade (que parecem boas mas não guiam ações).</p>
+              <div class="comparison-wrap" style="margin-top:8px">
+                <table class="comparison-table">
+                  <thead><tr><th>Métrica de Vaidade ❌</th><th>Métrica Acionável ✅</th></tr></thead>
+                  <tbody>
+                    <tr><td>Total de usuários cadastrados</td><td>Taxa de retenção após 7 dias</td></tr>
+                    <tr><td>Downloads do app</td><td>Taxa de ativação (usou a funcionalidade central)</td></tr>
+                    <tr><td>Pageviews</td><td>Taxa de conversão (visitante → cliente)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">3</div>
+            <div class="step-content">
+              <h4>LEARN — Aprender e Decidir</h4>
+              <p>Analisar os dados para validar ou invalidar hipóteses. Tomar uma decisão fundamental:</p>
+              <div class="concept-grid" style="margin-top:8px">
+                <div class="concept-card"><div class="emoji">➡️</div><div class="concept-name">Perseverar</div><div class="concept-desc">A hipótese foi validada — continuar na direção atual, iterando e melhorando.</div></div>
+                <div class="concept-card"><div class="emoji">↩️</div><div class="concept-name">Pivotar</div><div class="concept-desc">A hipótese foi invalidada — mudar de direção. Pode ser: segmento, canal, funcionalidade, modelo de negócio.</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Tipos de Pivot</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo de Pivot</th><th>O que muda</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Zoom-in</strong></td><td>Uma funcionalidade vira o produto inteiro</td><td>Twitter era feature do Odeo (podcast)</td></tr>
+              <tr><td><strong>Zoom-out</strong></td><td>O produto vira uma funcionalidade de algo maior</td><td>Produto B2C vira módulo de plataforma B2B</td></tr>
+              <tr><td><strong>Segmento de cliente</strong></td><td>Mesmo produto, público diferente</td><td>Ferramenta para startups → adaptada para empresas</td></tr>
+              <tr><td><strong>Modelo de negócio</strong></td><td>Mesmo produto, forma de monetizar diferente</td><td>Produto pago → freemium</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prototipação -->
+    <div class="tab-panel" data-tab="prototipo">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">📐</div>Prototipação</h2>
+
+        <p>Prototipação é a criação de representações do produto para explorar ideias, comunicar conceitos e testar hipóteses antes de investir em desenvolvimento completo.</p>
+
+        <h3>Fidelidade de Protótipos</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">↓</div>
+            <div class="step-content">
+              <h4>Baixa Fidelidade</h4>
+              <p><strong>Formato:</strong> Papel, sketches, wireframes simples em quadro branco, post-its.<br>
+              <strong>Foco:</strong> Estrutura, fluxo, arquitetura de informação — não visual.<br>
+              <strong>Vantagem:</strong> Extremamente rápido e barato. Mudanças em segundos. Encoraja feedback honesto.<br>
+              <strong>Ferramentas:</strong> Papel, lápis, Balsamiq (wireframe digital simples).</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">→</div>
+            <div class="step-content">
+              <h4>Média Fidelidade</h4>
+              <p><strong>Formato:</strong> Wireframes digitais com interações básicas, sem design final.<br>
+              <strong>Foco:</strong> Navegação, fluxos de usuário, hierarquia de informação.<br>
+              <strong>Ferramentas:</strong> Figma (wireframe), Axure RP, Marvel App.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">↑</div>
+            <div class="step-content">
+              <h4>Alta Fidelidade</h4>
+              <p><strong>Formato:</strong> Mockup interativo com visual final — cores, tipografia, ícones, animações.<br>
+              <strong>Foco:</strong> Aparência e feel do produto real. Apresentável a stakeholders.<br>
+              <strong>Ferramentas:</strong> Figma (protótipo interativo), Adobe XD, InVision, Framer.<br>
+              <strong>Desvantagem:</strong> Caro e demorado. Usuários podem focar no visual em vez do fluxo.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Quando usar cada fidelidade</div>
+          Início do projeto / idéias divergentes → <strong>Baixa fidelidade</strong><br>
+          Testar fluxos e navegação → <strong>Média fidelidade</strong><br>
+          Apresentar para clientes / stakeholders / testes avançados → <strong>Alta fidelidade</strong><br><br>
+          Não pule para alta fidelidade sem validar o conceito antes — você pode construir a coisa errada de forma muito bonita.
+        </div>
+
+        <h3>Prototipação em Papel — Técnica Rápida</h3>
+        <p>Desenhar telas em papel e simular interações manualmente ("Mágico de Oz"). Um facilitador troca as folhas de papel conforme o usuário "clica". Revela problemas de UX rapidamente sem nenhum investimento em tecnologia.</p>
+      </div>
+    </div>
+
+    <!-- Testes com Usuários -->
+    <div class="tab-panel" data-tab="teste">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🧪</div>Testes com Usuários</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Regra de Ouro do Teste de Usabilidade</div>
+          Observe, não explique. Durante o teste, NUNCA diga ao usuário como fazer uma tarefa — isso invalida o teste. Deixe-o lutar. O objetivo é descobrir onde a interface falha, não mostrar que ela funciona.
+        </div>
+
+        <h3>Processo de Teste de Usabilidade</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content"><h4>Planejamento</h4><p>Definir objetivos, recrutar participantes (5 usuários detectam ~85% dos problemas — Nielsen), preparar cenários e tarefas realistas.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content"><h4>Execução</h4><p>Usuário realiza tarefas enquanto "pensa em voz alta" (think aloud protocol). Facilitador observa e anota — não intervém. Gravação de tela e voz.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">3</div>
+            <div class="step-content"><h4>Análise</h4><p>Identificar padrões de problemas entre os participantes. Categorizar por severidade. Relacionar com heurísticas violadas.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">4</div>
+            <div class="step-content"><h4>Iteração</h4><p>Corrigir problemas identificados e testar novamente. O ciclo de teste-correção-teste é a essência do design centrado no usuário.</p></div>
+          </div>
+        </div>
+
+        <h3>Métricas de Usabilidade</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Métrica</th><th>O que mede</th><th>Como coletar</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Taxa de Sucesso</strong></td><td>% de usuários que completaram a tarefa</td><td>Observação direta</td></tr>
+              <tr><td><strong>Tempo na Tarefa</strong></td><td>Tempo para completar (eficiência)</td><td>Cronômetro</td></tr>
+              <tr><td><strong>Taxa de Erro</strong></td><td>Número de erros por tarefa</td><td>Observação e logs</td></tr>
+              <tr><td><strong>SUS (System Usability Scale)</strong></td><td>Satisfação geral (0-100)</td><td>Questionário pós-teste (10 perguntas)</td></tr>
+              <tr><td><strong>NPS (Net Promoter Score)</strong></td><td>Probabilidade de recomendar (0-10)</td><td>Pergunta única pós-uso</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — MVP & Prototipação</div>
+          <span class="badge badge-gold">6 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-mvp"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-mvp"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Voltar</div><div>UX & Design Thinking</div></div>
+      </a>
+      <a href="../bi/index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>Business Intelligence</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-mvp','mvp',[
+    'Sei a definição de MVP segundo Eric Ries',
+    'Entendo a diferença entre MVP e protótipo',
+    'Domino o ciclo Build-Measure-Learn',
+    'Sei a diferença entre métricas de vaidade e métricas acionáveis',
+    'Entendo quando perseverar vs pivotar',
+    'Conheço os tipos de pivot',
+    'Sei as 3 fidelidades de protótipo e quando usar cada uma',
+    'Entendo o protocolo de think aloud em testes de usabilidade',
+  ]);
+
+  DC.Quiz.render('quiz-mvp',[
+    { question:'O MVP (Minimum Viable Product) difere de um protótipo porque:',
+      options:['MVP é sempre de alta fidelidade visual; protótipo é de baixa fidelidade.','MVP tem funcionalidade real lançada para usuários de mercado; protótipo é simulação para testes de design.','Protótipo gera dados de comportamento real; MVP serve apenas para aprendizado interno.','MVP é desenvolvido apenas por startups; protótipo por empresas estabelecidas.','Não há diferença técnica — são termos intercambiáveis no mercado ágil.'],
+      answer:1, explanation:'MVP = produto mínimo com funcionalidade REAL lançado no mercado para usuários reais — gera dados comportamentais reais e valida hipóteses de negócio. Protótipo = representação simulada (pode não ter backend) para testar design e usabilidade em ambiente controlado. MVP valida negócio; protótipo valida design. MVP expõe a marca; protótipo não.' },
+    { question:'No ciclo Lean Startup (Build-Measure-Learn), a decisão de PIVOTAR significa:',
+      options:['Continuar na mesma direção após validar a hipótese central.','Aumentar o investimento no produto após resultados positivos.','Mudar de direção estratégica — segmento, funcionalidade, canal ou modelo — após invalidar uma hipótese.','Cancelar o projeto devido a resultados negativos irrecuperáveis.','Contratar mais desenvolvedores para acelerar a entrega do MVP.'],
+      answer:2, explanation:'Pivotar = mudança estruturada de direção baseada em aprendizado validado. Não é fracasso — é inteligência. O aprendizado (mesmo negativo) é o objetivo do MVP. Tipos: zoom-in (feature vira produto), zoom-out, mudança de segmento, mudança de modelo de negócio. Perseverar = continuar na direção atual após validação positiva da hipótese.' },
+    { question:'No processo de Build-Measure-Learn, uma "métrica de vaidade" é:',
+      options:['Uma métrica que mede a satisfação estética do design.','Uma métrica que parece positiva mas não guia decisões de negócio — ex: total de downloads sem correlação com engajamento.','Uma métrica usada apenas pela equipe de marketing.','Uma métrica que mede o tempo de carregamento da interface.','Uma métrica de NPS (Net Promoter Score) para produtos recentes.'],
+      answer:1, explanation:'Métricas de vaidade: parecem boas mas não guiam ação (total de cadastros, pageviews, downloads). Métricas acionáveis: guiam decisões — taxa de retenção D7 (quantos voltam após 7 dias?), taxa de ativação, LTV, CAC. Ex: 1 milhão de downloads pode esconder 95% de churn após 24h — a métrica de vaidade esconde o problema real.' },
+    { question:'Um protótipo de BAIXA FIDELIDADE é mais indicado quando:',
+      options:['O produto está próximo do lançamento e precisa de validação final com stakeholders.','Na fase inicial, para explorar conceitos rapidamente, testar fluxos e coletar feedback sem investimento em design.','O usuário precisa de uma experiência realista para feedback preciso de usabilidade.','A equipe precisa apresentar o produto para aprovação da diretoria.','O desenvolvimento já iniciou e o protótipo é apenas documentação.'],
+      answer:1, explanation:'Baixa fidelidade = papel, sketch, wireframe simples. Ideal no INÍCIO: explorar múltiplas ideias, testar estrutura e fluxo, coletar feedback honesto (usuários não focam no visual inexistente), fácil de modificar em segundos. Alta fidelidade engessa prematuramente — usuários ficam presos no visual e perdem o foco no fluxo e na lógica.' },
+    { question:'Durante um teste de usabilidade, o facilitador observa que o usuário está travado em uma tela sem saber o que fazer. A atitude CORRETA é:',
+      options:['Explicar imediatamente como navegar para não frustrar o usuário.','Mostrar onde clicar para que o teste continue de forma produtiva.','Observar e registrar o comportamento sem intervir — a dificuldade é um dado valioso de usabilidade.','Encerrar o teste e reformular a tarefa para uma mais simples.','Pedir ao usuário que leia a documentação antes de continuar.'],
+      answer:2, explanation:'A dificuldade do usuário É o dado de usabilidade. Se o facilitador intervém, invalida o teste. A regra: observe, não explique. Deixe o usuário lutar — anote o ponto de frustração, o caminho tentado, as expressões verbais. "Pensar em voz alta" (think aloud) ajuda a capturar o raciocínio do usuário. Intervir apenas se o usuário pedir explicitamente para encerrar.' },
+    { question:'O "Think Aloud Protocol" em testes de usabilidade consiste em:',
+      options:['O facilitador explicando em voz alta o que o usuário deve fazer em cada etapa.','O usuário verbalizando seus pensamentos, dúvidas e expectativas enquanto realiza as tarefas no produto.','A equipe de design discutindo o protótipo em voz alta durante a criação.','Um script de pensamentos lido pelo usuário para simular comportamento real.','O stakeholder comentando em voz alta suas impressões sobre o design.'],
+      answer:1, explanation:'Think Aloud (protocolo de verbalização): o usuário VERBALIZA seus pensamentos enquanto usa o produto — "estou procurando um botão de salvar... não estou encontrando... acho que clico aqui...". Revela o modelo mental do usuário, onde ele espera encontrar elementos, o que o confunde. É a técnica mais rica de coleta de dados em testes de usabilidade.' },
+  ],'mvp_simulado');
+});
+</script>
+</body>
+</html>

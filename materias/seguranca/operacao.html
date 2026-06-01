@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operação de Segurança | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Segurança da Informação</a><span class="sep">›</span>
+      <span>Operação de Segurança</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">⚙️ Bloco III · 3.2</div>
+        <h1 class="mb-8">Operação de <span class="gradient-text">Segurança</span></h1>
+        <p>Firewall, Proxy, IPS/IDS, DLP, CASB, SIEM, Antivírus, EDR, WAF, gestão de vulnerabilidades, monitoração e backup. O arsenal completo do analista de segurança.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~60 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Altíssima incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Operação de Segurança</h4></div>
+      <ul>
+        <li>IDS detecta e alerta (passivo); IPS detecta e bloqueia (ativo) — confusão clássica</li>
+        <li>SIEM correlaciona eventos de múltiplas fontes — não é só antivírus</li>
+        <li>DLP previne vazamento de dados — diferente de antivírus</li>
+        <li>WAF protege especificamente aplicações web (HTTP/HTTPS)</li>
+        <li>EDR é a evolução do antivírus — detecta comportamento, não só assinatura</li>
+        <li>CASB controla uso de serviços cloud (Shadow IT)</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="perimetro">🏰 Perímetro</button>
+      <button class="tab-btn" data-tab="deteccao">🔍 Detecção</button>
+      <button class="tab-btn" data-tab="endpoint">💻 Endpoint</button>
+      <button class="tab-btn" data-tab="backup">💾 Backup</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Perímetro -->
+    <div class="tab-panel active" data-tab="perimetro">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(239,68,68,0.1)">🏰</div>Segurança de Perímetro</h2>
+
+        <h3>Firewall</h3>
+        <p>Controla o tráfego de rede com base em regras. Atua como primeira linha de defesa entre redes confiáveis e não-confiáveis.</p>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Geração</th><th>O que inspeciona</th><th>Características</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Packet Filter</strong></td><td>Cabeçalho IP/TCP (IP, porta, protocolo)</td><td>Stateless — não mantém estado da conexão. Simples e rápido.</td></tr>
+              <tr><td><strong>Stateful</strong></td><td>Estado da conexão (SYN, ACK, FIN)</td><td>Rastreia sessões — mais inteligente. Bloqueia pacotes fora de contexto.</td></tr>
+              <tr><td><strong>Application Layer (NGFW)</strong></td><td>Conteúdo da aplicação (HTTP, DNS, SSL)</td><td>Next-Gen Firewall — inspeção profunda de pacotes (DPI), reconhece aplicações.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Proxy</h3>
+        <p>Intermediário entre cliente e internet. O cliente faz requisição ao proxy, que a encaminha em nome do cliente.</p>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">➡️</div><div class="concept-name">Proxy Forward</div><div class="concept-desc">Representa o CLIENTE. Controla acesso à internet, filtra conteúdo, registra acessos, cache de conteúdo.</div></div>
+          <div class="concept-card"><div class="emoji">⬅️</div><div class="concept-name">Proxy Reverso</div><div class="concept-desc">Representa o SERVIDOR. Balanceia carga, termina SSL, oculta servidores internos, cache de respostas.</div></div>
+          <div class="concept-card"><div class="emoji">🔒</div><div class="concept-name">Proxy Transparente</div><div class="concept-desc">Intercepta tráfego sem configuração no cliente. Usuário não sabe que está passando pelo proxy.</div></div>
+        </div>
+
+        <h3>WAF — Web Application Firewall</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">💡 WAF vs Firewall Tradicional</div>
+          Firewall tradicional opera nas camadas 3-4 (IP, TCP/UDP) — filtra por IP e porta.<br>
+          WAF opera na camada 7 (aplicação HTTP/HTTPS) — inspeciona o conteúdo das requisições web, detectando SQLi, XSS, CSRF, Path Traversal e outros ataques web específicos.<br>
+          <strong>WAF é complementar ao firewall, não substituto.</strong>
+        </div>
+
+        <h3>VPN — Virtual Private Network</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>VPN Site-to-Site</th><th>VPN Client-to-Site</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Conecta</strong></td><td>Duas redes corporativas (matriz ↔ filial)</td><td>Dispositivo remoto ↔ rede corporativa</td></tr>
+              <tr><td><strong>Uso típico</strong></td><td>Interliga escritórios permanentemente</td><td>Funcionário em home-office acessando intranet</td></tr>
+              <tr><td><strong>Configuração</strong></td><td>Nos roteadores/firewalls das redes</td><td>No dispositivo do usuário (client VPN)</td></tr>
+              <tr><td><strong>Protocolos</strong></td><td>IPSec, GRE</td><td>OpenVPN, L2TP/IPSec, WireGuard</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Detecção -->
+    <div class="tab-panel" data-tab="deteccao">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">🔍</div>Detecção e Resposta</h2>
+
+        <h3>IDS vs IPS — A Distinção Mais Cobrada</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>IDS (Detection)</th><th>IPS (Prevention)</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Ação</strong></td><td>Detecta e <strong>ALERTA</strong></td><td>Detecta e <strong>BLOQUEIA</strong></td></tr>
+              <tr><td><strong>Comportamento</strong></td><td>Passivo — não interfere no tráfego</td><td>Ativo — interrompe tráfego malicioso</td></tr>
+              <tr><td><strong>Posição na rede</strong></td><td>Out-of-band (cópia espelhada do tráfego)</td><td>Inline (fluxo de dados passa pelo IPS)</td></tr>
+              <tr><td><strong>Risco</strong></td><td>Falso negativo (não detecta ataque real)</td><td>Falso positivo (bloqueia tráfego legítimo)</td></tr>
+              <tr><td><strong>Impacto na latência</strong></td><td>Nenhum (não está no caminho)</td><td>Pequeno (tráfego passa pelo dispositivo)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Pegadinha Clássica</div>
+          "O IDS bloqueia automaticamente o tráfego suspeito" → <strong>FALSO</strong> (isso é o IPS).<br>
+          "O IPS apenas gera alertas sem tomar ação" → <strong>FALSO</strong> (isso é o IDS).<br>
+          IDS = <strong>D</strong>etection = <strong>D</strong>iz (alerta). IPS = <strong>P</strong>revention = <strong>P</strong>ara (bloqueia).
+        </div>
+
+        <h3>Tipos de Detecção</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">📋</div><div class="concept-name">Baseado em Assinatura</div><div class="concept-desc">Compara padrões com banco de assinaturas conhecidas. Rápido e preciso para ameaças conhecidas. Ineficaz contra zero-day.</div></div>
+          <div class="concept-card"><div class="emoji">📊</div><div class="concept-name">Baseado em Anomalia</div><div class="concept-desc">Aprende o comportamento normal e alerta desvios. Detecta zero-day mas gera mais falsos positivos.</div></div>
+          <div class="concept-card"><div class="emoji">🔬</div><div class="concept-name">Baseado em Política</div><div class="concept-desc">Verifica conformidade com políticas definidas. Ex: alerta se protocolo não autorizado for detectado.</div></div>
+        </div>
+
+        <h3>SIEM — Security Information and Event Management</h3>
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ O que o SIEM faz</div>
+          SIEM coleta logs e eventos de segurança de <strong>múltiplas fontes</strong> (firewall, IDS, servidores, aplicações, endpoints), <strong>correlaciona</strong> esses eventos para identificar padrões de ataque e gera alertas centralizados.<br><br>
+          <strong>Exemplo:</strong> 5 falhas de login em servidores diferentes em 2 minutos → SIEM correlaciona e alerta: possível ataque de força bruta distribuída.
+        </div>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Função SIEM</th><th>Descrição</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Coleta</strong></td><td>Agrega logs de firewalls, IDS/IPS, servidores, aplicações, endpoints via agentes ou syslog</td></tr>
+              <tr><td><strong>Normalização</strong></td><td>Converte diferentes formatos de log em estrutura padrão para correlação</td></tr>
+              <tr><td><strong>Correlação</strong></td><td>Aplica regras para identificar sequências de eventos que indicam ataque ou incidente</td></tr>
+              <tr><td><strong>Alertas</strong></td><td>Gera alertas priorizados para a equipe de SOC (Security Operations Center)</td></tr>
+              <tr><td><strong>Retenção</strong></td><td>Armazena logs históricos para investigação forense e conformidade</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>DLP — Data Loss Prevention</h3>
+        <p>DLP monitora e controla o movimento de dados sensíveis para prevenir vazamentos — intencionais ou acidentais.</p>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🌐</div><div class="concept-name">DLP de Rede</div><div class="concept-desc">Monitora tráfego de rede — bloqueia envio de CPFs, cartões de crédito por email ou upload não autorizado.</div></div>
+          <div class="concept-card"><div class="emoji">💻</div><div class="concept-name">DLP de Endpoint</div><div class="concept-desc">Controla cópia para USB, impressão, screenshots de dados sensíveis no dispositivo.</div></div>
+          <div class="concept-card"><div class="emoji">☁️</div><div class="concept-name">DLP de Cloud</div><div class="concept-desc">Monitora dados em serviços cloud (geralmente via CASB).</div></div>
+        </div>
+
+        <h3>CASB — Cloud Access Security Broker</h3>
+        <p>CASB é um intermediário de segurança entre usuários e serviços cloud. Oferece visibilidade sobre o uso de aplicações cloud (incluindo Shadow IT — apps não aprovadas pelo TI), aplica políticas de DLP, controle de acesso e conformidade.</p>
+      </div>
+    </div>
+
+    <!-- Endpoint -->
+    <div class="tab-panel" data-tab="endpoint">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">💻</div>Segurança de Endpoint</h2>
+
+        <h3>Antivírus vs EDR</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>Antivírus Tradicional</th><th>EDR (Endpoint Detection & Response)</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Detecção</strong></td><td>Assinatura — banco de vírus conhecidos</td><td>Comportamento + ML — detecta anomalias</td></tr>
+              <tr><td><strong>Zero-Day</strong></td><td>❌ Ineficaz (assinatura não existe)</td><td>✅ Detecta comportamento suspeito</td></tr>
+              <tr><td><strong>Resposta</strong></td><td>Quarentena/remoção do arquivo</td><td>Isolamento do endpoint, kill process, forense</td></tr>
+              <tr><td><strong>Visibilidade</strong></td><td>Limitada ao arquivo infectado</td><td>Telemetria completa: processos, rede, registro</td></tr>
+              <tr><td><strong>Investigação</strong></td><td>Não — apenas alerta</td><td>Timeline de eventos, threat hunting</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 XDR — Extended Detection & Response</div>
+          Evolução do EDR que integra telemetria de <strong>múltiplas camadas</strong>: endpoint + rede + cloud + email + identidade. Visão unificada para detecção e resposta a ameaças avançadas. Reduz silos entre ferramentas de segurança.
+        </div>
+
+        <h3>Gestão de Vulnerabilidades</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content"><h4>Inventário de Ativos</h4><p>Conhecer todos os ativos (servidores, endpoints, aplicações) antes de protegê-los.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content"><h4>Scan de Vulnerabilidades</h4><p>Ferramentas como Nessus, Qualys, OpenVAS identificam vulnerabilidades conhecidas nos ativos.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">3</div>
+            <div class="step-content"><h4>Priorização (CVSS)</h4><p>Common Vulnerability Scoring System (0-10) — prioriza patches pelo risco real (exploitabilidade + impacto).</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">4</div>
+            <div class="step-content"><h4>Remediação</h4><p>Aplicar patches, reconfigurar, mitigar ou aceitar o risco com justificativa documentada.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(239,68,68,0.15);color:var(--red)">5</div>
+            <div class="step-content"><h4>Verificação e Monitoramento</h4><p>Confirmar que a remediação foi eficaz e monitorar continuamente para novas vulnerabilidades.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Backup -->
+    <div class="tab-panel" data-tab="backup">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">💾</div>Backup e Continuidade</h2>
+
+        <h3>Estratégias de Backup</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo</th><th>O que copia</th><th>Espaço</th><th>Restauração</th><th>Velocidade backup</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Completo (Full)</strong></td><td>Todos os dados</td><td>Maior</td><td>Apenas o último full</td><td>Mais lento</td></tr>
+              <tr><td><strong>Incremental</strong></td><td>Mudanças desde o último backup (qualquer tipo)</td><td>Menor</td><td>Último full + TODOS os incrementais</td><td>Mais rápido</td></tr>
+              <tr><td><strong>Diferencial</strong></td><td>Mudanças desde o último backup COMPLETO</td><td>Médio</td><td>Último full + último diferencial</td><td>Intermediário</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Regra 3-2-1</div>
+          Boa prática de backup:<br>
+          <strong>3</strong> cópias dos dados<br>
+          <strong>2</strong> mídias/formatos diferentes<br>
+          <strong>1</strong> cópia offsite (fora do local principal)<br><br>
+          Protege contra: falha de hardware, desastre local (incêndio, inundação) e ataque de ransomware.
+        </div>
+
+        <h3>RTO e RPO</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">⏱️</div>
+            <div class="concept-name">RTO — Recovery Time Objective</div>
+            <div class="concept-desc">Tempo máximo aceitável para restaurar o serviço após uma falha. "O sistema deve voltar em até 4 horas." Define a URGÊNCIA da recuperação.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">📅</div>
+            <div class="concept-name">RPO — Recovery Point Objective</div>
+            <div class="concept-desc">Quantidade máxima de dados que pode ser perdida. "Não podemos perder mais de 1 hora de dados." Define a FREQUÊNCIA dos backups.</div>
+          </div>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Exemplo Petrobras</div>
+          Sistema de controle de produção: RPO = 15 minutos (backup a cada 15min), RTO = 30 minutos (sistema deve voltar em 30min). Esses valores determinam a arquitetura: replica em tempo real, múltiplos data centers, hot standby.
+        </div>
+
+        <h3>Continuidade de Negócios — ISO 22301</h3>
+        <p>BCM (Business Continuity Management) garante que a organização continue operando durante e após incidentes significativos. Documentos chave:</p>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">📋</div><div class="concept-name">BIA</div><div class="concept-desc">Business Impact Analysis — identifica processos críticos e impacto de interrupções. Define RTO e RPO.</div></div>
+          <div class="concept-card"><div class="emoji">🗺️</div><div class="concept-name">BCP</div><div class="concept-desc">Business Continuity Plan — plano para manter operações durante a crise (processos alternativos).</div></div>
+          <div class="concept-card"><div class="emoji">🔧</div><div class="concept-name">DRP</div><div class="concept-desc">Disaster Recovery Plan — plano técnico para recuperar sistemas de TI após desastre.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Operação de Segurança</div>
+          <span class="badge badge-red">10 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-operacao"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-operacao"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Voltar</div><div>Segurança da Informação</div></div>
+      </a>
+      <a href="ataques.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>Ataques & Malwares</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-operacao','operacao',[
+    'Sei os 3 tipos de firewall (packet filter, stateful, NGFW)',
+    'Entendo a diferença entre proxy forward e proxy reverso',
+    'Sei a diferença entre Firewall e WAF',
+    'Domino IDS (detecta) vs IPS (bloqueia) — ativo vs passivo',
+    'Sei os 3 tipos de detecção (assinatura, anomalia, política)',
+    'Entendo o que o SIEM faz (coleta, correlaciona, alerta)',
+    'Sei a diferença entre DLP e antivírus',
+    'Conheço o que é CASB e Shadow IT',
+    'Sei a diferença entre Antivírus e EDR',
+    'Domino os 3 tipos de backup e a Regra 3-2-1',
+    'Sei diferenciar RTO (tempo de recuperação) de RPO (perda de dados)',
+  ]);
+
+  DC.Quiz.render('quiz-operacao',[
+    { question:'Um sistema de segurança monitora o tráfego de rede, identifica padrões suspeitos e gera alertas para a equipe de SOC, mas NÃO interrompe o tráfego automaticamente. Qual ferramenta descreve esse comportamento?',
+      options:['IPS — bloqueia automaticamente.','Firewall stateful — filtra por estado de conexão.','IDS — detecta e alerta (passivo).','WAF — protege aplicações web.','SIEM — correlaciona eventos de múltiplas fontes.'],
+      answer:2, explanation:'IDS (Intrusion Detection System) = PASSIVO. Monitora tráfego, detecta padrões suspeitos (por assinatura ou anomalia) e APENAS GERA ALERTAS — não interfere no tráfego. Posicionado out-of-band (recebe cópia do tráfego via port mirroring). IPS é ATIVO — fica inline e bloqueia o tráfego malicioso automaticamente.' },
+    { question:'O WAF (Web Application Firewall) diferencia-se de um firewall tradicional porque:',
+      options:['WAF opera nas camadas 3-4 (IP/TCP); firewall tradicional opera na camada 7.','WAF inspeciona o conteúdo de requisições HTTP/HTTPS (camada 7), detectando SQLi, XSS e outros ataques web; firewall filtra por IP e porta (camadas 3-4).','WAF substitui completamente o firewall tradicional.','Firewall tradicional detecta ataques web; WAF apenas filtra por endereço IP.','Não há diferença técnica — são sinônimos em contexto de segurança web.'],
+      answer:1, explanation:'Firewall tradicional: camadas 3-4 → filtra por IP, porta e protocolo. WAF: camada 7 (aplicação) → inspeciona payload HTTP/HTTPS, detecta ataques específicos de aplicações web (SQL Injection, XSS, CSRF, Path Traversal). São complementares: firewall protege a rede, WAF protege a aplicação. Um não substitui o outro.' },
+    { question:'O SIEM (Security Information and Event Management) tem como principal função:',
+      options:['Bloquear malware nos endpoints corporativos.','Coletar, correlacionar e analisar logs de segurança de múltiplas fontes para detectar incidentes.','Prevenir o vazamento de dados sensíveis pela rede.','Controlar o acesso a serviços de cloud não aprovados.','Varrer vulnerabilidades em servidores e aplicações.'],
+      answer:1, explanation:'SIEM: coleta logs de firewall, IDS, servidores, aplicações, endpoints → normaliza formatos → aplica regras de correlação → gera alertas para o SOC. Exemplo clássico: 10 falhas de autenticação em 5 servidores diferentes em 1 minuto → SIEM correlaciona → alerta de possível ataque de força bruta distribuída. Não bloqueia, não varre vulnerabilidades.' },
+    { question:'A diferença entre Antivírus tradicional e EDR (Endpoint Detection & Response) é:',
+      options:['Antivírus detecta comportamento suspeito; EDR detecta apenas por assinatura.','EDR usa apenas assinatura de vírus conhecidos; antivírus usa machine learning.','Antivírus detecta malware conhecido por assinatura; EDR detecta comportamento anômalo, responde ativamente e fornece telemetria para investigação forense.','São tecnologias equivalentes com nomes diferentes.','EDR protege apenas servidores; antivírus protege apenas endpoints de usuário.'],
+      answer:2, explanation:'Antivírus tradicional: detecção por assinatura (banco de vírus conhecidos) → ineficaz contra zero-day e malware fileless. EDR: monitoramento comportamental contínuo, ML para anomalias, isolamento do endpoint, kill de processos maliciosos, linha do tempo de eventos para forense, threat hunting. EDR é a evolução — detecta ameaças que antivírus não vê.' },
+    { question:'Uma empresa faz backup COMPLETO toda segunda-feira e backup DIFERENCIAL de terça a sexta. Para restaurar os dados de quinta-feira, o administrador precisa de:',
+      options:['Apenas o backup diferencial de quinta.','Apenas o backup completo de segunda.','O backup completo de segunda E o backup diferencial de quinta.','O backup completo + todos os diferenciais (ter, qua, qui).','O backup diferencial de quinta + o diferencial de quarta.'],
+      answer:2, explanation:'Backup Diferencial: copia tudo que mudou desde o último backup COMPLETO (não desde o último backup de qualquer tipo). Para restaurar quinta: precisa do FULL de segunda (base) + DIFERENCIAL de quinta (todas as mudanças desde segunda). Se fosse incremental, precisaria do full + ter + qua + qui. Diferencial é mais simples de restaurar que incremental, mas ocupa mais espaço.' },
+    { question:'O DLP (Data Loss Prevention) é uma ferramenta que:',
+      options:['Remove malware de endpoints corporativos.','Detecta e bloqueia intrusões na rede corporativa.','Monitora e controla o movimento de dados sensíveis para prevenir vazamentos não autorizados.','Centraliza e correlaciona logs de segurança de múltiplas fontes.','Gerencia patches e atualizações de segurança nos servidores.'],
+      answer:2, explanation:'DLP previne vazamento de dados (intencional ou acidental). Monitora: emails com CPFs/cartões de crédito, uploads para serviços cloud não aprovados, cópia para USB, impressão de documentos confidenciais. Pode ser de rede (monitora tráfego), endpoint (controla dispositivos locais) ou cloud (via CASB). Diferente de antivírus (malware) e SIEM (correlação).' },
+    { question:'O RPO (Recovery Point Objective) define:',
+      options:['O tempo máximo para restaurar o sistema após uma falha.','A quantidade máxima de dados que pode ser perdida — determina a frequência dos backups.','O custo máximo aceitável de um incidente de segurança.','O número mínimo de pontos de backup a manter.','O ponto de recuperação geograficamente mais próximo.'],
+      answer:1, explanation:'RPO = quanto de dados posso perder? Se RPO = 1 hora → devo fazer backup a cada 1 hora (pois no pior caso perco 1h de dados). RTO = quanto tempo para voltar? Se RTO = 4 horas → o sistema deve ser restaurado em até 4 horas. RPO define frequência de backup; RTO define capacidade de recuperação (infraestrutura de DR, equipe de plantão).' },
+    { question:'O CASB (Cloud Access Security Broker) é utilizado principalmente para:',
+      options:['Realizar scan de vulnerabilidades em servidores cloud.','Oferecer visibilidade e controle sobre o uso de serviços cloud pelos usuários, incluindo Shadow IT.','Criptografar dados armazenados em buckets S3.','Fazer backup automático de dados em ambientes cloud.','Gerenciar certificados SSL de aplicações cloud.'],
+      answer:1, explanation:'CASB: intermediário entre usuários e serviços cloud. Funções: visibilidade (quais apps cloud os usuários usam — Shadow IT), DLP (previne upload de dados sensíveis), controle de acesso (quem pode usar qual serviço), conformidade (LGPD, ISO). Shadow IT = apps cloud usadas sem aprovação do TI (Dropbox, Gmail pessoal, WhatsApp para dados corporativos).' },
+    { question:'Na estratégia de backup, a Regra 3-2-1 estabelece:',
+      options:['3 backups completos, 2 diferenciais e 1 incremental por semana.','3 cópias dos dados, em 2 mídias/formatos diferentes, com 1 cópia armazenada offsite.','Testar 3 restaurações, em 2 ambientes, a cada 1 mês.','Manter backups por 3 anos, rotacionar mídias a cada 2 anos, 1 cópia em vault.','3 janelas de backup diárias, 2 semanais e 1 mensal.'],
+      answer:1, explanation:'Regra 3-2-1: 3 cópias (original + 2 backups), 2 mídias diferentes (ex: disco local + fita), 1 offsite (nuvem, outro datacenter). Protege contra: falha de hardware (cópia local), desastre físico (cópia offsite), falha de mídia específica (2 mídias). Em era de ransomware: 1 cópia offline é essencial pois ransomware pode criptografar backups conectados.' },
+    { question:'Um proxy REVERSO difere de um proxy FORWARD porque:',
+      options:['Proxy reverso representa o CLIENTE; proxy forward representa o SERVIDOR.','Proxy reverso representa o SERVIDOR (balanceia carga, termina SSL, oculta servidores internos); proxy forward representa o CLIENTE (controla acesso à internet).','Ambos têm a mesma função — diferem apenas na direção do tráfego monitorado.','Proxy forward é usado em cloud; proxy reverso em ambientes on-premises.','Proxy reverso não registra logs; proxy forward registra todos os acessos.'],
+      answer:1, explanation:'Proxy Forward: representa o CLIENTE → usuário configura proxy no navegador → proxy acessa internet em nome do cliente → controla acessos, filtra conteúdo, cache, anonimato. Proxy Reverso: representa o SERVIDOR → usuário acessa o proxy sem saber → proxy encaminha para servidor interno → balanceamento de carga, terminação SSL, cache de conteúdo, oculta arquitetura interna. Nginx e HAProxy são proxies reversos comuns.' },
+  ],'operacao_simulado');
+});
+</script>
+</body>
+</html>

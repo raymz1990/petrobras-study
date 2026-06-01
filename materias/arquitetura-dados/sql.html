@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SQL, DDL e DML | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Arquitetura de Dados</a><span class="sep">›</span>
+      <span>SQL, DDL e DML</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">💻 Bloco I · 1.9 – 1.11</div>
+        <h1 class="mb-8">SQL, DDL <span class="gradient-text">&amp; DML</span></h1>
+        <p>Linguagem SQL completa: consultas, junções, subconsultas, funções de agregação, DDL (CREATE/ALTER/DROP) e DML (INSERT/UPDATE/DELETE). O tópico mais cobrado do Bloco I.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~90 min de estudo</span></div>
+          <div class="materia-meta-item"><span>🎯 Altíssima incidência</span></div>
+          <div class="materia-meta-item"><span>💡 Questões com código real</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>O que a Cesgranrio mais cobra em SQL</h4></div>
+      <ul>
+        <li>Resultado de SELECT com JOIN — a banca mostra o schema e pede o output</li>
+        <li>WHERE vs HAVING — WHERE filtra linhas, HAVING filtra grupos após GROUP BY</li>
+        <li>INNER JOIN vs LEFT JOIN — diferença no resultado quando há registros sem correspondência</li>
+        <li>Subconsultas com IN, EXISTS, ANY, ALL — identificar qual retorna o resultado correto</li>
+        <li>TRUNCATE é DDL, não DML — e não pode ter WHERE</li>
+        <li>ORDER de execução SQL: FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="ddl">🏗️ DDL</button>
+      <button class="tab-btn" data-tab="dml">✏️ DML</button>
+      <button class="tab-btn" data-tab="select">🔍 SELECT & JOINs</button>
+      <button class="tab-btn" data-tab="agregacao">📊 Agregação</button>
+      <button class="tab-btn" data-tab="subconsultas">🔁 Subconsultas</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- DDL -->
+    <div class="tab-panel active" data-tab="ddl">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">🏗️</div>DDL — Data Definition Language</h2>
+        <p>DDL define e modifica a <strong>estrutura</strong> do banco de dados. Comandos principais: <code>CREATE</code>, <code>ALTER</code>, <code>DROP</code>, <code>TRUNCATE</code>, <code>RENAME</code>.</p>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ DDL vs DML — Resumo</div>
+          <strong>DDL</strong> (estrutura): CREATE, ALTER, DROP, TRUNCATE, RENAME<br>
+          <strong>DML</strong> (dados): INSERT, UPDATE, DELETE, SELECT (alguns autores incluem SELECT como DQL)<br>
+          <strong>DCL</strong> (controle): GRANT, REVOKE<br>
+          <strong>TCL</strong> (transação): COMMIT, ROLLBACK, SAVEPOINT
+        </div>
+
+        <h3>CREATE TABLE</h3>
+        <div class="code-block"><span class="code-lang">SQL</span><pre>CREATE TABLE funcionarios (
+    id          INT          PRIMARY KEY,
+    nome        VARCHAR(100) NOT NULL,
+    depto_id    INT,
+    salario     DECIMAL(10,2) DEFAULT 0,
+    admissao    DATE,
+    ativo       BOOLEAN      DEFAULT TRUE,
+
+    -- Chave estrangeira
+    CONSTRAINT fk_depto
+        FOREIGN KEY (depto_id)
+        REFERENCES departamentos(id)
+        ON DELETE SET NULL
+        ON UPDATE CASCADE
+);</pre></div>
+
+        <h3>Tipos de Constraints</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Constraint</th><th>Função</th><th>Permite NULL?</th></tr></thead>
+            <tbody>
+              <tr><td><strong>PRIMARY KEY</strong></td><td>Identifica uniquamente cada linha</td><td>❌ Nunca</td></tr>
+              <tr><td><strong>UNIQUE</strong></td><td>Garante unicidade da coluna</td><td>✅ Sim (uma vez)</td></tr>
+              <tr><td><strong>NOT NULL</strong></td><td>Proíbe valor nulo</td><td>❌ Nunca</td></tr>
+              <tr><td><strong>FOREIGN KEY</strong></td><td>Referencia PK de outra tabela</td><td>✅ Sim</td></tr>
+              <tr><td><strong>CHECK</strong></td><td>Valida condição lógica</td><td>✅ Sim</td></tr>
+              <tr><td><strong>DEFAULT</strong></td><td>Valor padrão quando omitido</td><td>✅ Sim</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>ALTER TABLE</h3>
+        <div class="code-block"><span class="code-lang">SQL</span><pre>-- Adicionar coluna
+ALTER TABLE funcionarios ADD COLUMN email VARCHAR(200);
+
+-- Modificar tipo de coluna
+ALTER TABLE funcionarios MODIFY COLUMN salario DECIMAL(12,2);
+
+-- Remover coluna
+ALTER TABLE funcionarios DROP COLUMN email;
+
+-- Adicionar constraint
+ALTER TABLE funcionarios ADD CONSTRAINT chk_salario CHECK (salario >= 0);
+
+-- Renomear tabela
+ALTER TABLE funcionarios RENAME TO colaboradores;</pre></div>
+
+        <h3>DROP vs TRUNCATE vs DELETE</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Comando</th><th>Categoria</th><th>Remove estrutura?</th><th>Remove dados?</th><th>WHERE?</th><th>Rollback?</th></tr></thead>
+            <tbody>
+              <tr><td><strong>DROP TABLE</strong></td><td>DDL</td><td>✅ Sim</td><td>✅ Sim</td><td>❌</td><td>❌ Geralmente não</td></tr>
+              <tr><td><strong>TRUNCATE</strong></td><td>DDL</td><td>❌ Não</td><td>✅ Todos</td><td>❌</td><td>❌ Geralmente não</td></tr>
+              <tr><td><strong>DELETE</strong></td><td>DML</td><td>❌ Não</td><td>✅ Seletivo</td><td>✅ Sim</td><td>✅ Sim</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ TRUNCATE é DDL — Pegadinha clássica!</div>
+          TRUNCATE remove TODOS os registros sem log individual por linha, reinicia contadores AUTO_INCREMENT e geralmente não pode ser revertido com ROLLBACK. Por isso é DDL, não DML. DELETE gera log de cada linha removida e pode ser revertido dentro de uma transação.
+        </div>
+      </div>
+    </div>
+
+    <!-- DML -->
+    <div class="tab-panel" data-tab="dml">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">✏️</div>DML — Data Manipulation Language</h2>
+
+        <h3>INSERT</h3>
+        <div class="code-block"><span class="code-lang">SQL</span><pre>-- Inserção simples
+INSERT INTO funcionarios (id, nome, depto_id, salario)
+VALUES (1, 'Ana Silva', 10, 8500.00);
+
+-- Múltiplas linhas
+INSERT INTO funcionarios (id, nome, depto_id, salario)
+VALUES
+    (2, 'Carlos Lima',  20, 7200.00),
+    (3, 'Maria Costa',  10, 9100.00),
+    (4, 'João Souza',   30, 6800.00);
+
+-- Inserir resultado de SELECT (INSERT INTO ... SELECT)
+INSERT INTO historico_salarios (func_id, salario, data)
+SELECT id, salario, CURRENT_DATE
+FROM funcionarios
+WHERE ativo = TRUE;</pre></div>
+
+        <h3>UPDATE</h3>
+        <div class="code-block"><span class="code-lang">SQL</span><pre>-- Atualizar um registro
+UPDATE funcionarios
+SET salario = salario * 1.10   -- reajuste de 10%
+WHERE id = 1;
+
+-- Atualizar múltiplos com JOIN
+UPDATE funcionarios f
+JOIN departamentos d ON f.depto_id = d.id
+SET f.salario = f.salario * 1.15
+WHERE d.nome = 'Tecnologia';
+
+-- ⚠️ UPDATE sem WHERE atualiza TODOS os registros!
+UPDATE funcionarios SET ativo = FALSE;  -- cuidado!</pre></div>
+
+        <h3>DELETE</h3>
+        <div class="code-block"><span class="code-lang">SQL</span><pre>-- Deletar registro específico
+DELETE FROM funcionarios WHERE id = 4;
+
+-- Deletar com subconsulta
+DELETE FROM funcionarios
+WHERE depto_id IN (
+    SELECT id FROM departamentos WHERE ativo = FALSE
+);
+
+-- ⚠️ DELETE sem WHERE remove TODOS os registros!
+DELETE FROM funcionarios;  -- equivalente ao TRUNCATE, mas com log</pre></div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Integridade Referencial no DML</div>
+          Tentar deletar um registro referenciado por FK pode gerar erro. O comportamento depende da opção configurada:<br>
+          <strong>ON DELETE RESTRICT</strong> — bloqueia o delete (padrão)<br>
+          <strong>ON DELETE CASCADE</strong> — deleta também os registros filhos<br>
+          <strong>ON DELETE SET NULL</strong> — define FK como NULL nos registros filhos
+        </div>
+      </div>
+    </div>
+
+    <!-- SELECT & JOINs -->
+    <div class="tab-panel" data-tab="select">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🔍</div>SELECT & JOINs</h2>
+
+        <h3>Ordem de Execução da Query SQL</h3>
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Ordem lógica de processamento</div>
+          <code>FROM</code> → <code>JOIN</code> → <code>WHERE</code> → <code>GROUP BY</code> → <code>HAVING</code> → <code>SELECT</code> → <code>DISTINCT</code> → <code>ORDER BY</code> → <code>LIMIT</code><br><br>
+          Por isso: aliases definidos no SELECT não podem ser usados no WHERE (WHERE é processado antes do SELECT).
+        </div>
+
+        <h3>Schema de Exemplo</h3>
+        <div class="code-block"><span class="code-lang">Schema</span><pre>departamentos: id(PK), nome, localizacao
+funcionarios:  id(PK), nome, depto_id(FK), salario, cargo
+projetos:      id(PK), nome, depto_id(FK), orcamento</pre></div>
+
+        <h3>Tipos de JOIN</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>JOIN</th><th>Retorna</th><th>Registros sem correspondência</th></tr></thead>
+            <tbody>
+              <tr><td><strong>INNER JOIN</strong></td><td>Apenas registros com correspondência em AMBAS as tabelas</td><td>Excluídos</td></tr>
+              <tr><td><strong>LEFT JOIN</strong></td><td>Todos da tabela esquerda + correspondentes da direita</td><td>Da direita: NULL</td></tr>
+              <tr><td><strong>RIGHT JOIN</strong></td><td>Todos da tabela direita + correspondentes da esquerda</td><td>Da esquerda: NULL</td></tr>
+              <tr><td><strong>FULL OUTER JOIN</strong></td><td>Todos os registros de ambas as tabelas</td><td>NULL nos sem correspondência</td></tr>
+              <tr><td><strong>CROSS JOIN</strong></td><td>Produto cartesiano — todas as combinações</td><td>N/A</td></tr>
+              <tr><td><strong>SELF JOIN</strong></td><td>A tabela unida com ela mesma</td><td>Depende do tipo</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Exemplos Práticos de JOIN</h3>
+        <div class="code-block"><span class="code-lang">SQL</span><pre>-- INNER JOIN: funcionários COM departamento (exclui sem depto)
+SELECT f.nome, d.nome AS departamento
+FROM funcionarios f
+INNER JOIN departamentos d ON f.depto_id = d.id;
+
+-- LEFT JOIN: TODOS os funcionários (mesmo sem departamento)
+SELECT f.nome, d.nome AS departamento
+FROM funcionarios f
+LEFT JOIN departamentos d ON f.depto_id = d.id;
+-- funcionários sem depto aparecem com departamento = NULL
+
+-- Múltiplos JOINs
+SELECT f.nome, d.nome AS depto, p.nome AS projeto
+FROM funcionarios f
+INNER JOIN departamentos d ON f.depto_id = d.id
+LEFT JOIN projetos p ON p.depto_id = d.id
+WHERE d.localizacao = 'Rio de Janeiro';
+
+-- SELF JOIN: funcionários e seus gerentes (mesma tabela)
+SELECT f.nome AS funcionario, g.nome AS gerente
+FROM funcionarios f
+LEFT JOIN funcionarios g ON f.gerente_id = g.id;</pre></div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Pegadinha — INNER vs LEFT JOIN</div>
+          A Cesgranrio mostra dados e pergunta qual query retorna tal resultado. Se há funcionários SEM departamento e eles aparecem no resultado com NULL, é LEFT JOIN. Se eles NÃO aparecem, é INNER JOIN. Identifique se há NULLs no resultado — esse é o sinal do LEFT/RIGHT JOIN.
+        </div>
+
+        <h3>Cláusulas Importantes</h3>
+        <div class="code-block"><span class="code-lang">SQL</span><pre>-- DISTINCT: elimina duplicatas
+SELECT DISTINCT cargo FROM funcionarios;
+
+-- ORDER BY: ordenação (ASC padrão, DESC reverso)
+SELECT nome, salario FROM funcionarios
+ORDER BY salario DESC, nome ASC;
+
+-- LIMIT / TOP: limita resultados
+SELECT nome, salario FROM funcionarios
+ORDER BY salario DESC
+LIMIT 5;   -- MySQL/PostgreSQL (TOP 5 no SQL Server)
+
+-- BETWEEN: intervalo inclusivo
+SELECT * FROM funcionarios
+WHERE salario BETWEEN 5000 AND 10000;
+
+-- IN: múltiplos valores
+SELECT * FROM funcionarios
+WHERE cargo IN ('Analista', 'Engenheiro', 'Gerente');
+
+-- LIKE: padrão textual
+SELECT * FROM funcionarios
+WHERE nome LIKE 'Ana%';    -- começa com Ana
+-- %Ana%  → contém Ana
+-- _Ana   → qualquer char + Ana</pre></div>
+      </div>
+    </div>
+
+    <!-- Agregação -->
+    <div class="tab-panel" data-tab="agregacao">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">📊</div>Funções de Agregação e GROUP BY</h2>
+
+        <h3>Funções de Agregação</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Função</th><th>O que faz</th><th>Ignora NULL?</th></tr></thead>
+            <tbody>
+              <tr><td><strong>COUNT(*)</strong></td><td>Conta todas as linhas (incluindo NULLs)</td><td>❌</td></tr>
+              <tr><td><strong>COUNT(coluna)</strong></td><td>Conta linhas onde coluna não é NULL</td><td>✅</td></tr>
+              <tr><td><strong>SUM(coluna)</strong></td><td>Soma os valores</td><td>✅</td></tr>
+              <tr><td><strong>AVG(coluna)</strong></td><td>Média dos valores</td><td>✅</td></tr>
+              <tr><td><strong>MAX(coluna)</strong></td><td>Maior valor</td><td>✅</td></tr>
+              <tr><td><strong>MIN(coluna)</strong></td><td>Menor valor</td><td>✅</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>GROUP BY e HAVING</h3>
+        <div class="code-block"><span class="code-lang">SQL</span><pre>-- Quantidade e média salarial por departamento
+SELECT
+    d.nome              AS departamento,
+    COUNT(f.id)         AS total_func,
+    AVG(f.salario)      AS media_salarial,
+    MAX(f.salario)      AS maior_salario
+FROM funcionarios f
+INNER JOIN departamentos d ON f.depto_id = d.id
+GROUP BY d.id, d.nome;
+
+-- HAVING: filtra GRUPOS (não linhas individuais)
+-- Departamentos com MAIS DE 3 funcionários
+SELECT d.nome, COUNT(f.id) AS total
+FROM funcionarios f
+INNER JOIN departamentos d ON f.depto_id = d.id
+GROUP BY d.id, d.nome
+HAVING COUNT(f.id) > 3
+ORDER BY total DESC;
+
+-- ERRADO: usar WHERE com função de agregação
+-- WHERE COUNT(f.id) > 3  ← ERRO de sintaxe!
+-- Use HAVING para filtrar por agregação</pre></div>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Regra de Ouro — GROUP BY</div>
+          No SELECT, só podem aparecer:<br>
+          1. Colunas que estão no GROUP BY<br>
+          2. Funções de agregação (COUNT, SUM, AVG, MAX, MIN)<br><br>
+          Se uma coluna aparece no SELECT mas não no GROUP BY e não é agregada → ERRO.
+        </div>
+
+        <h3>Exemplo Completo</h3>
+        <div class="code-block"><span class="code-lang">SQL — Questão estilo Cesgranrio</span><pre>-- "Liste departamentos com média salarial acima de R$ 7.000,
+--  mostrando nome do depto, total de funcionários e média,
+--  ordenado pela média decrescente."
+
+SELECT
+    d.nome                    AS departamento,
+    COUNT(f.id)               AS total_funcionarios,
+    ROUND(AVG(f.salario), 2)  AS media_salarial
+FROM funcionarios f
+INNER JOIN departamentos d ON f.depto_id = d.id
+WHERE f.ativo = TRUE              -- filtra ANTES do agrupamento
+GROUP BY d.id, d.nome
+HAVING AVG(f.salario) > 7000     -- filtra GRUPOS
+ORDER BY media_salarial DESC;</pre></div>
+      </div>
+    </div>
+
+    <!-- Subconsultas -->
+    <div class="tab-panel" data-tab="subconsultas">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(239,68,68,0.1)">🔁</div>Subconsultas e Operadores</h2>
+
+        <h3>Subconsultas (Subqueries)</h3>
+        <div class="code-block"><span class="code-lang">SQL</span><pre>-- Subconsulta no WHERE com IN
+-- Funcionários que trabalham em departamentos de SP
+SELECT nome FROM funcionarios
+WHERE depto_id IN (
+    SELECT id FROM departamentos
+    WHERE localizacao = 'São Paulo'
+);
+
+-- Subconsulta escalar (retorna 1 valor)
+-- Funcionários com salário acima da média
+SELECT nome, salario FROM funcionarios
+WHERE salario > (SELECT AVG(salario) FROM funcionarios);
+
+-- Subconsulta com EXISTS
+-- Departamentos que TÊM funcionários
+SELECT nome FROM departamentos d
+WHERE EXISTS (
+    SELECT 1 FROM funcionarios f
+    WHERE f.depto_id = d.id
+);
+
+-- Subconsulta no FROM (tabela derivada)
+SELECT dept_stats.departamento, dept_stats.media
+FROM (
+    SELECT d.nome AS departamento, AVG(f.salario) AS media
+    FROM funcionarios f
+    JOIN departamentos d ON f.depto_id = d.id
+    GROUP BY d.id, d.nome
+) AS dept_stats
+WHERE dept_stats.media > 8000;</pre></div>
+
+        <h3>IN vs EXISTS — Diferença de Performance</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>IN</th><th>EXISTS</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Avaliação</strong></td><td>Executa subquery, retorna lista de valores</td><td>Para na primeira correspondência encontrada</td></tr>
+              <tr><td><strong>NULLs</strong></td><td>Problemático — NULL IN (lista) = UNKNOWN</td><td>Não afetado por NULLs</td></tr>
+              <tr><td><strong>Performance</strong></td><td>Melhor para subquery pequena</td><td>Melhor para subquery grande</td></tr>
+              <tr><td><strong>Correlação</strong></td><td>Geralmente não correlacionada</td><td>Geralmente correlacionada</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Operadores ANY e ALL</h3>
+        <div class="code-block"><span class="code-lang">SQL</span><pre>-- ANY: verdadeiro se a condição for V para ALGUM valor
+-- Funcionários com salário maior que ALGUM analista
+SELECT nome, salario FROM funcionarios
+WHERE salario > ANY (
+    SELECT salario FROM funcionarios WHERE cargo = 'Analista'
+);
+-- Equivale a: salario > MIN(salários de analistas)
+
+-- ALL: verdadeiro se a condição for V para TODOS os valores
+-- Funcionários com salário maior que TODOS os analistas
+SELECT nome, salario FROM funcionarios
+WHERE salario > ALL (
+    SELECT salario FROM funcionarios WHERE cargo = 'Analista'
+);
+-- Equivale a: salario > MAX(salários de analistas)</pre></div>
+
+        <h3>CTEs — Common Table Expressions</h3>
+        <div class="code-block"><span class="code-lang">SQL</span><pre>-- WITH (CTE) — query nomeada reutilizável
+WITH dept_medias AS (
+    SELECT depto_id, AVG(salario) AS media
+    FROM funcionarios
+    GROUP BY depto_id
+),
+dept_acima AS (
+    SELECT depto_id
+    FROM dept_medias
+    WHERE media > 8000
+)
+SELECT f.nome, f.salario
+FROM funcionarios f
+WHERE f.depto_id IN (SELECT depto_id FROM dept_acima);</pre></div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — SQL, DDL e DML</div>
+          <span class="badge badge-green">10 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-sql"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-sql"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Voltar</div><div>Arquitetura de Dados</div></div>
+      </a>
+      <a href="modelagem.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>Modelagem de Dados</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-sql','sql',[
+    'Sei a diferença entre DDL, DML, DCL e TCL',
+    'Domino CREATE TABLE com todas as constraints',
+    'Sei usar ALTER TABLE para adicionar, modificar e remover colunas',
+    'Entendo a diferença entre DROP, TRUNCATE e DELETE',
+    'Domino INNER, LEFT, RIGHT e FULL OUTER JOIN',
+    'Sei a ordem de execução: FROM→WHERE→GROUP BY→HAVING→SELECT→ORDER BY',
+    'Uso corretamente WHERE (linhas) vs HAVING (grupos)',
+    'Domino COUNT(*) vs COUNT(coluna) e as demais funções de agregação',
+    'Sei escrever subconsultas com IN, EXISTS, ANY e ALL',
+    'Conheço CTEs (WITH) e tabelas derivadas no FROM',
+  ]);
+
+  DC.Quiz.render('quiz-sql',[
+    {
+      question:'Considere a query abaixo. O que ela retorna?\n\nSELECT d.nome, COUNT(f.id) AS total\nFROM departamentos d\nLEFT JOIN funcionarios f ON f.depto_id = d.id\nGROUP BY d.id, d.nome\nHAVING COUNT(f.id) = 0;',
+      options:[
+        'Departamentos com pelo menos 1 funcionário.',
+        'Funcionários sem departamento.',
+        'Departamentos sem nenhum funcionário.',
+        'Todos os departamentos e seus totais.',
+        'Erro de sintaxe — HAVING não pode usar COUNT.'
+      ],
+      answer:2,
+      explanation:'LEFT JOIN retorna todos os departamentos, mesmo sem funcionários (f.id = NULL nesses casos). COUNT(f.id) conta apenas valores não-nulos — para deptos sem funcionários, COUNT(f.id) = 0. O HAVING filtra apenas esses grupos. Resultado: departamentos sem nenhum funcionário. Essa é uma forma clássica de encontrar "registros órfãos".'
+    },
+    {
+      question:'Qual é a diferença entre WHERE e HAVING em SQL?',
+      options:[
+        'WHERE é usado com JOINs; HAVING é usado com subconsultas.',
+        'WHERE filtra linhas individuais antes do agrupamento; HAVING filtra grupos após o GROUP BY.',
+        'HAVING é mais rápido que WHERE para grandes volumes.',
+        'WHERE só funciona com colunas numéricas; HAVING com qualquer tipo.',
+        'Não há diferença prática — são intercambiáveis.'
+      ],
+      answer:1,
+      explanation:'WHERE: filtra linhas ANTES do GROUP BY — não pode usar funções de agregação (COUNT, SUM, AVG). HAVING: filtra GRUPOS após o GROUP BY — pode (e deve) usar funções de agregação. "SELECT depto, COUNT(*) FROM func WHERE salario > 0 GROUP BY depto HAVING COUNT(*) > 5" — WHERE filtra salários, HAVING filtra departamentos com mais de 5.'
+    },
+    {
+      question:'Qual dos comandos abaixo pertence à categoria DDL e NÃO pode ser desfeito com ROLLBACK na maioria dos SGBDs?',
+      options:[
+        'DELETE FROM tabela WHERE id = 1',
+        'UPDATE tabela SET coluna = valor',
+        'INSERT INTO tabela VALUES (...)',
+        'TRUNCATE TABLE tabela',
+        'SELECT * FROM tabela'
+      ],
+      answer:3,
+      explanation:'TRUNCATE TABLE é DDL — remove todos os registros sem gerar log por linha, reinicia AUTO_INCREMENT e geralmente não pode ser revertido com ROLLBACK (em muitos SGBDs). DELETE é DML, gera log linha a linha e é reversível com ROLLBACK dentro de uma transação. INSERT e UPDATE também são DML (reversíveis). SELECT é DQL.'
+    },
+    {
+      question:'Dado o resultado de uma query que mostra funcionários com NULL na coluna "departamento", qual tipo de JOIN foi utilizado?',
+      options:[
+        'INNER JOIN — retorna apenas correspondências.',
+        'CROSS JOIN — produto cartesiano de todas as combinações.',
+        'LEFT JOIN (ou RIGHT JOIN) — retorna todos os registros de um lado, com NULL para não-correspondentes.',
+        'SELF JOIN — a tabela unida com ela mesma.',
+        'FULL JOIN — mas apenas registros sem correspondência aparecem.'
+      ],
+      answer:2,
+      explanation:'NULL no resultado de JOIN indica que havia registros em uma tabela sem correspondência na outra. LEFT JOIN preserva todos os registros da tabela esquerda — os sem correspondência na tabela direita aparecem com NULL nas colunas da direita. INNER JOIN excluiria esses registros. A presença de NULL é o sinal identificador do LEFT/RIGHT/FULL JOIN.'
+    },
+    {
+      question:'Qual query retorna os funcionários com salário MAIOR do que TODOS os salários do departamento de RH?',
+      options:[
+        'SELECT nome FROM func WHERE salario > ANY (SELECT salario FROM func WHERE depto = "RH")',
+        'SELECT nome FROM func WHERE salario > ALL (SELECT salario FROM func WHERE depto = "RH")',
+        'SELECT nome FROM func WHERE salario IN (SELECT salario FROM func WHERE depto = "RH")',
+        'SELECT nome FROM func WHERE salario > (SELECT salario FROM func WHERE depto = "RH")',
+        'SELECT nome FROM func WHERE salario > EXISTS (SELECT 1 FROM func WHERE depto = "RH")'
+      ],
+      answer:1,
+      explanation:'ALL = maior que TODOS = maior que o MAX do grupo. ANY = maior que ALGUM = maior que o MIN do grupo. "salario > ALL (subconsulta)" é equivalente a "salario > MAX(salários do RH)". "salario > ANY" é equivalente a "salario > MIN(salários do RH)" — bem diferente. A opção D retornaria erro se a subconsulta retornar mais de uma linha.'
+    },
+    {
+      question:'Qual constraint garante que uma coluna não aceite valores duplicados mas PERMITE valores NULL?',
+      options:[
+        'PRIMARY KEY','NOT NULL','UNIQUE','FOREIGN KEY','CHECK'
+      ],
+      answer:2,
+      explanation:'UNIQUE: garante unicidade dos valores não-nulos. Permite NULL (em maioria dos SGBDs, múltiplos NULLs são permitidos em colunas UNIQUE, pois NULL ≠ NULL). PRIMARY KEY: não aceita NULL e só pode existir uma por tabela. NOT NULL: proíbe null mas não garante unicidade. Uma tabela pode ter múltiplas UNIQUE constraints.'
+    },
+    {
+      question:'Na ordem lógica de processamento de uma query SQL, qual cláusula é processada ANTES do SELECT?',
+      options:[
+        'ORDER BY','LIMIT','DISTINCT','HAVING','FROM → WHERE → GROUP BY → HAVING (todos antes do SELECT)'
+      ],
+      answer:4,
+      explanation:'Ordem lógica de processamento: FROM → (JOIN) → WHERE → GROUP BY → HAVING → SELECT → DISTINCT → ORDER BY → LIMIT. O SELECT é processado relativamente tarde — por isso aliases definidos no SELECT não podem ser usados no WHERE ou HAVING (eles ainda não existem nesse ponto). HAVING é processado antes do SELECT mas depois do GROUP BY.'
+    },
+    {
+      question:'O que diferencia COUNT(*) de COUNT(nome_coluna)?',
+      options:[
+        'COUNT(*) é mais lento; COUNT(coluna) é otimizado.',
+        'COUNT(*) conta todas as linhas incluindo NULLs; COUNT(coluna) conta apenas linhas onde a coluna NÃO é NULL.',
+        'COUNT(coluna) conta todas as linhas; COUNT(*) ignora duplicatas.',
+        'Não há diferença — ambos retornam o mesmo resultado.',
+        'COUNT(*) só funciona sem GROUP BY; COUNT(coluna) exige GROUP BY.'
+      ],
+      answer:1,
+      explanation:'COUNT(*): conta TODAS as linhas, incluindo as com NULL. COUNT(coluna): conta apenas linhas onde a coluna especificada NÃO é NULL. Exemplo: se uma tabela tem 10 funcionários mas 3 sem email, COUNT(*) = 10 e COUNT(email) = 7. Esta distinção é frequentemente cobrada pela Cesgranrio em questões com dados que contêm NULLs.'
+    },
+    {
+      question:'Qual é a função do ON DELETE CASCADE em uma FOREIGN KEY?',
+      options:[
+        'Impede a exclusão de registros referenciados por outros registros.',
+        'Ao deletar o registro pai, deleta automaticamente todos os registros filhos referenciantes.',
+        'Define NULL nas colunas FK dos filhos quando o pai é deletado.',
+        'Cria um backup dos registros antes de deletar.',
+        'Só permite exclusão se não houver registros filhos.'
+      ],
+      answer:1,
+      explanation:'ON DELETE CASCADE: quando o registro PAI (referenciado) é deletado, todos os registros FILHOS (com FK referenciando) são automaticamente deletados em cascata. Alternativas: RESTRICT/NO ACTION (bloqueia delete se houver filhos — padrão), SET NULL (define FK como NULL nos filhos), SET DEFAULT (define valor padrão). Cascade é conveniente mas perigoso se mal configurado.'
+    },
+    {
+      question:'Um analista precisa encontrar departamentos que NÃO possuem projetos cadastrados. Qual query resolve corretamente usando EXISTS?',
+      options:[
+        'SELECT nome FROM departamentos d WHERE EXISTS (SELECT 1 FROM projetos p WHERE p.depto_id = d.id)',
+        'SELECT nome FROM departamentos d WHERE NOT EXISTS (SELECT 1 FROM projetos p WHERE p.depto_id = d.id)',
+        'SELECT nome FROM departamentos WHERE id NOT IN (SELECT id FROM projetos)',
+        'SELECT nome FROM departamentos d LEFT JOIN projetos p ON p.depto_id = d.id WHERE p.id IS NOT NULL',
+        'SELECT nome FROM departamentos WHERE id IN (SELECT depto_id FROM projetos WHERE depto_id IS NULL)'
+      ],
+      answer:1,
+      explanation:'NOT EXISTS retorna TRUE quando a subconsulta não encontra nenhuma correspondência — perfeito para "registros que NÃO têm filhos". EXISTS verifica existência (TRUE se encontrar pelo menos 1). A opção A retornaria departamentos COM projetos. A opção C tem erro lógico (compara id de depto com id de projeto). A opção D (IS NOT NULL) retornaria deptos COM projetos.'
+    },
+  ],'sql_simulado');
+});
+</script>
+</body>
+</html>

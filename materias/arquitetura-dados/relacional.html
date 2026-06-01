@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelo Relacional | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Arquitetura de Dados</a><span class="sep">›</span>
+      <span>Modelo Relacional</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">🔗 Bloco I · 1.1 – 1.8</div>
+        <h1 class="mb-8">Modelo <span class="gradient-text">Relacional</span></h1>
+        <p>Fundamentos do modelo relacional de Codd, álgebra relacional, integridade de dados, dependências funcionais, normalização avançada e transações ACID.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~50 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Modelo Relacional</h4></div>
+      <ul>
+        <li>Álgebra relacional: seleção (σ) filtra linhas, projeção (π) filtra colunas</li>
+        <li>Integridade de entidade: PK nunca pode ser NULL</li>
+        <li>Integridade referencial: FK deve referenciar PK existente ou ser NULL</li>
+        <li>Dependência funcional: A → B (A determina funcionalmente B)</li>
+        <li>ACID: Atomicidade, Consistência, Isolamento, Durabilidade — propriedades de transação</li>
+        <li>Superchave vs chave candidata vs chave primária: hierarquia de conceitos</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="fundamentos">🔗 Fundamentos</button>
+      <button class="tab-btn" data-tab="algebra">🧮 Álgebra Relacional</button>
+      <button class="tab-btn" data-tab="integridade">🛡️ Integridade</button>
+      <button class="tab-btn" data-tab="acid">⚛️ Transações ACID</button>
+      <button class="tab-btn" data-tab="dep-func">📐 Dependências Funcionais</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Fundamentos -->
+    <div class="tab-panel active" data-tab="fundamentos">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">🔗</div>Fundamentos do Modelo Relacional</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Modelo Relacional — Edgar F. Codd (1970)</div>
+          Proposto por Codd na IBM, o modelo relacional organiza dados em <strong>relações</strong> (tabelas) com linhas (tuplas) e colunas (atributos). É baseado na teoria matemática de conjuntos e lógica de predicados de primeira ordem.
+        </div>
+
+        <h3>Terminologia Formal vs Informal</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Terminologia Formal (Codd)</th><th>Terminologia Informal (SQL)</th><th>Definição</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Relação</strong></td><td>Tabela</td><td>Conjunto de tuplas com o mesmo esquema</td></tr>
+              <tr><td><strong>Tupla</strong></td><td>Linha / Registro</td><td>Uma instância dos dados na relação</td></tr>
+              <tr><td><strong>Atributo</strong></td><td>Coluna / Campo</td><td>Propriedade de uma entidade</td></tr>
+              <tr><td><strong>Domínio</strong></td><td>Tipo de dado</td><td>Conjunto de valores válidos para um atributo</td></tr>
+              <tr><td><strong>Esquema</strong></td><td>Definição da tabela (DDL)</td><td>Nome da relação + lista de atributos com domínios</td></tr>
+              <tr><td><strong>Instância</strong></td><td>Dados atuais da tabela</td><td>Conjunto de tuplas em um dado momento</td></tr>
+              <tr><td><strong>Grau</strong></td><td>Número de colunas</td><td>Quantidade de atributos da relação</td></tr>
+              <tr><td><strong>Cardinalidade</strong></td><td>Número de linhas</td><td>Quantidade de tuplas na instância</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Hierarquia de Chaves</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">SK</div>
+            <div class="step-content">
+              <h4>Superchave</h4>
+              <p>Qualquer conjunto de atributos que identifica uniquamente cada tupla. Pode ter atributos "extras" desnecessários. Ex: {CPF}, {CPF, Nome}, {CPF, Nome, Email} — todos são superchaves se CPF é único.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">CK</div>
+            <div class="step-content">
+              <h4>Chave Candidata</h4>
+              <p>Superchave MÍNIMA — remove qualquer atributo e deixa de ser superchave. Ex: {CPF} e {Email} podem ambos ser chaves candidatas. A relação pode ter múltiplas chaves candidatas.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">PK</div>
+            <div class="step-content">
+              <h4>Chave Primária (Primary Key)</h4>
+              <p>A chave candidata escolhida pelo projetista para identificar as tuplas. Uma e apenas UMA por relação. Nunca aceita NULL. As demais candidatas viram UNIQUE.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">FK</div>
+            <div class="step-content">
+              <h4>Chave Estrangeira (Foreign Key)</h4>
+              <p>Atributo(s) em uma relação que referenciam a PK de outra relação. Garante integridade referencial. Pode ser NULL (indica ausência de relacionamento).</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Propriedades de uma Relação</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🔢</div><div class="concept-name">Sem Duplicatas</div><div class="concept-desc">Não pode haver duas tuplas idênticas em todos os atributos — garantido pela PK.</div></div>
+          <div class="concept-card"><div class="emoji">🔀</div><div class="concept-name">Sem Ordenação</div><div class="concept-desc">Tuplas e atributos não têm ordem definida — qualquer query pode retornar em qualquer ordem.</div></div>
+          <div class="concept-card"><div class="emoji">⚛️</div><div class="concept-name">Atributos Atômicos</div><div class="concept-desc">Cada valor é indivisível (1FN) — sem listas, sem grupos repetidos.</div></div>
+          <div class="concept-card"><div class="emoji">📋</div><div class="concept-name">Valores de Domínio</div><div class="concept-desc">Cada valor deve pertencer ao domínio definido para o atributo.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Álgebra Relacional -->
+    <div class="tab-panel" data-tab="algebra">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🧮</div>Álgebra Relacional</h2>
+
+        <p>A álgebra relacional define operações sobre relações que retornam novas relações. É a base teórica das queries SQL.</p>
+
+        <h3>Operações Fundamentais</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Operação</th><th>Símbolo</th><th>O que faz</th><th>Equivalente SQL</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Seleção</strong></td>
+                <td><code>σ<sub>condição</sub>(R)</code></td>
+                <td>Filtra LINHAS que satisfazem a condição</td>
+                <td>WHERE</td>
+              </tr>
+              <tr>
+                <td><strong>Projeção</strong></td>
+                <td><code>π<sub>atributos</sub>(R)</code></td>
+                <td>Filtra COLUNAS — seleciona atributos específicos</td>
+                <td>SELECT colunas</td>
+              </tr>
+              <tr>
+                <td><strong>União</strong></td>
+                <td><code>R ∪ S</code></td>
+                <td>Todas as tuplas de R e S (sem duplicatas)</td>
+                <td>UNION</td>
+              </tr>
+              <tr>
+                <td><strong>Interseção</strong></td>
+                <td><code>R ∩ S</code></td>
+                <td>Tuplas que aparecem em AMBOS R e S</td>
+                <td>INTERSECT</td>
+              </tr>
+              <tr>
+                <td><strong>Diferença</strong></td>
+                <td><code>R − S</code></td>
+                <td>Tuplas em R que NÃO estão em S</td>
+                <td>EXCEPT / MINUS</td>
+              </tr>
+              <tr>
+                <td><strong>Produto Cartesiano</strong></td>
+                <td><code>R × S</code></td>
+                <td>Todas as combinações de tuplas de R e S</td>
+                <td>CROSS JOIN</td>
+              </tr>
+              <tr>
+                <td><strong>Junção Natural</strong></td>
+                <td><code>R ⋈ S</code></td>
+                <td>Combina tuplas com valores iguais nos atributos comuns</td>
+                <td>NATURAL JOIN / INNER JOIN</td>
+              </tr>
+              <tr>
+                <td><strong>Renomeação</strong></td>
+                <td><code>ρ<sub>novo</sub>(R)</code></td>
+                <td>Renomeia a relação ou atributos</td>
+                <td>AS (alias)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Seleção vs Projeção — A Distinção Mais Cobrada</div>
+          <strong>σ (Seleção)</strong>: filtra LINHAS (tuplas) com base em condição. Como o WHERE do SQL.<br>
+          "σ<sub>depto='TI'</sub>(Funcionarios)" = todas as linhas onde o departamento é TI<br><br>
+          <strong>π (Projeção)</strong>: filtra COLUNAS (atributos). Como o SELECT de colunas específicas.<br>
+          "π<sub>nome, salario</sub>(Funcionarios)" = apenas as colunas nome e salário de todos os funcionários
+        </div>
+
+        <div class="code-block"><span class="code-lang">Álgebra relacional → SQL</span><pre>-- Álgebra: σ_{depto='TI'}(π_{nome, salario}(Funcionarios))
+-- SQL equivalente:
+SELECT nome, salario
+FROM Funcionarios
+WHERE depto = 'TI';
+
+-- Álgebra: π_{nome}(Funcionarios) − π_{nome}(Gerentes)
+-- SQL equivalente:
+SELECT nome FROM Funcionarios
+EXCEPT
+SELECT nome FROM Gerentes;</pre></div>
+      </div>
+    </div>
+
+    <!-- Integridade -->
+    <div class="tab-panel" data-tab="integridade">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">🛡️</div>Restrições de Integridade</h2>
+
+        <h3>Tipos de Restrições</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">🏛️</div>
+            <div class="concept-name">Integridade de Domínio</div>
+            <div class="concept-desc">Todo valor deve pertencer ao domínio do atributo. Ex: salário deve ser numérico e positivo. Garantido por CHECK e tipos de dados.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🔑</div>
+            <div class="concept-name">Integridade de Entidade</div>
+            <div class="concept-desc">A chave primária nunca pode ser NULL. Toda tupla deve ser identificável. Garantido por PRIMARY KEY.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🔗</div>
+            <div class="concept-name">Integridade Referencial</div>
+            <div class="concept-desc">FK deve referenciar PK existente na tabela pai, ou ser NULL. Sem "chaves estrangeiras soltas". Garantido por FOREIGN KEY.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">📋</div>
+            <div class="concept-name">Integridade de Usuário</div>
+            <div class="concept-desc">Regras de negócio específicas definidas via CHECK, triggers e procedures. Ex: data_fim > data_inicio.</div>
+          </div>
+        </div>
+
+        <h3>Integridade Referencial — Ações Referenciais</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Ação</th><th>Ao deletar o pai</th><th>Ao atualizar a PK do pai</th></tr></thead>
+            <tbody>
+              <tr><td><strong>RESTRICT / NO ACTION</strong></td><td>Bloqueia se houver filhos (padrão)</td><td>Bloqueia se houver filhos</td></tr>
+              <tr><td><strong>CASCADE</strong></td><td>Deleta automaticamente os filhos</td><td>Atualiza FK dos filhos automaticamente</td></tr>
+              <tr><td><strong>SET NULL</strong></td><td>FK dos filhos vira NULL</td><td>FK dos filhos vira NULL</td></tr>
+              <tr><td><strong>SET DEFAULT</strong></td><td>FK dos filhos recebe valor padrão</td><td>FK dos filhos recebe valor padrão</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="code-block"><span class="code-lang">SQL — Definindo ações referenciais</span><pre>CREATE TABLE funcionarios (
+  id       INT PRIMARY KEY,
+  nome     VARCHAR(100) NOT NULL,
+  depto_id INT,
+  CONSTRAINT fk_depto
+    FOREIGN KEY (depto_id)
+    REFERENCES departamentos(id)
+    ON DELETE SET NULL     -- se depto for deletado, depto_id vira NULL
+    ON UPDATE CASCADE      -- se depto.id mudar, funcionarios.depto_id atualiza
+);</pre></div>
+      </div>
+    </div>
+
+    <!-- ACID -->
+    <div class="tab-panel" data-tab="acid">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(239,68,68,0.1)">⚛️</div>Transações e Propriedades ACID</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ O que é uma Transação</div>
+          Uma transação é uma unidade lógica de trabalho composta por uma ou mais operações de banco de dados que devem ser executadas de forma completa ou nenhuma delas deve ser executada. Comanda com COMMIT (efetivar) ou ROLLBACK (desfazer).
+        </div>
+
+        <h3>Propriedades ACID</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">A</div>
+            <div class="step-content">
+              <h4>Atomicidade (Atomicity)</h4>
+              <p>Tudo ou nada — a transação é executada completamente ou não é executada. Se qualquer parte falhar, todas as operações são desfeitas (ROLLBACK automático).</p>
+              <p><strong>Exemplo:</strong> Transferência bancária: débito na conta A + crédito na conta B. Se o crédito falhar, o débito é desfeito.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">C</div>
+            <div class="step-content">
+              <h4>Consistência (Consistency)</h4>
+              <p>A transação leva o banco de um estado válido para outro estado válido. Todas as regras de integridade (constraints, triggers, etc.) devem ser respeitadas antes e depois.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">I</div>
+            <div class="step-content">
+              <h4>Isolamento (Isolation)</h4>
+              <p>Transações concorrentes não interferem entre si. Uma transação não vê os dados intermediários de outra em andamento. Controlado pelo nível de isolamento (READ COMMITTED, SERIALIZABLE, etc.).</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">D</div>
+            <div class="step-content">
+              <h4>Durabilidade (Durability)</h4>
+              <p>Após COMMIT, os dados são permanentes mesmo em caso de falha de sistema (queda de energia, crash). Garantido por write-ahead logging (WAL) e recuperação de falha.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Níveis de Isolamento e Problemas de Concorrência</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Nível</th><th>Dirty Read</th><th>Non-Repeatable Read</th><th>Phantom Read</th></tr></thead>
+            <tbody>
+              <tr><td><strong>READ UNCOMMITTED</strong></td><td>✅ Permite</td><td>✅ Permite</td><td>✅ Permite</td></tr>
+              <tr><td><strong>READ COMMITTED</strong></td><td>❌ Evita</td><td>✅ Permite</td><td>✅ Permite</td></tr>
+              <tr><td><strong>REPEATABLE READ</strong></td><td>❌ Evita</td><td>❌ Evita</td><td>✅ Permite</td></tr>
+              <tr><td><strong>SERIALIZABLE</strong></td><td>❌ Evita</td><td>❌ Evita</td><td>❌ Evita</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dependências Funcionais -->
+    <div class="tab-panel" data-tab="dep-func">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">📐</div>Dependências Funcionais</h2>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Definição de Dependência Funcional</div>
+          Dizemos que <strong>X → Y</strong> (X determina funcionalmente Y) quando, para qualquer dois tuplas de uma relação com o mesmo valor de X, elas também têm o mesmo valor de Y.<br><br>
+          Exemplo: CPF → Nome (dado um CPF, sempre há um único nome associado)
+        </div>
+
+        <h3>Tipos de Dependências Funcionais</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo</th><th>Definição</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Trivial</strong></td>
+                <td>Y é subconjunto de X. Sempre verdadeira.</td>
+                <td>{CPF, Nome} → {Nome} — trivial, pois Nome ⊆ {CPF, Nome}</td>
+              </tr>
+              <tr>
+                <td><strong>Não-Trivial</strong></td>
+                <td>Y não é subconjunto de X.</td>
+                <td>CPF → Salário — não-trivial e útil</td>
+              </tr>
+              <tr>
+                <td><strong>Parcial</strong></td>
+                <td>X é chave composta e Y depende de parte de X, não de X inteiro.</td>
+                <td>(Pedido_ID, Produto_ID) → Nome_Produto — Nome depende só de Produto_ID (viola 2FN)</td>
+              </tr>
+              <tr>
+                <td><strong>Total</strong></td>
+                <td>Y depende de todos os atributos de X (chave completa).</td>
+                <td>(Pedido_ID, Produto_ID) → Quantidade — depende dos dois (correto para 2FN)</td>
+              </tr>
+              <tr>
+                <td><strong>Transitiva</strong></td>
+                <td>X → Y e Y → Z (sendo Y não-chave), logo X → Z por transitividade.</td>
+                <td>CPF → Depto_ID → Depto_Nome (viola 3FN)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Axiomas de Armstrong</h3>
+        <p>Conjunto de regras de inferência completo e correto para derivar dependências funcionais:</p>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Axioma</th><th>Regra</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Reflexividade</strong></td><td>Se Y ⊆ X, então X → Y (trivial)</td></tr>
+              <tr><td><strong>Aumento</strong></td><td>Se X → Y, então XZ → YZ (adicionar mesmos atributos dos dois lados)</td></tr>
+              <tr><td><strong>Transitividade</strong></td><td>Se X → Y e Y → Z, então X → Z</td></tr>
+              <tr><td><strong>União</strong></td><td>Se X → Y e X → Z, então X → YZ</td></tr>
+              <tr><td><strong>Decomposição</strong></td><td>Se X → YZ, então X → Y e X → Z</td></tr>
+              <tr><td><strong>Pseudotransitividade</strong></td><td>Se X → Y e WY → Z, então WX → Z</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Modelo Relacional</div>
+          <span class="badge badge-teal">8 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-relacional"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-rel"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Voltar</div><div>Arquitetura de Dados</div></div>
+      </a>
+      <a href="dimensional.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>Modelagem Dimensional</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-rel','rel',[
+    'Conheço a terminologia formal do modelo relacional (relação, tupla, atributo)',
+    'Domino a hierarquia de chaves: superchave → candidata → primária → estrangeira',
+    'Sei as operações da álgebra relacional (seleção, projeção, junção, união)',
+    'Entendo a diferença entre seleção (filtra linhas) e projeção (filtra colunas)',
+    'Conheço os 4 tipos de restrições de integridade',
+    'Sei as ações referenciais (CASCADE, SET NULL, RESTRICT)',
+    'Domino as propriedades ACID de transações',
+    'Conheço os níveis de isolamento e os problemas de concorrência',
+    'Entendo dependências funcionais (parcial, total, transitiva)',
+  ]);
+
+  DC.Quiz.render('quiz-relacional',[
+    { question:'Na álgebra relacional, a operação de SELEÇÃO (σ) difere da PROJEÇÃO (π) porque:',
+      options:['Seleção filtra colunas; projeção filtra linhas.','Seleção filtra linhas com base em condição; projeção filtra colunas (atributos).','Seleção é equivalente ao JOIN do SQL; projeção ao WHERE.','Seleção opera em duas relações; projeção opera em apenas uma.','Ambas são equivalentes — diferem apenas na notação.'],
+      answer:1, explanation:'σ (seleção) = filtra LINHAS baseado em condição (≡ WHERE). π (projeção) = filtra COLUNAS, seleciona apenas os atributos especificados (≡ SELECT colunas). "σ_{depto=TI}(R)" retorna todas as colunas, mas apenas as linhas do depto TI. "π_{nome,salario}(R)" retorna apenas nome e salário de TODAS as linhas.' },
+    { question:'A propriedade ACID de uma transação que garante que, após o COMMIT, os dados são permanentes mesmo em caso de falha de sistema é:',
+      options:['Atomicidade','Consistência','Isolamento','Durabilidade','Confiabilidade'],
+      answer:3, explanation:'Durabilidade: uma vez que a transação é COMMITTED, os dados persistem permanentemente — mesmo após falha de energia, crash do servidor, etc. Garantida por write-ahead logging (WAL): o log é escrito antes dos dados, permitindo recuperação. Atomicidade = tudo ou nada. Consistência = estados válidos. Isolamento = transações independentes.' },
+    { question:'A chave candidata difere da superchave porque:',
+      options:['Chave candidata aceita NULL; superchave não.','Chave candidata é a escolhida como PK; superchave é qualquer outra.','Chave candidata é uma superchave MÍNIMA — remover qualquer atributo a faz perder a propriedade de unicidade.','Superchave pode ser composta por apenas um atributo; candidata sempre tem múltiplos.','Não há diferença — são termos sinônimos.'],
+      answer:2, explanation:'Superchave: qualquer conjunto de atributos que identifica uniquamente cada tupla — pode ter atributos "desnecessários". Chave candidata: superchave MÍNIMA — se remover qualquer atributo, deixa de ser superchave. {CPF, Nome} pode ser superchave, mas não candidata se {CPF} sozinho já for superchave. PK é a candidata escolhida.' },
+    { question:'Qual propriedade ACID é violada quando uma transação lê dados de outra transação ainda não commitada?',
+      options:['Atomicidade','Consistência','Isolamento — fenômeno chamado Dirty Read','Durabilidade','Nenhuma — isso é comportamento normal'],
+      answer:2, explanation:'Isolamento garante que transações concorrentes não interfiram entre si. "Dirty Read" (leitura suja) ocorre no nível READ UNCOMMITTED: T1 lê dados modificados por T2 que ainda não fez COMMIT. Se T2 fizer ROLLBACK, T1 terá lido dados que nunca existiram. Evitado a partir do nível READ COMMITTED.' },
+    { question:'A integridade REFERENCIAL é violada quando:',
+      options:['Um atributo da PK recebe valor NULL.','Uma FK faz referência a uma PK que não existe na tabela pai.','Um atributo recebe valor fora do seu domínio definido.','Dois registros têm o mesmo valor na chave primária.','Uma transação não é completada com COMMIT.'],
+      answer:1, explanation:'Integridade referencial: toda FK deve referenciar uma PK EXISTENTE na tabela pai, ou ser NULL. Inserir um filho com FK que não existe no pai → violação de integridade referencial. A) = violação de integridade de entidade (PK ≠ NULL). C) = violação de integridade de domínio. D) = violação de unicidade da PK.' },
+    { question:'Na dependência funcional X → Y, se Y depende apenas de PARTE de uma chave composta X (e não de X inteiro), isso é chamado de:',
+      options:['Dependência transitiva','Dependência total','Dependência parcial','Dependência trivial','Dependência funcional de Armstrong'],
+      answer:2, explanation:'Dependência PARCIAL: Y depende de apenas PARTE da chave composta, não da chave completa. Ex: (Pedido_ID, Produto_ID) → Nome_Produto — Nome_Produto depende apenas de Produto_ID, não de Pedido_ID. Viola a 2FN. Dependência TOTAL: depende da chave inteira. Dependência TRANSITIVA: via atributo não-chave (viola 3FN).' },
+    { question:'A ação referencial CASCADE no ON DELETE significa que:',
+      options:['O delete é bloqueado se houver registros filhos.','Os registros filhos são automaticamente deletados quando o registro pai é deletado.','A FK dos filhos recebe valor NULL quando o pai é deletado.','O delete é ignorado silenciosamente.','Os filhos recebem o valor padrão definido na FK.'],
+      answer:1, explanation:'ON DELETE CASCADE: quando o registro PAI é deletado, todos os FILHOS (com FK referenciando aquele pai) são automaticamente deletados em cascata. Útil para dados hierárquicos onde os filhos não fazem sentido sem o pai. Alternativas: RESTRICT (bloqueia), SET NULL (filhos ficam com FK=NULL), SET DEFAULT (filhos recebem valor padrão).' },
+    { question:'A operação da álgebra relacional equivalente ao INTERSECT do SQL é:',
+      options:['R ∪ S (União)','R − S (Diferença)','R ∩ S (Interseção)','R × S (Produto Cartesiano)','σ(R) (Seleção)'],
+      answer:2, explanation:'R ∩ S (Interseção) = retorna apenas as tuplas que aparecem em AMBAS as relações R e S = equivalente ao INTERSECT do SQL. R ∪ S = UNION (todas as tuplas de ambas). R − S = EXCEPT/MINUS (em R mas não em S). R × S = CROSS JOIN (produto cartesiano). A interseção pode ser expressa como: R ∩ S = R − (R − S).' },
+  ],'relacional_simulado');
+});
+</script>
+</body>
+</html>

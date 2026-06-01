@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Normas & Frameworks | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Segurança da Informação</a><span class="sep">›</span>
+      <span>Normas & Frameworks</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">📋 Bloco III · 3.11 – 3.21</div>
+        <h1 class="mb-8">Normas <span class="gradient-text">&amp; Frameworks</span></h1>
+        <p>ISO 27001/27002, NIST SP 800-61, MITRE ATT&CK, gestão de riscos (ISO 31000), continuidade (ISO 22301), Sarbanes-Oxley, criptografia, certificação digital e segurança em nuvem/IoT.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~60 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Normas</h4></div>
+      <ul>
+        <li>ISO 27001 é certificável (SGSI); ISO 27002 é guia de controles — não gera certificação</li>
+        <li>NIST SP 800-61: 4 fases da resposta a incidentes — Preparação, Detecção, Contenção/Erradicação/Recuperação, Pós-Incidente</li>
+        <li>MITRE ATT&CK: base de conhecimento de TTPs reais de adversários — 14 táticas</li>
+        <li>ISO 31000: gestão de riscos — identificação, análise, avaliação, tratamento</li>
+        <li>Criptografia assimétrica: chave pública cifra, chave privada decifra (confidencialidade); privada assina, pública verifica (assinatura)</li>
+        <li>Certificado digital: vincula identidade à chave pública via Autoridade Certificadora (AC)</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="iso27">🔒 ISO 27001/27002</button>
+      <button class="tab-btn" data-tab="nist">🏛️ NIST & Resposta</button>
+      <button class="tab-btn" data-tab="mitre">🎯 MITRE ATT&CK</button>
+      <button class="tab-btn" data-tab="riscos">⚖️ Riscos & Continuidade</button>
+      <button class="tab-btn" data-tab="cripto">🔐 Criptografia</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- ISO 27 -->
+    <div class="tab-panel active" data-tab="iso27">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🔒</div>ISO/IEC 27001 e 27002</h2>
+
+        <h3>ISO/IEC 27001 — Sistema de Gestão de Segurança da Informação</h3>
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ ISO 27001 — O que é</div>
+          Norma internacional que especifica os REQUISITOS para estabelecer, implementar, manter e melhorar continuamente um <strong>SGSI (Sistema de Gestão de Segurança da Informação)</strong>. É a única norma da família ISO 27000 que pode ser auditada e gera <strong>certificação</strong>.
+        </div>
+
+        <h3>Estrutura da ISO 27001</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">4</div>
+            <div class="step-content"><h4>Contexto da Organização</h4><p>Entender o contexto interno/externo, partes interessadas e escopo do SGSI.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">5</div>
+            <div class="step-content"><h4>Liderança</h4><p>Comprometimento da alta direção, política de segurança, papéis e responsabilidades.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">6</div>
+            <div class="step-content"><h4>Planejamento</h4><p>Avaliação e tratamento de riscos, objetivos de segurança.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">7</div>
+            <div class="step-content"><h4>Suporte</h4><p>Recursos, competências, conscientização, comunicação, documentação.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(245,158,11,0.15);color:var(--orange)">8</div>
+            <div class="step-content"><h4>Operação</h4><p>Implementar processos de segurança, avaliação e tratamento de riscos operacionais.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(239,68,68,0.15);color:var(--red)">9</div>
+            <div class="step-content"><h4>Avaliação do Desempenho</h4><p>Monitoramento, auditoria interna, revisão pela direção.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">10</div>
+            <div class="step-content"><h4>Melhoria</h4><p>Não conformidades, ações corretivas, melhoria contínua (PDCA).</p></div>
+          </div>
+        </div>
+
+        <h3>ISO/IEC 27002 — Código de Boas Práticas</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>ISO 27001</th><th>ISO 27002</th></tr></thead>
+            <tbody>
+              <tr><td><strong>O que define</strong></td><td>Requisitos para o SGSI (o QUÊ fazer)</td><td>Controles detalhados de segurança (COMO implementar)</td></tr>
+              <tr><td><strong>Certificação</strong></td><td>✅ Sim — auditável por terceiros</td><td>❌ Não — apenas referência</td></tr>
+              <tr><td><strong>Relação</strong></td><td>O Anexo A referencia os controles</td><td>Detalha os controles do Anexo A da 27001</td></tr>
+              <tr><td><strong>Versão atual</strong></td><td>ISO 27001:2022</td><td>ISO 27002:2022</td></tr>
+              <tr><td><strong>Controles (v2022)</strong></td><td>93 controles no Anexo A</td><td>93 controles detalhados em 4 temas</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>4 Temas de Controles — ISO 27002:2022</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🏢</div><div class="concept-name">Organizacionais (37)</div><div class="concept-desc">Políticas, papéis, gestão de ativos, conformidade, resposta a incidentes.</div></div>
+          <div class="concept-card"><div class="emoji">👤</div><div class="concept-name">Pessoas (8)</div><div class="concept-desc">Triagem, termos de emprego, conscientização, treinamento, sanções.</div></div>
+          <div class="concept-card"><div class="emoji">🏗️</div><div class="concept-name">Físicos (14)</div><div class="concept-desc">Perímetro físico, controle de acesso físico, proteção de equipamentos.</div></div>
+          <div class="concept-card"><div class="emoji">💻</div><div class="concept-name">Tecnológicos (34)</div><div class="concept-desc">Autenticação, criptografia, gestão de vulnerabilidades, logs, monitoramento.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NIST -->
+    <div class="tab-panel" data-tab="nist">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">🏛️</div>NIST e Resposta a Incidentes</h2>
+
+        <h3>NIST SP 800-61 — Guia de Resposta a Incidentes</h3>
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ As 4 Fases da Resposta a Incidentes</div>
+          NIST SP 800-61 define o processo de gerenciamento de incidentes de segurança em 4 fases principais — memorize a ordem!
+        </div>
+
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content">
+              <h4>Preparação (Preparation)</h4>
+              <p>ANTES do incidente: estabelecer políticas, formar equipe de resposta (CSIRT/CIRT), definir ferramentas, treinar a equipe, criar playbooks para cenários comuns.</p>
+              <p><strong>Entregáveis:</strong> Política de resposta, matriz de comunicação, ferramentas forenses, plano de comunicação.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(239,68,68,0.15);color:var(--red)">2</div>
+            <div class="step-content">
+              <h4>Detecção e Análise (Detection & Analysis)</h4>
+              <p>Identificar e confirmar que um incidente ocorreu. Coletar evidências, determinar escopo, classificar a severidade e priorizar o tratamento.</p>
+              <p><strong>Fontes de detecção:</strong> SIEM, IDS/IPS, antivírus/EDR, usuários, terceiros.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(245,158,11,0.15);color:var(--orange)">3</div>
+            <div class="step-content">
+              <h4>Contenção, Erradicação e Recuperação</h4>
+              <p><strong>Contenção:</strong> Isolar o sistema afetado para evitar propagação (ex: desconectar da rede).<br>
+              <strong>Erradicação:</strong> Remover a causa raiz (malware, contas comprometidas, vulnerabilidade explorada).<br>
+              <strong>Recuperação:</strong> Restaurar sistemas ao estado operacional normal — via backup, reimagem, patch.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">4</div>
+            <div class="step-content">
+              <h4>Atividade Pós-Incidente (Post-Incident Activity)</h4>
+              <p>Análise de lições aprendidas, relatório final do incidente, atualização de controles e procedimentos para prevenir recorrência. Preservação de evidências forenses.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Pegadinha — Fases do NIST SP 800-61</div>
+          A fase 3 tem três sub-etapas que a banca pode apresentar separadas: Contenção, Erradicação e Recuperação são PARTE DA MESMA FASE (fase 3). Não são fases separadas. O total é 4 fases, não 6.
+        </div>
+
+        <h3>NIST Cybersecurity Framework (CSF)</h3>
+        <p>Framework voluntário para gestão de risco cibernético baseado em 5 funções:</p>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🔍</div><div class="concept-name">Identify (Identificar)</div><div class="concept-desc">Entender ativos, riscos, vulnerabilidades e ambiente de negócio.</div></div>
+          <div class="concept-card"><div class="emoji">🛡️</div><div class="concept-name">Protect (Proteger)</div><div class="concept-desc">Implementar salvaguardas — controle de acesso, treinamento, criptografia.</div></div>
+          <div class="concept-card"><div class="emoji">🔔</div><div class="concept-name">Detect (Detectar)</div><div class="concept-desc">Identificar incidentes — monitoramento contínuo, SIEM, IDS.</div></div>
+          <div class="concept-card"><div class="emoji">🚨</div><div class="concept-name">Respond (Responder)</div><div class="concept-desc">Agir sobre incidentes detectados — contenção, comunicação, análise.</div></div>
+          <div class="concept-card"><div class="emoji">🔄</div><div class="concept-name">Recover (Recuperar)</div><div class="concept-desc">Restaurar capacidades e aprender com o incidente.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MITRE -->
+    <div class="tab-panel" data-tab="mitre">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(239,68,68,0.1)">🎯</div>MITRE ATT&CK</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ O que é o MITRE ATT&CK</div>
+          Base de conhecimento globalmente acessível sobre <strong>Táticas, Técnicas e Procedimentos (TTPs)</strong> de adversários reais, baseada em observações de ataques do mundo real. Organizada em uma matriz que cobre todo o ciclo de vida de um ataque.
+        </div>
+
+        <h3>14 Táticas do ATT&CK Enterprise</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>#</th><th>Tática</th><th>O que o adversário faz</th></tr></thead>
+            <tbody>
+              <tr><td>TA0043</td><td><strong>Reconnaissance</strong></td><td>Coleta informações sobre o alvo (OSINT, scanning)</td></tr>
+              <tr><td>TA0042</td><td><strong>Resource Development</strong></td><td>Prepara infraestrutura (domínios, contas, malware)</td></tr>
+              <tr><td>TA0001</td><td><strong>Initial Access</strong></td><td>Ganha acesso inicial (phishing, exploit público)</td></tr>
+              <tr><td>TA0002</td><td><strong>Execution</strong></td><td>Executa código malicioso no sistema alvo</td></tr>
+              <tr><td>TA0003</td><td><strong>Persistence</strong></td><td>Mantém acesso mesmo após reinicialização/logout</td></tr>
+              <tr><td>TA0004</td><td><strong>Privilege Escalation</strong></td><td>Obtém permissões mais elevadas</td></tr>
+              <tr><td>TA0005</td><td><strong>Defense Evasion</strong></td><td>Evita detecção por ferramentas de segurança</td></tr>
+              <tr><td>TA0006</td><td><strong>Credential Access</strong></td><td>Rouba credenciais (senhas, tokens, hashes)</td></tr>
+              <tr><td>TA0007</td><td><strong>Discovery</strong></td><td>Mapeia a rede e sistemas internos</td></tr>
+              <tr><td>TA0008</td><td><strong>Lateral Movement</strong></td><td>Movimenta-se para outros sistemas na rede</td></tr>
+              <tr><td>TA0009</td><td><strong>Collection</strong></td><td>Coleta dados de interesse para exfiltração</td></tr>
+              <tr><td>TA0011</td><td><strong>Command & Control</strong></td><td>Comunica-se com sistemas comprometidos</td></tr>
+              <tr><td>TA0010</td><td><strong>Exfiltration</strong></td><td>Exfiltra dados coletados para fora da rede</td></tr>
+              <tr><td>TA0040</td><td><strong>Impact</strong></td><td>Causa dano — destruição, criptografia, disrupção</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Usos do MITRE ATT&CK</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🔍</div><div class="concept-name">Threat Hunting</div><div class="concept-desc">Equipes buscam proativamente TTPs específicos no ambiente — sem esperar alertas.</div></div>
+          <div class="concept-card"><div class="emoji">🧠</div><div class="concept-name">Threat Intelligence</div><div class="concept-desc">Mapear campanhas de grupos APT conhecidos (ex: APT29, Lazarus) às táticas ATT&CK.</div></div>
+          <div class="concept-card"><div class="emoji">🔴</div><div class="concept-name">Red Team</div><div class="concept-desc">Simular ataques usando TTPs reais para testar as defesas de forma realista.</div></div>
+          <div class="concept-card"><div class="emoji">🔵</div><div class="concept-name">Gap Analysis</div><div class="concept-desc">Identificar quais táticas/técnicas não são detectadas pelos controles atuais.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Riscos -->
+    <div class="tab-panel" data-tab="riscos">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">⚖️</div>Gestão de Riscos e Continuidade</h2>
+
+        <h3>ISO 31000 — Gestão de Riscos</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content"><h4>Estabelecimento do Contexto</h4><p>Definir o escopo, objetivos, critérios de risco e partes interessadas da gestão de riscos.</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content"><h4>Avaliação de Riscos</h4><p>Três sub-etapas: <strong>Identificação</strong> (o que pode dar errado?) → <strong>Análise</strong> (qual a probabilidade e impacto?) → <strong>Avaliação</strong> (é aceitável? qual a prioridade?).</p></div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">3</div>
+            <div class="step-content">
+              <h4>Tratamento de Riscos (4 opções)</h4>
+              <div class="comparison-wrap" style="margin-top:8px">
+                <table class="comparison-table">
+                  <thead><tr><th>Opção</th><th>O que significa</th><th>Quando usar</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Mitigar</strong></td><td>Reduzir probabilidade ou impacto com controles</td><td>Risco alto mas controlavelável</td></tr>
+                    <tr><td><strong>Transferir</strong></td><td>Repassar o risco (seguro, contrato com terceiro)</td><td>Custo do controle > custo do seguro</td></tr>
+                    <tr><td><strong>Aceitar</strong></td><td>Reconhecer e aceitar o risco residual</td><td>Risco baixo ou custo de mitigação impraticável</td></tr>
+                    <tr><td><strong>Evitar</strong></td><td>Eliminar a atividade que gera o risco</td><td>Risco inaceitável sem alternativa viável</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">4</div>
+            <div class="step-content"><h4>Monitoramento e Análise Crítica</h4><p>Acompanhar eficácia dos controles, revisar riscos periodicamente e adaptar ao contexto em mudança.</p></div>
+          </div>
+        </div>
+
+        <h3>ISO 22301 — Continuidade de Negócios</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">📊</div><div class="concept-name">BIA</div><div class="concept-desc">Business Impact Analysis — identifica processos críticos, impacto financeiro/operacional de interrupções e define RTO/RPO.</div></div>
+          <div class="concept-card"><div class="emoji">📋</div><div class="concept-name">BCP</div><div class="concept-desc">Business Continuity Plan — como manter operações durante a crise usando processos alternativos.</div></div>
+          <div class="concept-card"><div class="emoji">🔧</div><div class="concept-name">DRP</div><div class="concept-desc">Disaster Recovery Plan — plano técnico específico para recuperar sistemas de TI após desastre.</div></div>
+          <div class="concept-card"><div class="emoji">🧪</div><div class="concept-name">Testes e Exercícios</div><div class="concept-desc">Tabletop exercises, drill, simulação completa — testar os planos regularmente para garantir eficácia.</div></div>
+        </div>
+
+        <h3>Lei Sarbanes-Oxley (SOX)</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">💡 SOX e TI</div>
+          A Lei Sarbanes-Oxley (2002, EUA) exige que empresas de capital aberto (incluindo subsidiárias de empresas americanas) mantenham controles internos rigorosos sobre relatórios financeiros. Para TI: logs de auditoria, controles de acesso a sistemas financeiros, segregação de funções, trilha de auditoria imutável. A Petrobras, por ter ADRs na NYSE, está sujeita à SOX.
+        </div>
+      </div>
+    </div>
+
+    <!-- Criptografia -->
+    <div class="tab-panel" data-tab="cripto">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">🔐</div>Criptografia, Certificação Digital e Assinatura</h2>
+
+        <h3>Criptografia Simétrica vs Assimétrica</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>Simétrica</th><th>Assimétrica</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Chaves</strong></td><td>Uma única chave compartilhada</td><td>Par de chaves: pública + privada</td></tr>
+              <tr><td><strong>Velocidade</strong></td><td>Rápida (100-1000x mais rápida)</td><td>Lenta (operações matemáticas complexas)</td></tr>
+              <tr><td><strong>Problema</strong></td><td>Distribuição segura da chave</td><td>Não — chave pública pode ser distribuída livremente</td></tr>
+              <tr><td><strong>Algoritmos</strong></td><td>AES-128/256, DES, 3DES, ChaCha20</td><td>RSA, ECC (ECDSA), Diffie-Hellman</td></tr>
+              <tr><td><strong>Uso típico</strong></td><td>Criptografar grandes volumes de dados</td><td>Troca de chaves, assinatura digital, autenticação</td></tr>
+              <tr><td><strong>Na prática (TLS)</strong></td><td>Cifra os dados da sessão</td><td>Negocia a chave simétrica (handshake)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Operações com Chaves Assimétricas</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Objetivo</th><th>Quem usa qual chave</th><th>Quem usa qual chave para desfazer</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Confidencialidade</strong></td>
+                <td>Remetente cifra com chave <strong>PÚBLICA</strong> do destinatário</td>
+                <td>Destinatário decifra com sua chave <strong>PRIVADA</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Assinatura Digital</strong></td>
+                <td>Assinante assina (cifra hash) com sua chave <strong>PRIVADA</strong></td>
+                <td>Qualquer um verifica com a chave <strong>PÚBLICA</strong> do assinante</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Pegadinha — Chave Privada na Assinatura</div>
+          A banca frequentemente afirma que "a assinatura digital usa a chave PÚBLICA para assinar". Isso é ERRADO.<br>
+          <strong>Assina com PRIVADA</strong> (só quem tem a chave privada pode assinar — garante autenticidade e não-repúdio).<br>
+          <strong>Verifica com PÚBLICA</strong> (qualquer um pode verificar — garante que foi mesmo aquele remetente).<br>
+          Memorize: as<strong>S</strong>ina com <strong>S</strong>ecreta (privada).
+        </div>
+
+        <h3>Funções Hash</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">#️⃣</div><div class="concept-name">Propriedades</div><div class="concept-desc">Determinística (mesmo input = mesmo output), one-way (irreversível), tamanho fixo, avalanche (mínima mudança no input = grande mudança no output).</div></div>
+          <div class="concept-card"><div class="emoji">📏</div><div class="concept-name">Algoritmos</div><div class="concept-desc">SHA-256 (256 bits, seguro), SHA-3, SHA-512. MD5 e SHA-1 são OBSOLETOS (colisões conhecidas). NUNCA usar MD5 para segurança.</div></div>
+          <div class="concept-card"><div class="emoji">🔒</div><div class="concept-name">Senhas (PBKDF)</div><div class="concept-desc">Para senhas: usar bcrypt, scrypt ou Argon2 (com salt) — lentos por design para dificultar força bruta.</div></div>
+          <div class="concept-card"><div class="emoji">✅</div><div class="concept-name">Integridade</div><div class="concept-desc">Hash garante integridade — se o arquivo foi alterado, o hash muda. Usado em assinaturas digitais e verificação de downloads.</div></div>
+        </div>
+
+        <h3>PKI — Infraestrutura de Chave Pública</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">AC</div>
+            <div class="step-content">
+              <h4>Autoridade Certificadora (CA)</h4>
+              <p>Emite, assina e revoga certificados digitais. Garante a vinculação entre identidade e chave pública. No Brasil: ICP-Brasil (ITI) é a AC raiz governamental.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">AR</div>
+            <div class="step-content">
+              <h4>Autoridade de Registro (RA)</h4>
+              <p>Valida a identidade do solicitante antes de encaminhar o pedido à CA. Primeiro ponto de contato com o usuário.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">CERT</div>
+            <div class="step-content">
+              <h4>Certificado Digital (X.509)</h4>
+              <p>Documento eletrônico que vincula uma chave pública a uma identidade. Contém: chave pública, dados do titular, validade, assinatura da CA.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(239,68,68,0.15);color:var(--red)">CRL</div>
+            <div class="step-content">
+              <h4>Lista de Certificados Revogados (CRL / OCSP)</h4>
+              <p>Certificados podem ser revogados antes do vencimento (comprometimento da chave privada). CRL = lista periódica. OCSP = verificação online em tempo real.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Segurança em Nuvem e IoT</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Modelo Cloud</th><th>Responsabilidade do Cliente</th><th>Responsabilidade do Provedor</th></tr></thead>
+            <tbody>
+              <tr><td><strong>IaaS</strong></td><td>SO, middleware, apps, dados, rede virtual, identidade</td><td>Hardware, datacenter, virtualização, rede física</td></tr>
+              <tr><td><strong>PaaS</strong></td><td>Apps, dados, configuração de plataforma</td><td>Tudo do IaaS + SO, runtime, middleware</td></tr>
+              <tr><td><strong>SaaS</strong></td><td>Dados, configuração de acesso/usuários</td><td>Tudo — app, plataforma, infraestrutura</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Segurança em IoT</div>
+          Dispositivos IoT têm recursos limitados e desafios únicos: credenciais padrão de fábrica (admin/admin), firmware desatualizado sem mecanismo de update automático, comunicação sem criptografia, falta de isolamento de rede. Na Petrobras: sensores de pressão, temperatura e fluxo em plataformas são IoT críticos — segmentação de rede (VLAN) e atualizações regulares são essenciais.
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Normas & Frameworks</div>
+          <span class="badge badge-red">10 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-normas"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-normas"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="identidade.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Identidade & Acesso</div></div>
+      </a>
+      <a href="../../dashboard.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Voltar ao</div><div>Dashboard</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-normas','normas',[
+    'Sei a diferença entre ISO 27001 (certificável) e ISO 27002 (guia)',
+    'Conheço os 4 temas de controles da ISO 27002:2022',
+    'Domino as 4 fases do NIST SP 800-61 em ordem',
+    'Sei as 5 funções do NIST CSF (Identify/Protect/Detect/Respond/Recover)',
+    'Entendo o que é MITRE ATT&CK e suas 14 táticas',
+    'Conheço as 4 opções de tratamento de risco (ISO 31000)',
+    'Sei BIA, BCP e DRP e suas diferenças',
+    'Domino criptografia: simétrica vs assimétrica e quando usar cada uma',
+    'Sei que assinatura digital usa chave PRIVADA para assinar e PÚBLICA para verificar',
+    'Entendo o papel da CA, AR e certificado X.509 na PKI',
+    'Conheço o modelo de responsabilidade compartilhada em IaaS/PaaS/SaaS',
+  ]);
+
+  DC.Quiz.render('quiz-normas',[
+    { question:'A ISO/IEC 27001 difere da ISO/IEC 27002 porque:',
+      options:[
+        '27002 define requisitos para o SGSI e é certificável; 27001 é um guia de controles.',
+        '27001 define requisitos para o SGSI e é auditável/certificável; 27002 é um guia de boas práticas para implementar os controles.',
+        'Ambas são certificáveis — diferem no escopo de aplicação.',
+        '27001 é exclusiva para empresas de TI; 27002 para qualquer setor.',
+        '27002 substituiu a 27001 na versão 2022.'
+      ], answer:1, explanation:'ISO 27001: norma de REQUISITOS para implementar um SGSI — auditável por certificadores externos, gera certificação. Empresas se certificam na 27001. ISO 27002: código de boas práticas — fornece diretrizes detalhadas para implementar os controles do Anexo A da 27001. Não é certificável. Uso conjunto: 27001 diz "o quê", 27002 diz "como".' },
+    { question:'As 4 fases da resposta a incidentes do NIST SP 800-61, em ordem correta, são:',
+      options:[
+        'Detecção → Contenção → Preparação → Recuperação',
+        'Preparação → Detecção e Análise → Contenção/Erradicação/Recuperação → Pós-Incidente',
+        'Identificação → Contenção → Erradicação → Recuperação → Lições Aprendidas',
+        'Prevenção → Detecção → Resposta → Monitoramento',
+        'Triagem → Análise → Remediação → Documentação'
+      ], answer:1, explanation:'NIST SP 800-61 define 4 fases: 1) Preparação (ANTES — políticas, CSIRT, ferramentas); 2) Detecção e Análise (identificar e confirmar o incidente); 3) Contenção, Erradicação e Recuperação (isolar, eliminar causa, restaurar); 4) Atividade Pós-Incidente (lições aprendidas, relatório, melhoria). Total: 4 fases — contenção/erradicação/recuperação são sub-etapas da fase 3.' },
+    { question:'O MITRE ATT&CK é utilizado pelas equipes de segurança principalmente para:',
+      options:[
+        'Certificar sistemas de gestão de segurança da informação.',
+        'Definir políticas de controle de acesso baseado em papéis.',
+        'Mapear táticas e técnicas reais de adversários para apoiar threat hunting, detecção e avaliação de controles.',
+        'Gerenciar inventário de ativos de TI e suas vulnerabilidades.',
+        'Calcular o risco residual após aplicação de controles ISO 27001.'
+      ], answer:2, explanation:'MITRE ATT&CK: base de conhecimento de TTPs (Táticas, Técnicas e Procedimentos) observados em ataques reais. Usado para: Threat Hunting (busca proativa de TTPs no ambiente), Threat Intelligence (mapear grupos APT), Red Team (simular ataques realistas), Gap Analysis (quais TTPs não são detectados pelos controles atuais). Não é norma de certificação.' },
+    { question:'Na criptografia assimétrica, para garantir CONFIDENCIALIDADE de uma mensagem enviada a Ana, o remetente deve:',
+      options:[
+        'Cifrar com a chave PRIVADA do remetente.',
+        'Cifrar com a chave PRIVADA de Ana.',
+        'Cifrar com a chave PÚBLICA de Ana.',
+        'Cifrar com a chave PÚBLICA do remetente.',
+        'Usar criptografia simétrica — assimétrica não garante confidencialidade.'
+      ], answer:2, explanation:'Para confidencialidade: remetente cifra com a chave PÚBLICA do DESTINATÁRIO. Apenas Ana (detentora da chave privada correspondente) pode decifrar. A chave pública pode ser distribuída livremente — qualquer um pode cifrar para Ana, mas só Ana pode decifrar. Para assinatura: remetente assina com sua própria chave PRIVADA; qualquer um verifica com a chave PÚBLICA do remetente.' },
+    { question:'Na assinatura digital, o remetente usa sua chave PRIVADA para assinar. Isso garante:',
+      options:[
+        'Confidencialidade — apenas o destinatário pode ler.',
+        'Disponibilidade — a mensagem sempre pode ser acessada.',
+        'Autenticidade e não-repúdio — prova que foi o remetente quem assinou.',
+        'Integridade exclusivamente — hash da mensagem é preservado.',
+        'Anonimato — identidade do remetente é ocultada.'
+      ], answer:2, explanation:'Assinatura com chave PRIVADA garante: Autenticidade (só quem tem a chave privada pode ter assinado — ninguém mais consegue produzir a mesma assinatura) e Não-Repúdio (o remetente não pode negar que assinou, pois só ele tem a chave privada). A verificação com a chave pública confirma a autoria. Não garante confidencialidade (a mensagem em si não é cifrada).' },
+    { question:'O certificado digital X.509 tem como principal função:',
+      options:[
+        'Armazenar senhas de forma criptografada.',
+        'Vincular uma identidade (pessoa, servidor, organização) à sua chave pública, com garantia da Autoridade Certificadora.',
+        'Criptografar grandes volumes de dados com chave simétrica.',
+        'Gerar códigos OTP para autenticação multifator.',
+        'Substituir senhas em sistemas de autenticação corporativa.'
+      ], answer:1, explanation:'Certificado X.509: documento eletrônico que vincula uma chave PÚBLICA a uma identidade, assinado digitalmente pela Autoridade Certificadora (CA). Contém: chave pública do titular, dados do titular, validade, emissor (CA), serial number. A assinatura da CA garante que a chave pública realmente pertence àquela identidade — base da PKI e HTTPS.' },
+    { question:'As 4 opções de tratamento de risco segundo a ISO 31000 são:',
+      options:[
+        'Eliminar, Reduzir, Compartilhar, Monitorar',
+        'Mitigar, Transferir, Aceitar, Evitar',
+        'Prevenir, Detectar, Responder, Recuperar',
+        'Controlar, Auditar, Relatar, Corrigir',
+        'Ignorar, Tratar, Revisar, Documentar'
+      ], answer:1, explanation:'ISO 31000 define 4 opções de tratamento: Mitigar (reduzir probabilidade/impacto com controles), Transferir (repassar o risco — seguro, contrato), Aceitar (reconhecer e conviver com o risco residual — geralmente para riscos baixos ou custo de controle impraticável), Evitar (eliminar a atividade geradora do risco). Toda organização usa combinação dessas opções.' },
+    { question:'No modelo de responsabilidade compartilhada em IaaS, o cliente é responsável por:',
+      options:[
+        'Hardware físico e virtualização do datacenter.',
+        'Rede física e resfriamento dos servidores.',
+        'Sistema operacional, middleware, aplicações, dados e configurações de rede virtual.',
+        'Tudo — no IaaS o cliente não tem responsabilidade compartilhada.',
+        'Apenas os dados — o provedor gerencia o restante.'
+      ], answer:2, explanation:'IaaS (Infrastructure as a Service): Provedor = datacenter, hardware, rede física, virtualização. Cliente = SO (patches), middleware, runtime, aplicações, dados, configuração de rede virtual (firewalls, grupos de segurança), identidade e acesso. PaaS: cliente gerencia apenas apps e dados. SaaS: cliente gerencia dados e configuração de acesso. No IaaS, o cliente tem mais controle e mais responsabilidade.' },
+    { question:'A função HASH garante qual propriedade de segurança da informação?',
+      options:[
+        'Confidencialidade — dados ilegíveis sem a chave.',
+        'Disponibilidade — dados sempre acessíveis.',
+        'Integridade — qualquer alteração nos dados gera um hash completamente diferente.',
+        'Autenticidade — prova a identidade do remetente.',
+        'Não-repúdio — impede que o remetente negue o envio.'
+      ], answer:2, explanation:'Hash garante INTEGRIDADE: qualquer alteração no dado original (mesmo 1 bit) produz um hash completamente diferente (efeito avalanche). Usado para verificar se um arquivo não foi corrompido ou alterado. Na assinatura digital: o remetente cifra o HASH com sua chave privada (não o documento inteiro), pois é muito mais eficiente. O destinatário recalcula o hash e compara.' },
+    { question:'A fase de CONTENÇÃO na resposta a incidentes do NIST SP 800-61 tem como objetivo:',
+      options:[
+        'Identificar e confirmar que um incidente ocorreu.',
+        'Remover a causa raiz do incidente do ambiente.',
+        'Isolar o sistema/rede afetado para evitar que o incidente se propague para outros sistemas.',
+        'Restaurar os sistemas afetados ao estado operacional normal.',
+        'Documentar as lições aprendidas para prevenir futuros incidentes.'
+      ], answer:2, explanation:'Fase 3 do NIST SP 800-61 tem 3 sub-etapas: CONTENÇÃO (isolar — ex: desconectar da rede, bloquear conta comprometida) → ERRADICAÇÃO (remover causa raiz — ex: malware, backdoor, vulnerabilidade explorada) → RECUPERAÇÃO (restaurar operação normal — ex: reimagem, restore de backup, patch). A ordem importa: primeiro conter para evitar propagação, depois erradicar, depois recuperar.' },
+  ],'normas_simulado');
+});
+</script>
+</body>
+</html>

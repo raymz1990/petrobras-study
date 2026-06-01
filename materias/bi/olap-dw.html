@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OLAP & Data Warehouse | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Business Intelligence</a><span class="sep">›</span>
+      <span>OLAP & Data Warehouse</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">📦 Bloco III · 1.5 – 1.7</div>
+        <h1 class="mb-8">OLAP <span class="gradient-text">&amp; Data Warehouse</span></h1>
+        <p>Operações OLAP (Drill-down, Roll-up, Slice, Dice, Pivot), tipos de OLAP (MOLAP/ROLAP/HOLAP), modelagem multidimensional e otimização de bases multidimensionais.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~50 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — OLAP & DW</h4></div>
+      <ul>
+        <li>Drill-down: desce na hierarquia (Ano → Mês). Roll-up: sobe (Cidade → Estado)</li>
+        <li>Slice: fixa UM valor de UMA dimensão. Dice: múltiplos valores de múltiplas dimensões</li>
+        <li>MOLAP armazena em cubo proprietário. ROLAP usa banco relacional. HOLAP é híbrido</li>
+        <li>Star schema: dimensões desnormalizadas. Snowflake: dimensões normalizadas em sub-tabelas</li>
+        <li>Granularidade: nível de detalhe dos fatos — define o que uma linha da tabela fato representa</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="olap-ops">🔧 Operações OLAP</button>
+      <button class="tab-btn" data-tab="olap-tipos">📊 Tipos de OLAP</button>
+      <button class="tab-btn" data-tab="modelagem-dim">⭐ Modelagem Dimensional</button>
+      <button class="tab-btn" data-tab="otimizacao">⚡ Otimização</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Operações OLAP -->
+    <div class="tab-panel active" data-tab="olap-ops">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🔧</div>Operações OLAP</h2>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 O que é OLAP</div>
+          OLAP (Online Analytical Processing) é uma tecnologia que permite análise multidimensional interativa e rápida de grandes volumes de dados. Os dados são organizados em <strong>cubos</strong> com dimensões (contexto) e medidas (métricas).
+        </div>
+
+        <h3>As 5 Operações Fundamentais</h3>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>⬇️ Drill-Down — Do geral para o específico</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p><strong>O que faz:</strong> Desce no nível de granularidade — vai do resumo para o detalhe.</p>
+              <p><strong>Exemplo Petrobras:</strong> Analiso produção por <strong>Ano</strong> → clico para ver por <strong>Trimestre</strong> → clico para ver por <strong>Mês</strong> → clico para ver por <strong>Plataforma</strong>.</p>
+              <div class="code-block"><span class="code-lang">Hierarquia de Tempo</span><pre>Ano → Semestre → Trimestre → Mês → Semana → Dia → Hora</pre></div>
+              <p><strong>Direção:</strong> Da hierarquia mais alta (menos detalhada) para a mais baixa (mais detalhada).</p>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>⬆️ Roll-Up — Do específico para o geral</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p><strong>O que faz:</strong> Sobe no nível de granularidade — agrega dados do detalhe para o resumo. Operação inversa do Drill-Down.</p>
+              <p><strong>Exemplo Petrobras:</strong> Vejo produção por <strong>Plataforma</strong> → agrego para ver por <strong>Bacia Sedimentar</strong> → agrego para ver por <strong>País</strong> → agrego para ver <strong>Total Global</strong>.</p>
+              <p><strong>Operação matemática:</strong> Agrega (soma, média, contagem) os dados ao subir na hierarquia.</p>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>🔪 Slice — Fatia de uma dimensão</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p><strong>O que faz:</strong> Seleciona um <strong>único valor</strong> em <strong>uma dimensão</strong> — reduz o cubo de N dimensões para N-1 dimensões.</p>
+              <p><strong>Exemplo:</strong> Cubo com dimensões Tempo × Produto × Região. Slice por Tempo = "Janeiro 2024" → resultado é um plano Produto × Região apenas para janeiro.</p>
+              <p><strong>Analogia:</strong> Fatiar um cubo de queijo — você obtém uma fatia (plano 2D) do cubo 3D.</p>
+              <div class="highlight-box warn"><div class="hb-title">⚠️ Slice ≠ Dice</div>Slice: UMA dimensão, UM valor. Dice: MÚLTIPLAS dimensões, MÚLTIPLOS valores. A banca usa os dois em contextos similares — preste atenção ao número de dimensões filtradas.</div>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>🎲 Dice — Sub-cubo com múltiplos filtros</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p><strong>O que faz:</strong> Seleciona <strong>múltiplos valores</strong> em <strong>múltiplas dimensões</strong> — resulta em um sub-cubo (menor cubo dentro do cubo original).</p>
+              <p><strong>Exemplo:</strong> Filtrar: Tempo ∈ {Jan, Fev, Mar} AND Região ∈ {Norte, Nordeste} AND Produto ∈ {Petróleo, Gás} → sub-cubo com 3×2×2 células.</p>
+              <p><strong>Nome:</strong> Vem do dado (dice em inglês) — assim como um dado tem 6 faces, o Dice seleciona múltiplas faces/valores.</p>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>🔄 Pivot (Rotate) — Mudar perspectiva</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p><strong>O que faz:</strong> Rotaciona o cubo — troca a perspectiva de análise sem alterar os dados. Equivale a "transpor" as dimensões nas linhas e colunas.</p>
+              <p><strong>Exemplo:</strong> Relatório com Produtos nas linhas e Meses nas colunas → após Pivot → Meses nas linhas e Produtos nas colunas.</p>
+              <p><strong>Tabela dinâmica (Pivot Table) do Excel</strong> implementa exatamente essa operação.</p>
+            </div></div>
+          </div>
+        </div>
+
+        <h3>Resumo Visual das Operações</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Operação</th><th>Direção</th><th>Dimensões afetadas</th><th>Resultado</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Drill-Down ⬇️</strong></td><td>Geral → Específico</td><td>Uma (desce hierarquia)</td><td>Mais linhas, mais detalhe</td></tr>
+              <tr><td><strong>Roll-Up ⬆️</strong></td><td>Específico → Geral</td><td>Uma (sobe hierarquia)</td><td>Menos linhas, agregado</td></tr>
+              <tr><td><strong>Slice 🔪</strong></td><td>Filtro simples</td><td>Uma dimensão, um valor</td><td>Plano N-1 dimensões</td></tr>
+              <tr><td><strong>Dice 🎲</strong></td><td>Filtro múltiplo</td><td>Múltiplas, múltiplos valores</td><td>Sub-cubo menor</td></tr>
+              <tr><td><strong>Pivot 🔄</strong></td><td>Rotação</td><td>Todas (troca linhas/colunas)</td><td>Mesmos dados, nova vista</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tipos OLAP -->
+    <div class="tab-panel" data-tab="olap-tipos">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">📊</div>Tipos de OLAP</h2>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">💾</div>
+            <div class="concept-name">MOLAP</div>
+            <div class="concept-desc"><strong>Multidimensional OLAP</strong> — dados pré-calculados em estrutura multidimensional proprietária (cubo). Alta performance de consulta. Limitado em volume. Ex: Microsoft Analysis Services (modo MOLAP).</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🗄️</div>
+            <div class="concept-name">ROLAP</div>
+            <div class="concept-desc"><strong>Relational OLAP</strong> — dados no banco relacional, cubo gerado dinamicamente via SQL. Escalável para grandes volumes. Mais lento que MOLAP. Ex: Mondrian, Google BigQuery.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🔀</div>
+            <div class="concept-name">HOLAP</div>
+            <div class="concept-desc"><strong>Hybrid OLAP</strong> — combina MOLAP e ROLAP. Dados sumarizados em MOLAP (performance), dados detalhados em ROLAP (escala). Melhor dos dois mundos.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🌐</div>
+            <div class="concept-name">DOLAP</div>
+            <div class="concept-desc"><strong>Desktop OLAP</strong> — cubo baixado para o cliente e analisado localmente. Sem conexão contínua ao servidor. Ex: análises offline no Excel.</div>
+          </div>
+        </div>
+
+        <div class="comparison-wrap" style="margin-top:20px">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>MOLAP</th><th>ROLAP</th><th>HOLAP</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Armazenamento</strong></td><td>Cubo proprietário</td><td>Banco relacional</td><td>Ambos</td></tr>
+              <tr><td><strong>Performance</strong></td><td>⭐⭐⭐⭐⭐ (pré-calculado)</td><td>⭐⭐⭐ (query em tempo real)</td><td>⭐⭐⭐⭐</td></tr>
+              <tr><td><strong>Volume de dados</strong></td><td>Limitado</td><td>Grande escala</td><td>Grande escala</td></tr>
+              <tr><td><strong>Atualização</strong></td><td>Lenta (reprocessa cubo)</td><td>Rápida (direto no BD)</td><td>Mista</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modelagem Dimensional -->
+    <div class="tab-panel" data-tab="modelagem-dim">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">⭐</div>Modelagem Dimensional — Revisão Aprofundada</h2>
+
+        <h3>Granularidade</h3>
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Granularidade — Decisão Mais Importante</div>
+          A granularidade define o que uma linha da tabela fato representa. Ex: cada linha representa UMA transação de venda (alta granularidade) vs cada linha representa o total diário de vendas por loja (baixa granularidade).<br><br>
+          <strong>Kimball:</strong> "Quanto mais granular, melhor" — pois dados detalhados podem ser agregados, mas dados agregados não podem ser desagregados.
+        </div>
+
+        <h3>Tipos de Tabela Fato</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo</th><th>Descrição</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Transaction (Transação)</strong></td><td>Uma linha por evento/transação — alta granularidade</td><td>Cada venda de produto</td></tr>
+              <tr><td><strong>Periodic Snapshot</strong></td><td>Estado de uma métrica em intervalos regulares</td><td>Saldo de estoque ao final de cada dia</td></tr>
+              <tr><td><strong>Accumulating Snapshot</strong></td><td>Linha atualizada conforme processo evolui — múltiplas datas</td><td>Pedido (data_pedido, data_pagamento, data_entrega)</td></tr>
+              <tr><td><strong>Factless Fact</strong></td><td>Tabela fato sem medidas numéricas — registra ocorrências</td><td>Quais estudantes participaram de quais eventos</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Dimensões Especiais</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">📅</div><div class="concept-name">Dim_Tempo</div><div class="concept-desc">Dimensão mais importante. Contém: data, dia da semana, mês, trimestre, ano, feriado, dia útil. Pré-populada com todos os dias do horizonte analítico.</div></div>
+          <div class="concept-card"><div class="emoji">❓</div><div class="concept-name">Dimensão Degenerada</div><div class="concept-desc">Chave de negócio que fica na tabela fato sem dimensão própria. Ex: número do pedido (não há mais atributos para uma dim_pedido).</div></div>
+          <div class="concept-card"><div class="emoji">🔗</div><div class="concept-name">Dimensão Conformada</div><div class="concept-desc">Dimensão compartilhada entre múltiplos data marts — garante visão consistente. Ex: dim_cliente igual no DM de Vendas e no DM de Suporte.</div></div>
+          <div class="concept-card"><div class="emoji">🌀</div><div class="concept-name">Dimensão Role-Playing</div><div class="concept-desc">Mesma dimensão usada com diferentes papéis na fato. Ex: dim_tempo usada como data_pedido, data_entrega e data_cancelamento.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Otimização -->
+    <div class="tab-panel" data-tab="otimizacao">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">⚡</div>Otimização de Bases Multidimensionais</h2>
+
+        <h3>Técnicas de Otimização</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Técnica</th><th>Como funciona</th><th>Benefício</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Particionamento</strong></td><td>Divide a tabela fato em partições (ex: por mês ou ano)</td><td>Queries filtradas por data só leem a partição relevante — muito mais rápido</td></tr>
+              <tr><td><strong>Índices Bitmap</strong></td><td>Índices otimizados para colunas de baixa cardinalidade (ex: sexo, categoria)</td><td>Ideais para tabelas de dimensão com filtros frequentes</td></tr>
+              <tr><td><strong>Materialized Views</strong></td><td>Resultados de queries complexas pré-calculados e armazenados</td><td>Consultas analíticas frequentes retornam instantaneamente</td></tr>
+              <tr><td><strong>Agregações Pré-calculadas</strong></td><td>Sumarizações por diferentes grãos armazenadas antecipadamente</td><td>Evita recalcular SUM/AVG a cada query</td></tr>
+              <tr><td><strong>Columnar Storage</strong></td><td>Dados armazenados por coluna em vez de por linha</td><td>Queries analíticas (que leem poucas colunas de muitas linhas) são muito mais rápidas</td></tr>
+              <tr><td><strong>Star Schema (desnormalização)</strong></td><td>Dimensões desnormalizadas em uma tabela única</td><td>Menos JOINs = queries mais simples e rápidas</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>ROLAP vs MOLAP — Otimização</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Estratégia de Otimização por Tipo</div>
+          <strong>MOLAP:</strong> otimização acontece no pré-processamento do cubo (cálculo de todas as agregações possíveis). Espaço de armazenamento pode ser 10x maior que os dados originais.<br>
+          <strong>ROLAP:</strong> otimização via índices, particionamento, materialized views e armazenamento colunar no banco relacional. Mais flexível para dados muito grandes.<br>
+          <strong>Modern DW (BigQuery, Snowflake):</strong> armazenamento colunar + auto-clustering + result cache — combina escalabilidade ROLAP com performance próxima do MOLAP.
+        </div>
+
+        <h3>Construção de Dashboards Interativos</h3>
+        <p>Boas práticas para dashboards que suportam decisão:</p>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🔢</div><div class="concept-name">KPIs no Topo</div><div class="concept-desc">Métricas mais importantes em destaque visual — acima da dobra, com comparativo (meta, período anterior).</div></div>
+          <div class="concept-card"><div class="emoji">🔍</div><tag name="div" class="concept-name">Drill-through</tag><div class="concept-desc">Clique num valor do dashboard para ver os dados detalhados que o compõem. Conecta visão executiva ao detalhe operacional.</div></div>
+          <div class="concept-card"><div class="emoji">🎛️</div><div class="concept-name">Filtros Globais</div><div class="concept-desc">Filtros que afetam todos os visuais do dashboard simultaneamente — período, região, produto.</div></div>
+          <div class="concept-card"><div class="emoji">📱</div><div class="concept-name">Responsividade</div><div class="concept-desc">Dashboard funcional em mobile e desktop — layout adaptativo, métricas principais visíveis sem scroll.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — OLAP & Data Warehouse</div>
+          <span class="badge badge-green">8 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-olap"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-olap"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Voltar</div><div>Business Intelligence</div></div>
+      </a>
+      <a href="../logica/index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>Lógica Matemática</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-olap','olap',[
+    'Domino as 5 operações OLAP e suas direções',
+    'Sei a diferença entre Slice (1 dim, 1 valor) e Dice (N dims, N valores)',
+    'Sei a diferença entre Drill-down (desce) e Roll-up (sobe)',
+    'Entendo Pivot como rotação de perspectiva',
+    'Conheço MOLAP, ROLAP e HOLAP e suas diferenças',
+    'Domino granularidade e sua importância na tabela fato',
+    'Conheço os 4 tipos de tabela fato (transaction, snapshot, accumulating, factless)',
+    'Sei o que é dimensão conformada e por que ela importa',
+    'Conheço técnicas de otimização (particionamento, índices bitmap, materialized views)',
+  ]);
+
+  DC.Quiz.render('quiz-olap',[
+    { question:'Um analista está analisando produção de petróleo por Bacia Sedimentar e decide ver os dados por Plataforma dentro de uma bacia específica. Qual operação OLAP foi realizada?',
+      options:['Roll-Up — subindo na hierarquia de granularidade.','Slice — filtrando uma única dimensão.','Drill-Down — descendo para nível mais detalhado (Bacia → Plataforma).','Pivot — rotacionando a perspectiva de análise.','Dice — filtrando múltiplas dimensões simultaneamente.'],
+      answer:2, explanation:'Drill-Down = vai do GERAL para o ESPECÍFICO. Bacia Sedimentar (nível mais alto) → Plataforma (nível mais detalhado) = Drill-Down. Roll-Up seria o inverso (Plataforma → Bacia → País). Slice filtra um valor único em uma dimensão. Dice filtra múltiplos valores em múltiplas dimensões.' },
+    { question:'A operação OLAP que fixa o mês de "Janeiro 2024" em toda a análise, reduzindo o cubo de 3 dimensões para um plano de 2 dimensões, é chamada de:',
+      options:['Drill-Down','Roll-Up','Pivot','Slice','Dice'],
+      answer:3, explanation:'Slice = "fatia" — seleciona UM valor de UMA dimensão, reduzindo o cubo em uma dimensão. Fixar "Janeiro 2024" na dimensão Tempo → o cubo Tempo×Produto×Região se torna um plano Produto×Região apenas para janeiro. Dice = múltiplos valores de múltiplas dimensões → sub-cubo (não plano).' },
+    { question:'O MOLAP (Multidimensional OLAP) difere do ROLAP porque:',
+      options:['ROLAP armazena dados em cubo proprietário pré-calculado; MOLAP usa banco relacional.','MOLAP armazena dados em estrutura multidimensional proprietária pré-calculada com alto desempenho; ROLAP armazena no banco relacional e gera cubos dinamicamente.','ROLAP é mais rápido que MOLAP para consultas analíticas.','MOLAP escala melhor para petabytes de dados.','Ambos usam a mesma tecnologia de armazenamento — diferem apenas no protocolo de consulta.'],
+      answer:1, explanation:'MOLAP: armazena dados em estrutura multidimensional PROPRIETÁRIA, com TODAS as agregações pré-calculadas → altíssima performance de consulta, mas volume limitado e atualização lenta (precisa reprocessar o cubo). ROLAP: dados no banco RELACIONAL, cubo gerado via SQL em tempo real → escalável para grandes volumes, performance inferior ao MOLAP, atualização mais rápida.' },
+    { question:'A granularidade de uma tabela fato define:',
+      options:['O número de dimensões relacionadas à tabela.','O nível de detalhe representado por cada linha da tabela fato.','A quantidade máxima de registros que a tabela pode armazenar.','O tipo de medida (aditiva, semi-aditiva, não-aditiva) das métricas.','O esquema de indexação utilizado para otimizar as consultas.'],
+      answer:1, explanation:'Granularidade = o que UMA LINHA representa na tabela fato. Ex: grão = cada transação de venda individual (alta granularidade, muitas linhas). Vs. grão = total diário de vendas por loja (menor granularidade, menos linhas). Kimball recomenda o grão mais fino possível — dados detalhados podem ser agregados; dados agregados não podem ser desagregados retroativamente.' },
+    { question:'A operação Dice em OLAP seleciona:',
+      options:['Um único valor de uma única dimensão, resultando em um plano 2D.','Múltiplos valores de múltiplas dimensões, resultando em um sub-cubo.','A perspectiva de análise através da rotação de linhas e colunas.','O nível mais detalhado de uma hierarquia dimensional.','Apenas os valores extremos (mínimo e máximo) de cada dimensão.'],
+      answer:1, explanation:'Dice = "dado" (múltiplas faces) — seleciona MÚLTIPLOS valores de MÚLTIPLAS dimensões, resultando em um sub-cubo (cubo menor dentro do cubo original). Ex: Tempo ∈ {Jan,Fev,Mar} AND Região ∈ {Norte,Nordeste} AND Produto ∈ {Petróleo,Gás} → sub-cubo 3×2×2. Slice = UMA dimensão, UM valor → plano N-1 dimensões.' },
+    { question:'Uma "dimensão conformada" no contexto do Data Warehouse significa:',
+      options:['Uma dimensão que muda de estrutura ao longo do tempo (SCD).','Uma dimensão compartilhada e semanticamente idêntica entre múltiplos data marts ou tabelas fato.','Uma dimensão sem hierarquia — apenas atributos simples.','Uma dimensão que armazena dados históricos de múltiplos períodos.','Uma dimensão criada exclusivamente para uma tabela fato específica.'],
+      answer:1, explanation:'Dimensão conformada: dimensão com a mesma definição e chaves usada em múltiplos data marts ou tabelas fato. Ex: dim_cliente idêntica no DM de Vendas, DM de Suporte e DM de Marketing → permite análise cruzada entre os data marts. Sem conformidade, cada DM teria sua própria versão do "cliente" — impossibilitando relatórios consolidados.' },
+    { question:'Qual técnica de otimização de DW é especialmente eficaz para tabelas fato muito grandes com queries que filtram frequentemente por data?',
+      options:['Índices Bitmap em todas as colunas da tabela fato.','Desnormalização das tabelas de dimensão em star schema.','Particionamento da tabela fato por período (ex: por mês ou ano).','Criação de chaves substitutas (surrogate keys) em todas as dimensões.','Armazenamento dos dados em formato normalizado (3FN).'],
+      answer:2, explanation:'Particionamento por data é a técnica mais impactante para tabelas fato enormes: a query "vendas do último mês" só lê a partição de um mês, não a tabela inteira. "Partition pruning" = o banco ignora partições irrelevantes automaticamente. Combinado com "partition key = data" em queries de DW (que quase sempre filtram por período), reduz tempo de query de horas para segundos.' },
+    { question:'O Roll-Up no OLAP é a operação que:',
+      options:['Aumenta a granularidade, mostrando dados em maior detalhe.','Reduz a granularidade, agregando dados de níveis inferiores para níveis superiores na hierarquia.','Filtra o cubo em uma única dimensão para análise específica.','Rotaciona as dimensões para apresentar uma nova perspectiva dos dados.','Seleciona um sub-cubo de dados com múltiplos critérios de filtro.'],
+      answer:1, explanation:'Roll-Up = subir na hierarquia = agregar do específico para o geral. Cidade → Estado → Região → País → Total. Operação matemática: soma, média, contagem dos dados ao agregar. É o inverso do Drill-Down (que desce para mais detalhe). Ex: de produção diária por plataforma → produção mensal por bacia → produção anual total.' },
+  ],'olap_simulado');
+});
+</script>
+</body>
+</html>

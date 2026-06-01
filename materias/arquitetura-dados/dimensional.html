@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelagem Dimensional | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Arquitetura de Dados</a><span class="sep">›</span>
+      <span>Modelagem Dimensional</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">⭐ Bloco I · 1.13 – 1.16</div>
+        <h1 class="mb-8">Modelagem <span class="gradient-text">Dimensional</span></h1>
+        <p>Star Schema, Snowflake Schema, tabelas fato e dimensão, surrogate keys, SCD (Slowly Changing Dimensions), hierarquias dimensionais e boas práticas de Kimball.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~45 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Modelagem Dimensional</h4></div>
+      <ul>
+        <li>Star Schema: dimensões desnormalizadas. Snowflake: dimensões normalizadas em sub-tabelas</li>
+        <li>Surrogate Key: chave artificial gerada pelo DW — independente da chave de negócio</li>
+        <li>SCD Tipo 1: sobrescreve. Tipo 2: cria novo registro com histórico. Tipo 3: coluna adicional</li>
+        <li>Medidas aditivas: somáveis em todas as dimensões. Semi-aditivas: algumas dimensões. Não-aditivas: nenhuma</li>
+        <li>Granularidade: o nível de detalhe de cada linha da tabela fato — decisão mais importante do DW</li>
+        <li>Dimensão conformada: mesma definição em múltiplos data marts</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="star-snow">⭐ Star vs Snowflake</button>
+      <button class="tab-btn" data-tab="medidas">📊 Medidas & Granularidade</button>
+      <button class="tab-btn" data-tab="scd">📅 SCD</button>
+      <button class="tab-btn" data-tab="dims-especiais">🔗 Dimensões Especiais</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Star vs Snowflake -->
+    <div class="tab-panel active" data-tab="star-snow">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">⭐</div>Star Schema vs Snowflake Schema</h2>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>Star Schema</th><th>Snowflake Schema</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Dimensões</strong></td><td>Desnormalizadas — uma tabela por dimensão</td><td>Normalizadas — sub-tabelas para hierarquias</td></tr>
+              <tr><td><strong>JOINs</strong></td><td>Menos JOINs — fato + dimensões diretas</td><td>Mais JOINs — fato + dimensões + sub-dimensões</td></tr>
+              <tr><td><strong>Performance</strong></td><td>Melhor para queries analíticas</td><td>Pior — mais JOINs para resolver</td></tr>
+              <tr><td><strong>Espaço</strong></td><td>Mais espaço (dados redundantes nas dims)</td><td>Menos espaço (normalizado)</td></tr>
+              <tr><td><strong>Manutenção</strong></td><td>Menos complexo</td><td>Mais complexo</td></tr>
+              <tr><td><strong>Uso recomendado</strong></td><td>DW analítico — prioridade performance</td><td>Quando espaço é crítico ou hierarquias complexas</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="code-block"><span class="code-lang">Star Schema — Exemplo Petrobras</span><pre>-- Tabela FATO central
+fato_producao (
+  producao_id    INT      PK (surrogate key),
+  data_id        INT      FK → dim_tempo,
+  plataforma_id  INT      FK → dim_plataforma,
+  produto_id     INT      FK → dim_produto,
+  bacia_id       INT      FK → dim_bacia,
+  volume_barris  DECIMAL  -- medida aditiva
+  custo_total    DECIMAL  -- medida aditiva
+  eficiencia_pct DECIMAL  -- medida não-aditiva (%)
+)
+
+-- Dimensões DESNORMALIZADAS (Star)
+dim_plataforma (
+  plataforma_id  INT PK,
+  nome           VARCHAR,
+  tipo           VARCHAR,  -- "FPSO", "Semisub", "Fixo"
+  bacia          VARCHAR,  -- redundante, mas sem JOIN extra
+  estado         VARCHAR,
+  pais           VARCHAR,
+  profundidade_m INT
+)
+
+-- Snowflake: dim_plataforma → dim_bacia → dim_pais (normalizado)</pre></div>
+
+        <h3>Surrogate Key vs Natural Key</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">🔑</div>
+            <div class="concept-name">Surrogate Key (SK)</div>
+            <div class="concept-desc">Chave artificial gerada pelo DW (inteiro sequencial). Independente do sistema de origem. Permite rastrear histórico (SCD Tipo 2). Recomendada por Kimball.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🏷️</div>
+            <div class="concept-name">Natural Key (Business Key)</div>
+            <div class="concept-desc">Chave do sistema operacional (CPF, código do produto). Deve ser mantida na dimensão para rastreabilidade, mas NÃO usada como PK do DW.</div>
+          </div>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Por que surrogate key?</div>
+          1. Natural keys podem mudar (ex: fusão de empresas muda CNPJ)<br>
+          2. Surrogate key é pequena (INT) → joins mais rápidos<br>
+          3. Permite SCD Tipo 2 — múltiplas versões do mesmo registro com natural keys idênticas<br>
+          4. Independência do sistema de origem — DW não depende das regras de chave do OLTP
+        </div>
+      </div>
+    </div>
+
+    <!-- Medidas & Granularidade -->
+    <div class="tab-panel" data-tab="medidas">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">📊</div>Medidas e Granularidade</h2>
+
+        <h3>Tipos de Medidas</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo</th><th>Definição</th><th>Exemplo Petrobras</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Aditiva</strong></td>
+                <td>Pode ser somada em TODAS as dimensões sem restrição</td>
+                <td>Volume de produção (barris) — soma por plataforma, por mês, por produto</td>
+              </tr>
+              <tr>
+                <td><strong>Semi-aditiva</strong></td>
+                <td>Pode ser somada em ALGUMAS dimensões, mas não em outras</td>
+                <td>Estoque de petróleo — soma por plataforma (ok), mas NÃO soma por tempo (saldo não se acumula)</td>
+              </tr>
+              <tr>
+                <td><strong>Não-aditiva</strong></td>
+                <td>NÃO pode ser somada em nenhuma dimensão</td>
+                <td>Eficiência (%) — 80% + 90% ≠ 170%; custo unitário por barril</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Semi-aditivas — Cuidado com Tempo</div>
+          Medidas de saldo (inventário, posição, headcount) são semi-aditivas: você pode somar por localidade ou produto, mas NÃO por tempo — somar o estoque de janeiro + fevereiro não dá o estoque total do período (são o mesmo estoque em momentos diferentes).<br>
+          Função correta para tempo: AVG (média) ou usar o valor do último dia do período.
+        </div>
+
+        <h3>Granularidade — A Decisão Mais Importante</h3>
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Definição de Granularidade</div>
+          A granularidade define o que UMA LINHA da tabela fato representa. É a decisão mais crítica do projeto de DW — determina quais análises são possíveis e o volume de dados.
+        </div>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Granularidade</th><th>Uma linha representa</th><th>Volume</th><th>Análise possível</th></tr></thead>
+            <tbody>
+              <tr><td>Alta (fino)</td><td>Cada transação individual</td><td>Enorme</td><td>Qualquer nível de detalhe</td></tr>
+              <tr><td>Média</td><td>Resumo diário por produto/loja</td><td>Grande</td><td>Análise diária e acima</td></tr>
+              <tr><td>Baixa (grosso)</td><td>Resumo mensal por região</td><td>Pequeno</td><td>Somente análise mensal e acima</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p><strong>Kimball recomenda:</strong> granularidade mais fina possível — dados detalhados podem ser agregados, mas dados agregados não podem ser desagregados retroativamente.</p>
+      </div>
+    </div>
+
+    <!-- SCD -->
+    <div class="tab-panel" data-tab="scd">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">📅</div>SCD — Slowly Changing Dimensions</h2>
+
+        <p>SCDs tratam como lidar com mudanças nos atributos de dimensão ao longo do tempo (ex: funcionário muda de departamento, produto muda de categoria).</p>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"><span>Tipo 1 — Sobrescrever (sem histórico)</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>O valor antigo é simplesmente sobrescrito pelo novo. Não há histórico das mudanças.</p>
+              <div class="code-block"><span class="code-lang">SCD Tipo 1</span><pre>-- Antes: João está no departamento "TI"
+-- João é transferido para "Operações"
+
+UPDATE dim_funcionario
+SET departamento = 'Operações'
+WHERE func_id = 42;
+
+-- Resultado: nenhum histórico de que João estava em TI
+-- Análises históricas "como se sempre estivesse em Operações"</pre></div>
+              <p><strong>Quando usar:</strong> Correção de erros de dados, atributos que não têm relevância histórica (ex: correção de nome digitado errado).</p>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header"><span>Tipo 2 — Novo Registro (histórico completo) ← MAIS COBRADO</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Um novo registro é criado com o novo valor. O registro antigo é mantido e marcado como histórico. Preserva histórico COMPLETO.</p>
+              <div class="code-block"><span class="code-lang">SCD Tipo 2 — Estrutura</span><pre>dim_funcionario:
+  surrogate_key | func_id | nome | departamento | data_inicio  | data_fim   | is_current
+  1001          | 42      | João | TI           | 2020-01-01   | 2024-03-14 | FALSE
+  1002          | 42      | João | Operações    | 2024-03-15   | 9999-12-31 | TRUE
+
+-- Análise em 2022: João estava em TI (usa registro 1001)
+-- Análise atual: João está em Operações (usa registro 1002 onde is_current=TRUE)
+-- Joins com fato: usar surrogate_key (1001 para fatos antigos, 1002 para novos)</pre></div>
+              <p><strong>Quando usar:</strong> Sempre que o histórico importar para análise — quem era gerente quando a venda ocorreu? Qual era o preço do produto na época?</p>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header"><span>Tipo 3 — Coluna Adicional (histórico parcial)</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Adiciona coluna "valor_anterior" ao lado do "valor_atual". Armazena apenas a mudança mais recente.</p>
+              <div class="code-block"><span class="code-lang">SCD Tipo 3 — Estrutura</span><pre>dim_funcionario:
+  func_id | nome | departamento_atual | departamento_anterior | data_mudanca
+  42      | João | Operações          | TI                    | 2024-03-15
+
+-- Só guarda 1 mudança — se João mudar de novo, perde o histórico de TI</pre></div>
+              <p><strong>Quando usar:</strong> Quando apenas a mudança mais recente importa e o volume de dados é uma restrição crítica.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dimensões Especiais -->
+    <div class="tab-panel" data-tab="dims-especiais">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🔗</div>Dimensões Especiais</h2>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">📅</div>
+            <div class="concept-name">Dimensão Tempo</div>
+            <div class="concept-desc">A mais importante — presente em quase todo DW. Pré-populada com todos os dias do horizonte analítico. Atributos: data, dia_semana, mes, trimestre, ano, feriado, dia_util.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🔗</div>
+            <div class="concept-name">Dimensão Conformada</div>
+            <div class="concept-desc">Mesma dimensão (mesma estrutura e mesmos valores) compartilhada entre múltiplos data marts. Permite análise cruzada entre marts. Fundamento do "Bus de Conformidade" de Kimball.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🌀</div>
+            <div class="concept-name">Role-Playing Dimension</div>
+            <div class="concept-desc">Mesma dimensão usada com papéis diferentes em uma tabela fato. Ex: dim_tempo usada como data_pedido, data_envio e data_entrega — três aliases da mesma dimensão.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">❓</div>
+            <div class="concept-name">Dimensão Degenerada</div>
+            <div class="concept-desc">Chave de negócio que fica na própria tabela fato sem uma dimensão correspondente. Ex: número do pedido (não há outros atributos para criar uma dim_pedido).</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🗑️</div>
+            <div class="concept-name">Dimensão Lixo (Junk)</div>
+            <div class="concept-desc">Agrupa flags e indicadores de baixa cardinalidade em uma única dimensão. Ex: is_promocao, is_parcelado, canal_venda — em vez de ter cada um como dimensão própria.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🌉</div>
+            <div class="concept-name">Bridge Table (Tabela Ponte)</div>
+            <div class="concept-desc">Resolve relacionamentos M:N entre fato e dimensão. Ex: um pedido pode ter múltiplos vendedores — tabela ponte liga fato_pedido com dim_vendedor.</div>
+          </div>
+        </div>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Dimensão Conformada — Por que é essencial</div>
+          Sem dimensões conformadas, cada data mart tem sua própria versão do "cliente" ou do "produto" — impossibilitando relatórios consolidados. Com conformidade: a mesma dim_produto no DM de Vendas e no DM de Produção → é possível cruzar "produtos mais vendidos" com "produtos mais produzidos".
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Modelagem Dimensional</div>
+          <span class="badge badge-gold">8 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-dimensional"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-dim"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="relacional.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Modelo Relacional</div></div>
+      </a>
+      <a href="sgbd.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>SGBDs</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-dim','dim',[
+    'Sei a diferença entre Star Schema e Snowflake Schema',
+    'Entendo surrogate key vs natural key e por que SK é preferida',
+    'Domino os 3 tipos de medidas (aditiva, semi-aditiva, não-aditiva)',
+    'Sei o que é granularidade e por que é a decisão mais importante',
+    'Domino SCD Tipo 1 (sobrescreve), Tipo 2 (novo registro), Tipo 3 (coluna)',
+    'Sei a diferença entre os 3 tipos de SCD e quando usar cada um',
+    'Conheço dimensão conformada e por que é fundamental',
+    'Sei o que é dimensão degenerada, role-playing e junk',
+  ]);
+
+  DC.Quiz.render('quiz-dimensional',[
+    { question:'No SCD (Slowly Changing Dimension) Tipo 2, quando um funcionário muda de departamento:',
+      options:['O registro antigo é atualizado com o novo departamento e o histórico é perdido.','Um nova coluna "depto_anterior" é adicionada para guardar o valor antigo.','O registro atual é marcado como inativo (data_fim e is_current=FALSE) e um novo registro é criado com o novo departamento.','O funcionário é removido e reinserido com os novos dados.','Nenhuma alteração — o DW não registra mudanças após a carga inicial.'],
+      answer:2, explanation:'SCD Tipo 2: preserva histórico COMPLETO. O registro atual recebe data_fim=hoje e is_current=FALSE. Um novo registro é criado com data_inicio=hoje, is_current=TRUE e o novo departamento. Permite responder: "Qual era o departamento do funcionário em jan/2022?" — usando o registro vigente naquela data. Tipo 1 = sobrescreve (sem histórico). Tipo 3 = coluna adicional (histórico parcial).' },
+    { question:'Uma medida SEMI-ADITIVA é aquela que:',
+      options:['Pode ser somada em todas as dimensões sem restrição.','Não pode ser somada em nenhuma dimensão (ex: percentuais).','Pode ser somada em algumas dimensões mas não em outras (ex: saldo não se soma por tempo).','Deve ser calculada como média em vez de soma.','É calculada a partir de outras medidas (medida derivada).'],
+      answer:2, explanation:'Semi-aditiva: pode ser somada em ALGUMAS dimensões, mas não em outras. Exemplo: estoque de petróleo pode ser somado por plataforma (soma faz sentido), mas NÃO por tempo (o estoque de jan + estoque de fev não dá o estoque acumulado — é o mesmo estoque em momentos distintos). Para tempo, usa-se AVG ou último valor do período.' },
+    { question:'O Star Schema difere do Snowflake porque:',
+      options:['Star usa tabela fato; Snowflake não tem tabela fato central.','No Star, as dimensões são desnormalizadas (uma tabela por dimensão); no Snowflake, as dimensões são normalizadas em sub-tabelas hierárquicas.','Snowflake tem melhor performance de consulta analítica que Star.','Star é exclusivo para dados de vendas; Snowflake para qualquer domínio.','Não há diferença — são nomes alternativos para o mesmo conceito.'],
+      answer:1, explanation:'Star: dimensões desnormalizadas — hierarquias "achatadas" em uma única tabela por dimensão. Menos JOINs → melhor performance analítica. Snowflake: dimensões normalizadas em hierarquia de sub-tabelas — mais JOINs → pior performance, mas menos redundância. Para DW analítico, Star é geralmente preferido.' },
+    { question:'A Surrogate Key (chave substituta) é usada em Data Warehouses principalmente porque:',
+      options:['É obrigatória pelo padrão SQL ANSI para tabelas dimensionais.','Garante que a chave de negócio original nunca se repita.','É uma chave artificial (inteiro sequencial) que permite múltiplas versões do mesmo registro (SCD Tipo 2) e independe de mudanças no sistema de origem.','Substitui definitivamente a chave natural — que não precisa ser mantida.','Melhora a compressão dos dados no DW.'],
+      answer:2, explanation:'Surrogate Key (SK) é um inteiro artificial gerado pelo DW. Vantagens: (1) independente de mudanças na chave de negócio do sistema de origem; (2) permite SCD Tipo 2 — múltiplos registros para o mesmo objeto (mesma natural key) com SKs diferentes; (3) inteiros são menores e mais rápidos em JOINs que GUIDs ou strings. A natural key deve ser mantida na dimensão para rastreabilidade.' },
+    { question:'Uma dimensão CONFORMADA no contexto do Data Warehouse é:',
+      options:['Uma dimensão que passa por validação antes de ser carregada.','Uma dimensão que nunca muda — sem necessidade de SCD.','Uma dimensão com a mesma estrutura e semântica compartilhada entre múltiplos data marts, permitindo análise cruzada.','Uma dimensão que está em conformidade com as normas ISO de qualidade de dados.','Uma dimensão que centraliza todos os dados de conformidade regulatória.'],
+      answer:2, explanation:'Dimensão conformada: mesma dimensão (mesmos atributos, mesmos valores, mesma granularidade) usada em múltiplos data marts. É o conceito central do "Barramento de Conformidade" de Kimball. Sem conformidade, cada DM tem sua versão do "cliente" ou "produto" — impossibilitando relatórios que cruzam dados de diferentes DMs.' },
+    { question:'A GRANULARIDADE de uma tabela fato é:',
+      options:['O número de colunas (atributos) da tabela fato.','O nível de detalhe representado por cada linha da tabela fato — a decisão mais importante do projeto de DW.','A quantidade de registros carregados por ciclo ETL.','O tipo de medidas armazenadas (aditiva, semi-aditiva, não-aditiva).','A quantidade de dimensões relacionadas à tabela fato.'],
+      answer:1, explanation:'Granularidade = o que UMA LINHA representa na tabela fato. Kimball: "Declare a granularidade antes de escolher dimensões e fatos." Granularidade fina (cada transação) → mais linhas, mais análises possíveis. Granularidade grossa (resumo mensal) → menos linhas, análises limitadas. Dados detalhados podem ser agregados; dados agregados não podem ser desagregados.' },
+    { question:'Uma "dimensão degenerada" em modelagem dimensional é:',
+      options:['Uma dimensão com dados de baixa qualidade que precisa de limpeza.','Uma chave de negócio que fica na própria tabela fato sem uma dimensão correspondente, pois não há atributos descritivos associados.','Uma dimensão que foi marcada como obsoleta e não é mais usada.','Uma dimensão com dados históricos de mais de 10 anos.','Uma dimensão que viola as regras de normalização.'],
+      answer:1, explanation:'Dimensão degenerada: a chave do documento de negócio (número do pedido, número da NF, número do cheque) que fica diretamente na tabela fato. Não há uma tabela dimensão correspondente porque não há atributos descritivos além da própria chave. Ex: fato_venda com coluna num_pedido — não há dim_pedido porque o pedido não tem outros atributos além do número.' },
+    { question:'No SCD Tipo 3, a principal LIMITAÇÃO em relação ao Tipo 2 é:',
+      options:['É mais lento de consultar que o Tipo 2.','Armazena histórico completo de TODAS as mudanças, consumindo muito espaço.','Guarda apenas UMA mudança anterior — se o atributo mudar novamente, o histórico mais antigo é perdido.','Exige surrogate keys para funcionar corretamente.','Não pode ser usado com medidas aditivas.'],
+      answer:2, explanation:'SCD Tipo 3: adiciona coluna "valor_anterior" — armazena apenas a ÚLTIMA mudança. Se João foi TI → Operações → Finanças, o Tipo 3 mostrará: atual=Finanças, anterior=Operações (TI é perdido). Tipo 2 criaria 3 registros — preservando todo o histórico. A limitação do Tipo 3 é exatamente essa: histórico parcial (apenas 1 mudança atrás).' },
+  ],'dimensional_simulado');
+});
+</script>
+</body>
+</html>

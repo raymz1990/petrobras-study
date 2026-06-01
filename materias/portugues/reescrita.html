@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reescrita de Textos | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Língua Portuguesa</a><span class="sep">›</span>
+      <span>Reescrita de Textos</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">✏️ Conhecimentos Básicos · 5.8</div>
+        <h1 class="mb-8">Reescrita <span class="gradient-text">de Textos</span></h1>
+        <p>Técnicas de reescrita mantendo o sentido original. Transformação de voz verbal, substituição de conectivos, mudanças de estrutura sintática, passagem para estilo indireto e sinonímia contextual.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~40 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência na Cesgranrio</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Reescrita</h4></div>
+      <ul>
+        <li>Substituição de conectivo que muda a relação lógica (causal → concessiva) invalida a reescrita</li>
+        <li>Passagem de ativa para passiva: OD vira sujeito, sujeito vira agente da passiva (por/pelo)</li>
+        <li>Particípio de "entregar": entregue (não "entregado")</li>
+        <li>Substituição de "embora" por "apesar de" → muda de verbo conjugado para infinitivo/gerúndio</li>
+        <li>Sinonímia contextual: "eficaz" ≠ "eficiente" — contexto determina equivalência</li>
+        <li>Mudança de posição de adjunto adverbial: pode alterar a pontuação necessária</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="voz">🔄 Voz Verbal</button>
+      <button class="tab-btn" data-tab="conectivos">⛓️ Conectivos</button>
+      <button class="tab-btn" data-tab="sinonimia">📖 Sinonímia</button>
+      <button class="tab-btn" data-tab="estrutura">🏗️ Estrutura Sintática</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Voz Verbal -->
+    <div class="tab-panel active" data-tab="voz">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🔄</div>Transformação de Voz Verbal</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Regra Geral: Ativa → Passiva</div>
+          1. O OBJETO DIRETO da ativa → vira o SUJEITO da passiva<br>
+          2. O SUJEITO da ativa → vira o AGENTE DA PASSIVA (introduzido por "por"/"pelo"/"pela")<br>
+          3. O VERBO: auxiliar "ser" + particípio passado do verbo principal<br>
+          4. O tempo verbal deve ser mantido
+        </div>
+
+        <h3>Passiva Analítica</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Voz Ativa</th><th>Voz Passiva Analítica</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>"A equipe <strong>aprovou</strong> o projeto." (pret. perfeito)</td>
+                <td>"O projeto <strong>foi aprovado</strong> pela equipe."</td>
+              </tr>
+              <tr>
+                <td>"O analista <strong>entregará</strong> o relatório." (futuro do presente)</td>
+                <td>"O relatório <strong>será entregue</strong> pelo analista."</td>
+              </tr>
+              <tr>
+                <td>"A empresa <strong>está desenvolvendo</strong> o sistema." (pres. contínuo)</td>
+                <td>"O sistema <strong>está sendo desenvolvido</strong> pela empresa."</td>
+              </tr>
+              <tr>
+                <td>"O gerente <strong>tinha aprovado</strong> a proposta." (pret. mais-que-perf.)</td>
+                <td>"A proposta <strong>tinha sido aprovada</strong> pelo gerente."</td>
+              </tr>
+              <tr>
+                <td>"O comitê <strong>rejeitou</strong> as mudanças." (pret. perfeito)</td>
+                <td>"As mudanças <strong>foram rejeitadas</strong> pelo comitê."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Passiva Sintética (com "se")</h3>
+        <p>A passiva sintética usa o pronome "se" como índice de indeterminação. O agente não é expresso.</p>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Voz Ativa</th><th>Passiva Sintética</th></tr></thead>
+            <tbody>
+              <tr><td>"Aprovaram o projeto."</td><td>"Aprovou-se o projeto." / "Aprovaram-se os projetos."</td></tr>
+              <tr><td>"Analisaram os dados."</td><td>"Analisaram-se os dados."</td></tr>
+              <tr><td>"Contratarão novos analistas."</td><td>"Contratarão-se novos analistas."</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Particípios Irregulares — Mais Cobrados</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:0.875rem;margin-top:8px">
+            <div>entregar → <strong>entregue</strong> (não "entregado")</div>
+            <div>aceitar → <strong>aceito</strong> (não "aceitado")</div>
+            <div>eleger → <strong>eleito</strong></div>
+            <div>expressar → <strong>expresso</strong></div>
+            <div>prender → <strong>preso</strong></div>
+            <div>ganhar → <strong>ganho</strong></div>
+            <div>gastar → <strong>gasto</strong></div>
+            <div>matar → <strong>morto</strong></div>
+          </div>
+          <p style="margin-top:10px;font-size:0.83rem">Com "ser/estar": usar o particípio irregular (foi <strong>entregue</strong>, foi <strong>aceito</strong>).<br>
+          Com "ter/haver": usar o particípio regular (tinha <strong>entregado</strong>, havia <strong>aceitado</strong>).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Conectivos -->
+    <div class="tab-panel" data-tab="conectivos">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">⛓️</div>Substituição de Conectivos</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Princípio da Substituição de Conectivos</div>
+          Substituir um conectivo por outro equivalente é válido SOMENTE se:<br>
+          1. A relação lógica entre as orações é preservada<br>
+          2. A estrutura sintática resultante é gramaticalmente correta<br>
+          3. Quando necessário, o modo verbal é ajustado (indicativo ↔ subjuntivo)
+        </div>
+
+        <h3>Substituições Válidas por Relação Lógica</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Original</th><th>Substituível por</th><th>Observação</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>mas</strong> (adversativo coord.)</td>
+                <td>porém, contudo, entretanto, todavia, no entanto</td>
+                <td>Todos coordenativos adversativos — equivalentes</td>
+              </tr>
+              <tr>
+                <td><strong>embora</strong> (concessiva + subj.)</td>
+                <td>ainda que, mesmo que, se bem que, conquanto</td>
+                <td>Todos exigem subjuntivo</td>
+              </tr>
+              <tr>
+                <td><strong>embora</strong> (oração)</td>
+                <td>apesar de (+ infinitivo/substantivo)</td>
+                <td>Muda estrutura: verbo conjugado → infinitivo</td>
+              </tr>
+              <tr>
+                <td><strong>porque</strong> (causal)</td>
+                <td>pois, já que, uma vez que, visto que, como</td>
+                <td>Posição pode mudar: "como" vai ao início</td>
+              </tr>
+              <tr>
+                <td><strong>portanto</strong> (conclusivo)</td>
+                <td>logo, por isso, assim, por conseguinte, pois (posposto)</td>
+                <td>Equivalentes em registro formal</td>
+              </tr>
+              <tr>
+                <td><strong>se</strong> (condicional)</td>
+                <td>caso, contanto que, desde que</td>
+                <td>Caso + subjuntivo; desde que = desde que satisfeita condição</td>
+              </tr>
+              <tr>
+                <td><strong>para que</strong> (final)</td>
+                <td>a fim de que, com o objetivo de que, com vistas a</td>
+                <td>Equivalentes em sentido final</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Substituições INVÁLIDAS — Mudam o Sentido</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Original</th><th>Substituição errada</th><th>Por que é inválida</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>"O sistema falhou <strong>porque</strong> estava sobrecarregado." (causal)</td>
+                <td>"O sistema falhou <strong>embora</strong> estivesse sobrecarregado." (concessivo)</td>
+                <td>Muda a relação: de causa para contraste/oposição</td>
+              </tr>
+              <tr>
+                <td>"O deploy foi feito <strong>embora</strong> houvesse riscos." (concessivo)</td>
+                <td>"O deploy foi feito <strong>porque</strong> havia riscos." (causal)</td>
+                <td>Muda completamente o sentido lógico</td>
+              </tr>
+              <tr>
+                <td>"Testamos o sistema, <strong>mas</strong> os erros persistiram." (adversativo)</td>
+                <td>"Testamos o sistema, <strong>portanto</strong> os erros persistiram." (conclusivo)</td>
+                <td>Conclusivo indica que B é consequência de A — ilógico aqui</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Transformação "embora" → "apesar de"</h3>
+        <div class="code-block"><span class="code-lang">Transformação estrutural</span><pre>Original: "Embora o prazo fosse curto, o projeto foi entregue."
+→ "embora" + oração com verbo conjugado no SUBJUNTIVO
+
+Reescrita: "Apesar de o prazo ser curto, o projeto foi entregue."
+→ "apesar de" + INFINITIVO (o sujeito da subordinada = sujeito da principal)
+
+Ou: "Apesar do prazo curto, o projeto foi entregue."
+→ "apesar de" + SUBSTANTIVO
+
+⚠️ NUNCA: "Apesar de que o prazo fosse curto..." → "apesar de que" não existe!</pre></div>
+      </div>
+    </div>
+
+    <!-- Sinonímia -->
+    <div class="tab-panel" data-tab="sinonimia">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">📖</div>Sinonímia Contextual</h2>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Sinonímia perfeita vs contextual</div>
+          Sinônimos perfeitos (mesmo sentido em qualquer contexto) são raros. A Cesgranrio explora <strong>falsos sinônimos</strong> — palavras parecidas que em determinado contexto NÃO são equivalentes.
+        </div>
+
+        <h3>Pares que NÃO são sinônimos — Mais Cobrados</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Par</th><th>Diferença decisiva</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Eficaz vs Eficiente</strong></td>
+                <td>Eficaz = atingiu o objetivo. Eficiente = atingiu o objetivo com menor uso de recursos. "A solução foi eficaz" ≠ "A solução foi eficiente".</td>
+              </tr>
+              <tr>
+                <td><strong>Eficaz vs Efetivo</strong></td>
+                <td>Efetivo = real, concreto, permanente. Pode ser sinônimo de eficaz em alguns contextos, mas não sempre.</td>
+              </tr>
+              <tr>
+                <td><strong>Implicar vs Acarretar</strong></td>
+                <td>Quase sinônimos (ambos = causar/provocar), mas "implicar" tem regência diferente: "implicar riscos" (sem preposição); "acarretar riscos" (sem preposição também). Podem ser trocados.</td>
+              </tr>
+              <tr>
+                <td><strong>Utilizar vs Usar</strong></td>
+                <td>Praticamente sinônimos em contexto técnico. Substituição geralmente válida.</td>
+              </tr>
+              <tr>
+                <td><strong>Anteriormente vs Previamente</strong></td>
+                <td>Ambos = antes. Substituição geralmente válida.</td>
+              </tr>
+              <tr>
+                <td><strong>Implementar vs Executar</strong></td>
+                <td>Implementar = colocar em prática (implantar). Executar = realizar, levar a efeito. Podem divergir em contexto de projetos.</td>
+              </tr>
+              <tr>
+                <td><strong>Garantir vs Assegurar</strong></td>
+                <td>Praticamente sinônimos. Substituição quase sempre válida.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Como a Cesgranrio Testa Sinonímia</h3>
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"><span>📝 Tipo 1: Substituição de palavra isolada</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p><strong>Enunciado:</strong> "A solução adotada foi <u>eficaz</u>." O termo sublinhado pode ser substituído, sem alteração de sentido, por:</p>
+              <p>A) eficiente — <strong>ERRADO</strong>: eficiente implica economia de recursos<br>
+              B) efetiva — <strong>CERTO</strong>: no sentido de "que produziu efeito", é equivalente<br>
+              C) produtiva — <strong>PARCIAL</strong>: produtiva tem sentido mais amplo<br>
+              D) adequada — <strong>ERRADO</strong>: adequada = apropriada, não necessariamente eficaz</p>
+            </div></div>
+          </div>
+          <div class="accordion-item">
+            <div class="accordion-header"><span>📝 Tipo 2: Reescrita de trecho inteiro</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p><strong>Enunciado:</strong> "O sistema foi testado e aprovado pela equipe." Mantendo o sentido, essa frase pode ser reescrita como:</p>
+              <p>A) "A equipe testou e aprovou o sistema." — <strong>CORRETO</strong> (passiva → ativa, sentido mantido)<br>
+              B) "A equipe testou o sistema e aprovou-o." — <strong>CORRETO</strong><br>
+              C) "O sistema foi testado embora aprovado pela equipe." — <strong>ERRADO</strong> (embora = concessivo, muda relação)<br>
+              D) "Testou-se e aprovou-se o sistema pela equipe." — <strong>ERRADO</strong> (passiva sintética não admite agente expresso)</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Estrutura Sintática -->
+    <div class="tab-panel" data-tab="estrutura">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">🏗️</div>Mudanças de Estrutura Sintática</h2>
+
+        <h3>Deslocamento de Adjunto Adverbial</h3>
+        <div class="code-block"><span class="code-lang">Exemplos de deslocamento</span><pre>Posição original (posposto — sem vírgula):
+"O sistema foi atualizado <u>na sexta-feira</u>."
+
+Anteposto (antes do sujeito — vírgula obrigatória):
+"<u>Na sexta-feira</u>, o sistema foi atualizado."
+
+Intercalado (entre sujeito e verbo — vírgulas dos dois lados):
+"O sistema, <u>na sexta-feira</u>, foi atualizado."
+
+⚠️ Todas as três são equivalentes em sentido, mas diferem em ênfase e pontuação.</pre></div>
+
+        <h3>Passagem para Discurso Indireto</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Discurso Direto</th><th>Discurso Indireto</th><th>Mudanças</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>"O sistema <strong>está</strong> pronto", disse o analista.</td>
+                <td>O analista disse que o sistema <strong>estava</strong> pronto.</td>
+                <td>Presente → Imperfeito; remove aspas; adiciona "que"</td>
+              </tr>
+              <tr>
+                <td>"O deploy <strong>será feito</strong> amanhã", afirmou.</td>
+                <td>Afirmou que o deploy <strong>seria feito</strong> no dia seguinte.</td>
+                <td>Futuro → Futuro do pretérito; "amanhã" → "no dia seguinte"</td>
+              </tr>
+              <tr>
+                <td>"<strong>Testem</strong> o sistema", ordenou o gerente.</td>
+                <td>O gerente ordenou que <strong>testassem</strong> o sistema.</td>
+                <td>Imperativo → Subjuntivo imperfeito</td>
+              </tr>
+              <tr>
+                <td>"<strong>Você</strong> aprovou o projeto?", perguntou.</td>
+                <td>Perguntou se <strong>ele/ela</strong> havia aprovado o projeto.</td>
+                <td>Interrogativa direta → indireta com "se"; pronomes ajustados</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Mudanças de Tempo Verbal na Reescrita</h3>
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Mudança de tempo altera aspecto</div>
+          "O sistema <strong>foi testado</strong>." (passado concluído) ≠ "O sistema <strong>estava sendo testado</strong>." (passado em andamento)<br>
+          A banca apresenta alternativas que mudam o tempo verbal — verifique se o aspecto (concluído vs. em curso) é preservado.
+        </div>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Original</th><th>Equivalente?</th><th>Por quê</th></tr></thead>
+            <tbody>
+              <tr><td>"O sistema <strong>falhou</strong>." (pret. perf.)</td><td>"O sistema <strong>falhara</strong>." ⚠️ CUIDADO</td><td>Falhara = mais-que-perfeito (antes de outro passado). Muda aspecto relativo.</td></tr>
+              <tr><td>"A equipe <strong>vai entregar</strong> o projeto." (futuro próximo)</td><td>"A equipe <strong>entregará</strong> o projeto." ✅ Equivalente</td><td>Futuro próximo e futuro do presente são equivalentes em muitos contextos.</td></tr>
+              <tr><td>"Ele <strong>trabalhava</strong> quando o sistema caiu." (ação em curso)</td><td>"Ele <strong>trabalhou</strong> quando o sistema caiu." ❌ Diferente</td><td>Imperfeito = ação em curso; perfeito = ação pontual concluída.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Reescrita de Textos</div>
+          <span class="badge badge-purple">10 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-reescrita"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-reesc"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="ortografia.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Ortografia</div></div>
+      </a>
+      <a href="index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Voltar ao hub</div><div>Língua Portuguesa</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-reesc','reesc',[
+    'Domino a transformação de voz ativa para passiva analítica',
+    'Sei os particípios irregulares (entregue, aceito, eleito, expresso)',
+    'Entendo quando usar particípio regular vs irregular (ter/haver vs ser/estar)',
+    'Sei substituir conectivos mantendo a relação lógica',
+    'Entendo que "embora" → "apesar de" muda a estrutura (subj. → infinitivo)',
+    'Sei a diferença entre eficaz e eficiente',
+    'Domino a passagem para discurso indireto (tempos e pronomes)',
+    'Sei como o deslocamento do adjunto adverbial afeta a pontuação',
+    'Entendo que mudança de tempo verbal pode alterar o aspecto',
+  ]);
+
+  DC.Quiz.render('quiz-reescrita',[
+    { question:'"A equipe de TI desenvolveu o novo sistema de gestão." Na voz passiva analítica, essa frase fica:',
+      options:[
+        '"O novo sistema de gestão foi desenvolvido da equipe de TI."',
+        '"O novo sistema de gestão foi desenvolvido pela equipe de TI."',
+        '"O novo sistema de gestão foi desenvolvo pela equipe de TI."',
+        '"O novo sistema de gestão era desenvolvido pela equipe de TI."',
+        '"O novo sistema de gestão se desenvolveu pela equipe de TI."'
+      ],
+      answer:1, explanation:'Passiva analítica: OD ("o novo sistema") → sujeito; verbo "ser" + particípio ("foi desenvolvido"); sujeito original ("a equipe de TI") → agente da passiva com "pela". A) "da" em vez de "pela" — errado. C) "desenvolvo" não é particípio correto. D) "era" muda o tempo (imperfeito em vez de perfeito). E) passiva sintética sem agente — diferente.' },
+    { question:'"Os documentos foram entregues ao cliente pelo gerente." Na voz ativa, essa frase fica:',
+      options:[
+        '"O gerente entregou os documentos ao cliente."',
+        '"O gerente entregou os documentos para o cliente."',
+        '"O gerente havia entregado os documentos ao cliente."',
+        '"O cliente recebeu os documentos do gerente."',
+        '"O gerente entregará os documentos ao cliente."'
+      ],
+      answer:0, explanation:'Passiva → Ativa: agente da passiva ("pelo gerente") → sujeito ("O gerente"); sujeito da passiva ("Os documentos") → OD; tempo: "foram entregues" (pret. perf. passivo) → "entregou" (pret. perf. ativo). B) "para" em vez de "ao" — muda regência. C) "havia entregado" = mais-que-perfeito — muda tempo. D) muda o sujeito para "o cliente". E) futuro — muda tempo.' },
+    { question:'"Embora o prazo fosse curto, o projeto foi concluído com sucesso." Mantendo o sentido, essa frase pode ser reescrita como:',
+      options:[
+        '"Porque o prazo era curto, o projeto foi concluído com sucesso."',
+        '"Apesar do prazo curto, o projeto foi concluído com sucesso."',
+        '"Se o prazo fosse curto, o projeto seria concluído com sucesso."',
+        '"Como o prazo era curto, o projeto foi concluído com sucesso."',
+        '"Apesar de que o prazo fosse curto, o projeto foi concluído com sucesso."'
+      ],
+      answer:1, explanation:'"Apesar do prazo curto" = "apesar de" + substantivo — mantém a relação CONCESSIVA. A) "porque" = causal — muda a relação lógica completamente. C) "se" = condicional — muda o sentido. D) "como" = causal ou temporal — muda a relação. E) "apesar de que" = construção incorreta — não existe na norma culta.' },
+    { question:'"O gerente disse: \'O sistema está pronto para o deploy.\'" No discurso indireto:',
+      options:[
+        '"O gerente disse que o sistema está pronto para o deploy."',
+        '"O gerente disse que o sistema estava pronto para o deploy."',
+        '"O gerente disse se o sistema estava pronto para o deploy."',
+        '"O gerente afirmou que o sistema estará pronto para o deploy."',
+        '"O gerente disse que o sistema seja pronto para o deploy."'
+      ],
+      answer:1, explanation:'No discurso indireto, o verbo do discurso direto sofre "recuo temporal": presente → imperfeito. "está pronto" → "estava pronto". "disse" (pretérito) exige recuo: o discurso relatado também vai para o passado. C) "se" é para perguntas (interrogativa indireta), não afirmações. D) futuro "estará" é incorreto. E) subjuntivo "seja" é incorreto.' },
+    { question:'Assinale a alternativa em que o conectivo pode substituir "mas" SEM alterar o sentido:',
+      options:[
+        '"O sistema falhou, <strong>portanto</strong> a equipe corrigiu o erro."',
+        '"O sistema falhou, <strong>porque</strong> a equipe corrigiu o erro."',
+        '"O sistema falhou, <strong>contudo</strong> a equipe corrigiu o erro."',
+        '"O sistema falhou, <strong>para que</strong> a equipe corrigisse o erro."',
+        '"O sistema falhou, <strong>embora</strong> a equipe corrigisse o erro."'
+      ],
+      answer:2, explanation:'"Contudo" é conjunção coordenativa ADVERSATIVA — equivalente a "mas". Mantém a mesma relação de oposição/contraste. A) "portanto" = conclusivo — indica consequência lógica, não oposição. B) "porque" = causal — indica causa. D) "para que" = final — indica finalidade. E) "embora" = concessivo subordinativo — muda a estrutura para subordinada.' },
+    { question:'"O projeto foi aprovado pelo conselho." Qual alternativa mantém o sentido e está gramaticalmente correta?',
+      options:[
+        '"O conselho aprovou o projeto." ✅',
+        '"O conselho havia aprovado o projeto." ✅',
+        '"Aprovou-se o projeto pelo conselho." ❌',
+        '"O conselho vai ter aprovado o projeto." ❌',
+        '"O projeto aprovado foi pelo conselho." ❌'
+      ],
+      answer:0, explanation:'A) "O conselho aprovou o projeto" = passiva → ativa mantendo o tempo (pretérito perfeito). CORRETO e equivalente. B) "havia aprovado" = mais-que-perfeito — muda o tempo verbal (indica ação anterior a outro passado). C) passiva sintética ("aprovou-se") NÃO admite agente expresso ("pelo conselho") — agramatical. D) futuro do pretérito composto — muda completamente. E) estrutura agramatical.' },
+    { question:'"A auditoria detectou irregularidades." Mantendo o sentido, o particípio passivo correto é:',
+      options:[
+        '"Irregularidades foram detectadas pela auditoria."',
+        '"Irregularidades foram detectados pela auditoria."',
+        '"Irregularidades foram deteccionadas pela auditoria."',
+        '"Irregularidades foram detectas pela auditoria."',
+        '"Irregularidades foram detectando pela auditoria."'
+      ],
+      answer:0, explanation:'"Detectadas" — particípio de "detectar" concordando com "irregularidades" (feminino plural). B) "detectados" — masculino plural — não concorda. C) "deteccionadas" — forma inexistente. D) "detectas" — não é particípio. E) "detectando" — gerúndio, não particípio. Na voz passiva analítica, o particípio concorda com o sujeito (OD original).' },
+    { question:'"O sistema responde lentamente porque está sobrecarregado." Qual reescrita ALTERA o sentido?',
+      options:[
+        '"Como está sobrecarregado, o sistema responde lentamente."',
+        '"O sistema responde lentamente, pois está sobrecarregado."',
+        '"O sistema responde lentamente embora esteja sobrecarregado."',
+        '"Por estar sobrecarregado, o sistema responde lentamente."',
+        '"Visto que está sobrecarregado, o sistema responde lentamente."'
+      ],
+      answer:2, explanation:'"Embora" = CONCESSIVO — indica que a sobrecarga não impede a resposta lenta, quando na verdade É A CAUSA. Isso inverte a lógica. Todas as outras opções mantêm a relação CAUSAL: "como" (causal), "pois" (explicativo = causal), "por estar" (causal com gerúndio), "visto que" (causal). Apenas C altera o sentido.' },
+    { question:'"Na reunião de segunda-feira, o gerente apresentou os resultados." O adjunto adverbial deslocado "Na reunião de segunda-feira" indica que:',
+      options:[
+        'A frase está com erro — o adjunto deve ficar ao final.',
+        'A vírgula após "segunda-feira" é proibida nessa posição.',
+        'O adjunto foi anteposto e a vírgula é obrigatória para separá-lo do restante.',
+        'O adjunto modifica apenas "resultados", não o verbo.',
+        'A frase fica agramatical sem o adjunto no final.'
+      ],
+      answer:2, explanation:'Adjunto adverbial ANTEPOSTO (colocado antes do sujeito) = vírgula OBRIGATÓRIA. "Na reunião de segunda-feira" ocupa a posição inicial e a vírgula separa o adjunto da oração principal. Posição original seria: "O gerente apresentou os resultados na reunião de segunda-feira" (sem vírgula). O deslocamento exige pontuação.' },
+    { question:'O particípio correto na voz passiva com "ser" é:',
+      options:[
+        '"O relatório foi entregado pelo analista."',
+        '"O relatório foi entregue pelo analista."',
+        '"A proposta foi aceitada pelo comitê."',
+        '"O candidato foi elegido pela assembleia."',
+        '"Os gastos foram gastados pelo departamento."'
+      ],
+      answer:1, explanation:'"Entregue" é o particípio irregular de "entregar" — usado com verbos auxiliares "ser/estar". B) CORRETO. A) "entregado" é o particípio regular — usado com "ter/haver": "havia entregado". C) "aceitada" incorreto: "aceito" é o irregular de "aceitar" com ser/estar. D) "elegido" incorreto: "eleito" é o irregular de "eleger". E) "gastados" incorreto: "gasto" é o irregular. Regra: ser/estar + irregular; ter/haver + regular.' },
+  ],'reesc_simulado');
+});
+</script>
+</body>
+</html>

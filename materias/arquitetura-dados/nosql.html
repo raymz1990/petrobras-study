@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NoSQL & Big Data | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Arquitetura de Dados</a><span class="sep">›</span>
+      <span>NoSQL & Big Data</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">🌐 Bloco I · 1.17 – 1.22</div>
+        <h1 class="mb-8">NoSQL <span class="gradient-text">&amp; Big Data</span></h1>
+        <p>Bancos NoSQL (documento, chave-valor, colunar, grafos), comparação com relacionais, 5 Vs do Big Data, Data Lakes, bancos em memória e qualidade de dados.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~50 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — NoSQL & Big Data</h4></div>
+      <ul>
+        <li>Dado um cenário, identificar o tipo de NoSQL mais adequado</li>
+        <li>NoSQL não elimina o SQL — cada tipo tem seu caso de uso ideal</li>
+        <li>Teorema CAP: Consistência, Disponibilidade e Tolerância a Partição — só 2 de 3</li>
+        <li>5 Vs do Big Data — o 5º V é VALOR, não Verificabilidade</li>
+        <li>Data Lake vs Data Warehouse — schema on read vs schema on write</li>
+        <li>Banco em memória (Redis) vs banco em disco — trade-off velocidade/persistência</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="nosql">🌐 Tipos NoSQL</button>
+      <button class="tab-btn" data-tab="cap">⚖️ Teorema CAP</button>
+      <button class="tab-btn" data-tab="bigdata">🌊 Big Data</button>
+      <button class="tab-btn" data-tab="datalake">🏞️ Data Lake</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- NoSQL -->
+    <div class="tab-panel active" data-tab="nosql">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🌐</div>Tipos de Bancos NoSQL</h2>
+
+        <p>NoSQL ("Not Only SQL") é o termo para bancos de dados que adotam modelos de dados diferentes do relacional. Cada tipo é otimizado para um padrão específico de acesso e estrutura de dados.</p>
+
+        <h3>Os 4 Tipos Principais</h3>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>📄 Banco de Documentos — MongoDB, CouchDB, Firestore</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Armazena dados como documentos JSON/BSON com <strong>schema flexível</strong> — cada documento pode ter campos diferentes.</p>
+              <div class="code-block"><span class="code-lang">JSON Document</span><pre>{
+  "_id": "prod_001",
+  "nome": "Válvula Subsea X7",
+  "categoria": "Equipamentos",
+  "especificacoes": {
+    "pressao_max": "3500 psi",
+    "material": "Inox 316L",
+    "certificacoes": ["API 6D", "ISO 14313"]
+  },
+  "estoque_por_plataforma": {
+    "P-75": 12,
+    "P-76": 8
+  }
+}</pre></div>
+              <p><strong>✅ Ideal para:</strong> catálogos de produtos com atributos variáveis, perfis de usuário, conteúdo CMS, documentos semi-estruturados.</p>
+              <p><strong>❌ Evitar quando:</strong> dados altamente relacionais com muitos JOINs necessários.</p>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>🔑 Banco Chave-Valor — Redis, DynamoDB, Riak</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Estrutura mais simples: cada item é um par <strong>chave → valor</strong>. Extremamente rápido para operações de leitura/escrita por chave.</p>
+              <div class="code-block"><span class="code-lang">Redis — Exemplos</span><pre>SET sessao:user_42 '{"nome":"Ana","depto":"TI","exp":3600}'
+GET sessao:user_42
+
+SET cache:relatorio_producao_jan24 "{dados...}" EX 3600   # expira em 1h
+INCR contador:visitas_homepage   # contador atômico</pre></div>
+              <p><strong>✅ Ideal para:</strong> cache de sessão, filas de mensagens, contadores, leaderboards, dados temporários de alta velocidade.</p>
+              <p><strong>❌ Evitar quando:</strong> necessidade de consultas complexas ou filtros por campos internos do valor.</p>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>📊 Banco Colunar — Apache Cassandra, HBase, Redshift</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Armazena dados por <strong>coluna</strong> em vez de por linha. Cada família de colunas agrupa colunas relacionadas. Otimizado para escrita massiva e leitura de colunas específicas.</p>
+              <div class="code-block"><span class="code-lang">Cassandra CQL</span><pre>CREATE TABLE leituras_sensor (
+    sensor_id   UUID,
+    timestamp   TIMESTAMP,
+    temperatura FLOAT,
+    pressao     FLOAT,
+    PRIMARY KEY (sensor_id, timestamp)  -- partition key + clustering key
+) WITH CLUSTERING ORDER BY (timestamp DESC);</pre></div>
+              <p><strong>✅ Ideal para:</strong> séries temporais (IoT, logs), dados de telemetria, analytics em larga escala, alta taxa de escrita distribuída.</p>
+              <p><strong>❌ Evitar quando:</strong> consultas ad-hoc complexas, relacionamentos entre entidades.</p>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>🕸️ Banco de Grafos — Neo4j, Amazon Neptune, JanusGraph</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Armazena dados como <strong>nós (vértices) e arestas (relacionamentos)</strong> com propriedades. Otimizado para percorrer relacionamentos complexos.</p>
+              <div class="code-block"><span class="code-lang">Cypher (Neo4j)</span><pre>-- Criar nós e relacionamentos
+CREATE (ana:Pessoa {nome: "Ana"})-[:TRABALHA_COM]->(carlos:Pessoa {nome: "Carlos"})
+CREATE (carlos)-[:GERENCIA]->(projeto:Projeto {nome: "Pipeline ETL"})
+
+-- Consultar: amigos de amigos de Ana
+MATCH (ana:Pessoa {nome:"Ana"})-[:TRABALHA_COM*2]->(pessoa)
+RETURN pessoa.nome</pre></div>
+              <p><strong>✅ Ideal para:</strong> redes sociais, sistemas de recomendação, detecção de fraude, rotas e mapas, redes de conhecimento.</p>
+              <p><strong>❌ Evitar quando:</strong> dados simples sem relacionamentos complexos — overhead desnecessário.</p>
+            </div></div>
+          </div>
+        </div>
+
+        <h3>Comparativo — Quando Usar Cada Tipo</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Cenário</th><th>Tipo Recomendado</th><th>Por quê</th></tr></thead>
+            <tbody>
+              <tr><td>Catálogo de produtos com atributos variáveis</td><td><span class="badge badge-purple">Documento</span></td><td>Schema flexível por produto</td></tr>
+              <tr><td>Cache de sessões de usuário</td><td><span class="badge badge-teal">Chave-Valor</span></td><td>Acesso por chave, alta velocidade</td></tr>
+              <tr><td>Telemetria de sensores de plataforma (IoT)</td><td><span class="badge badge-gold">Colunar</span></td><td>Séries temporais, alta escrita</td></tr>
+              <tr><td>Rede de relacionamentos entre funcionários</td><td><span class="badge badge-green">Grafos</span></td><td>Navegação por relacionamentos</td></tr>
+              <tr><td>Dados financeiros com integridade ACID</td><td><span class="badge badge-red">Relacional</span></td><td>Transações, consistência forte</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Banco em Memória</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">💡 In-Memory Database</div>
+          Armazenam dados primariamente na RAM, não em disco. Velocidade de acesso ordens de magnitude maior que bancos tradicionais (microssegundos vs milissegundos). <br><br>
+          <strong>Redis:</strong> chave-valor em memória + persistência opcional (RDB snapshots, AOF logs).<br>
+          <strong>Casos de uso Petrobras:</strong> cache de dashboards operacionais, filas de mensagens para sistemas SCADA, contadores de acesso.
+        </div>
+      </div>
+    </div>
+
+    <!-- CAP -->
+    <div class="tab-panel" data-tab="cap">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(239,68,68,0.1)">⚖️</div>Teorema CAP</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Teorema de Brewer (CAP)</div>
+          Em um sistema distribuído, é impossível garantir simultaneamente mais de dois dos seguintes três atributos:<br>
+          <strong>C</strong>onsistency (Consistência) — todos os nós veem os mesmos dados ao mesmo tempo<br>
+          <strong>A</strong>vailability (Disponibilidade) — toda requisição recebe uma resposta (não necessariamente atual)<br>
+          <strong>P</strong>artition Tolerance (Tolerância a Partição) — o sistema opera mesmo com falhas de comunicação entre nós
+        </div>
+
+        <h3>Classificação dos Bancos pelo CAP</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo</th><th>Garante</th><th>Exemplos</th><th>Trade-off</th></tr></thead>
+            <tbody>
+              <tr><td><strong>CP</strong></td><td>Consistência + Tolerância a Partição</td><td>HBase, MongoDB (config), Redis (modo cluster)</td><td>Pode ficar indisponível sob partição</td></tr>
+              <tr><td><strong>AP</strong></td><td>Disponibilidade + Tolerância a Partição</td><td>Cassandra, CouchDB, DynamoDB</td><td>Dados podem ser temporariamente inconsistentes</td></tr>
+              <tr><td><strong>CA</strong></td><td>Consistência + Disponibilidade</td><td>SGBDs relacionais tradicionais (single node)</td><td>Não tolera partição de rede — não escala horizontalmente</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Na prática — BASE vs ACID</div>
+          Bancos NoSQL frequentemente adotam o modelo <strong>BASE</strong> (em contraposição ao ACID):<br>
+          <strong>BA</strong>sically Available — disponibilidade básica sempre<br>
+          <strong>S</strong>oft state — o estado pode mudar ao longo do tempo mesmo sem input<br>
+          <strong>E</strong>ventually consistent — os dados <em>eventualmente</em> ficarão consistentes em todos os nós
+        </div>
+      </div>
+    </div>
+
+    <!-- Big Data -->
+    <div class="tab-panel" data-tab="bigdata">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">🌊</div>Big Data — Os 5 Vs</h2>
+
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">📦</div>
+            <div class="concept-name">Volume</div>
+            <div class="concept-desc">Quantidade massiva de dados — terabytes a petabytes. A Petrobras gera dados de sensores, imagens sísmicas e registros operacionais em escala gigantesca.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">⚡</div>
+            <div class="concept-name">Velocidade</div>
+            <div class="concept-desc">Alta taxa de geração e necessidade de processamento rápido (streaming). Dados de sensores IoT gerados em tempo real requerem processamento contínuo.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🎲</div>
+            <div class="concept-name">Variedade</div>
+            <div class="concept-desc">Dados em múltiplos formatos: estruturados (SQL), semi-estruturados (JSON, XML), não-estruturados (imagens sísmicas, vídeos, textos livres).</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">✅</div>
+            <div class="concept-name">Veracidade</div>
+            <div class="concept-desc">Qualidade e confiabilidade dos dados. Dados imprecisos ou incompletos levam a decisões erradas. Inclui limpeza, validação e governança de dados.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">💡</div>
+            <div class="concept-name">Valor</div>
+            <div class="concept-desc">O dado precisa gerar valor para o negócio. Big Data sem valor é apenas ruído caro. O objetivo final é transformar volume em insights acionáveis.</div>
+          </div>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ O 5º V é VALOR, não Verificabilidade!</div>
+          A banca pode apresentar "Verificabilidade" como um dos Vs — isso está ERRADO. Os 5 Vs reconhecidos são: Volume, Velocidade, Variedade, Veracidade e <strong>Valor</strong>. Memorize: V-V-V-V-V → Vol-Vel-Var-Ver-Val.
+        </div>
+
+        <h3>Ecossistema Hadoop</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Componente</th><th>Função</th></tr></thead>
+            <tbody>
+              <tr><td><strong>HDFS</strong></td><td>Hadoop Distributed File System — armazena dados em cluster com replicação</td></tr>
+              <tr><td><strong>MapReduce</strong></td><td>Paradigma de processamento paralelo: Map (filtrar/transformar) + Reduce (agregar)</td></tr>
+              <tr><td><strong>YARN</strong></td><td>Gerenciador de recursos e jobs do cluster</td></tr>
+              <tr><td><strong>Hive</strong></td><td>SQL sobre Hadoop — queries HiveQL convertidas em MapReduce</td></tr>
+              <tr><td><strong>Spark</strong></td><td>Processamento em memória — 100x mais rápido que MapReduce para iterações</td></tr>
+              <tr><td><strong>Kafka</strong></td><td>Plataforma de streaming distribuído — mensageria para dados em tempo real</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Processamento: Batch vs Streaming</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>Batch</th><th>Streaming</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Quando processa</strong></td><td>Em lotes programados (ex: à meia-noite)</td><td>Contínuo, em tempo real ou near real-time</td></tr>
+              <tr><td><strong>Latência</strong></td><td>Horas a dias</td><td>Segundos a milissegundos</td></tr>
+              <tr><td><strong>Ferramentas</strong></td><td>Hadoop MapReduce, Spark Batch</td><td>Apache Kafka, Spark Streaming, Flink</td></tr>
+              <tr><td><strong>Caso de uso</strong></td><td>Relatórios diários, ETL noturno</td><td>Detecção de fraude, alertas IoT, monitoramento</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data Lake -->
+    <div class="tab-panel" data-tab="datalake">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">🏞️</div>Data Lake e Soluções para Big Data</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Data Lake — Definição</div>
+          Repositório centralizado que permite armazenar todos os dados estruturados e não-estruturados em qualquer escala, no formato original, sem necessidade de definir schema previamente (<strong>schema on read</strong>).
+        </div>
+
+        <h3>Data Lake vs Data Warehouse</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>Data Lake</th><th>Data Warehouse</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Schema</strong></td><td>Schema on Read — definido na consulta</td><td>Schema on Write — definido na carga</td></tr>
+              <tr><td><strong>Dados</strong></td><td>Brutos, qualquer formato</td><td>Processados, estruturados</td></tr>
+              <tr><td><strong>Custo</strong></td><td>Baixo (object storage)</td><td>Alto (infra especializada)</td></tr>
+              <tr><td><strong>Usuários</strong></td><td>Data Scientists, Engenheiros</td><td>Analistas de negócio, gestores</td></tr>
+              <tr><td><strong>Qualidade</strong></td><td>Raw — pode virar "Data Swamp"</td><td>Alta qualidade e governança</td></tr>
+              <tr><td><strong>Performance</strong></td><td>Variável (depende da query)</td><td>Otimizada para analytics</td></tr>
+              <tr><td><strong>Exemplos</strong></td><td>S3, Azure Data Lake, GCS</td><td>Redshift, BigQuery, Snowflake</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Data Swamp</div>
+          Um Data Lake sem governança, catalogação e qualidade de dados torna-se um <strong>Data Swamp</strong> (pântano de dados) — dados existem mas ninguém sabe o que são, onde estão ou se são confiáveis. Governança e metadados são essenciais.
+        </div>
+
+        <h3>Lakehouse — Arquitetura Moderna</h3>
+        <p>Arquitetura que combina flexibilidade do Data Lake com as capacidades analíticas e de governança do Data Warehouse. Tecnologias: <strong>Delta Lake</strong> (Databricks), <strong>Apache Iceberg</strong>, <strong>Apache Hudi</strong>.</p>
+
+        <h3>Qualidade de Dados e MDM</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">✅</div><div class="concept-name">Completude</div><div class="concept-desc">Todos os campos obrigatórios estão preenchidos? Sem NULLs indesejados.</div></div>
+          <div class="concept-card"><div class="emoji">🎯</div><div class="concept-name">Acurácia</div><div class="concept-desc">Os dados refletem a realidade? Valores corretos e não corrompidos.</div></div>
+          <div class="concept-card"><div class="emoji">🔄</div><div class="concept-name">Consistência</div><div class="concept-desc">O mesmo dado tem o mesmo valor em diferentes sistemas? Sem duplicatas conflitantes.</div></div>
+          <div class="concept-card"><div class="emoji">⏱️</div><div class="concept-name">Atualidade</div><div class="concept-desc">Os dados estão atualizados? Latência aceitável para o caso de uso.</div></div>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 MDM — Master Data Management</div>
+          Gestão de dados mestres garante que entidades-chave do negócio (clientes, produtos, fornecedores, localidades) tenham uma versão "dourada" consistente em todos os sistemas. Evita que o mesmo cliente apareça como "Petrobras S.A.", "PETROBRAS" e "Petróleo Brasileiro S.A." em sistemas diferentes.
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — NoSQL & Big Data</div>
+          <span class="badge badge-purple">8 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-nosql"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-nosql"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="modelagem.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Modelagem de Dados</div></div>
+      </a>
+      <a href="etl.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>ETL & Integração</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-nosql','nosql',[
+    'Conheço os 4 tipos de NoSQL e seus casos de uso',
+    'Sei quando usar documento, chave-valor, colunar e grafos',
+    'Entendo o Teorema CAP e a classificação CP/AP/CA',
+    'Sei a diferença entre ACID e BASE',
+    'Domino os 5 Vs do Big Data (Volume, Velocidade, Variedade, Veracidade, Valor)',
+    'Conheço os componentes do ecossistema Hadoop (HDFS, Spark, Kafka)',
+    'Sei a diferença entre batch e streaming processing',
+    'Entendo a diferença entre Data Lake e Data Warehouse',
+    'Sei o que é schema on read vs schema on write',
+    'Conheço o conceito de Data Swamp e MDM',
+  ]);
+
+  DC.Quiz.render('quiz-nosql',[
+    { question:'Uma empresa de petróleo precisa armazenar dados de sensores de equipamentos submarinos, gerando milhões de leituras por segundo com campos variáveis por tipo de sensor. Qual banco NoSQL é mais adequado?',
+      options:['Banco de grafos (Neo4j) — para relacionamentos entre sensores.','Banco chave-valor (Redis) — para acesso ultrarrápido por chave.','Banco colunar (Cassandra) — otimizado para séries temporais com alta taxa de escrita distribuída.','Banco de documentos (MongoDB) — para schema flexível.','Banco relacional (PostgreSQL) — para garantir ACID.'],
+      answer:2, explanation:'Dados de séries temporais com alta taxa de escrita (telemetria IoT) = banco colunar. Cassandra foi projetado para escrita massiva distribuída, séries temporais e alta disponibilidade. A chave de partição (sensor_id) + clustering key (timestamp) é o padrão ideal. Redis seria para cache, não persistência de histórico. MongoDB funcionaria mas não é otimizado para escrita de séries temporais em volume.' },
+    { question:'O Teorema CAP afirma que sistemas distribuídos não podem garantir simultaneamente:',
+      options:['Velocidade, Escalabilidade e Disponibilidade.','Consistência, Disponibilidade e Tolerância a Partição.','Segurança, Performance e Consistência.','ACID, BASE e Eventual Consistency.','Replicação, Particionamento e Sincronização.'],
+      answer:1, explanation:'CAP (Brewer, 2000): Consistency (todos os nós veem os mesmos dados), Availability (toda requisição recebe resposta), Partition Tolerance (sistema funciona mesmo com falha de comunicação entre nós). Em um sistema distribuído, Tolerância a Partição é praticamente obrigatória — logo, a escolha real é entre Consistência (CP) e Disponibilidade (AP).' },
+    { question:'Qual dos seguintes NÃO é um dos "5 Vs" do Big Data reconhecidos pela literatura?',
+      options:['Volume','Velocidade','Variedade','Verificabilidade','Valor'],
+      answer:3, explanation:'Os 5 Vs reconhecidos: Volume, Velocidade, Variedade, Veracidade e Valor. "Verificabilidade" não é um V do Big Data. A Cesgranrio pode apresentar "Verificabilidade" ou "Visualização" como distratores. Memorize: Vol-Vel-Var-Ver(acidade)-Val(or). Alguns autores citam até 7 Vs, mas os 5 principais são esses.' },
+    { question:'A principal diferença entre Data Lake e Data Warehouse em relação ao schema é:',
+      options:['Data Lake usa schema relacional; DW usa schema dimensional.','Data Lake adota "schema on read" (schema definido na consulta); DW adota "schema on write" (schema definido na carga).','DW armazena dados brutos; Data Lake armazena dados processados.','Data Lake é mais caro de manter que o DW.','Não há diferença de schema — ambos usam tabelas relacionais.'],
+      answer:1, explanation:'Schema on Read (Data Lake): dados são armazenados no formato original bruto; o schema é aplicado apenas quando os dados são lidos/consultados. Flexível mas requer mais processamento na consulta. Schema on Write (DW): o schema é definido antes da carga; dados são transformados e validados ao entrar. Menos flexível mas queries mais rápidas e confiáveis.' },
+    { question:'Um sistema de recomendação de e-commerce precisa encontrar "clientes que compraram X também compraram Y" navegando por múltiplos níveis de relacionamento. Qual banco NoSQL é mais indicado?',
+      options:['Chave-Valor (Redis)','Colunar (Cassandra)','Documento (MongoDB)','Grafos (Neo4j)','Relacional (MySQL)'],
+      answer:3, explanation:'Bancos de grafos são projetados para navegação eficiente em relacionamentos complexos — exatamente o que sistemas de recomendação e análise de redes sociais precisam. "Clientes que compraram X" → nó Produto-X → arestas "COMPRADO_POR" → nós Clientes → arestas "TAMBÉM_COMPROU" → outros Produtos. Percorrer esse grafo em banco relacional requer JOINs recursivos caros.' },
+    { question:'Apache Kafka é usado principalmente para:',
+      options:['Armazenamento de dados históricos em Data Warehouse.','Processamento batch de grandes volumes de dados com MapReduce.','Plataforma de streaming distribuído para mensageria e processamento de eventos em tempo real.','Cache em memória para alta velocidade de leitura/escrita.','Banco de grafos para análise de redes complexas.'],
+      answer:2, explanation:'Apache Kafka é uma plataforma de streaming distribuído — sistema de mensageria pub/sub de alta throughput para dados em tempo real. Produtores publicam mensagens em tópicos; consumidores subscrevem e processam. Casos de uso: ingestão de eventos IoT, logs, métricas em tempo real, integração entre microsserviços. Diferente do Hadoop (batch), Redis (cache) ou Spark (processamento).' },
+    { question:'O conceito de "Data Swamp" refere-se a:',
+      options:['Um Data Lake bem governado com alta qualidade de dados.','Um Data Warehouse com dados históricos muito antigos.','Um Data Lake sem governança, catalogação ou qualidade de dados — dados existem mas são inutilizáveis.','Uma tecnologia de processamento de Big Data em tempo real.','Um banco NoSQL com esquema excessivamente rígido.'],
+      answer:2, explanation:'Data Swamp (pântano de dados) é o resultado negativo de um Data Lake mal gerenciado: dados existem mas sem catalogação (ninguém sabe o que é cada conjunto), sem qualidade (dados corrompidos ou imprecisos), sem governança (sem controle de acesso ou linhagem). Para evitar: implementar catálogo de metadados (ex: AWS Glue, Apache Atlas), governança e processos de qualidade de dados.' },
+    { question:'O modelo BASE (alternativa ao ACID em sistemas NoSQL) garante:',
+      options:['Básico Atômico, Seguro e Eficiente.','Basicamente Disponível, Estado Suave e Eventualmente Consistente.','Banco Analítico, Seguro e Escalável.','Backup Automático, Sincronização e Elasticidade.','Nenhuma das alternativas — BASE é apenas um acrônimo informal sem significado técnico.'],
+      answer:1, explanation:'BASE: Basically Available (disponibilidade básica sempre garantida), Soft State (o estado do sistema pode mudar ao longo do tempo, mesmo sem input — réplicas se sincronizando), Eventually Consistent (os dados ficarão consistentes em todos os nós, mas pode haver um período de inconsistência temporária). É o modelo adotado por bancos AP (Cassandra, DynamoDB) em contraste com o ACID dos relacionais.' },
+  ],'nosql_simulado');
+});
+</script>
+</body>
+</html>

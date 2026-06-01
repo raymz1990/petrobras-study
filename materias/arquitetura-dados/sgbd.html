@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SGBDs | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Arquitetura de Dados</a><span class="sep">›</span>
+      <span>SGBDs</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">🗄️ Bloco I · 1.12 – 1.16</div>
+        <h1 class="mb-8">SGBD — Sistemas de <span class="gradient-text">Gerenciamento de BD</span></h1>
+        <p>Arquitetura de SGBDs, tipos (relacional, objeto-relacional, orientado a objetos), índices, otimização de consultas, controle de concorrência, recuperação de falhas e comparativo dos principais SGBDs do mercado.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~45 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Média incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — SGBDs</h4></div>
+      <ul>
+        <li>Índice clustered: dados físicos ordenados pela chave. Non-clustered: estrutura separada com ponteiros</li>
+        <li>Apenas um índice clustered por tabela (os dados só podem estar em uma ordem física)</li>
+        <li>Índice bitmap: ideal para colunas de baixa cardinalidade (sexo, status, categoria)</li>
+        <li>Deadlock: duas transações esperando uma pela outra — SGBD detecta e aborta uma</li>
+        <li>Write-Ahead Log (WAL): log é gravado ANTES dos dados — garante durabilidade e recuperação</li>
+        <li>Arquitetura em 3 camadas: externa (visões), conceitual (esquema lógico), interna (física)</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="arquitetura">🏛️ Arquitetura</button>
+      <button class="tab-btn" data-tab="indices">📇 Índices</button>
+      <button class="tab-btn" data-tab="concorrencia">🔒 Concorrência</button>
+      <button class="tab-btn" data-tab="recuperacao">🔄 Recuperação</button>
+      <button class="tab-btn" data-tab="comparativo">📊 Comparativo</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Arquitetura -->
+    <div class="tab-panel active" data-tab="arquitetura">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">🏛️</div>Arquitetura de SGBDs</h2>
+
+        <h3>Arquitetura em 3 Níveis (ANSI/SPARC)</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content">
+              <h4>Nível Externo (Visões)</h4>
+              <p>O que cada usuário ou aplicação enxerga. Múltiplas visões diferentes do mesmo banco para diferentes perfis de usuário. Abstrai a complexidade do esquema completo.</p>
+              <p><strong>Exemplo:</strong> Analista financeiro vê apenas dados de custo. Operador vê apenas dados de produção.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content">
+              <h4>Nível Conceitual (Esquema Lógico)</h4>
+              <p>A visão completa e integrada do banco — estrutura lógica de todos os dados, relacionamentos e restrições. Independente de implementação física.</p>
+              <p><strong>Exemplo:</strong> O modelo entidade-relacionamento, o schema de todas as tabelas.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">3</div>
+            <div class="step-content">
+              <h4>Nível Interno (Físico)</h4>
+              <p>Como os dados são fisicamente armazenados em disco. Estruturas de armazenamento, índices, particionamento, compressão.</p>
+              <p><strong>Exemplo:</strong> B-trees para índices, heap files, tablespaces.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Independência de Dados</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">🧠</div>
+            <div class="concept-name">Independência Lógica</div>
+            <div class="concept-desc">Mudanças no esquema conceitual (adicionar tabela, coluna) não afetam as visões externas dos usuários. A mais difícil de atingir.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">💾</div>
+            <div class="concept-name">Independência Física</div>
+            <div class="concept-desc">Mudanças no armazenamento físico (criar índice, mover para outro disco) não afetam o esquema conceitual. Mais fácil de atingir.</div>
+          </div>
+        </div>
+
+        <h3>Componentes Internos do SGBD</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Componente</th><th>Função</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Query Parser</strong></td><td>Analisa a query SQL e verifica sintaxe</td></tr>
+              <tr><td><strong>Query Optimizer</strong></td><td>Gera e avalia planos de execução, escolhe o mais eficiente (custo de I/O, CPU)</td></tr>
+              <tr><td><strong>Execution Engine</strong></td><td>Executa o plano de consulta escolhido pelo otimizador</td></tr>
+              <tr><td><strong>Buffer Manager</strong></td><td>Gerencia o cache de páginas em memória (buffer pool) — reduz I/O em disco</td></tr>
+              <tr><td><strong>Lock Manager</strong></td><td>Controla bloqueios para garantir isolamento entre transações</td></tr>
+              <tr><td><strong>Log Manager</strong></td><td>Gerencia o write-ahead log (WAL) para durabilidade e recuperação</td></tr>
+              <tr><td><strong>Storage Engine</strong></td><td>Interface com o sistema de arquivos — lê e escreve páginas em disco</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Tipos de SGBDs</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo</th><th>Características</th><th>Exemplos</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Relacional (RDBMS)</strong></td><td>Baseado no modelo relacional, SQL, ACID completo</td><td>Oracle, PostgreSQL, MySQL, SQL Server</td></tr>
+              <tr><td><strong>Objeto-Relacional</strong></td><td>Estende o relacional com tipos definidos pelo usuário, herança</td><td>PostgreSQL, Oracle (com extensões)</td></tr>
+              <tr><td><strong>Orientado a Objetos</strong></td><td>Armazena objetos diretamente, linguagem OQL</td><td>db4o, ObjectDB (raro em enterprise)</td></tr>
+              <tr><td><strong>Colunares</strong></td><td>Armazena por coluna — ideal para analytics</td><td>Redshift, BigQuery, ClickHouse</td></tr>
+              <tr><td><strong>In-Memory</strong></td><td>Dados primariamente em RAM</td><td>Redis, SAP HANA, MemSQL</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Índices -->
+    <div class="tab-panel" data-tab="indices">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">📇</div>Índices</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ O que é um Índice</div>
+          Um índice é uma estrutura de dados auxiliar que acelera a recuperação de registros, ao custo de espaço adicional e overhead nas operações de escrita (INSERT, UPDATE, DELETE). É o principal recurso de otimização de queries.
+        </div>
+
+        <h3>Tipos de Índices</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo</th><th>Como funciona</th><th>Quando usar</th><th>Limitações</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Clustered (Agrupado)</strong></td>
+                <td>Os dados físicos na tabela são ordenados pela chave do índice. O índice É a tabela.</td>
+                <td>PK, colunas usadas em ORDER BY e range queries frequentes</td>
+                <td>Apenas 1 por tabela — os dados só podem estar em uma ordem física</td>
+              </tr>
+              <tr>
+                <td><strong>Non-Clustered (Não agrupado)</strong></td>
+                <td>Estrutura separada com ponteiros para os registros reais. Pode ter vários.</td>
+                <td>Colunas de busca frequente que não são a PK</td>
+                <td>Lookup adicional — dois acessos: índice + dado</td>
+              </tr>
+              <tr>
+                <td><strong>Bitmap</strong></td>
+                <td>Um bitmap (vetor de bits) por valor possível da coluna</td>
+                <td>Colunas de BAIXA cardinalidade: sexo, status, categoria</td>
+                <td>Ruim para colunas de alta cardinalidade (CPF, email)</td>
+              </tr>
+              <tr>
+                <td><strong>Hash</strong></td>
+                <td>Função hash mapeia valor → posição no disco</td>
+                <td>Apenas buscas por igualdade exata (= )</td>
+                <td>Não suporta range queries (&lt;, &gt;, BETWEEN)</td>
+              </tr>
+              <tr>
+                <td><strong>B-Tree</strong></td><td>Árvore balanceada — O(log n) para busca, inserção e deleção</td><td>Caso geral — suporta igualdade e range queries</td><td>Overhead de manutenção em alta taxa de escrita</td>
+              </tr>
+              <tr>
+                <td><strong>Cobrindo (Covering)</strong></td>
+                <td>Inclui todas as colunas necessárias para uma query — evita lookup na tabela</td>
+                <td>Queries frequentes com poucas colunas específicas</td>
+                <td>Ocupa mais espaço</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Índice Clustered — Apenas 1 por tabela</div>
+          A banca frequentemente testa: "Quantos índices clustered pode ter uma tabela?" → Resposta: <strong>apenas 1</strong>. Pois os dados físicos só podem estar ordenados de uma forma. Em SQL Server, a PK cria automaticamente um clustered index. No MySQL (InnoDB), a PK sempre é o clustered index.
+        </div>
+
+        <h3>Quando índices PREJUDICAM a performance</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">✍️</div><div class="concept-name">Alta taxa de escrita</div><div class="concept-desc">INSERT, UPDATE e DELETE precisam atualizar todos os índices da tabela — muitos índices = writes lentos.</div></div>
+          <div class="concept-card"><div class="emoji">🎲</div><div class="concept-name">Baixa seletividade</div><div class="concept-desc">Índice em coluna com poucos valores distintos (sexo: M/F) em tabelas OLTP — o SGBD prefere full scan.</div></div>
+          <div class="concept-card"><div class="emoji">📦</div><div class="concept-name">Tabelas pequenas</div><div class="concept-desc">Full table scan em tabelas pequenas é mais rápido que usar o índice — overhead do lookup supera o benefício.</div></div>
+        </div>
+
+        <h3>Query Plan — Analisando a Execução</h3>
+        <div class="code-block"><span class="code-lang">SQL — Analisando plano de execução</span><pre>-- PostgreSQL / MySQL
+EXPLAIN ANALYZE
+SELECT nome, salario
+FROM funcionarios
+WHERE depto_id = 10
+  AND salario > 5000;
+
+-- Saída indica se usou Index Scan ou Seq Scan
+-- Index Scan: usou índice (bom para queries seletivas)
+-- Sequential Scan: leu a tabela inteira (bom para baixa seletividade)
+-- Nested Loop / Hash Join / Merge Join: tipo de JOIN usado</pre></div>
+      </div>
+    </div>
+
+    <!-- Concorrência -->
+    <div class="tab-panel" data-tab="concorrencia">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🔒</div>Controle de Concorrência</h2>
+
+        <p>SGBDs modernos permitem múltiplas transações simultâneas. O controle de concorrência garante que essas transações se comportem corretamente (isolamento do ACID).</p>
+
+        <h3>Problemas de Concorrência</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Problema</th><th>Descrição</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Dirty Read</strong></td>
+                <td>T1 lê dados escritos por T2 que ainda não fez COMMIT</td>
+                <td>T2 atualiza salário para 10k. T1 lê 10k. T2 faz ROLLBACK. T1 usou dado inexistente.</td>
+              </tr>
+              <tr>
+                <td><strong>Non-Repeatable Read</strong></td>
+                <td>T1 lê o mesmo dado duas vezes e obtém valores diferentes (T2 alterou e fez COMMIT entre as leituras)</td>
+                <td>T1 lê saldo=1000. T2 debita 200 e commita. T1 lê saldo=800. Valores diferentes na mesma transação.</td>
+              </tr>
+              <tr>
+                <td><strong>Phantom Read</strong></td>
+                <td>T1 executa a mesma query duas vezes e obtém conjuntos de linhas diferentes (T2 inseriu/deletou linhas entre as execuções)</td>
+                <td>T1 conta funcionários (N=50). T2 insere 5. T1 reconta (N=55). "Linhas fantasma" apareceram.</td>
+              </tr>
+              <tr>
+                <td><strong>Lost Update</strong></td>
+                <td>Duas transações leem o mesmo valor, modificam e salvam — a segunda sobrescreve a primeira</td>
+                <td>T1 e T2 leem saldo=1000. T1 soma 200 e salva 1200. T2 soma 100 e salva 1100. Os +200 de T1 são perdidos.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Técnicas de Controle</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">🔐</div>
+            <div class="concept-name">Locking (Bloqueios)</div>
+            <div class="concept-desc">Shared Lock (S): para leitura — múltiplos simultâneos. Exclusive Lock (X): para escrita — apenas um, bloqueia todos os outros.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">📷</div>
+            <div class="concept-name">MVCC</div>
+            <div class="concept-desc">Multi-Version Concurrency Control: cada transação vê um snapshot do banco no momento do início. Readers não bloqueiam writers. Usado por PostgreSQL, Oracle, MySQL InnoDB.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">🎯</div>
+            <div class="concept-name">Optimistic Locking</div>
+            <div class="concept-desc">Assume que conflitos são raros. Não bloqueia na leitura — verifica conflito apenas no commit. Ideal para workloads com muita leitura e pouca escrita.</div>
+          </div>
+        </div>
+
+        <h3>Deadlock</h3>
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Deadlock — Impasse entre Transações</div>
+          Deadlock ocorre quando T1 espera por um recurso bloqueado por T2, e T2 espera por um recurso bloqueado por T1 — ciclo de espera eterno.<br><br>
+          <strong>Detecção:</strong> O SGBD periodicamente verifica ciclos no grafo de espera (wait-for graph).<br>
+          <strong>Resolução:</strong> O SGBD escolhe uma vítima (geralmente a transação mais nova ou a com menor custo) e a aborta — a outra pode prosseguir.<br>
+          <strong>Prevenção:</strong> Adquirir locks sempre na mesma ordem; usar timeouts.
+        </div>
+      </div>
+    </div>
+
+    <!-- Recuperação -->
+    <div class="tab-panel" data-tab="recuperacao">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">🔄</div>Recuperação de Falhas</h2>
+
+        <h3>Write-Ahead Log (WAL)</h3>
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ WAL — O Princípio Fundamental</div>
+          Toda modificação deve ser registrada no LOG antes de ser aplicada nos dados em disco. O log é persistido antes dos dados ("write-ahead" = escreve antes).<br><br>
+          Isso garante que, em caso de falha, o SGBD pode:<br>
+          • <strong>REDO</strong>: reaplicar operações de transações que fizeram COMMIT mas não foram para o disco<br>
+          • <strong>UNDO</strong>: desfazer operações de transações que não fizeram COMMIT (deixar banco consistente)
+        </div>
+
+        <h3>Tipos de Falha e Recuperação</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo de Falha</th><th>O que ocorre</th><th>Recuperação</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Falha de Transação</strong></td>
+                <td>Erro lógico (divisão por zero, violação de constraint) ou deadlock</td>
+                <td>ROLLBACK automático — UNDO das operações da transação</td>
+              </tr>
+              <tr>
+                <td><strong>Falha do Sistema</strong></td>
+                <td>Queda de energia, crash do SO — memória (buffer) é perdida, disco preservado</td>
+                <td>Usar WAL: REDO transações commitadas, UNDO transações em aberto</td>
+              </tr>
+              <tr>
+                <td><strong>Falha de Mídia</strong></td>
+                <td>Falha física do disco — dados permanentes perdidos</td>
+                <td>Restaurar backup + reaplicar log (archive log) até o ponto de falha</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Checkpoint</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Checkpoint</div>
+          O SGBD periodicamente força a escrita de todas as páginas sujas (dirty pages) do buffer para o disco e registra um checkpoint no log. Em caso de falha, a recuperação começa a partir do último checkpoint — não precisa reler todo o log desde o início, acelerando a recuperação.
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparativo -->
+    <div class="tab-panel" data-tab="comparativo">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(239,68,68,0.1)">📊</div>Comparativo dos Principais SGBDs</h2>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>SGBD</th><th>Tipo</th><th>Licença</th><th>Pontos Fortes</th><th>Casos de Uso</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Oracle Database</strong></td>
+                <td>Relacional / Objeto-Relacional</td>
+                <td>Comercial</td>
+                <td>Alta disponibilidade, RAC (cluster), PL/SQL maduro, suporte enterprise</td>
+                <td>Grandes corporações, bancos, sistemas críticos</td>
+              </tr>
+              <tr>
+                <td><strong>PostgreSQL</strong></td>
+                <td>Objeto-Relacional</td>
+                <td>Open Source</td>
+                <td>Conformidade SQL, extensível (extensões), suporte a JSON/JSONB, MVCC excelente</td>
+                <td>Aplicações web, analytics, substituto open source do Oracle</td>
+              </tr>
+              <tr>
+                <td><strong>MySQL / MariaDB</strong></td>
+                <td>Relacional</td>
+                <td>Open Source (GPL)</td>
+                <td>Popular, fácil de operar, InnoDB para ACID, ampla adoção em web</td>
+                <td>Aplicações web (LAMP stack), WordPress, Drupal</td>
+              </tr>
+              <tr>
+                <td><strong>Microsoft SQL Server</strong></td>
+                <td>Relacional</td>
+                <td>Comercial</td>
+                <td>Integração com ecossistema Microsoft, SSRS, SSIS para ETL, T-SQL</td>
+                <td>Empresas com stack Microsoft, ERPs Windows</td>
+              </tr>
+              <tr>
+                <td><strong>Amazon Redshift</strong></td>
+                <td>Colunar (DW)</td>
+                <td>Serviço AWS</td>
+                <td>Escalável para petabytes, columnar storage, integração com S3/Glue</td>
+                <td>Data Warehouse em cloud AWS, analytics em larga escala</td>
+              </tr>
+              <tr>
+                <td><strong>Google BigQuery</strong></td>
+                <td>Colunar serverless</td>
+                <td>Serviço GCP</td>
+                <td>Serverless, pay-per-query, ML integrado, escala ilimitada</td>
+                <td>Analytics em cloud GCP, BI, Machine Learning sobre dados</td>
+              </tr>
+              <tr>
+                <td><strong>MongoDB</strong></td>
+                <td>NoSQL Documento</td>
+                <td>Open Source (SSPL)</td>
+                <td>Schema flexível, escalabilidade horizontal, suporte a JSON nativo</td>
+                <td>Catálogos, perfis de usuário, dados semi-estruturados</td>
+              </tr>
+              <tr>
+                <td><strong>Redis</strong></td>
+                <td>NoSQL Chave-Valor (In-Memory)</td>
+                <td>Open Source (BSD)</td>
+                <td>Extremamente rápido (microssegundos), estruturas de dados ricas</td>
+                <td>Cache, sessões, filas, pub/sub, contadores em tempo real</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Petrobras — Contexto Prático</div>
+          A Petrobras utiliza uma combinação de SGBDs para diferentes necessidades:<br>
+          • <strong>Oracle / SQL Server</strong>: sistemas ERP e transacionais críticos<br>
+          • <strong>PostgreSQL</strong>: aplicações internas e projetos de modernização<br>
+          • <strong>Redshift / BigQuery</strong>: Data Warehouse analítico em cloud<br>
+          • <strong>Hadoop/Spark + Data Lake</strong>: processamento de dados sísmicos e IoT de plataformas<br>
+          • <strong>Redis</strong>: cache para dashboards operacionais de alta demanda
+        </div>
+
+        <h3>Critérios de Seleção de SGBD</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">💰</div><div class="concept-name">Custo Total</div><div class="concept-desc">Licença, infraestrutura, suporte, treinamento. Open source nem sempre é mais barato (TCO).</div></div>
+          <div class="concept-card"><div class="emoji">📈</div><div class="concept-name">Escalabilidade</div><div class="concept-desc">Vertical (mais hardware) vs horizontal (mais servidores). NoSQL geralmente escala melhor horizontalmente.</div></div>
+          <div class="concept-card"><div class="emoji">⚛️</div><div class="concept-name">Consistência</div><div class="concept-desc">ACID completo (relacional) vs eventual consistency (NoSQL). Aplicações financeiras exigem ACID.</div></div>
+          <div class="concept-card"><div class="emoji">🔧</div><div class="concept-name">Expertise disponível</div><div class="concept-desc">Profissionais qualificados no mercado. Oracle e PostgreSQL têm ampla base de profissionais.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — SGBDs</div>
+          <span class="badge badge-teal">8 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-sgbd"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-sgbd"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="dimensional.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Modelagem Dimensional</div></div>
+      </a>
+      <a href="index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Voltar ao hub</div><div>Arquitetura de Dados</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-sgbd','sgbd',[
+    'Conheço a arquitetura em 3 níveis ANSI/SPARC (externo, conceitual, interno)',
+    'Sei os principais componentes internos do SGBD (parser, otimizador, buffer manager)',
+    'Entendo a diferença entre índice clustered e non-clustered',
+    'Sei que só pode haver 1 índice clustered por tabela',
+    'Conheço o índice bitmap e quando é ideal (baixa cardinalidade)',
+    'Domino os problemas de concorrência (dirty read, non-repeatable, phantom)',
+    'Entendo o que é deadlock e como o SGBD o trata',
+    'Sei o que é WAL (Write-Ahead Log) e por que garante durabilidade',
+    'Conheço o papel do checkpoint na recuperação de falhas',
+    'Sei comparar os principais SGBDs por tipo e caso de uso',
+  ]);
+
+  DC.Quiz.render('quiz-sgbd',[
+    {
+      question:'Quantos índices CLUSTERED pode ter uma tabela em um SGBD relacional?',
+      options:['Ilimitado — um para cada coluna.','Um para cada chave candidata.','Apenas UM — os dados físicos só podem estar em uma ordem.','Dois — um para leitura e um para escrita.','Depende do SGBD — não há limitação padrão.'],
+      answer:2,
+      explanation:'Índice Clustered = os dados físicos da tabela são ordenados pela chave do índice. Como os dados só podem estar em uma única ordem física no disco, só pode existir UM índice clustered por tabela. Em SQL Server, a PK cria automaticamente um clustered index. Índices non-clustered (há uma estrutura separada com ponteiros) podem ser múltiplos.'
+    },
+    {
+      question:'O índice BITMAP é mais indicado para colunas com:',
+      options:['Alta cardinalidade, como CPF e e-mail.','Valores únicos por linha, como chave primária.','Baixa cardinalidade, como status, sexo ou categoria.','Dados numéricos de alta precisão decimal.','Textos longos e variáveis (VARCHAR de grande tamanho).'],
+      answer:2,
+      explanation:'Índice bitmap: cria um vetor de bits por valor possível da coluna. Excelente para colunas com POUCOS valores distintos (baixa cardinalidade): sexo (M/F), status (ativo/inativo), categoria. Permite operações AND/OR eficientes entre múltiplos bitmaps. Para alta cardinalidade (CPF, email), o bitmap seria enorme e ineficiente — usar B-Tree.'
+    },
+    {
+      question:'O princípio do Write-Ahead Log (WAL) determina que:',
+      options:['Os dados em disco devem ser gravados antes do log para garantir performance.','O log é gravado após o commit para auditoria.','Toda modificação é registrada no log ANTES de ser aplicada nos dados em disco, garantindo recuperação em caso de falha.','O log é opcional — apenas necessário em ambientes de alta disponibilidade.','O WAL substitui a necessidade de backup.'],
+      answer:2,
+      explanation:'WAL (Write-Ahead Log): o log PRECEDE os dados — é gravado primeiro. Em caso de falha: REDO (reaplicar operações de transações committed que não chegaram ao disco) e UNDO (desfazer operações de transações não commitadas). Garante a propriedade de Durabilidade do ACID. Usado em PostgreSQL, Oracle (redo log), SQL Server (transaction log).'
+    },
+    {
+      question:'O problema de concorrência chamado "Phantom Read" (leitura fantasma) ocorre quando:',
+      options:['Uma transação lê dados ainda não confirmados (não commitados) de outra.','Uma transação lê o mesmo dado duas vezes e obtém valores diferentes.','Uma transação executa a mesma query duas vezes e obtém conjuntos de linhas diferentes (linhas inseridas/deletadas por outra transação entre as execuções).','Duas transações tentam escrever no mesmo registro simultaneamente.','O SGBD perde dados por falta de log.'],
+      answer:2,
+      explanation:'Phantom Read: T1 executa "SELECT * FROM funcionarios WHERE depto=TI" e obtém 50 linhas. T2 insere 5 funcionários em TI e commita. T1 repete a mesma query e obtém 55 linhas — as 5 novas são os "fantasmas". Evitado pelo nível SERIALIZABLE. Non-Repeatable Read é diferente: o MESMO registro é lido com valores diferentes (UPDATE, não INSERT/DELETE).'
+    },
+    {
+      question:'O DEADLOCK em SGBDs é resolvido automaticamente pelo sistema através de:',
+      options:['Reinicialização automática do servidor de banco de dados.','Detecção do ciclo de espera no grafo wait-for e abort de uma das transações (vítima).','Bloqueio de todas as transações até que o DBA intervenha.','Rollback de todas as transações envolvidas no deadlock.','Aumento automático do timeout de lock.'],
+      answer:1,
+      explanation:'O SGBD detecta deadlocks monitorando o grafo de espera (wait-for graph) — quando há ciclo, há deadlock. A solução: escolher uma transação "vítima" (geralmente a mais nova, ou a que causaria menor custo de rollback) e abortá-la. A outra transação pode prosseguir. A vítima pode retentar a transação. NUNCA reinicia o servidor ou bloqueia tudo.'
+    },
+    {
+      question:'Na arquitetura ANSI/SPARC de 3 níveis, o nível CONCEITUAL representa:',
+      options:['A visão particular de um usuário ou aplicação (visão/view).','Como os dados são fisicamente armazenados em disco (B-tree, heap, partições).','O esquema lógico completo e integrado do banco — todas as tabelas, relacionamentos e restrições, independente da implementação física.','O modelo E-R criado na fase de análise de requisitos.','A camada de cache (buffer pool) gerenciada pelo SGBD.'],
+      answer:2,
+      explanation:'Arquitetura ANSI/SPARC: Externo (o que o usuário vê — visões/views), Conceitual (esquema lógico completo — tabelas, colunas, constraints, relacionamentos — independente de tecnologia), Interno (implementação física — B-trees, tablespaces, partições, compressão). A independência entre os níveis é a propriedade mais importante: mudar o físico não afeta o conceitual.'
+    },
+    {
+      question:'O MVCC (Multi-Version Concurrency Control) é uma técnica de controle de concorrência que:',
+      options:['Usa bloqueios exclusivos para garantir que apenas uma transação acesse cada registro.','Permite que múltiplas versões de um dado coexistam — leitores não bloqueiam escritores e vice-versa.','Serializa todas as transações para execução sequencial.','Replica os dados em múltiplos servidores para alta disponibilidade.','Verifica conflitos apenas no momento do commit (optimistic).'],
+      answer:1,
+      explanation:'MVCC: cada transação vê um snapshot consistente do banco no momento de seu início. Escritas criam novas versões; leituras acessam a versão adequada ao seu snapshot. Resultado: readers never block writers, writers never block readers. PostgreSQL, Oracle e MySQL InnoDB usam MVCC. Reduz contenção em workloads read-heavy. Desvantagem: overhead de gerenciar múltiplas versões (VACUUM no PostgreSQL).'
+    },
+    {
+      question:'O CHECKPOINT em SGBDs tem a função de:',
+      options:['Verificar a integridade de constraints antes de cada transação.','Forçar a escrita de páginas sujas do buffer para o disco e registrar um ponto de referência no log, reduzindo o tempo de recuperação após falha.','Criar um backup incremental automático a cada hora.','Verificar se há deadlocks no sistema a cada intervalo.','Liberar locks de transações antigas que não responderam.'],
+      answer:1,
+      explanation:'Checkpoint: o SGBD força a escrita de todas as dirty pages (modificadas em memória mas não ainda em disco) para o disco e registra um ponto no log. Em caso de falha, a recuperação começa no último checkpoint — não precisa reler todo o log histórico, acelerando enormemente o tempo de restart. Frequência de checkpoint: trade-off entre overhead e tempo de recuperação.'
+    },
+  ],'sgbd_simulado');
+});
+</script>
+</body>
+</html>

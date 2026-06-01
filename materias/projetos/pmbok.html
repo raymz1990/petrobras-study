@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PMBOK & SAFe | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Gestão de Projetos</a><span class="sep">›</span>
+      <span>PMBOK & SAFe</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">📘 Bloco I · 2.1 – 2.2</div>
+        <h1 class="mb-8">PMBOK <span class="gradient-text">&amp; SAFe</span></h1>
+        <p>PMBOK 6ª edição: 5 grupos de processos, 10 áreas de conhecimento, PMO. SAFe: Agile Release Train, PI Planning, níveis do framework. Gestão de portfólio estratégico.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~50 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — PMBOK & SAFe</h4></div>
+      <ul>
+        <li>Grupos de processo ≠ fases do projeto — podem se sobrepor</li>
+        <li>Monitoramento e Controle ocorre em paralelo a TODOS os outros grupos</li>
+        <li>TAP (Termo de Abertura) = autoriza formalmente o projeto e nomeia o GP</li>
+        <li>EAP (WBS) = decompõe o escopo em pacotes de trabalho gerenciáveis</li>
+        <li>PMO: Suporte (baixa autoridade) vs Controle (média) vs Diretivo (alta)</li>
+        <li>SAFe: ART (Agile Release Train) é a estrutura central — PI Planning é o evento chave</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="pmbok-grupos">📊 Grupos de Processo</button>
+      <button class="tab-btn" data-tab="pmbok-areas">🗂️ Áreas de Conhecimento</button>
+      <button class="tab-btn" data-tab="pmo">🏢 PMO</button>
+      <button class="tab-btn" data-tab="safe-tab">🚀 SAFe</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Grupos de Processo -->
+    <div class="tab-panel active" data-tab="pmbok-grupos">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">📊</div>PMBOK 6ª Edição — Grupos de Processo</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Definição de Projeto (PMBOK)</div>
+          Um projeto é um esforço <strong>temporário</strong> empreendido para criar um produto, serviço ou resultado <strong>único</strong>.<br>
+          Temporário = tem início e término definidos.<br>
+          Único = resultado diferente do cotidiano operacional (que é progressivo e repetitivo).
+        </div>
+
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content">
+              <h4>Iniciação</h4>
+              <p>Define e autoriza o projeto ou uma fase. Documentos principais: <strong>Termo de Abertura do Projeto (TAP)</strong> — autoriza formalmente e nomeia o GP — e Registro das Partes Interessadas.</p>
+              <p>O TAP é assinado pelo <strong>patrocinador</strong> (sponsor), não pelo GP.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content">
+              <h4>Planejamento</h4>
+              <p>Define o escopo, cronograma, orçamento, qualidade, riscos, comunicações e aquisições. Principal resultado: <strong>Plano de Gerenciamento do Projeto (PGP)</strong> — documento integrador de todos os planos subsidiários.</p>
+              <p>Também cria a <strong>EAP (Estrutura Analítica do Projeto / WBS)</strong> — decomposição hierárquica do escopo em pacotes de trabalho.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">3</div>
+            <div class="step-content">
+              <h4>Execução</h4>
+              <p>Realiza o trabalho definido no PGP. Gerencia equipe, comunicações, qualidade e contratos. Consome a <strong>maior parte do orçamento e tempo</strong> do projeto.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(245,158,11,0.15);color:var(--orange)">4</div>
+            <div class="step-content">
+              <h4>Monitoramento e Controle</h4>
+              <p>Acompanha, revisa e regula o progresso. Identifica variações e implementa mudanças. <strong>Ocorre em paralelo a todos os outros grupos</strong> durante todo o projeto — não é uma fase linear.</p>
+              <p>Inclui <strong>Controle Integrado de Mudanças</strong> — toda mudança passa por avaliação e aprovação formal.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(239,68,68,0.15);color:var(--red)">5</div>
+            <div class="step-content">
+              <h4>Encerramento</h4>
+              <p>Finaliza formalmente todas as atividades. Inclui: aceite formal do cliente, lições aprendidas, arquivo de documentos, liberação de recursos.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Grupos de Processo ≠ Fases</div>
+          A Cesgranrio testa isso diretamente. Grupos de processo (Iniciação, Planejamento, Execução, M&C, Encerramento) são PROCESSOS DE GESTÃO que ocorrem em cada fase do projeto. Um projeto pode ter múltiplas fases (ex: fase de concepção, fase de construção, fase de implantação), e cada fase pode executar todos os 5 grupos.
+        </div>
+      </div>
+    </div>
+
+    <!-- Áreas de Conhecimento -->
+    <div class="tab-panel" data-tab="pmbok-areas">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">🗂️</div>10 Áreas de Conhecimento</h2>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Área</th><th>Foco</th><th>Processo chave</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1. Integração</strong></td><td>Unificar e coordenar todos os processos</td><td>Desenvolver TAP; Controle Integrado de Mudanças; Encerrar Projeto</td></tr>
+              <tr><td><strong>2. Escopo</strong></td><td>Incluir apenas o trabalho necessário</td><td>Criar EAP (WBS); Validar Escopo; Controlar Escopo</td></tr>
+              <tr><td><strong>3. Cronograma</strong></td><td>Gerenciar entrega dentro do prazo</td><td>Sequenciar Atividades; Desenvolver Cronograma; Controlar Cronograma</td></tr>
+              <tr><td><strong>4. Custos</strong></td><td>Concluir dentro do orçamento</td><td>Estimar Custos; Determinar Orçamento; Controlar Custos (EVM)</td></tr>
+              <tr><td><strong>5. Qualidade</strong></td><td>Satisfazer requisitos de qualidade</td><td>Planejar, Gerenciar e Controlar a Qualidade</td></tr>
+              <tr><td><strong>6. Recursos</strong></td><td>Identificar, adquirir e gerenciar recursos</td><td>Planejar Recursos; Adquirir Recursos; Desenvolver Equipe</td></tr>
+              <tr><td><strong>7. Comunicações</strong></td><td>Garantir informações adequadas</td><td>Planejar e Gerenciar Comunicações; Monitorar</td></tr>
+              <tr><td><strong>8. Riscos</strong></td><td>Aumentar probabilidade de eventos positivos</td><td>Identificar; Analisar (quali/quanti); Planejar Respostas; Controlar</td></tr>
+              <tr><td><strong>9. Aquisições</strong></td><td>Obter produtos/serviços externos</td><td>Planejar, Conduzir e Controlar Aquisições; Encerrar</td></tr>
+              <tr><td><strong>10. Partes Interessadas</strong></td><td>Engajar stakeholders adequadamente</td><td>Identificar; Planejar Engajamento; Gerenciar e Monitorar</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Análise de Valor Agregado (EVM)</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">📅</div><div class="concept-name">PV (Planned Value)</div><div class="concept-desc">Valor Planejado — quanto trabalho deveria estar feito até agora conforme o plano.</div></div>
+          <div class="concept-card"><div class="emoji">✅</div><div class="concept-name">EV (Earned Value)</div><div class="concept-desc">Valor Agregado — quanto trabalho foi efetivamente realizado (em termos de orçamento).</div></div>
+          <div class="concept-card"><div class="emoji">💰</div><div class="concept-name">AC (Actual Cost)</div><div class="concept-desc">Custo Real — quanto foi efetivamente gasto até agora.</div></div>
+          <div class="concept-card"><div class="emoji">📊</div><div class="concept-name">Variações</div><div class="concept-desc">CV = EV - AC (custo: positivo = abaixo do orçamento). SV = EV - PV (prazo: positivo = adiantado).</div></div>
+        </div>
+
+        <div class="code-block"><span class="code-lang">EVM — Fórmulas Principais</span><pre>CV  = EV - AC    (Cost Variance: + = abaixo do orçamento)
+SV  = EV - PV    (Schedule Variance: + = adiantado)
+CPI = EV / AC    (Cost Performance Index: > 1 = eficiente)
+SPI = EV / PV    (Schedule Performance Index: > 1 = adiantado)
+EAC = BAC / CPI  (Estimate at Completion: previsão do custo final)</pre></div>
+      </div>
+    </div>
+
+    <!-- PMO -->
+    <div class="tab-panel" data-tab="pmo">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🏢</div>PMO — Escritório de Projetos</h2>
+
+        <p>O PMO (Project Management Office) é uma estrutura organizacional que padroniza processos de governança de projetos e facilita o compartilhamento de recursos, metodologias, ferramentas e técnicas.</p>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo de PMO</th><th>Autoridade</th><th>Função</th><th>Os GPs reportam ao PMO?</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Suporte</strong></td>
+                <td>Baixa</td>
+                <td>Consultivo — fornece templates, boas práticas, treinamento, acesso a informações e lições aprendidas</td>
+                <td>❌ Não</td>
+              </tr>
+              <tr>
+                <td><strong>Controle</strong></td>
+                <td>Média</td>
+                <td>Exige conformidade com metodologias e frameworks, realiza auditorias, monitora conformidade</td>
+                <td>⚠️ Parcialmente</td>
+              </tr>
+              <tr>
+                <td><strong>Diretivo</strong></td>
+                <td>Alta</td>
+                <td>Gerencia diretamente os projetos — os GPs são funcionários do PMO e reportam a ele</td>
+                <td>✅ Sim</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 PMO vs Gerente de Projeto</div>
+          GP: foca em objetivos específicos do projeto (escopo, prazo, custo, qualidade de UM projeto).<br>
+          PMO: otimiza recursos e metodologias entre TODOS os projetos da organização. Visão de portfólio — garante que os projetos certos são executados da forma certa.
+        </div>
+      </div>
+    </div>
+
+    <!-- SAFe -->
+    <div class="tab-panel" data-tab="safe-tab">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">🚀</div>SAFe — Scaled Agile Framework</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Por que o SAFe existe</div>
+          Scrum funciona para um time de 3-9 pessoas. Para organizações com dezenas ou centenas de pessoas trabalhando em um mesmo produto/solução, o SAFe fornece a estrutura de coordenação e alinhamento.
+        </div>
+
+        <h3>Configurações do SAFe</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Configuração</th><th>Times</th><th>Quando usar</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Essential SAFe</strong></td><td>Único ART</td><td>Ponto de entrada — 1 ART com múltiplos times ágeis</td></tr>
+              <tr><td><strong>Large Solution SAFe</strong></td><td>Múltiplos ARTs</td><td>Soluções grandes que requerem coordenação entre ARTs</td></tr>
+              <tr><td><strong>Portfolio SAFe</strong></td><td>Múltiplos ARTs + Portfólio</td><td>Alinhamento estratégico de múltiplas soluções</td></tr>
+              <tr><td><strong>Full SAFe</strong></td><td>Todos os níveis</td><td>Grandes empresas com múltiplos portfólios</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>ART — Agile Release Train</h3>
+        <p>O ART é a principal estrutura organizacional do SAFe — um time de times ágeis (50-125 pessoas) que planeja, compromete e executa juntos em ciclos chamados <strong>Program Increments (PI)</strong>.</p>
+
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🚂</div><div class="concept-name">ART</div><div class="concept-desc">50-125 pessoas em múltiplos times ágeis que entregam valor em PIs de 8-12 semanas.</div></div>
+          <div class="concept-card"><div class="emoji">📅</div><div class="concept-name">PI (Program Increment)</div><div class="concept-desc">Ciclo de 8-12 semanas com 4-6 Sprints de entrega + 1 Sprint de Inovação/Planejamento.</div></div>
+          <div class="concept-card"><div class="emoji">🗓️</div><div class="concept-name">PI Planning</div><div class="concept-desc">Evento central — 2 dias onde TODOS os times do ART planejam o próximo PI juntos.</div></div>
+          <div class="concept-card"><div class="emoji">📊</div><div class="concept-name">Program Board</div><div class="concept-desc">Resultado do PI Planning — mapa visual de dependências entre times e objetivos do PI.</div></div>
+        </div>
+
+        <h3>Papéis no SAFe</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Papel</th><th>Responsabilidade</th><th>Nível</th></tr></thead>
+            <tbody>
+              <tr><td><strong>RTE (Release Train Engineer)</strong></td><td>Equivale ao "Scrum Master do ART" — facilita eventos do PI e remove impedimentos no nível do programa</td><td>Programa (ART)</td></tr>
+              <tr><td><strong>Product Manager</strong></td><td>Define o Vision e o Program Backlog — gerencia o "what" no nível do ART</td><td>Programa (ART)</td></tr>
+              <tr><td><strong>System Architect</strong></td><td>Define a arquitetura técnica do sistema — habilitadores de arquitetura</td><td>Programa (ART)</td></tr>
+              <tr><td><strong>Product Owner</strong></td><td>Gerencia o Team Backlog — define "what" no nível do time ágil</td><td>Time</td></tr>
+              <tr><td><strong>Scrum Master</strong></td><td>Facilita o time ágil, remove impedimentos locais</td><td>Time</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Portfólio Alinhado à Estratégia</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Gestão de Portfólio no SAFe</div>
+          No nível de portfólio, o SAFe usa o <strong>Portfolio Kanban</strong> para gerenciar o fluxo de Épicos (grandes iniciativas estratégicas). Cada épico passa por análise lean (Lean Business Case) antes de ser aprovado para implementação por um ou mais ARTs. Isso conecta a estratégia de negócio às entregas ágeis no chão de fábrica.
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — PMBOK & SAFe</div>
+          <span class="badge badge-gold">8 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-pmbok"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-pmbok"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="scrum-kanban.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Scrum & Kanban</div></div>
+      </a>
+      <a href="../governanca-ti/index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>Governança de TI</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-pmbok','pmbok',[
+    'Sei a definição de projeto: temporário e único',
+    'Conheço os 5 grupos de processo do PMBOK 6ª ed.',
+    'Entendo que M&C ocorre em paralelo a todos os outros grupos',
+    'Sei que TAP autoriza o projeto e é assinado pelo patrocinador',
+    'Conheço as 10 áreas de conhecimento e seus focos',
+    'Domino as fórmulas básicas do EVM (CV, SV, CPI, SPI)',
+    'Sei os 3 tipos de PMO e seus níveis de autoridade',
+    'Entendo o que é ART e PI no SAFe',
+    'Sei o papel do PI Planning e do Program Board',
+    'Conheço os papéis do SAFe (RTE, Product Manager, PO)',
+  ]);
+
+  DC.Quiz.render('quiz-pmbok',[
+    { question:'Qual grupo de processo do PMBOK ocorre em PARALELO a todos os outros durante o ciclo de vida do projeto?',
+      options:['Iniciação','Planejamento','Execução','Monitoramento e Controle','Encerramento'],
+      answer:3, explanation:'Monitoramento e Controle ocorre durante TODA a vida do projeto, em paralelo aos demais grupos. Isso ocorre porque o GP precisa continuamente acompanhar o progresso, comparar com o plano e implementar ações corretivas a qualquer momento. Não é uma fase sequencial — é uma atividade contínua.' },
+    { question:'O Termo de Abertura do Projeto (TAP) é assinado por:',
+      options:['O Gerente de Projeto, que o cria e apresenta.','O Patrocinador (sponsor), que autoriza formalmente o projeto.','O PMO, que valida a metodologia.','O cliente, que aprova o escopo.','O Dev Team, que compromete-se com a entrega.'],
+      answer:1, explanation:'O TAP é assinado pelo PATROCINADOR (sponsor) — quem tem autoridade e recursos para autorizar o projeto. O TAP concede ao GP autoridade para usar recursos organizacionais. O GP geralmente ajuda a elaborar o TAP, mas é o patrocinador quem assina e formaliza o início do projeto.' },
+    { question:'A EAP (Estrutura Analítica do Projeto / WBS) tem como objetivo:',
+      options:['Definir o cronograma com datas de entrega de cada atividade.','Decompor hierarquicamente o escopo total do projeto em pacotes de trabalho menores e gerenciáveis.','Listar todos os riscos do projeto organizados por categoria.','Identificar as partes interessadas e seu nível de engajamento.','Mapear os processos de comunicação entre as equipes do projeto.'],
+      answer:1, explanation:'EAP/WBS: decomposição hierárquica orientada a entregas do escopo total do projeto. Cada nível inferior representa uma definição cada vez mais detalhada do trabalho. O pacote de trabalho (nível mais baixo) é a menor unidade planejável. Ferramenta central da área de Escopo — base para estimativas de custo, cronograma e recursos.' },
+    { question:'No PMBOK 6ª edição, qual área de conhecimento inclui o processo de Controle Integrado de Mudanças?',
+      options:['Gerenciamento de Escopo','Gerenciamento de Cronograma','Gerenciamento de Integração','Gerenciamento de Qualidade','Gerenciamento de Partes Interessadas'],
+      answer:2, explanation:'Gerenciamento de Integração é a área que unifica e coordenar todos os outros processos. Inclui: Desenvolver TAP, Desenvolver PGP, Orientar e Gerenciar o Trabalho, Monitorar o Trabalho, Realizar o Controle Integrado de Mudanças (toda mudança é avaliada e aprovada aqui) e Encerrar o Projeto/Fase.' },
+    { question:'Um projeto tem EV = R$500k, PV = R$600k, AC = R$550k. O que isso indica?',
+      options:['O projeto está adiantado e abaixo do orçamento.','O projeto está atrasado (SV < 0) e acima do orçamento (CV < 0).','O projeto está adiantado e acima do orçamento.','O projeto está atrasado e abaixo do orçamento.','O projeto está no prazo e no orçamento.'],
+      answer:1, explanation:'SV = EV - PV = 500 - 600 = -100k (NEGATIVO = atrasado — fizemos menos do que devíamos). CV = EV - AC = 500 - 550 = -50k (NEGATIVO = acima do orçamento — gastamos mais do que o valor agregado). CPI = 500/550 = 0,91 (< 1 = ineficiente). SPI = 500/600 = 0,83 (< 1 = atrasado). Situação ruim nos dois indicadores.' },
+    { question:'O PMO do tipo DIRETIVO se caracteriza por:',
+      options:['Fornecer apenas templates e boas práticas sem autoridade sobre projetos.','Exigir conformidade com metodologias mas sem gerenciar os projetos diretamente.','Gerenciar diretamente os projetos — os GPs são funcionários do PMO e a ele reportam.','Servir como consultoria interna para apoiar os GPs.','Validar apenas o orçamento dos projetos, sem controle de escopo e prazo.'],
+      answer:2, explanation:'PMO Diretivo: alta autoridade — gerencia DIRETAMENTE os projetos da organização. Os GPs reportam ao PMO (são seus funcionários). PMO de Suporte: baixa autoridade, consultivo, fornece templates/ferramentas. PMO de Controle: autoridade moderada, exige conformidade e realiza auditorias. O PMBOK define esses 3 tipos com autoridade crescente.' },
+    { question:'No SAFe, o evento PI Planning é:',
+      options:['Uma Sprint Planning para um único time ágil.','Uma reunião diária de 15 minutos para sincronizar todos os ARTs.','Uma reunião de 2 dias onde TODOS os times do ART planejam as próximas 8-12 semanas juntos.','O evento de encerramento do Program Increment com demonstração de valor.','Uma reunião mensal do portfolio para revisar épicos estratégicos.'],
+      answer:2, explanation:'PI Planning: evento presencial (ou remoto) de 2 dias que é o coração do SAFe. Todos os times do ART (50-125 pessoas) se reúnem para planejar o próximo Program Increment (8-12 semanas). Resultado: objetivos do PI por time, Program Board com dependências visuais, riscos identificados e plano de iteração. Cria alinhamento e transparência em toda a organização.' },
+    { question:'A diferença entre o Product Manager e o Product Owner no SAFe é:',
+      options:['São o mesmo papel com nomes diferentes.','Product Manager trabalha no nível do time; PO trabalha no nível do ART.','Product Manager define o Vision e gerencia o Program Backlog (nível do ART); PO gerencia o Team Backlog (nível do time ágil).','PO tem mais autoridade que o Product Manager no SAFe.','Product Manager é responsável pelo backlog técnico; PO pelo backlog de negócio.'],
+      answer:2, explanation:'SAFe separa claramente: Product Manager (PM): nível do ART → define o Vision do ART, gerencia o Program Backlog (Features), prioriza o que o ART vai construir, é o principal ponto de contato com stakeholders do negócio. Product Owner (PO): nível do time ágil → define e gerencia o Team Backlog (User Stories), trabalha diariamente com o time de desenvolvimento.' },
+  ],'pmbok_simulado');
+});
+</script>
+</body>
+</html>

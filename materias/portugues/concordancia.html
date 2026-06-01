@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concordância & Regência | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Língua Portuguesa</a><span class="sep">›</span>
+      <span>Concordância & Regência</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">⚙️ Conhecimentos Básicos · 5.5 – 5.6</div>
+        <h1 class="mb-8">Concordância <span class="gradient-text">&amp; Regência</span></h1>
+        <p>Concordância verbal e nominal nos casos especiais. Regência verbal e nominal dos principais verbos. Emprego da crase. Colocação pronominal.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~60 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Concordância & Regência</h4></div>
+      <ul>
+        <li>Sujeito composto antes do verbo → plural. Depois do verbo → pode ficar no singular (com o mais próximo)</li>
+        <li>Coletivos: "a maioria aprovou" (singular) OU "a maioria aprovaram" (plural) — ambos aceitos</li>
+        <li>Expressões partitivas (a maior parte de, grande número de): verbo concorda com o nome da parcela</li>
+        <li>Verbo "fazer" indicando tempo = impessoal → singular ("Faz dois anos")</li>
+        <li>Crase proibida: antes de masculinos, verbos, pronomes pessoais, "uma", numeral sem palavra feminina</li>
+        <li>Regência: "assistir a" (ver), "aspirar a" (desejar), "visar a" (objetivar), "obedecer a"</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="concordancia-v">🔄 Concordância Verbal</button>
+      <button class="tab-btn" data-tab="concordancia-n">📝 Concordância Nominal</button>
+      <button class="tab-btn" data-tab="regencia">🎯 Regência</button>
+      <button class="tab-btn" data-tab="crase">à Crase</button>
+      <button class="tab-btn" data-tab="pronomes">👤 Colocação Pronominal</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Concordância Verbal -->
+    <div class="tab-panel active" data-tab="concordancia-v">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🔄</div>Concordância Verbal — Casos Especiais</h2>
+
+        <p>Regra geral: o verbo concorda em número e pessoa com o sujeito. Os casos especiais são os mais cobrados.</p>
+
+        <h3>Sujeito Composto</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Situação</th><th>Concordância</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td>Composto antes do verbo</td><td>Plural (regra geral)</td><td>"O analista e o gerente <strong>aprovaram</strong> o projeto."</td></tr>
+              <tr><td>Composto depois do verbo</td><td>Pode concordar com o mais próximo ou plural</td><td>"<strong>Chegaram</strong> o diretor e a equipe." / "<strong>Chegou</strong> o diretor e a equipe."</td></tr>
+              <tr><td>Núcleos sinônimos ou em gradação</td><td>Singular (facultativo)</td><td>"A dedicação, o esforço e a persistência <strong>levou</strong>/<strong>levaram</strong> ao sucesso."</td></tr>
+              <tr><td>Ligados por "ou" (exclusão)</td><td>Singular</td><td>"João ou Maria <strong>assumirá</strong> o projeto."</td></tr>
+              <tr><td>Ligados por "ou" (inclusão)</td><td>Plural</td><td>"Chuva ou sol, as obras <strong>continuarão</strong>."</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Verbos Impessoais e Unipessoais</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Verbo/Expressão</th><th>Regra</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Haver</strong> (existir/tempo)</td><td>Impessoal → singular</td><td>"<strong>Havia</strong> muitos erros no código." / "<strong>Há</strong> dois anos..."</td></tr>
+              <tr><td><strong>Fazer</strong> (tempo/clima)</td><td>Impessoal → singular</td><td>"<strong>Faz</strong> três anos que o sistema opera." / "<strong>Faz</strong> frio."</td></tr>
+              <tr><td><strong>Ter</strong> (existir — popular)</td><td>Impessoal → singular (norma culta)</td><td>"<strong>Tem</strong> muitas opções disponíveis." (informal)</td></tr>
+              <tr><td><strong>Verbos meteorológicos</strong></td><td>Impessoal → singular</td><td>"<strong>Choveu</strong> bastante." / "<strong>Nevou</strong> na Serra."</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Expressões Partitivas e Coletivos</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Expressão</th><th>Concordância</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td>A maioria de, a maior parte de</td><td>Singular ou plural (facultativo)</td><td>"A maioria dos analistas <strong>aprovou</strong>/<strong>aprovaram</strong>."</td></tr>
+              <tr><td>Grande número de, boa parte de</td><td>Plural preferível</td><td>"Grande número de funcionários <strong>aderiram</strong> ao plano."</td></tr>
+              <tr><td>Percentuais: 20% / 1%</td><td>Concorda com o nome da parcela</td><td>"20% dos dados <strong>foram</strong> corrompidos." / "1% da produção <strong>foi</strong> perdida."</td></tr>
+              <tr><td>Coletivo singular + complemento plural</td><td>Singular (com o coletivo)</td><td>"O grupo de analistas <strong>aprovou</strong> a proposta."</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ "Fazer" indicando tempo é sempre singular</div>
+          "Fazem dois anos que o sistema opera." → ERRADO<br>
+          "<strong>Faz</strong> dois anos que o sistema opera." → CORRETO<br>
+          O verbo "fazer" no sentido de tempo decorrido é impessoal — nunca vai para o plural, independentemente do numeral.
+        </div>
+      </div>
+    </div>
+
+    <!-- Concordância Nominal -->
+    <div class="tab-panel" data-tab="concordancia-n">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">📝</div>Concordância Nominal</h2>
+
+        <p>O adjetivo concorda em gênero e número com o substantivo a que se refere.</p>
+
+        <h3>Casos Especiais</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Situação</th><th>Regra</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td>Adjetivo após dois substantivos de gêneros diferentes</td><td>Masculino plural</td><td>"O analista e a gerente estavam <strong>preparados</strong>."</td></tr>
+              <tr><td>Adjetivo antes de dois substantivos</td><td>Concorda com o mais próximo</td><td>"<strong>Novo</strong> sistema e metodologia foram adotados."</td></tr>
+              <tr><td>Predicativo do sujeito composto</td><td>Plural (obrigatório)</td><td>"O código e o banco estavam <strong>comprometidos</strong>."</td></tr>
+              <tr><td>"É proibido", "É necessário" + substantivo</td><td>Invariável ou concordando</td><td>"É proibido entrada." / "É proibida a entrada."</td></tr>
+              <tr><td>Meio (adjetivo) vs meio (advérbio)</td><td>Adjetivo varia; advérbio não</td><td>"Ela estava <strong>meia</strong> confusa." (advérbio — invariável) vs "Bebi <strong>meia</strong> xícara." (adj.)</td></tr>
+              <tr><td>Bastante (adjetivo) vs bastante (advérbio)</td><td>Adjetivo varia; advérbio não</td><td>"Há <strong>bastantes</strong> erros." (adj.) vs "Ela trabalhou <strong>bastante</strong>." (adv.)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ "Meio" como advérbio não varia</div>
+          "Ela estava <strong>meio</strong> cansada." → CORRETO (advérbio modifica adjetivo — invariável)<br>
+          "Ela estava <strong>meia</strong> cansada." → ERRADO na norma culta formal<br>
+          Decore: advérbio modifica adjetivo e é invariável. Adjetivo concorda com o substantivo.
+        </div>
+      </div>
+    </div>
+
+    <!-- Regência -->
+    <div class="tab-panel" data-tab="regencia">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">🎯</div>Regência Verbal e Nominal</h2>
+
+        <h3>Verbos de Regência Mais Cobrados</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Verbo</th><th>Sentido</th><th>Regência</th><th>Exemplo correto</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Assistir</strong></td><td>Ver/presenciar</td><td>VTI → preposição "a"</td><td>"Assistiu <strong>ao</strong> treinamento."</td></tr>
+              <tr><td><strong>Assistir</strong></td><td>Ajudar/caber direito</td><td>VTI → preposição "a"</td><td>"Assiste <strong>ao</strong> trabalhador esse direito."</td></tr>
+              <tr><td><strong>Assistir</strong></td><td>Morar</td><td>VI → "em"</td><td>"Assiste <strong>em</strong> São Paulo."</td></tr>
+              <tr><td><strong>Aspirar</strong></td><td>Desejar/almejar</td><td>VTI → "a"</td><td>"Aspira <strong>a</strong> uma carreira sólida."</td></tr>
+              <tr><td><strong>Aspirar</strong></td><td>Inalar</td><td>VTD → sem preposição</td><td>"Aspirou o ar fresco."</td></tr>
+              <tr><td><strong>Visar</strong></td><td>Objetivar/almejar</td><td>VTI → "a"</td><td>"Visa <strong>a</strong> melhorar o sistema."</td></tr>
+              <tr><td><strong>Visar</strong></td><td>Carimbar/mirar</td><td>VTD → sem preposição</td><td>"Visou o documento."</td></tr>
+              <tr><td><strong>Obedecer</strong></td><td>Seguir regras</td><td>VTI → "a"</td><td>"Obedeceu <strong>às</strong> normas."</td></tr>
+              <tr><td><strong>Preferir</strong></td><td>Ter preferência</td><td>VTD + VTI → "a"</td><td>"Prefere análise <strong>a</strong> codificação."</td></tr>
+              <tr><td><strong>Implicar</strong></td><td>Acarretar</td><td>VTD → sem preposição</td><td>"Isso implica <strong>riscos</strong> maiores."</td></tr>
+              <tr><td><strong>Implicar</strong></td><td>Antipatizar</td><td>VTI → "com"</td><td>"Implica <strong>com</strong> o colega."</td></tr>
+              <tr><td><strong>Proceder</strong></td><td>Agir/vir de</td><td>VI → "a" ou "de"</td><td>"Procedeu <strong>à</strong> análise." / "Procede <strong>de</strong> São Paulo."</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ "Preferir... a..." — nunca "preferir... do que"</div>
+          "Prefiro análise <strong>a</strong> codificação." → CORRETO<br>
+          "Prefiro análise <strong>do que</strong> codificação." → ERRADO (norma culta)<br>
+          A regência culta de preferir é sempre com "a", não "do que" nem "em vez de".
+        </div>
+
+        <h3>Regência Nominal Mais Cobrada</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Nome</th><th>Preposição</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td>Acessível, inacessível</td><td>a</td><td>"Acessível <strong>ao</strong> público."</td></tr>
+              <tr><td>Compatível, incompatível</td><td>com</td><td>"Compatível <strong>com</strong> o sistema."</td></tr>
+              <tr><td>Contíguo, inerente</td><td>a</td><td>"Inerente <strong>ao</strong> processo."</td></tr>
+              <tr><td>Curioso, ansioso</td><td>por / de</td><td>"Ansioso <strong>por</strong> resultados."</td></tr>
+              <tr><td>Favorável, contrário</td><td>a</td><td>"Favorável <strong>à</strong> mudança."</td></tr>
+              <tr><td>Relativo, referente</td><td>a</td><td>"Referente <strong>ao</strong> contrato."</td></tr>
+              <tr><td>Propenso, proibido</td><td>a</td><td>"Propenso <strong>a</strong> erros."</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Crase -->
+    <div class="tab-panel" data-tab="crase">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">à</div>Crase</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Crase = Preposição "a" + Artigo "a"</div>
+          Crase ocorre quando há fusão de preposição "a" (exigida pela regência) com artigo feminino "a". Teste: substitua por "o/os" — se ficar "ao/aos", usa crase; se ficar "o/os" sem "a", não usa.
+        </div>
+
+        <h3>Quando USAR crase</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Situação</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td>Antes de substantivo feminino precedido de artigo</td><td>"Refiro-me <strong>à</strong> proposta." (a + a proposta)</td></tr>
+              <tr><td>Antes de pronomes demonstrativos "aquela/e/o/s"</td><td>"Assemelha-se <strong>àquela</strong> situação."</td></tr>
+              <tr><td>Antes de "minha/sua/nossa/vossa" (com artigo implícito)</td><td>"Refiro-me <strong>à</strong> sua proposta."</td></tr>
+              <tr><td>Locuções adverbiais femininas</td><td>"<strong>À</strong> noite", "<strong>às</strong> vezes", "<strong>à</strong> tarde", "<strong>à</strong> mão"</td></tr>
+              <tr><td>Locuções prepositivas femininas</td><td>"<strong>À</strong> frente de", "<strong>à</strong> beira de"</td></tr>
+              <tr><td>Indicação de horas</td><td>"<strong>Às</strong> duas horas", "partiu <strong>à</strong> meia-noite"</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Quando NÃO usar crase</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Situação</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td>Antes de substantivo masculino</td><td>"Refiro-me <strong>a</strong> um relatório." (não há artigo)</td></tr>
+              <tr><td>Antes de verbo</td><td>"Estou disposto <strong>a</strong> colaborar."</td></tr>
+              <tr><td>Antes de pronomes pessoais (ela, você, mim)</td><td>"Entreguei <strong>a</strong> ela o documento."</td></tr>
+              <tr><td>Antes de pronomes indefinidos (uma, alguma, nenhuma)</td><td>"Refiro-me <strong>a</strong> uma proposta."</td></tr>
+              <tr><td>Antes de pronomes demonstrativos "esta/essa/esta"</td><td>"Refiro-me <strong>a</strong> essa situação." (não aquela)</td></tr>
+              <tr><td>Antes de "que" e "quem"</td><td>"A pessoa <strong>a</strong> quem me refiro."</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Casos Facultativos</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Situação</th><th>Com ou sem crase</th></tr></thead>
+            <tbody>
+              <tr><td>Antes de pronome possessivo feminino sem artigo explícito</td><td>"Refiro-me <strong>à</strong> sua carta." / "Refiro-me <strong>a</strong> sua carta." (ambos aceitos)</td></tr>
+              <tr><td>Após "até" antes de feminino</td><td>"Fui <strong>até à</strong> recepção." / "Fui <strong>até a</strong> recepção."</td></tr>
+              <tr><td>Nomes de lugares que admitem artigo</td><td>"Fui <strong>à</strong> França." / "Fui <strong>a</strong> Paris."</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colocação Pronominal -->
+    <div class="tab-panel" data-tab="pronomes">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">👤</div>Colocação Pronominal</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Três posições do pronome átono</div>
+          <strong>Próclise:</strong> pronome ANTES do verbo → "Não <strong>me</strong> disse nada."<br>
+          <strong>Ênclise:</strong> pronome DEPOIS do verbo → "Disse-<strong>me</strong> a verdade."<br>
+          <strong>Mesóclise:</strong> pronome NO MEIO do verbo (futuro do presente e pretérito do futuro) → "Dir-<strong>me</strong>-á a verdade."
+        </div>
+
+        <h3>Fatores de Próclise Obrigatória</h3>
+        <p>Quando há palavras atrativas que puxam o pronome para antes do verbo:</p>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Palavra atrativa</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td>Palavras de negação (não, nunca, jamais, nem)</td><td>"<strong>Não</strong> me disse nada." / "<strong>Nunca</strong> se arrependeu."</td></tr>
+              <tr><td>Pronomes relativos (que, quem, cujo)</td><td>"O sistema <strong>que</strong> me foi enviado..."</td></tr>
+              <tr><td>Pronomes indefinidos (alguém, ninguém, tudo, nada)</td><td>"<strong>Ninguém</strong> se apresentou."</td></tr>
+              <tr><td>Pronomes interrogativos (quem, que)</td><td>"<strong>Quem</strong> te enviou o relatório?"</td></tr>
+              <tr><td>Advérbios sem pausa (aqui, já, ainda, sempre)</td><td>"<strong>Aqui</strong> se trabalha com qualidade."</td></tr>
+              <tr><td>Conjunções subordinativas (quando, como, embora)</td><td>"<strong>Quando</strong> me chamaram, estava disponível."</td></tr>
+              <tr><td>Preposição "em" + gerúndio</td><td>"<strong>Em</strong> se tratando de dados..."</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Ênclise — Regra Geral e Casos</h3>
+        <p>A ênclise é a posição padrão quando não há fator de próclise. É <strong>proibida</strong> em início de frase, após vírgula ou em início de oração.</p>
+
+        <div class="code-block"><span class="code-lang">Exemplos de colocação pronominal</span><pre>CORRETO:
+"Entregaram-me o relatório antes do prazo."     → ênclise (sem fator de próclise)
+"Não me entregaram o relatório."                → próclise (negação = fator atrativo)
+"Jamais se arrependeu da decisão."              → próclise (advérbio negativo)
+"O analista que me informou está presente."     → próclise (pronome relativo)
+
+ERRADO (na norma culta formal):
+"Me disseram que o prazo mudou."                → pronome não inicia período
+"Se encontraram no corredor."                   → pronome não inicia período</pre></div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Pronome não inicia período na norma culta escrita</div>
+          Na fala e na escrita informal, é comum iniciar com pronome. Na norma culta formal (cobrada pela Cesgranrio), o pronome átono NUNCA inicia período. "Me ligaram" = ERRADO. "Ligaram-me" = CORRETO.
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Concordância & Regência</div>
+          <span class="badge badge-purple">10 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-concord"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-concord"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="interpretacao.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Interpretação & Coesão</div></div>
+      </a>
+      <a href="index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Voltar ao hub</div><div>Língua Portuguesa</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-concord','concord',[
+    'Domino concordância com sujeito composto antes e depois do verbo',
+    'Sei que "fazer" indicando tempo é sempre singular',
+    'Conheço os casos de concordância com expressões partitivas',
+    'Domino concordância nominal com adjetivo após dois substantivos',
+    'Sei a regra de "meio" como advérbio (invariável)',
+    'Conheço a regência dos verbos mais cobrados (assistir, aspirar, visar, preferir)',
+    'Domino quando usar e não usar crase',
+    'Sei os fatores de próclise obrigatória',
+    'Entendo que pronome átono não inicia período na norma culta',
+  ]);
+
+  DC.Quiz.render('quiz-concord',[
+    {
+      question:'"Faz dois anos que o sistema opera sem falhas." O verbo "faz" está no singular porque:',
+      options:[
+        'O sujeito "sistema" é singular.',
+        '"Fazer" indicando tempo decorrido é verbo impessoal — não tem sujeito e fica no singular.',
+        'A oração subordinada "que o sistema opera" é o sujeito no singular.',
+        'O verbo concorda com "dois anos" que está mais próximo.',
+        'O verbo "fazer" é invariável em todos os contextos.'
+      ],
+      answer:1,
+      explanation:'"Fazer" indicando tempo decorrido é impessoal — não tem sujeito, portanto fica sempre no SINGULAR. "Fazem dois anos" = ERRADO. Assim como "haver" no sentido de existir ("Havia muitos erros", não "Haviam"). Esta é uma das questões mais frequentes sobre concordância verbal da Cesgranrio.'
+    },
+    {
+      question:'"A maioria dos analistas aprovaram a proposta." Esta frase está:',
+      options:[
+        'Errada — "maioria" é singular, portanto o verbo deve ser "aprovou".',
+        'Correta — o verbo concorda com o complemento plural "analistas".',
+        'Correta — ambas as formas ("aprovou" e "aprovaram") são aceitas na norma culta.',
+        'Errada — deveria ser "a maioria dos analistas aprovasse".',
+        'Correta — "maioria" é sempre plural semanticamente.'
+      ],
+      answer:2,
+      explanation:'Com expressões partitivas como "a maioria de", "a maior parte de", "grande número de", a concordância é FACULTATIVA: pode-se concordar com o núcleo do sujeito (maioria → "aprovou") ou com o complemento (analistas → "aprovaram"). Ambas as formas são aceitas pela norma culta. A Cesgranrio cobra essa flexibilidade.'
+    },
+    {
+      question:'"Assistiu o documentário técnico toda a equipe." O verbo "assistiu" no singular está:',
+      options:[
+        'Errado — o sujeito "toda a equipe" é plural.',
+        'Correto — o sujeito posposto permite concordância com o mais próximo, mas aqui há apenas um núcleo.',
+        'Correto — com sujeito posposto ao verbo, pode-se manter no singular.',
+        'Errado — "assistir" no sentido de ver é intransitivo.',
+        'Correto — "toda a equipe" é coletivo, portanto verbo no singular.'
+      ],
+      answer:2,
+      explanation:'Com sujeito POSPOSTO ao verbo (vem depois), a concordância pode ser com o sujeito inteiro (plural) ou com o núcleo mais próximo. "Assistiu toda a equipe" = singular (concorda com "equipe" mais próxima). "Assistiram toda a equipe" = também correto (plural). Atenção: "assistir" no sentido de VER é VTI e exige preposição "a" ("assistiu AO documentário").'
+    },
+    {
+      question:'Assinale a frase em que o emprego da crase está CORRETO:',
+      options:[
+        '"Entregou o relatório à João ontem."',
+        '"Voltou à duas horas da tarde."',
+        '"Refiro-me à política de segurança da empresa."',
+        '"Ela estava à par de todos os acontecimentos."',
+        '"Aspirava à uma promoção rapidamente."'
+      ],
+      answer:2,
+      explanation:'"À política" = preposição "a" + artigo "a" antes de substantivo feminino (política). CORRETO. A) "à João" = errado (nome masculino). B) "às duas horas" (não "à duas horas" — plural). D) "a par" = expressão cristalizada sem crase (locução adverbial de modo). E) "à uma" = errado (nunca há crase antes de artigo indefinido "uma").'
+    },
+    {
+      question:'"Os funcionários aspiram __ uma carreira sólida na empresa." A lacuna deve ser preenchida com:',
+      options:['a (sem crase)','à (com crase)','em','por','de'],
+      answer:1,
+      explanation:'"Aspirar" no sentido de DESEJAR/ALMEJAR é VTI — rege preposição "a". "Aspirar a uma carreira". Como "uma" é artigo INDEFINIDO, NÃO há crase (crase = preposição "a" + artigo DEFINIDO "a"). "Aspira a uma carreira" = correto sem crase. "Aspira à carreira dos executivos" = com crase (artigo definido "a").'
+    },
+    {
+      question:'"Entregaram-me o relatório antes do prazo." A colocação do pronome "me" está correta porque:',
+      options:[
+        'O pronome deve sempre vir antes do verbo em português.',
+        'Há um fator de próclise (negação) que atrai o pronome.',
+        'Não há fator de próclise — a ênclise é a posição correta neste contexto.',
+        'O pronome está em posição de mesóclise após o verbo no futuro.',
+        'Pronomes de 1ª pessoa sempre ficam depois do verbo.'
+      ],
+      answer:2,
+      explanation:'Não há fator de próclise (sem negação, sem advérbio atrativo, sem conjunção, sem pronome relativo antes do verbo). A posição correta é ÊNCLISE (após o verbo) — "Entregaram-me". "Me entregaram" seria errado em início de período. A ênclise é a posição padrão quando não há fator atrativo.'
+    },
+    {
+      question:'"Prefiro trabalho remoto __ presencial." A lacuna correta é:',
+      options:['do que','em vez de','a','que','para'],
+      answer:2,
+      explanation:'A regência culta de PREFERIR é: preferir X A Y. "Prefiro trabalho remoto <strong>a</strong> presencial." O uso de "do que" ("prefiro X do que Y") é coloquial e não aceito pela norma culta formal. A Cesgranrio frequentemente cobra essa regência, pois a forma coloquial ("do que") é muito difundida no uso cotidiano.'
+    },
+    {
+      question:'Em "Nunca se arrependeu da decisão tomada", o pronome "se" está em posição de:',
+      options:[
+        'Ênclise — após o verbo, posição padrão.',
+        'Mesóclise — no meio do verbo no futuro.',
+        'Próclise — antes do verbo, atraído pela palavra "nunca".',
+        'Posição irregular — deveria ser "arrependeu-se".',
+        'Próclise facultativa — poderia ser "arrependeu-se" também.'
+      ],
+      answer:2,
+      explanation:'"Nunca" é advérbio de negação — é um dos fatores de próclise OBRIGATÓRIA. Portanto "nunca se arrependeu" (próclise) é o correto. "Nunca arrependeu-se" = ERRADO. Outros fatores de próclise: não, jamais, nem, pronomes relativos, indefinidos, interrogativos, conjunções subordinativas, advérbios sem pausa.'
+    },
+    {
+      question:'"Meio" está empregado INCORRETAMENTE em:',
+      options:[
+        '"Ela estava meio confusa com o processo."',
+        '"O analista parecia meio cansado após a reunião."',
+        '"Bebi meia xícara de café durante a pausa."',
+        '"Ela estava meia confusa com o novo sistema."',
+        '"O processo estava meio atrasado em relação ao cronograma."'
+      ],
+      answer:3,
+      explanation:'"Meia confusa" está ERRADO. "Meio" como ADVÉRBIO (modificando adjetivo) é INVARIÁVEL: "ela estava <strong>meio</strong> confusa". "Meia" seria o adjetivo concordando com substantivo feminino ("meia xícara", "meia hora"). A distinção: meio modifica adjetivo = invariável. Meio modifica substantivo = varia. "Bebi meia xícara" = correto (adjetivo concordando com "xícara").'
+    },
+    {
+      question:'Assinale a alternativa em que a regência verbal está INCORRETA:',
+      options:[
+        '"Os analistas assistiram ao treinamento obrigatório."',
+        '"A equipe visa a melhorar os processos internos."',
+        '"O sistema obedece às normas de segurança vigentes."',
+        '"O funcionário assistiu o treinamento completo."',
+        '"A empresa aspira a alcançar certificação ISO."'
+      ],
+      answer:3,
+      explanation:'"Assistir" no sentido de VER/PRESENCIAR é VTI — exige preposição "a": "assistiu <strong>ao</strong> treinamento". "Assistiu o treinamento" (sem preposição) = ERRADO. A) correto ("ao"). B) correto ("a melhorar" — visar a). C) correto ("às normas"). E) correto ("a alcançar"). A ausência da preposição em D é o erro.'
+    },
+  ],'concord_simulado');
+});
+</script>
+</body>
+</html>

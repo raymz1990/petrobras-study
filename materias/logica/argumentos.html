@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Argumentos & Sistemas Dedutivos | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Lógica Matemática</a><span class="sep">›</span>
+      <span>Argumentos & Sistemas Dedutivos</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">⚖️ Bloco III · 2.2 – 2.8</div>
+        <h1 class="mb-8">Argumentos <span class="gradient-text">&amp; Dedução</span></h1>
+        <p>Argumentos válidos e inválidos, regras de inferência (Modus Ponens, Modus Tollens, Silogismo), falácias lógicas, sistemas dedutivos, decidibilidade e tabelas-verdade avançadas.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~60 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Média/Alta incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Argumentos</h4></div>
+      <ul>
+        <li>Modus Ponens: P→Q, P ⊢ Q. Modus Tollens: P→Q, ¬Q ⊢ ¬P — os dois mais cobrados</li>
+        <li>Falácias: Afirmação do Consequente (P→Q, Q ⊢ P) e Negação do Antecedente (P→Q, ¬P ⊢ ¬Q) — INVÁLIDAS</li>
+        <li>Validade ≠ Verdade: argumento válido pode ter premissas falsas</li>
+        <li>Decidibilidade: lógica sentencial é decidível (tabela-verdade); predicados de 1ª ordem é semi-decidível</li>
+        <li>Tautologia: sempre V. Contradição: sempre F. Contingência: depende dos valores</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="argumentos">⚖️ Argumentos</button>
+      <button class="tab-btn" data-tab="regras">📏 Regras de Inferência</button>
+      <button class="tab-btn" data-tab="falacias">❌ Falácias</button>
+      <button class="tab-btn" data-tab="sistemas">🏗️ Sistemas Dedutivos</button>
+      <button class="tab-btn" data-tab="aplicacoes">💡 Aplicações</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Argumentos -->
+    <div class="tab-panel active" data-tab="argumentos">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">⚖️</div>Argumentos Lógicos</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Definição de Argumento</div>
+          Um argumento é um conjunto de proposições onde algumas (as <strong>premissas</strong>) são apresentadas como justificativa para outra (a <strong>conclusão</strong>). Notação: P₁, P₂, ..., Pₙ ⊢ C (⊢ = "portanto"/"logo").
+        </div>
+
+        <h3>Validade vs Verdade</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Conceito</th><th>Definição</th><th>Depende de</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Argumento Válido</strong></td>
+                <td>É IMPOSSÍVEL que todas as premissas sejam verdadeiras e a conclusão seja falsa. A forma lógica está correta.</td>
+                <td>Estrutura formal (forma)</td>
+              </tr>
+              <tr>
+                <td><strong>Argumento Sólido (Sound)</strong></td>
+                <td>É válido E todas as premissas são verdadeiras. Garante conclusão verdadeira.</td>
+                <td>Forma + conteúdo</td>
+              </tr>
+              <tr>
+                <td><strong>Argumento Inválido (Falácia)</strong></td>
+                <td>É possível ter premissas verdadeiras e conclusão falsa. A forma lógica está errada.</td>
+                <td>Estrutura formal (forma)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Validade ≠ Verdade das premissas</div>
+          Um argumento pode ser VÁLIDO mesmo com premissas FALSAS:<br>
+          "Todo gato tem asas (F). Rex é um gato (F). Logo, Rex tem asas." → VÁLIDO (a forma é correta: todo A é B, x é A, logo x é B)<br><br>
+          Um argumento pode ter premissas VERDADEIRAS e ser INVÁLIDO:<br>
+          "O sol é uma estrela (V). A lua orbita a Terra (V). Logo, o sol tem satélites." → INVÁLIDO (as premissas não sustentam a conclusão)
+        </div>
+
+        <h3>Como Verificar Validade</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content">
+              <h4>Método da Tabela-Verdade</h4>
+              <p>Construir a tabela-verdade de todas as premissas e da conclusão. Se em TODA linha onde todas as premissas são V a conclusão também é V → argumento válido.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content">
+              <h4>Método da Contradição (Refutação)</h4>
+              <p>Assumir que as premissas são V e a conclusão é F. Se isso gerar contradição → argumento válido. Se for consistente → inválido.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">3</div>
+            <div class="step-content">
+              <h4>Reconhecimento de Forma</h4>
+              <p>Identificar se o argumento corresponde a uma regra de inferência válida conhecida (MP, MT, SH, SD...) ou a uma falácia conhecida.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Formas Canônicas de Argumento</h3>
+        <div class="code-block"><span class="code-lang">Notação de argumentos</span><pre>Argumento válido — Modus Ponens:
+  P₁: P → Q    (Se P então Q)
+  P₂: P        (P é verdadeiro)
+  ────────────
+  C:  Q        (Logo, Q é verdadeiro)
+
+Contra-exemplo para invalidar um argumento:
+Encontrar atribuição de valores onde P₁=V, P₂=V, mas C=F
+Se tal atribuição EXISTIR → argumento INVÁLIDO
+Se NÃO EXISTIR → argumento VÁLIDO</pre></div>
+      </div>
+    </div>
+
+    <!-- Regras de Inferência -->
+    <div class="tab-panel" data-tab="regras">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">📏</div>Regras de Inferência Válidas</h2>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Regra</th><th>Forma Simbólica</th><th>Exemplo Concreto</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Modus Ponens (MP)</strong></td>
+                <td><code>P→Q, P ⊢ Q</code></td>
+                <td>"Se há falha (P), o sistema trava (Q). Há falha. Logo, o sistema trava."</td>
+              </tr>
+              <tr>
+                <td><strong>Modus Tollens (MT)</strong></td>
+                <td><code>P→Q, ¬Q ⊢ ¬P</code></td>
+                <td>"Se há falha (P), o sistema trava (Q). O sistema não travou (¬Q). Logo, não houve falha (¬P)."</td>
+              </tr>
+              <tr>
+                <td><strong>Silogismo Hipotético (SH)</strong></td>
+                <td><code>P→Q, Q→R ⊢ P→R</code></td>
+                <td>"Se chuva → lama. Se lama → atraso. Logo, se chuva → atraso."</td>
+              </tr>
+              <tr>
+                <td><strong>Silogismo Disjuntivo (SD)</strong></td>
+                <td><code>P∨Q, ¬P ⊢ Q</code></td>
+                <td>"A ou B. Não A. Logo, B."</td>
+              </tr>
+              <tr>
+                <td><strong>Adição (Ad)</strong></td>
+                <td><code>P ⊢ P∨Q</code></td>
+                <td>"A é verdadeiro. Logo, A ou B é verdadeiro." (qualquer Q)</td>
+              </tr>
+              <tr>
+                <td><strong>Simplificação (Simp)</strong></td>
+                <td><code>P∧Q ⊢ P</code></td>
+                <td>"A e B são verdadeiros. Logo, A é verdadeiro."</td>
+              </tr>
+              <tr>
+                <td><strong>Conjunção (Conj)</strong></td>
+                <td><code>P, Q ⊢ P∧Q</code></td>
+                <td>"A é V. B é V. Logo, A e B são verdadeiros."</td>
+              </tr>
+              <tr>
+                <td><strong>Dupla Negação (DN)</strong></td>
+                <td><code>¬¬P ⊢ P</code></td>
+                <td>"Não é falso que A. Logo, A é verdadeiro."</td>
+              </tr>
+              <tr>
+                <td><strong>Dilema Construtivo (DC)</strong></td>
+                <td><code>P→Q, R→S, P∨R ⊢ Q∨S</code></td>
+                <td>"Se A→B e C→D e (A ou C), então (B ou D)."</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Modus Ponens vs Modus Tollens — Detalhe</h3>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="emoji">✅</div>
+            <div class="concept-name">Modus Ponens</div>
+            <div class="concept-desc">Afirma o antecedente → afirma o consequente. "P→Q, P ⊢ Q". Direção: frente. Válido.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">✅</div>
+            <div class="concept-name">Modus Tollens</div>
+            <div class="concept-desc">Nega o consequente → nega o antecedente. "P→Q, ¬Q ⊢ ¬P". Equivale à contrapositiva. Válido.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">❌</div>
+            <div class="concept-name">Falácia do Consequente</div>
+            <div class="concept-desc">Afirma o consequente → tenta afirmar o antecedente. "P→Q, Q ⊢ P". INVÁLIDO.</div>
+          </div>
+          <div class="concept-card">
+            <div class="emoji">❌</div>
+            <div class="concept-name">Falácia do Antecedente</div>
+            <div class="concept-desc">Nega o antecedente → tenta negar o consequente. "P→Q, ¬P ⊢ ¬Q". INVÁLIDO.</div>
+          </div>
+        </div>
+
+        <h3>Prova Formal — Exemplo</h3>
+        <div class="code-block"><span class="code-lang">Prova formal passo a passo</span><pre>Premissas:
+  1. P → Q
+  2. Q → R
+  3. P
+
+Provar: R
+
+Demonstração:
+  4. P → R     (Silogismo Hipotético: 1, 2)
+  5. R         (Modus Ponens: 4, 3)   ■
+
+Leitura: "Se P então Q. Se Q então R. P é verdadeiro.
+Logo, há um caminho P→Q→R, e como P é V, R deve ser V."</pre></div>
+      </div>
+    </div>
+
+    <!-- Falácias -->
+    <div class="tab-panel" data-tab="falacias">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(239,68,68,0.1)">❌</div>Falácias Lógicas Formais</h2>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 O que é uma Falácia Formal</div>
+          Falácia formal é um argumento inválido que parece válido à primeira vista — a forma lógica está errada, mas o raciocínio parece plausível. É diferente de falácia informal (que envolve conteúdo, não forma).
+        </div>
+
+        <h3>As 2 Falácias Formais Mais Cobradas</h3>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>❌ Falácia da Afirmação do Consequente</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body"><div class="accordion-content">
+              <div class="code-block"><span class="code-lang">Forma inválida</span><pre>P₁: P → Q    (Se P então Q)
+P₂: Q        (Q é verdadeiro)
+────────────
+C:  P        (Logo, P é verdadeiro)  ← INVÁLIDO!</pre></div>
+              <p><strong>Por que é inválido:</strong> Q pode ser verdadeiro por outras razões além de P.</p>
+              <p><strong>Exemplo:</strong> "Se chove (P), a rua fica molhada (Q). A rua está molhada (Q). Logo, choveu (P)." → INVÁLIDO: pode ter sido o caminhão-pipa.</p>
+              <div class="highlight-box warn" style="margin-top:8px"><div class="hb-title">Confunde com Modus Ponens</div>MP afirma o ANTECEDENTE (P) para concluir o consequente (Q). A falácia afirma o CONSEQUENTE (Q) para concluir o antecedente (P) — sentido invertido, forma inválida.</div>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">
+              <span>❌ Falácia da Negação do Antecedente</span>
+              <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+            <div class="accordion-body"><div class="accordion-content">
+              <div class="code-block"><span class="code-lang">Forma inválida</span><pre>P₁: P → Q    (Se P então Q)
+P₂: ¬P       (P é falso)
+────────────
+C:  ¬Q       (Logo, Q é falso)  ← INVÁLIDO!</pre></div>
+              <p><strong>Por que é inválido:</strong> Só porque P é falso, não significa que Q também é. Q pode ser verdadeiro por outro motivo.</p>
+              <p><strong>Exemplo:</strong> "Se chove (P), a rua fica molhada (Q). Não choveu (¬P). Logo, a rua não está molhada (¬Q)." → INVÁLIDO: pode ter sido o irrigador automático.</p>
+              <div class="highlight-box warn" style="margin-top:8px"><div class="hb-title">Confunde com Modus Tollens</div>MT nega o CONSEQUENTE (¬Q) para concluir a negação do antecedente (¬P). A falácia nega o ANTECEDENTE (¬P) para concluir a negação do consequente (¬Q) — ordem invertida, forma inválida.</div>
+            </div></div>
+          </div>
+        </div>
+
+        <h3>Tabela de Identificação Rápida</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Argumento</th><th>Forma</th><th>Válido?</th></tr></thead>
+            <tbody>
+              <tr style="color:var(--green)"><td>Modus Ponens</td><td>P→Q, P ⊢ Q</td><td>✅ SIM</td></tr>
+              <tr style="color:var(--green)"><td>Modus Tollens</td><td>P→Q, ¬Q ⊢ ¬P</td><td>✅ SIM</td></tr>
+              <tr style="color:var(--green)"><td>Silogismo Hipotético</td><td>P→Q, Q→R ⊢ P→R</td><td>✅ SIM</td></tr>
+              <tr style="color:var(--green)"><td>Silogismo Disjuntivo</td><td>P∨Q, ¬P ⊢ Q</td><td>✅ SIM</td></tr>
+              <tr style="color:var(--red)"><td>Afirmação do Consequente</td><td>P→Q, Q ⊢ P</td><td>❌ NÃO</td></tr>
+              <tr style="color:var(--red)"><td>Negação do Antecedente</td><td>P→Q, ¬P ⊢ ¬Q</td><td>❌ NÃO</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sistemas Dedutivos -->
+    <div class="tab-panel" data-tab="sistemas">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">🏗️</div>Sistemas Dedutivos e Decidibilidade</h2>
+
+        <h3>O que é um Sistema Dedutivo</h3>
+        <p>Um sistema dedutivo (ou sistema formal) é composto por:</p>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">📋</div><div class="concept-name">Alfabeto</div><div class="concept-desc">Conjunto de símbolos básicos: variáveis proposicionais, conectivos, parênteses.</div></div>
+          <div class="concept-card"><div class="emoji">📏</div><div class="concept-name">Regras de Formação</div><div class="concept-desc">Definem quais sequências de símbolos são fórmulas bem-formadas (fbf).</div></div>
+          <div class="concept-card"><div class="emoji">🌱</div><div class="concept-name">Axiomas</div><div class="concept-desc">Fórmulas aceitas como verdadeiras sem prova — ponto de partida do sistema.</div></div>
+          <div class="concept-card"><div class="emoji">🔧</div><div class="concept-name">Regras de Inferência</div><div class="concept-desc">Permitem derivar novas fórmulas a partir de fórmulas já provadas.</div></div>
+        </div>
+
+        <h3>Propriedades dos Sistemas Formais</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Propriedade</th><th>Definição</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Correção (Soundness)</strong></td><td>Tudo que é provável no sistema é logicamente válido. "Não prova falsidades."</td></tr>
+              <tr><td><strong>Completude (Completeness)</strong></td><td>Tudo que é logicamente válido pode ser provado no sistema. "Nada válido escapa."</td></tr>
+              <tr><td><strong>Consistência</strong></td><td>Não é possível provar P e ¬P ao mesmo tempo — sem contradições internas.</td></tr>
+              <tr><td><strong>Decidibilidade</strong></td><td>Existe algoritmo que determina em tempo finito se qualquer fórmula é teorema ou não.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Decidibilidade — Lógica Sentencial vs Predicados</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Sistema</th><th>Decidibilidade</th><th>Por quê</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Lógica Sentencial (Proposicional)</strong></td>
+                <td>✅ <span style="color:var(--green)">DECIDÍVEL</span></td>
+                <td>A tabela-verdade é um algoritmo que determina em tempo finito (2ⁿ linhas) se qualquer fórmula é tautologia, contradição ou contingência.</td>
+              </tr>
+              <tr>
+                <td><strong>Lógica de Predicados de 1ª Ordem</strong></td>
+                <td>⚠️ <span style="color:var(--orange)">SEMI-DECIDÍVEL</span></td>
+                <td>Pode-se provar que uma fórmula É válida (enumeração de provas), mas não existe algoritmo geral para provar que uma fórmula NÃO É válida em tempo finito. (Teorema de Church, 1936)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Implicação da Semi-Decidibilidade</div>
+          Na lógica de predicados, se você quer provar que "∀x P(x)" é válida, pode encontrar uma prova. Mas se for inválida, pode procurar para sempre sem encontrar um contra-exemplo — o algoritmo pode não parar. Por isso é semi-decidível: funciona para respostas "sim", mas não garante parada para respostas "não".
+        </div>
+
+        <h3>Valores-Verdade e Funções de Avaliação</h3>
+        <p>Uma função de avaliação (ou valoração) atribui valores-verdade às proposições atômicas. Para uma fórmula com n variáveis, existem 2ⁿ valorações possíveis.</p>
+
+        <div class="code-block"><span class="code-lang">Avaliação de fórmula complexa</span><pre>Fórmula: (P → Q) ∧ (¬Q → R)
+Valoração: P = V, Q = F, R = V
+
+Passo 1: P → Q = V → F = F
+Passo 2: ¬Q = ¬F = V
+Passo 3: ¬Q → R = V → V = V
+Passo 4: F ∧ V = F
+
+Resultado: a fórmula é FALSA nesta valoração.
+→ Não é tautologia (há ao menos uma valoração que a falsifica)</pre></div>
+      </div>
+    </div>
+
+    <!-- Aplicações -->
+    <div class="tab-panel" data-tab="aplicacoes">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">💡</div>Aplicações Práticas — Estilo Cesgranrio</h2>
+
+        <h3>Traduzindo Linguagem Natural para Lógica</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Expressão em português</th><th>Tradução lógica</th></tr></thead>
+            <tbody>
+              <tr><td>"Se P então Q"</td><td>P → Q</td></tr>
+              <tr><td>"P somente se Q"</td><td>P → Q</td></tr>
+              <tr><td>"Q se P"</td><td>P → Q</td></tr>
+              <tr><td>"P é condição suficiente para Q"</td><td>P → Q</td></tr>
+              <tr><td>"Q é condição necessária para P"</td><td>P → Q</td></tr>
+              <tr><td>"Não P ou Q"</td><td>¬P ∨ Q (equivale a P → Q)</td></tr>
+              <tr><td>"P se e somente se Q"</td><td>P ↔ Q</td></tr>
+              <tr><td>"Nem P nem Q"</td><td>¬P ∧ ¬Q</td></tr>
+              <tr><td>"P ou Q (ou ambos)"</td><td>P ∨ Q (disjunção inclusiva)</td></tr>
+              <tr><td>"P ou Q (mas não ambos)"</td><td>P ⊕ Q (ou exclusivo = XOR)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Exercícios Modelo — Raciocínio Completo</h3>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🧩 Problema 1 — Identificar a regra de inferência</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p><strong>Enunciado:</strong> "Toda vez que o sistema está sob carga (P), ele responde lentamente (Q). O sistema não está respondendo lentamente (¬Q). Portanto, o sistema não está sob carga (¬P)."</p>
+              <p><strong>Identificação:</strong></p>
+              <div class="code-block"><span class="code-lang">Formalização</span><pre>P₁: P → Q    (carga → resposta lenta)
+P₂: ¬Q       (não responde lentamente)
+─────────────
+C:  ¬P       (não está sob carga)
+
+Forma: P→Q, ¬Q ⊢ ¬P = MODUS TOLLENS ✅ VÁLIDO</pre></div>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🧩 Problema 2 — Identificar falácia</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p><strong>Enunciado:</strong> "Se há um ataque SQL Injection (P), o banco de dados é comprometido (Q). O banco de dados foi comprometido (Q). Logo, houve um ataque SQL Injection (P)."</p>
+              <div class="code-block"><span class="code-lang">Formalização</span><pre>P₁: P → Q    (SQLi → BD comprometido)
+P₂: Q        (BD comprometido)
+─────────────
+C:  P        (houve SQLi)
+
+Forma: P→Q, Q ⊢ P = AFIRMAÇÃO DO CONSEQUENTE ❌ INVÁLIDO
+
+Por quê: o BD pode ter sido comprometido por outro ataque
+(XSS, acesso físico, credenciais roubadas) — Q pode ser V
+mesmo com P sendo F.</pre></div>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🧩 Problema 3 — Silogismo hipotético</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p><strong>Enunciado:</strong> "Se o backup falha (P), os dados são perdidos (Q). Se os dados são perdidos (Q), a operação para (R). Portanto, se o backup falha (P), a operação para (R)."</p>
+              <div class="code-block"><span class="code-lang">Formalização</span><pre>P₁: P → Q    (backup falha → dados perdidos)
+P₂: Q → R    (dados perdidos → operação para)
+─────────────
+C:  P → R    (backup falha → operação para)
+
+Forma: P→Q, Q→R ⊢ P→R = SILOGISMO HIPOTÉTICO ✅ VÁLIDO
+
+O termo intermediário Q é "eliminado" — encadeamento válido.</pre></div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Argumentos & Dedução</div>
+          <span class="badge badge-gold">10 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-argumentos"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-argumentos"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Voltar</div><div>Lógica Matemática</div></div>
+      </a>
+      <a href="../seguranca/index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>Segurança da Informação</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-argumentos','argumentos',[
+    'Entendo a diferença entre argumento válido e sólido',
+    'Sei que validade independe da verdade das premissas',
+    'Domino Modus Ponens (P→Q, P ⊢ Q)',
+    'Domino Modus Tollens (P→Q, ¬Q ⊢ ¬P)',
+    'Conheço Silogismo Hipotético e Disjuntivo',
+    'Sei identificar a Falácia da Afirmação do Consequente',
+    'Sei identificar a Falácia da Negação do Antecedente',
+    'Entendo a diferença entre lógica sentencial (decidível) e predicados (semi-decidível)',
+    'Sei traduzir linguagem natural para notação lógica',
+    'Consigo construir provas formais passo a passo',
+  ]);
+
+  DC.Quiz.render('quiz-argumentos',[
+    {
+      question:'"Se o certificado digital expira (P), a autenticação falha (Q). A autenticação falhou (Q). Portanto, o certificado expirou (P)." Esse argumento é:',
+      options:[
+        'Válido — Modus Ponens: afirma o antecedente.',
+        'Válido — Modus Tollens: nega o consequente.',
+        'Inválido — Falácia da Afirmação do Consequente.',
+        'Válido — Silogismo Hipotético em forma comprimida.',
+        'Inválido — Falácia da Negação do Antecedente.'
+      ],
+      answer:2,
+      explanation:'Forma: P→Q, Q ⊢ P = Falácia da Afirmação do Consequente — INVÁLIDO. A autenticação pode falhar por outras razões (senha errada, servidor offline, ataque MitM). Apenas porque Q é verdadeiro não podemos concluir que P é verdadeiro. Modus Ponens seria: P→Q, P ⊢ Q (afirmar o antecedente, não o consequente).'
+    },
+    {
+      question:'Um argumento é VÁLIDO quando:',
+      options:[
+        'Todas as premissas são verdadeiras.',
+        'A conclusão é verdadeira.',
+        'É impossível que todas as premissas sejam verdadeiras e a conclusão seja falsa simultaneamente.',
+        'As premissas e a conclusão são proposições simples.',
+        'O argumento segue uma estrutura com pelo menos três premissas.'
+      ],
+      answer:2,
+      explanation:'Validade = condição formal: se as premissas forem todas V, a conclusão NECESSARIAMENTE é V. Não importa se as premissas são de fato verdadeiras no mundo real. Um argumento pode ser válido com premissas falsas. Um argumento SÓLIDO é válido + premissas verdadeiras. Validade é sobre a FORMA; verdade é sobre o CONTEÚDO.'
+    },
+    {
+      question:'Identifique a regra de inferência: "Todo analista da Petrobras conhece SQL (P→Q). João não conhece SQL (¬Q). Logo, João não é analista da Petrobras (¬P)."',
+      options:[
+        'Modus Ponens — afirma o antecedente.',
+        'Silogismo Hipotético — encadeia dois condicionais.',
+        'Modus Tollens — nega o consequente para negar o antecedente.',
+        'Silogismo Disjuntivo — elimina uma alternativa.',
+        'Falácia da Negação do Antecedente — argumento inválido.'
+      ],
+      answer:2,
+      explanation:'Forma: P→Q, ¬Q ⊢ ¬P = Modus Tollens — VÁLIDO. "Todo analista conhece SQL" (P→Q). "João não conhece SQL" (¬Q). "Logo, João não é analista" (¬P). O MT é equivalente à contrapositiva: P→Q ≡ ¬Q→¬P. Se a contrapositiva é aplicada com ¬Q como premissa, chegamos a ¬P — raciocínio correto.'
+    },
+    {
+      question:'A Falácia da Negação do Antecedente tem a forma:',
+      options:[
+        'P→Q, Q ⊢ P',
+        'P→Q, ¬Q ⊢ ¬P',
+        'P→Q, ¬P ⊢ ¬Q',
+        'P→Q, P ⊢ Q',
+        'P→Q, Q→R ⊢ P→R'
+      ],
+      answer:2,
+      explanation:'Falácia da Negação do Antecedente: P→Q, ¬P ⊢ ¬Q — INVÁLIDA. Apenas porque P é falso, não podemos concluir que Q é falso (Q pode ser verdadeiro por outra razão). Compare com MT (válido): P→Q, ¬Q ⊢ ¬P — nega o CONSEQUENTE, não o antecedente. A, B, D e E são formas válidas: A = afirmação do consequente (falácia diferente), B = MT, D = MP, E = SH.'
+    },
+    {
+      question:'Qual argumento abaixo é VÁLIDO?',
+      options:[
+        'P→Q, Q ⊢ P (Afirmação do Consequente)',
+        'P→Q, ¬P ⊢ ¬Q (Negação do Antecedente)',
+        'P∨Q, ¬P ⊢ Q (Silogismo Disjuntivo)',
+        'P→Q, ¬Q→R ⊢ P→R (forma inválida)',
+        'P∧Q→R, P ⊢ R (simplificação inválida)'
+      ],
+      answer:2,
+      explanation:'Silogismo Disjuntivo: P∨Q, ¬P ⊢ Q — VÁLIDO. "A ou B. Não A. Logo, B." É válido: se pelo menos um dos disjuntos é V (P∨Q = V) e um deles é F (¬P = P é F), então o outro deve ser V (Q). Verificação: só há uma forma de P∨Q ser V com P=F: Q=V. Portanto Q é necessariamente V. A e B são falácias. D e E são formas inválidas.'
+    },
+    {
+      question:'Sobre a decidibilidade da lógica sentencial, assinale a afirmativa CORRETA:',
+      options:[
+        'A lógica sentencial é semi-decidível — só se pode provar tautologias, não contradições.',
+        'A lógica sentencial é indecidível — não existe algoritmo para verificar validade.',
+        'A lógica sentencial é decidível — a tabela-verdade é um algoritmo finito que determina se qualquer fórmula é tautologia, contradição ou contingência.',
+        'A lógica sentencial é decidível apenas para fórmulas com até 3 variáveis.',
+        'A lógica sentencial tem a mesma decidibilidade que a lógica de predicados de 1ª ordem.'
+      ],
+      answer:2,
+      explanation:'Lógica sentencial é DECIDÍVEL: dado n variáveis, a tabela-verdade tem 2ⁿ linhas — número finito. O algoritmo sempre termina. A lógica de predicados de 1ª ordem é SEMI-DECIDÍVEL (Teorema de Church, 1936): pode-se enumerar todas as provas (processo semidecidível para "sim"), mas não há algoritmo que garanta terminar para "não". Decidibilidade da sentencial é uma das propriedades mais cobradas.'
+    },
+    {
+      question:'A fórmula "P ∨ ¬P" é classificada como:',
+      options:[
+        'Contingência — pode ser V ou F dependendo do valor de P.',
+        'Contradição — sempre falsa independentemente do valor de P.',
+        'Tautologia — sempre verdadeira independentemente do valor de P.',
+        'Proposição aberta — não tem valor-verdade definido.',
+        'Fórmula mal-formada — não respeita as regras de formação.'
+      ],
+      answer:2,
+      explanation:'"P ∨ ¬P" é a Lei do Terceiro Excluído — TAUTOLOGIA. Quando P=V: V∨F=V. Quando P=F: F∨V=V. Em todos os casos, o resultado é V. Compare com a contradição: P ∧ ¬P (sempre F) — Lei da Não-Contradição. Tautologias são usadas como axiomas em sistemas formais.'
+    },
+    {
+      question:'Dado o argumento: P₁: A→B; P₂: B→C; P₃: A. Conclusão: C. O argumento é válido e a regra utilizada é:',
+      options:[
+        'Apenas Modus Ponens aplicado uma vez.',
+        'Silogismo Hipotético (de P₁ e P₂) seguido de Modus Ponens (com P₃).',
+        'Apenas Silogismo Hipotético.',
+        'Modus Tollens aplicado duas vezes.',
+        'Silogismo Disjuntivo seguido de Simplificação.'
+      ],
+      answer:1,
+      explanation:'Prova em duas etapas: 1) SH(P₁,P₂): A→B, B→C ⊢ A→C. 2) MP(A→C, P₃=A): A→C, A ⊢ C. Logo, C. Pode-se aplicar MP diretamente duas vezes: MP(P₁,P₃): A→B, A ⊢ B. Depois MP(P₂,B): B→C, B ⊢ C. Ambos os caminhos são válidos. O argumento é sólido se A, A→B e B→C forem todos verdadeiros.'
+    },
+    {
+      question:'"P é condição necessária para Q" é equivalente a:',
+      options:[
+        'P → Q (se P então Q)',
+        'Q → P (se Q então P)',
+        'P ↔ Q (P se e somente se Q)',
+        '¬P → ¬Q (se não P então não Q)',
+        'P ∧ Q (P e Q)'
+      ],
+      answer:1,
+      explanation:'"P é condição NECESSÁRIA para Q" significa que sem P, Q não ocorre → Q só pode ser V se P for V → se Q então P → Q → P. Confirme: condição necessária para X ter "asas" é ser um "ser vivo" — não garantida (nem todo ser vivo tem asas), mas necessária (sem ser vivo, não tem asas). Condição SUFICIENTE seria P → Q (P garante Q).'
+    },
+    {
+      question:'A negação de "Todos os analistas conhecem Python" (∀x P(x)) é:',
+      options:[
+        'Nenhum analista conhece Python. (∀x ¬P(x))',
+        'Algum analista não conhece Python. (∃x ¬P(x))',
+        'A maioria dos analistas não conhece Python.',
+        'Todos os analistas desconhecem Python.',
+        'Algum analista conhece Python. (∃x P(x))'
+      ],
+      answer:1,
+      explanation:'¬(∀x P(x)) = ∃x ¬P(x). Negar "para todo x, P(x)" = "existe ao menos um x tal que ¬P(x)". "Todos os analistas conhecem Python" → negação: "Existe pelo menos um analista que NÃO conhece Python." Basta um contra-exemplo para falsificar uma afirmação universal. De Morgan generalizado: ¬∀ = ∃¬; ¬∃ = ∀¬.'
+    },
+  ],'argumentos_simulado');
+});
+</script>
+</body>
+</html>

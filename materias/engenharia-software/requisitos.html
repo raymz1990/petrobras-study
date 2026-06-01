@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Requisitos de Software | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Engenharia de Software</a><span class="sep">›</span>
+      <span>Levantamento e Análise de Requisitos</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">📋 Bloco II · 2.1</div>
+        <h1 class="mb-8">Requisitos de <span class="gradient-text">Software</span></h1>
+        <p>Levantamento, análise e gerenciamento de requisitos. Técnicas de elicitação, classificação, histórias de usuário, rastreabilidade e gestão de mudanças.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~45 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Requisitos</h4></div>
+      <ul>
+        <li>RF vs RNF — a banca dá exemplos e pede classificação correta</li>
+        <li>Técnicas de elicitação: entrevista, JAD, observação, prototipação</li>
+        <li>Critério INVEST para histórias de usuário</li>
+        <li>Rastreabilidade: forward (requisito → implementação) e backward (implementação → requisito)</li>
+        <li>Baseline de requisitos: versão aprovada que só muda via processo formal</li>
+      </ul>
+    </div>
+
+    <div class="content-layout">
+      <div>
+        <div class="tabs tab-group animate-fade-up delay-2">
+          <button class="tab-btn active" data-tab="classificacao">📋 Classificação</button>
+          <button class="tab-btn" data-tab="tecnicas">🔍 Técnicas</button>
+          <button class="tab-btn" data-tab="historias">📖 User Stories</button>
+          <button class="tab-btn" data-tab="gestao">⚙️ Gestão</button>
+          <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+        </div>
+
+        <!-- Classificação -->
+        <div class="tab-panel active" data-tab="classificacao">
+          <div class="content-section animate-fade-up">
+            <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">📋</div>Classificação de Requisitos</h2>
+
+            <h3>Hierarquia de Requisitos</h3>
+            <div class="step-flow">
+              <div class="step-item">
+                <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">1</div>
+                <div class="step-content">
+                  <h4>Requisitos de Negócio</h4>
+                  <p>Objetivos estratégicos de alto nível que motivam o projeto. "Reduzir tempo de aprovação de orçamentos em 40%." Definidos pela alta gestão.</p>
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+                <div class="step-content">
+                  <h4>Requisitos de Usuário</h4>
+                  <p>O que os usuários precisam fazer com o sistema. Expressos em linguagem natural. "Como gerente, quero aprovar orçamentos pelo celular."</p>
+                </div>
+              </div>
+              <div class="step-item">
+                <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">3</div>
+                <div class="step-content">
+                  <h4>Requisitos de Sistema</h4>
+                  <p>Especificação detalhada do que o sistema deve fazer (funcionais) e como deve ser (não-funcionais). Base para design e desenvolvimento.</p>
+                </div>
+              </div>
+            </div>
+
+            <h3>Funcionais vs Não-Funcionais</h3>
+            <div class="comparison-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>Tipo</th><th>Define</th><th>Exemplos</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Funcional (RF)</strong></td>
+                    <td>O que o sistema deve FAZER — comportamento, funcionalidades, regras de negócio</td>
+                    <td>Login com CPF, gerar relatório PDF, calcular imposto, enviar e-mail de confirmação</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Não-Funcional (RNF)</strong></td>
+                    <td>Como o sistema deve SER — restrições de qualidade</td>
+                    <td>Resposta < 2s, disponibilidade 99,9%, suportar 1.000 usuários, criptografia AES-256</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Categorias de RNF — ISO 25010</h3>
+            <div class="concept-grid">
+              <div class="concept-card"><div class="emoji">⚡</div><div class="concept-name">Performance</div><div class="concept-desc">Tempo de resposta, throughput, uso de recursos. Ex: "Processar 500 transações/segundo."</div></div>
+              <div class="concept-card"><div class="emoji">🛡️</div><div class="concept-name">Segurança</div><div class="concept-desc">Controle de acesso, criptografia, auditoria. Ex: "Autenticação por MFA para acesso externo."</div></div>
+              <div class="concept-card"><div class="emoji">✅</div><div class="concept-name">Confiabilidade</div><div class="concept-desc">Disponibilidade, tolerância a falhas. Ex: "99,9% uptime = máx. 8,7h downtime/ano."</div></div>
+              <div class="concept-card"><div class="emoji">🔧</div><div class="concept-name">Manutenibilidade</div><div class="concept-desc">Facilidade de modificar, corrigir e evoluir. Ex: "Cobertura de testes ≥ 80%."</div></div>
+              <div class="concept-card"><div class="emoji">📱</div><div class="concept-name">Portabilidade</div><div class="concept-desc">Capacidade de operar em diferentes ambientes. Ex: "Funcionar em Chrome, Firefox e Safari."</div></div>
+              <div class="concept-card"><div class="emoji">😊</div><div class="concept-name">Usabilidade</div><div class="concept-desc">Facilidade de uso. Ex: "Usuário completar tarefa em menos de 3 cliques."</div></div>
+            </div>
+
+            <div class="highlight-box warn">
+              <div class="hb-title">⚠️ Pegadinha — RNF com verbo de ação</div>
+              "O sistema deve <strong>criptografar</strong> senhas com AES-256" parece RF (tem verbo de ação) mas é <strong>RNF de segurança</strong>. O critério é: define uma funcionalidade de negócio (RF) ou uma restrição de qualidade/como deve ser implementado (RNF)?
+            </div>
+          </div>
+        </div>
+
+        <!-- Técnicas -->
+        <div class="tab-panel" data-tab="tecnicas">
+          <div class="content-section animate-fade-up">
+            <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">🔍</div>Técnicas de Elicitação</h2>
+
+            <div class="comparison-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>Técnica</th><th>Descrição</th><th>Melhor para</th><th>Limitação</th></tr></thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Entrevista</strong></td>
+                    <td>Conversa estruturada ou semiestruturada com stakeholders</td>
+                    <td>Requisitos complexos, contexto rico</td>
+                    <td>Demorado, depende de disponibilidade</td>
+                  </tr>
+                  <tr>
+                    <td><strong>JAD / Workshop</strong></td>
+                    <td>Reunião colaborativa com usuários, analistas e devs</td>
+                    <td>Consenso rápido, requisitos conflitantes</td>
+                    <td>Requer facilitador experiente</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Questionário</strong></td>
+                    <td>Perguntas padronizadas enviadas a muitos usuários</td>
+                    <td>Grande número de usuários dispersos</td>
+                    <td>Respostas superficiais, sem diálogo</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Observação / Etnografia</strong></td>
+                    <td>Analista observa usuário trabalhando in loco</td>
+                    <td>Requisitos implícitos não verbalizados</td>
+                    <td>Usuário muda comportamento ao ser observado</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Análise de Documentos</strong></td>
+                    <td>Estuda documentos, formulários, sistemas existentes</td>
+                    <td>Sistemas legados, regras de negócio documentadas</td>
+                    <td>Documentação pode estar desatualizada</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Prototipação</strong></td>
+                    <td>Cria protótipo para elicitar feedback concreto</td>
+                    <td>Usuários com dificuldade de verbalizar necessidades</td>
+                    <td>Pode criar expectativas irreais de prazo</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Brainstorming</strong></td>
+                    <td>Geração livre de ideias em grupo, sem julgamento</td>
+                    <td>Fase inicial, levantamento amplo</td>
+                    <td>Pode gerar requisitos inviáveis</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="highlight-box info">
+              <div class="hb-title">💡 JAD — Joint Application Design</div>
+              Técnica de workshop facilitado onde usuários, analistas e desenvolvedores colaboram intensivamente para definir requisitos. Mais eficiente que entrevistas individuais sequenciais. O facilitador (analista neutro) guia a sessão; um escriba registra. Muito cobrada pela Cesgranrio pelo nome e propósito.
+            </div>
+          </div>
+        </div>
+
+        <!-- Histórias -->
+        <div class="tab-panel" data-tab="historias">
+          <div class="content-section animate-fade-up">
+            <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">📖</div>Histórias de Usuário</h2>
+
+            <div class="highlight-box gold">
+              <div class="hb-title">⭐ Formato Padrão</div>
+              <strong>Como</strong> [tipo de usuário / persona],<br>
+              <strong>Quero</strong> [objetivo / funcionalidade],<br>
+              <strong>Para que</strong> [benefício / valor de negócio].<br><br>
+              Exemplo: "Como <strong>analista financeiro da Petrobras</strong>, quero <strong>visualizar o custo de produção por plataforma em tempo real</strong>, para que <strong>possa identificar desvios orçamentários antes do fechamento mensal</strong>."
+            </div>
+
+            <h3>Critério INVEST</h3>
+            <div class="comparison-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>Letra</th><th>Critério</th><th>O que significa</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>I</strong></td><td>Independent</td><td>Independente de outras histórias — pode ser desenvolvida em qualquer ordem</td></tr>
+                  <tr><td><strong>N</strong></td><td>Negotiable</td><td>Negociável — detalhes são discutidos entre PO e Dev Team, não são contratos rígidos</td></tr>
+                  <tr><td><strong>V</strong></td><td>Valuable</td><td>Valiosa — entrega valor perceptível ao usuário ou negócio</td></tr>
+                  <tr><td><strong>E</strong></td><td>Estimable</td><td>Estimável — o Dev Team consegue estimar o esforço de implementação</td></tr>
+                  <tr><td><strong>S</strong></td><td>Small</td><td>Pequena — cabe em uma Sprint; se não couber, deve ser dividida (Epic → Histórias)</td></tr>
+                  <tr><td><strong>T</strong></td><td>Testable</td><td>Testável — possui critérios de aceitação claros para verificar quando está "pronta"</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Critérios de Aceitação</h3>
+            <p>Condições específicas que devem ser satisfeitas para que a história seja considerada concluída. Escritos como cenários (Given/When/Then) ou lista de comportamentos esperados.</p>
+            <div class="code-block"><span class="code-lang">Formato Gherkin (BDD)</span><pre>Dado que o analista está logado no sistema
+E está na tela de relatórios de produção
+Quando selecionar a plataforma P-76 e o período "Janeiro 2024"
+Então o sistema deve exibir o custo total em menos de 3 segundos
+E o valor deve corresponder ao registrado no ERP
+E deve haver opção de exportar em PDF e Excel</pre></div>
+
+            <h3>Épicos, Features e Histórias</h3>
+            <div class="step-flow">
+              <div class="step-item">
+                <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">1</div>
+                <div class="step-content"><h4>Épico</h4><p>Grande iniciativa que não cabe em uma Sprint. Ex: "Módulo de Gestão de Produção". Deve ser dividido em features e histórias.</p></div>
+              </div>
+              <div class="step-item">
+                <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+                <div class="step-content"><h4>Feature</h4><p>Funcionalidade significativa dentro do épico. Ex: "Dashboard de Custos por Plataforma". Pode ser dividida em histórias.</p></div>
+              </div>
+              <div class="step-item">
+                <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">3</div>
+                <div class="step-content"><h4>História de Usuário</h4><p>Unidade de trabalho que cabe em uma Sprint. Ex: "Como analista, quero visualizar custo por plataforma..." Testável e entregável.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gestão -->
+        <div class="tab-panel" data-tab="gestao">
+          <div class="content-section animate-fade-up">
+            <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">⚙️</div>Gerenciamento de Requisitos</h2>
+
+            <h3>Rastreabilidade de Requisitos</h3>
+            <p>Rastreabilidade é a capacidade de acompanhar a vida de um requisito — de onde veio, como foi implementado e onde foi testado.</p>
+            <div class="comparison-wrap">
+              <table class="comparison-table">
+                <thead><tr><th>Direção</th><th>O que rastreia</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Forward (para frente)</strong></td><td>Requisito → Design → Código → Teste — garante que tudo foi implementado</td></tr>
+                  <tr><td><strong>Backward (para trás)</strong></td><td>Teste → Código → Design → Requisito — garante que nada foi implementado sem requisito</td></tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3>Baseline de Requisitos</h3>
+            <div class="highlight-box info">
+              <div class="hb-title">💡 O que é Baseline</div>
+              Baseline é a versão aprovada e congelada do documento de requisitos em um determinado momento. Serve como referência para controle de mudanças. Qualquer alteração após a baseline deve passar pelo <strong>processo formal de controle de mudanças</strong> (change request, análise de impacto, aprovação). Evita o "scope creep" (expansão descontrolada do escopo).
+            </div>
+
+            <h3>Processo de Gerenciamento de Requisitos</h3>
+            <div class="step-flow">
+              <div class="step-item">
+                <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+                <div class="step-content"><h4>Elicitação</h4><p>Levantar requisitos junto aos stakeholders usando técnicas adequadas.</p></div>
+              </div>
+              <div class="step-item">
+                <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+                <div class="step-content"><h4>Análise</h4><p>Classificar, priorizar, identificar conflitos e verificar completude e consistência.</p></div>
+              </div>
+              <div class="step-item">
+                <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">3</div>
+                <div class="step-content"><h4>Especificação</h4><p>Documentar formalmente em ERS (Especificação de Requisitos de Software) ou backlog.</p></div>
+              </div>
+              <div class="step-item">
+                <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">4</div>
+                <div class="step-content"><h4>Validação</h4><p>Confirmar com stakeholders que os requisitos documentados refletem as necessidades reais.</p></div>
+              </div>
+              <div class="step-item">
+                <div class="step-num" style="background:rgba(239,68,68,0.15);color:var(--red)">5</div>
+                <div class="step-content"><h4>Gerenciamento de Mudanças</h4><p>Controlar alterações via processo formal — análise de impacto, aprovação e rastreabilidade.</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulado -->
+        <div class="tab-panel" data-tab="simulado">
+          <div class="animate-fade-up">
+            <div class="section-header mb-16">
+              <div class="section-title"><span class="accent-dot"></span> Simulado — Requisitos de Software</div>
+              <span class="badge badge-purple">8 questões · Estilo Cesgranrio</span>
+            </div>
+            <div id="quiz-req"></div>
+          </div>
+        </div>
+
+      </div><!-- /main -->
+
+      <!-- Sticky sidebar -->
+      <div class="content-sticky-sidebar">
+        <div class="toc-card">
+          <div class="toc-title">Nesta Página</div>
+          <ul class="toc-list">
+            <li><a href="#">📋 Classificação (RF vs RNF)</a></li>
+            <li><a href="#">🔍 Técnicas de Elicitação</a></li>
+            <li><a href="#">📖 User Stories & INVEST</a></li>
+            <li><a href="#">⚙️ Gestão de Requisitos</a></li>
+          </ul>
+        </div>
+        <div class="card animate-fade-up">
+          <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+          <div id="checklist-req"></div>
+        </div>
+      </div>
+    </div><!-- /content-layout -->
+
+    <div class="topic-nav animate-fade-up">
+      <a href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Voltar</div><div>Engenharia de Software</div></div>
+      </a>
+      <a href="testes.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>Testes & Qualidade</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-req','req',[
+    'Sei os 3 níveis de requisitos (negócio, usuário, sistema)',
+    'Consigo classificar RF vs RNF dado um exemplo',
+    'Conheço as categorias de RNF da ISO 25010',
+    'Domino as técnicas de elicitação e quando usar cada uma',
+    'Entendo o formato de história de usuário (Como/Quero/Para que)',
+    'Sei o critério INVEST e o que cada letra significa',
+    'Sei escrever critérios de aceitação em Gherkin (Given/When/Then)',
+    'Entendo rastreabilidade forward e backward',
+    'Sei o que é baseline de requisitos e controle de mudanças',
+  ]);
+
+  DC.Quiz.render('quiz-req',[
+    { question:'"O sistema deve responder a qualquer consulta em menos de 2 segundos para até 1.000 usuários simultâneos." Esse é um requisito:',
+      options:['Funcional — descreve uma funcionalidade do sistema.','Não-Funcional de Performance — define restrições de tempo e carga.','Funcional — usa o verbo "deve".','Não-Funcional de Segurança — envolve controle de acesso.','De Negócio — define objetivos estratégicos.'],
+      answer:1, explanation:'RNF de Performance: define restrições de qualidade (tempo de resposta < 2s, capacidade 1.000 usuários). Não descreve uma funcionalidade de negócio (o que o sistema faz), mas como ele deve se comportar sob determinada carga. O uso do verbo "deve" não determina a classificação — o critério é: funcionalidade de negócio (RF) vs restrição de qualidade (RNF).' },
+    { question:'A técnica de elicitação de requisitos que envolve o analista observando o usuário trabalhando em seu ambiente natural, sem interferir, é chamada de:',
+      options:['Entrevista estruturada','JAD (Joint Application Design)','Etnografia / Observação','Questionário','Brainstorming'],
+      answer:2, explanation:'Etnografia/Observação: analista observa o usuário in loco, no ambiente real de trabalho. Revela requisitos IMPLÍCITOS que os usuários não sabem verbalizar ("always-on" knowledge). Limitação: usuário pode mudar comportamento ao ser observado (efeito observador). JAD é workshop colaborativo. Entrevista é conversa estruturada. Questionário é formulário.' },
+    { question:'Sobre o critério INVEST para histórias de usuário, qual afirmativa está CORRETA?',
+      options:[
+        '"I" (Independent) significa que a história deve ser implementada isoladamente, sem integração com outras.',
+        '"S" (Small) significa que a história deve ter menos de 100 linhas de código.',
+        '"T" (Testable) significa que a história possui critérios de aceitação claros que permitem verificar quando está concluída.',
+        '"V" (Valuable) significa que o valor é medido apenas em termos financeiros.',
+        '"E" (Estimable) significa que o custo financeiro deve ser estimado pelo PO.'
+      ], answer:2, explanation:'T (Testable): história testável possui critérios de aceitação concretos — condições verificáveis de conclusão. Sem testabilidade, não há como saber se a história foi implementada corretamente. I (Independent): pode ser desenvolvida em qualquer ordem relativa às demais. S (Small): cabe em uma Sprint, não número de linhas. V (Valuable): valor ao usuário/negócio. E (Estimable): equipe consegue estimar esforço.' },
+    { question:'Em gerenciamento de requisitos, a RASTREABILIDADE FORWARD (para frente) consiste em:',
+      options:[
+        'Identificar a origem de cada requisito nos documentos de negócio.',
+        'Garantir que cada requisito foi implementado no código e coberto por testes.',
+        'Rastrear mudanças retroativas nos requisitos aprovados.',
+        'Identificar quais requisitos foram rejeitados durante a priorização.',
+        'Mapear dependências entre requisitos para identificar conflitos.'
+      ], answer:1, explanation:'Rastreabilidade Forward (requisito → implementação → teste): garante que TUDO que foi especificado foi implementado e testado. Rastreabilidade Backward (teste → código → requisito): garante que NADA foi implementado sem um requisito que o justifique (evita gold plating). Ambas juntas formam a matriz de rastreabilidade completa.' },
+    { question:'Uma história de usuário que engloba diversas funcionalidades e não pode ser concluída em uma única Sprint é chamada de:',
+      options:['Feature','Spike','Épico','Task','Bug'],
+      answer:2, explanation:'Épico: grande iniciativa que agrupa funcionalidades relacionadas, muito grande para uma Sprint — deve ser decomposto em Features e depois em Histórias de Usuário. Feature: funcionalidade significativa dentro do épico. Spike: história de pesquisa/exploração técnica para reduzir incerteza. Task: sub-tarefa técnica de uma história. Bug: defeito a corrigir.' },
+    { question:'O JAD (Joint Application Design) diferencia-se da entrevista porque:',
+      options:[
+        'O JAD é realizado apenas com a equipe técnica, sem usuários.',
+        'O JAD é um workshop colaborativo com múltiplos stakeholders simultaneamente, buscando consenso mais rápido do que entrevistas individuais sequenciais.',
+        'A entrevista é mais eficiente para resolver conflitos entre requisitos.',
+        'O JAD não produz documentação formal de requisitos.',
+        'A entrevista envolve mais participantes que o JAD.'
+      ], answer:1, explanation:'JAD: workshop facilitado com usuários, analistas, desenvolvedores e demais stakeholders ao mesmo tempo. Vantagem sobre entrevistas individuais: decisões e consenso são alcançados em uma única sessão, conflitos são resolvidos imediatamente, evita o ciclo de entrevista → revisão → nova entrevista. Requer facilitador experiente e ambiente adequado.' },
+    { question:'A BASELINE de requisitos é:',
+      options:[
+        'O primeiro rascunho de requisitos criado na fase de elicitação.',
+        'A lista de requisitos prioritários que serão implementados na primeira Sprint.',
+        'A versão aprovada e congelada do documento de requisitos, usada como referência para controle de mudanças.',
+        'Um template padronizado para documentar requisitos funcionais.',
+        'A lista de requisitos que foram rejeitados pelos stakeholders.'
+      ], answer:2, explanation:'Baseline é a versão APROVADA e CONGELADA dos requisitos em um determinado momento — serve como referência formal. Qualquer mudança após a baseline exige processo formal: solicitação de mudança (change request), análise de impacto (custo, prazo, escopo), aprovação pelo comitê e atualização da baseline. Previne scope creep e mantém controle do projeto.' },
+    { question:'Qual afirmativa sobre requisitos não-funcionais está CORRETA?',
+      options:[
+        'RNFs são menos importantes que RFs e geralmente documentados ao final.',
+        'RNFs descrevem funcionalidades específicas do negócio como login e relatórios.',
+        'RNFs definem restrições de qualidade (performance, segurança, usabilidade) e afetam toda a arquitetura do sistema.',
+        'RNFs só existem em projetos de grande porte.',
+        'RNFs são sempre mensuráveis com métricas numéricas.'
+      ], answer:2, explanation:'RNFs definem restrições de qualidade e têm impacto arquitetural significativo — decisões de tecnologia, infraestrutura e design são guiadas pelos RNFs. Ex: requisito de 99,9% de disponibilidade implica redundância, load balancer, failover. Ignorar RNFs na fase inicial é causa frequente de retrabalho caro. Nem todo RNF é numérico (ex: "interface deve seguir o design system corporativo").' },
+  ],'req_simulado');
+});
+</script>
+</body>
+</html>

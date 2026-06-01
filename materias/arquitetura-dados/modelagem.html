@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modelagem de Dados | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Arquitetura de Dados</a><span class="sep">›</span>
+      <span>Modelagem de Dados</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">📐 Bloco I · 1.1 – 1.8</div>
+        <h1 class="mb-8">Modelagem <span class="gradient-text">de Dados</span></h1>
+        <p>Modelagem conceitual, lógica e física, abordagem relacional, normalização (1FN a BCNF), integridade referencial, metadados e engenharia reversa.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~60 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Modelagem</h4></div>
+      <ul>
+        <li>Normalização: identificar qual FN está sendo violada dado um exemplo de tabela</li>
+        <li>Diferença entre modelo conceitual (DER), lógico (tabelas relacionais) e físico (SQL/SGBD)</li>
+        <li>Cardinalidade: 1:1, 1:N, N:M e como implementar N:M com tabela associativa</li>
+        <li>3FN vs BCNF — BCNF é mais restritiva; toda relação BCNF está em 3FN mas não vice-versa</li>
+        <li>Engenharia reversa: gerar modelo a partir de um banco existente</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="niveis">📊 Níveis de Modelagem</button>
+      <button class="tab-btn" data-tab="relacional">🔗 Modelo Relacional</button>
+      <button class="tab-btn" data-tab="normalizacao">📐 Normalização</button>
+      <button class="tab-btn" data-tab="dimensional">⭐ Dimensional</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- Níveis -->
+    <div class="tab-panel active" data-tab="niveis">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">📊</div>Níveis de Modelagem</h2>
+
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content">
+              <h4>Modelo Conceitual — O QUÊ existe</h4>
+              <p>Representação de alto nível, independente de tecnologia. Foco nas entidades do negócio e seus relacionamentos. Usa <strong>DER (Diagrama Entidade-Relacionamento)</strong>.</p>
+              <p><strong>Elementos:</strong> Entidades, Atributos, Relacionamentos, Cardinalidade.</p>
+              <p><strong>Ferramentas:</strong> brModelo, Lucidchart, draw.io.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content">
+              <h4>Modelo Lógico — COMO está organizado</h4>
+              <p>Traduz o conceitual para estruturas relacionais (tabelas, colunas, chaves), ainda independente do SGBD específico. Define tipos genéricos e constraints.</p>
+              <p><strong>Elementos:</strong> Tabelas, Colunas, PK, FK, Índices lógicos.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">3</div>
+            <div class="step-content">
+              <h4>Modelo Físico — ONDE e COMO implementar</h4>
+              <p>Específico para um SGBD (Oracle, PostgreSQL, MySQL). Define tipos de dados precisos, particionamento, tablespaces, índices físicos e otimizações de performance.</p>
+              <p><strong>Elementos:</strong> CREATE TABLE com tipos específicos, índices, partições, clusters.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Engenharia Reversa</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Engenharia Reversa de Dados</div>
+          Processo de gerar um modelo de dados (conceitual ou lógico) a partir de um banco de dados existente. Útil para documentar sistemas legados sem documentação, migrar entre SGBDs ou refatorar esquemas. Ferramentas: MySQL Workbench, DBeaver, Oracle SQL Developer.
+        </div>
+
+        <h3>Metadados</h3>
+        <p>Metadados são <strong>"dados sobre dados"</strong> — descrevem a estrutura, o conteúdo e o contexto dos dados. Ex: nome da tabela, tipo de coluna, constraint aplicada, última atualização, dono do objeto.</p>
+        <p>No contexto de DW, o <strong>catálogo de metadados</strong> documenta fontes, transformações ETL, significado de cada campo e regras de negócio.</p>
+      </div>
+    </div>
+
+    <!-- Relacional -->
+    <div class="tab-panel" data-tab="relacional">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">🔗</div>Modelo Relacional</h2>
+
+        <h3>Conceitos Fundamentais</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">📋</div><div class="concept-name">Relação (Tabela)</div><div class="concept-desc">Conjunto de tuplas com o mesmo esquema. Sem linhas duplicadas, sem ordenação definida.</div></div>
+          <div class="concept-card"><div class="emoji">➡️</div><div class="concept-name">Tupla (Linha)</div><div class="concept-desc">Um registro da relação. Cada tupla é única — garantida pela chave primária.</div></div>
+          <div class="concept-card"><div class="emoji">⬇️</div><div class="concept-name">Atributo (Coluna)</div><div class="concept-desc">Propriedade de uma entidade. Domínio define os valores permitidos.</div></div>
+          <div class="concept-card"><div class="emoji">🔑</div><div class="concept-name">Chave Primária (PK)</div><div class="concept-desc">Identifica uniquamente cada tupla. Não aceita NULL nem duplicatas.</div></div>
+          <div class="concept-card"><div class="emoji">🔗</div><div class="concept-name">Chave Estrangeira (FK)</div><div class="concept-desc">Referencia PK de outra tabela. Garante integridade referencial.</div></div>
+          <div class="concept-card"><div class="emoji">🎯</div><div class="concept-name">Chave Candidata</div><div class="concept-desc">Atributo(s) que poderia(m) ser PK — único e não-nulo. A PK é escolhida entre as candidatas.</div></div>
+        </div>
+
+        <h3>Cardinalidade dos Relacionamentos</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Cardinalidade</th><th>Exemplo</th><th>Implementação</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1:1</strong></td><td>Funcionário ↔ Cartão de Ponto</td><td>FK em qualquer lado (geralmente no lado "mais fraco")</td></tr>
+              <tr><td><strong>1:N</strong></td><td>Departamento → Funcionários</td><td>FK no lado N (funcionario.depto_id referencia departamento.id)</td></tr>
+              <tr><td><strong>N:M</strong></td><td>Funcionários ↔ Projetos</td><td>Tabela associativa com as duas FKs (funcionario_projeto)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="code-block"><span class="code-lang">SQL — Implementando N:M</span><pre>-- Tabela associativa para N:M
+CREATE TABLE funcionario_projeto (
+    funcionario_id INT REFERENCES funcionarios(id),
+    projeto_id     INT REFERENCES projetos(id),
+    papel          VARCHAR(50),
+    horas_semana   INT,
+    PRIMARY KEY (funcionario_id, projeto_id)  -- PK composta
+);</pre></div>
+
+        <h3>Integridade Referencial</h3>
+        <p>Garante que uma FK sempre aponte para um registro existente na tabela referenciada (ou seja NULL). Violações ocorrem ao:</p>
+        <ul style="color:var(--text-secondary);font-size:0.9rem;padding-left:20px;line-height:1.8">
+          <li>Inserir um registro filho com FK inexistente na tabela pai</li>
+          <li>Deletar um registro pai que ainda tem filhos (sem CASCADE)</li>
+          <li>Atualizar a PK do pai para um valor diferente (sem CASCADE)</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Normalização -->
+    <div class="tab-panel" data-tab="normalizacao">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">📐</div>Normalização</h2>
+
+        <p>Normalização é o processo de organizar atributos e tabelas para <strong>minimizar redundância</strong> e <strong>dependências problemáticas</strong>. Cada Forma Normal (FN) adiciona restrições sobre a anterior.</p>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Progressão das Formas Normais</div>
+          1FN → 2FN → 3FN → BCNF → 4FN → 5FN<br>
+          Cada nível pressupõe que o anterior foi satisfeito.<br>
+          Para a Cesgranrio: domine 1FN, 2FN, 3FN e BCNF.
+        </div>
+
+        <h3>1FN — Primeira Forma Normal</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">Regra</div>
+          Todos os atributos devem ser <strong>atômicos</strong> (indivisíveis) e <strong>monovalorados</strong>. Sem grupos repetidos, sem atributos multivalorados, sem listas em células.
+        </div>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>❌ Viola 1FN</th><th>✅ Satisfaz 1FN</th></tr></thead>
+            <tbody>
+              <tr><td>telefones = "11-9999, 11-8888" (lista)</td><td>Tabela separada: funcionario_telefone(func_id, telefone)</td></tr>
+              <tr><td>endereco = "Rua X, 100, SP" (composto)</td><td>rua, numero, cidade como colunas separadas</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>2FN — Segunda Forma Normal</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">Regra</div>
+          Deve estar em 1FN + todo atributo não-chave deve depender da <strong>chave primária completa</strong> (sem dependências parciais). Relevante apenas quando há chave primária composta.
+        </div>
+        <div class="code-block"><span class="code-lang">Exemplo de violação 2FN</span><pre>-- PK composta: (pedido_id, produto_id)
+Pedido_Produto(pedido_id, produto_id, quantidade, nome_produto)
+--                                                ↑
+-- nome_produto depende apenas de produto_id (dependência PARCIAL)
+-- Viola 2FN!
+
+-- Solução: separar em duas tabelas
+Pedido_Produto(pedido_id, produto_id, quantidade)  -- depende da PK completa
+Produto(produto_id, nome_produto)                  -- nome depende só de produto_id</pre></div>
+
+        <h3>3FN — Terceira Forma Normal</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">Regra</div>
+          Deve estar em 2FN + nenhum atributo não-chave deve depender de outro atributo não-chave (<strong>sem dependências transitivas</strong>).
+        </div>
+        <div class="code-block"><span class="code-lang">Exemplo de violação 3FN</span><pre>-- PK: func_id
+Funcionario(func_id, nome, depto_id, depto_nome)
+--                                   ↑
+-- depto_nome depende de depto_id (não-chave) → transitiva
+-- func_id → depto_id → depto_nome (transitiva!)
+-- Viola 3FN!
+
+-- Solução:
+Funcionario(func_id, nome, depto_id)
+Departamento(depto_id, depto_nome)</pre></div>
+
+        <h3>BCNF — Boyce-Codd Normal Form</h3>
+        <div class="highlight-box info">
+          <div class="hb-title">Regra</div>
+          Para toda dependência funcional X → Y, X deve ser uma <strong>superchave</strong>. BCNF é mais restritiva que 3FN — trata casos de múltiplas chaves candidatas sobrepostas.
+        </div>
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ 3FN vs BCNF — Pegadinha</div>
+          Toda relação em BCNF está em 3FN. Mas uma relação pode estar em 3FN sem estar em BCNF. A diferença ocorre quando há múltiplas chaves candidatas que se sobrepõem em atributos. Para a maioria dos casos práticos, 3FN e BCNF são equivalentes.
+        </div>
+      </div>
+    </div>
+
+    <!-- Dimensional -->
+    <div class="tab-panel" data-tab="dimensional">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">⭐</div>Modelagem Dimensional</h2>
+
+        <p>Usada em Data Warehouses e sistemas analíticos (OLAP). Otimizada para consultas analíticas, não para transações. Desnormalizada para performance de leitura.</p>
+
+        <h3>Tabela Fato vs Dimensão</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>Tabela Fato</th><th>Tabela Dimensão</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Conteúdo</strong></td><td>Métricas numéricas (o QUÊ medir)</td><td>Atributos descritivos (contexto de análise)</td></tr>
+              <tr><td><strong>Exemplos</strong></td><td>valor_venda, qtd_itens, custo</td><td>nome_produto, cidade, data, nome_cliente</td></tr>
+              <tr><td><strong>Cardinalidade</strong></td><td>Muitas linhas (granular)</td><td>Poucas linhas (relativamente)</td></tr>
+              <tr><td><strong>Chaves</strong></td><td>Surrogate key + FKs para dimensões</td><td>Surrogate key (PK artificial) + atributos</td></tr>
+              <tr><td><strong>Normalização</strong></td><td>Desnormalizada</td><td>Desnormalizada (estrela) ou normalizada (floco)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Star Schema vs Snowflake</h3>
+        <div class="code-block"><span class="code-lang">Star Schema — Estrutura</span><pre>-- Tabela FATO no centro
+fato_vendas:
+  venda_id    (PK/surrogate)
+  data_id     (FK → dim_tempo)
+  produto_id  (FK → dim_produto)
+  cliente_id  (FK → dim_cliente)
+  loja_id     (FK → dim_loja)
+  valor_venda  ← MÉTRICA
+  quantidade   ← MÉTRICA
+  desconto     ← MÉTRICA
+
+-- Dimensões desnormalizadas (todas as infos em UMA tabela)
+dim_produto:
+  produto_id, nome, categoria, subcategoria, marca, fornecedor
+
+-- Snowflake: dim_produto seria normalizada
+dim_produto:   produto_id, nome, subcategoria_id
+dim_subcateg:  subcateg_id, nome, categoria_id
+dim_categoria: categoria_id, nome</pre></div>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Star vs Snowflake — Decisão</div>
+          <strong>Star Schema:</strong> dimensões desnormalizadas → menos JOINs → queries mais rápidas → mais espaço.<br>
+          <strong>Snowflake:</strong> dimensões normalizadas → mais JOINs → queries mais lentas → menos espaço.<br>
+          Para DW: geralmente preferido o Star (performance analítica > economia de espaço).
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Modelagem de Dados</div>
+          <span class="badge badge-purple">8 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-modelagem"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-modelagem"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="sql.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>SQL, DDL e DML</div></div>
+      </a>
+      <a href="nosql.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>NoSQL & Big Data</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-modelagem','modelagem',[
+    'Sei os 3 níveis de modelagem (conceitual, lógico, físico)',
+    'Entendo o que é engenharia reversa de dados',
+    'Sei as cardinalidades 1:1, 1:N e N:M e como implementá-las',
+    'Domino os conceitos de PK, FK, chave candidata e superchave',
+    'Sei identificar violações de 1FN (atributos não-atômicos)',
+    'Sei identificar dependências parciais (violação 2FN)',
+    'Sei identificar dependências transitivas (violação 3FN)',
+    'Entendo a diferença entre 3FN e BCNF',
+    'Sei a diferença entre tabela fato e dimensão',
+    'Entendo Star Schema vs Snowflake Schema',
+  ]);
+
+  DC.Quiz.render('quiz-modelagem',[
+    { question:'A tabela Pedido(pedido_id, produto_id, quantidade, nome_produto) tem chave primária composta (pedido_id, produto_id). nome_produto depende apenas de produto_id. Qual forma normal é violada?',
+      options:['1FN — atributo não-atômico','2FN — dependência parcial da chave composta','3FN — dependência transitiva','BCNF — dependência de não-superchave','Nenhuma — está em BCNF'],
+      answer:1, explanation:'2FN exige que todo atributo não-chave dependa da chave primária COMPLETA. Como a PK é composta (pedido_id, produto_id) e nome_produto depende apenas de produto_id (parte da PK), há uma dependência PARCIAL — violação da 2FN. Solução: separar em Produto(produto_id, nome_produto) e Pedido_Produto(pedido_id, produto_id, quantidade).' },
+    { question:'Na tabela Funcionario(func_id, nome, depto_id, depto_nome), func_id é PK. Qual forma normal é violada?',
+      options:['1FN','2FN','3FN — dependência transitiva: func_id→depto_id→depto_nome','BCNF','Está normalizada'],
+      answer:2, explanation:'3FN proíbe dependências transitivas: atributo não-chave dependendo de outro atributo não-chave. depto_nome depende de depto_id (não-chave), e depto_id depende de func_id (PK) — cadeia transitiva. Solução: Funcionario(func_id, nome, depto_id) e Departamento(depto_id, depto_nome). A 2FN está ok pois a PK é simples (sem composição).' },
+    { question:'Em um modelo dimensional, a tabela FATO é caracterizada por:',
+      options:[
+        'Atributos descritivos como nome, cidade, categoria.',
+        'Métricas numéricas mensuráveis e chaves estrangeiras para as dimensões.',
+        'Dados normalizados em 3FN para eficiência de armazenamento.',
+        'Poucas linhas com informações de contexto analítico.',
+        'Chave primária composta pelos nomes dos atributos de negócio.'
+      ], answer:1, explanation:'Tabela Fato: contém MÉTRICAS numéricas (valor_venda, quantidade, desconto, custo) e as FKs que apontam para as tabelas de dimensão. Alta cardinalidade (muitas linhas). Tabelas de Dimensão contêm atributos descritivos (nome, cidade, categoria — contexto da análise). A desnormalização das dimensões é característica do Star Schema.' },
+    { question:'A diferença entre Star Schema e Snowflake Schema é:',
+      options:[
+        'Star usa tabela fato; Snowflake não usa tabela fato.',
+        'No Star, as dimensões são desnormalizadas (tabela única); no Snowflake, as dimensões são normalizadas em sub-dimensões.',
+        'Snowflake tem melhor performance de leitura que Star.',
+        'Star é usado apenas em MySQL; Snowflake em Oracle.',
+        'Não há diferença estrutural — apenas de nomenclatura.'
+      ], answer:1, explanation:'Star Schema: dimensão em uma única tabela desnormalizada (mais JOINs simples, maior performance de leitura, mais espaço). Snowflake: dimensões normalizadas em hierarquia de tabelas (mais JOINs complexos, menor espaço, pior performance). Para DW analítico, Star é geralmente preferido pela performance de consulta.' },
+    { question:'Qual é a função do modelo CONCEITUAL na modelagem de dados?',
+      options:[
+        'Definir tipos de dados específicos do SGBD (VARCHAR, INT, DATE).',
+        'Representar entidades de negócio e relacionamentos em alto nível, independente de tecnologia.',
+        'Especificar índices e partições para otimização de performance.',
+        'Gerar o código DDL (CREATE TABLE) para implementação.',
+        'Definir o número de bytes de cada coluna para otimização de armazenamento.'
+      ], answer:1, explanation:'Modelo Conceitual: representa o domínio do negócio em alto nível — entidades, atributos e relacionamentos — sem preocupação com tecnologia ou SGBD. Usa DER (Diagrama ER). Fala a "linguagem do negócio". Modelo Lógico: traduz para tabelas/colunas/chaves (independente de SGBD). Modelo Físico: implementação específica (tipos SQL, índices, partições).' },
+    { question:'Metadados, no contexto de banco de dados, são:',
+      options:[
+        'Dados de negócio armazenados nas tabelas transacionais.',
+        'Dados sobre dados — descrevem estrutura, tipo, constraints e contexto dos dados.',
+        'Dados duplicados mantidos para redundância e disponibilidade.',
+        'Dados criptografados para proteção de informações sensíveis.',
+        'Dados históricos armazenados no Data Warehouse para análise.'
+      ], answer:1, explanation:'Metadados = "dados sobre dados". Incluem: nome da tabela/coluna, tipo de dado, constraint, comentários, owner, data de criação/modificação. No DW, o catálogo de metadados documenta fontes, transformações ETL, regras de negócio e linhagem dos dados. O dictionary/catalog do SGBD (ex: INFORMATION_SCHEMA) é o repositório de metadados técnicos.' },
+    { question:'Para implementar um relacionamento N:M entre Funcionários e Projetos, a abordagem correta é:',
+      options:[
+        'Adicionar uma coluna "projetos" na tabela Funcionarios com os IDs separados por vírgula.',
+        'Criar uma tabela associativa (ex: Funcionario_Projeto) com FKs para ambas as tabelas.',
+        'Criar uma FK em Funcionarios apontando para Projetos.',
+        'Criar uma FK em Projetos apontando para Funcionarios.',
+        'Usar herança de tabelas para modelar o relacionamento.'
+      ], answer:1, explanation:'N:M exige tabela associativa (junction table / tabela de junção): Funcionario_Projeto(funcionario_id FK, projeto_id FK, papel, horas). A PK pode ser composta pelas duas FKs. Armazenar IDs separados por vírgula (opção A) viola a 1FN (atributo multivalorado). Uma única FK (opções C e D) só representa 1:N, não N:M.' },
+    { question:'Sobre chave candidata e chave primária, assinale a afirmativa CORRETA:',
+      options:[
+        'Uma tabela pode ter apenas uma chave candidata — a que se torna PK.',
+        'A chave primária é sempre uma chave candidata, mas nem toda chave candidata é PK.',
+        'Chave candidata pode aceitar valores NULL, ao contrário da PK.',
+        'A chave primária é sempre composta por múltiplos atributos.',
+        'Chave candidata e superchave são conceitos sinônimos.'
+      ], answer:1, explanation:'Chave candidata: qualquer atributo (ou conjunto) que poderia ser PK — único e não-nulo. Uma tabela pode ter MÚLTIPLAS chaves candidatas (ex: CPF e matrícula em tabela de funcionários). O projetista escolhe UMA para ser a PK. As demais se tornam UNIQUE constraints. Superchave: qualquer conjunto de atributos que identifica uniquamente — pode ter atributos extras desnecessários.' },
+  ],'modelagem_simulado');
+});
+</script>
+</body>
+</html>

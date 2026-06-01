@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ETL & Integração | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Arquitetura de Dados</a><span class="sep">›</span>
+      <span>ETL & Integração</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">🔄 Bloco I · 1.18</div>
+        <h1 class="mb-8">ETL & <span class="gradient-text">Integração de Dados</span></h1>
+        <p>ETL (Extract, Transform, Load), ELT, transferência de arquivos, integração via base de dados e padrões de integração entre sistemas. Fundação do ecossistema de dados analíticos.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~40 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Média incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — ETL</h4></div>
+      <ul>
+        <li>ETL transforma ANTES de carregar; ELT carrega bruto e transforma no destino</li>
+        <li>Área de staging: zona temporária entre fonte e destino no ETL</li>
+        <li>ELT é favorecido em ambientes cloud com grande capacidade computacional</li>
+        <li>Diferença entre integração batch (programada) e real-time (evento/streaming)</li>
+        <li>CDC (Change Data Capture): captura apenas as mudanças, não a tabela inteira</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="etl">🔄 ETL vs ELT</button>
+      <button class="tab-btn" data-tab="fases">📋 Fases do ETL</button>
+      <button class="tab-btn" data-tab="padroes">🔗 Padrões de Integração</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- ETL vs ELT -->
+    <div class="tab-panel active" data-tab="etl">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(14,165,233,0.1)">🔄</div>ETL vs ELT</h2>
+
+        <h3>ETL — Extract, Transform, Load (tradicional)</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">E</div>
+            <div class="step-content">
+              <h4>Extract — Extração</h4>
+              <p>Coleta dados das fontes originais: bancos relacionais, arquivos CSV/XML/JSON, APIs, sistemas legados, ERPs. Os dados são extraídos sem transformação e colocados em uma <strong>área de staging</strong>.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">T</div>
+            <div class="step-content">
+              <h4>Transform — Transformação</h4>
+              <p>Limpeza, padronização, enriquecimento e agregação dos dados na área de staging <strong>antes</strong> de carregar no destino. Inclui: conversão de tipos, remoção de duplicatas, aplicação de regras de negócio, joins entre fontes.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">L</div>
+            <div class="step-content">
+              <h4>Load — Carga</h4>
+              <p>Carrega os dados transformados no destino final (Data Warehouse, Data Mart). Pode ser carga completa (full load) ou incremental (apenas mudanças).</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>ELT — Extract, Load, Transform (moderno)</h3>
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">E</div>
+            <div class="step-content">
+              <h4>Extract — Extração</h4>
+              <p>Idêntico ao ETL — coleta dados das fontes originais.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">L</div>
+            <div class="step-content">
+              <h4>Load — Carga (ANTES da transformação)</h4>
+              <p>Dados são carregados <strong>brutos</strong> diretamente no destino (Data Lake ou DW cloud com alto poder computacional).</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">T</div>
+            <div class="step-content">
+              <h4>Transform — Transformação no destino</h4>
+              <p>A transformação ocorre <strong>dentro</strong> do destino, usando o poder computacional do DW cloud (BigQuery, Redshift, Snowflake). Ferramenta popular: <strong>dbt (data build tool)</strong>.</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>ETL vs ELT — Comparativo</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>ETL</th><th>ELT</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Onde transforma</strong></td><td>Servidor/ferramenta ETL intermediária</td><td>No destino (DW/Data Lake)</td></tr>
+              <tr><td><strong>Dados no destino</strong></td><td>Limpos e transformados</td><td>Brutos (raw) + versão transformada</td></tr>
+              <tr><td><strong>Escalabilidade</strong></td><td>Limitada pelo servidor ETL</td><td>Alta — usa poder do cloud</td></tr>
+              <tr><td><strong>Latência</strong></td><td>Maior (transformação before load)</td><td>Menor (carga rápida, transforma depois)</td></tr>
+              <tr><td><strong>Adequado para</strong></td><td>On-premises, dados sensíveis, DW tradicional</td><td>Cloud, Data Lakes, grandes volumes</td></tr>
+              <tr><td><strong>Ferramentas</strong></td><td>Informatica, SSIS, Talend, Pentaho</td><td>dbt, Fivetran + BigQuery/Redshift/Snowflake</td></tr>
+              <tr><td><strong>Privacidade</strong></td><td>Dados sensíveis não chegam ao DW brutos</td><td>Dados brutos ficam no destino — requer controle de acesso</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ Área de Staging</div>
+          No ETL, a área de staging é uma zona temporária onde os dados extraídos são depositados antes da transformação. Funciona como "buffer" entre as fontes e o DW. Permite reprocessamento em caso de erro sem reextrair das fontes. Pode ser um banco de dados separado, schema específico ou diretório de arquivos.
+        </div>
+      </div>
+    </div>
+
+    <!-- Fases -->
+    <div class="tab-panel" data-tab="fases">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">📋</div>Fases Detalhadas do ETL</h2>
+
+        <h3>Extração — Tipos de Carga</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo</th><th>O que extrai</th><th>Quando usar</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Full Load</strong></td><td>Todos os dados da fonte</td><td>Carga inicial, tabelas pequenas, sem controle de mudanças</td></tr>
+              <tr><td><strong>Incremental</strong></td><td>Apenas dados novos ou alterados desde a última extração</td><td>Tabelas grandes com data de modificação (updated_at)</td></tr>
+              <tr><td><strong>CDC (Change Data Capture)</strong></td><td>Mudanças capturadas do log do banco (insert/update/delete)</td><td>Near real-time, sem impacto na fonte, sem coluna de controle</td></tr>
+              <tr><td><strong>Delta</strong></td><td>Diferença entre snapshot atual e anterior</td><td>Quando não há log de transação nem coluna de controle</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Transformação — Operações Comuns</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🧹</div><div class="concept-name">Limpeza</div><div class="concept-desc">Remover duplicatas, corrigir erros tipográficos, tratar NULLs, padronizar formatos de data e telefone.</div></div>
+          <div class="concept-card"><div class="emoji">🔄</div><div class="concept-name">Padronização</div><div class="concept-desc">Unificar códigos e categorias entre sistemas (ex: "M/F" → "Masculino/Feminino").</div></div>
+          <div class="concept-card"><div class="emoji">🔗</div><div class="concept-name">Enriquecimento</div><div class="concept-desc">Combinar dados de múltiplas fontes para adicionar contexto (ex: adicionar dados geográficos via CEP).</div></div>
+          <div class="concept-card"><div class="emoji">📊</div><div class="concept-name">Agregação</div><div class="concept-desc">Sumarizar dados (ex: vendas diárias → vendas mensais) para tabelas de fato pré-agregadas.</div></div>
+          <div class="concept-card"><div class="emoji">🔑</div><div class="concept-name">Surrogate Keys</div><div class="concept-desc">Gerar chaves substitutas artificiais para as dimensões, independentes das chaves das fontes.</div></div>
+          <div class="concept-card"><div class="emoji">📅</div><div class="concept-name">SCD</div><div class="concept-desc">Slowly Changing Dimensions — tratar mudanças históricas nas dimensões (ex: funcionário mudou de departamento).</div></div>
+        </div>
+
+        <h3>SCD — Slowly Changing Dimensions</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo</th><th>Comportamento</th><th>Histórico?</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Tipo 1</strong></td><td>Sobrescreve o valor antigo — sem histórico</td><td>❌</td></tr>
+              <tr><td><strong>Tipo 2</strong></td><td>Cria novo registro com datas de vigência — preserva histórico completo</td><td>✅ Completo</td></tr>
+              <tr><td><strong>Tipo 3</strong></td><td>Adiciona coluna "valor anterior" — histórico limitado (só 1 mudança)</td><td>⚠️ Parcial</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 SCD Tipo 2 — O mais cobrado</div>
+          Adiciona colunas: <code>data_inicio</code>, <code>data_fim</code>, <code>is_current</code>. Quando o funcionário muda de departamento, o registro atual recebe <code>data_fim</code> e <code>is_current=FALSE</code>, e um novo registro é criado com o novo departamento e <code>is_current=TRUE</code>. Permite análise histórica de "qual era o departamento do funcionário em 2022?"
+        </div>
+      </div>
+    </div>
+
+    <!-- Padrões de Integração -->
+    <div class="tab-panel" data-tab="padroes">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">🔗</div>Padrões de Integração de Dados</h2>
+
+        <h3>Transferência de Arquivos</h3>
+        <p>Forma mais simples de integração. Um sistema gera um arquivo (CSV, XML, JSON, XLSX) e outro sistema o consome. Comunicação assíncrona e desacoplada.</p>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Protocolo/Mecanismo</th><th>Uso típico</th></tr></thead>
+            <tbody>
+              <tr><td><strong>SFTP/FTP</strong></td><td>Transferência segura de arquivos entre sistemas on-premises</td></tr>
+              <tr><td><strong>S3/Object Storage</strong></td><td>Staging em cloud — sistema deposita arquivo, outro consome</td></tr>
+              <tr><td><strong>Email/anexo</strong></td><td>Relatórios e dados para usuários finais (baixa automação)</td></tr>
+              <tr><td><strong>EDI</strong></td><td>Electronic Data Interchange — padrão B2B para NF, pedidos</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Integração via Base de Dados</h3>
+        <p>Um sistema lê diretamente do banco de dados de outro sistema ou de um banco de dados intermediário (banco de integração).</p>
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Problema do acoplamento direto</div>
+          Integração via acesso direto ao banco do sistema A pelo sistema B cria forte acoplamento — qualquer mudança no schema do banco A quebra o sistema B. Solução: usar views, APIs ou banco de integração intermediário.
+        </div>
+
+        <h3>Integração via API (REST/SOAP)</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">🔌</div><div class="concept-name">REST API</div><div class="concept-desc">Padrão moderno. Usa HTTP (GET/POST/PUT/DELETE), JSON. Stateless. Amplamente adotado em microserviços.</div></div>
+          <div class="concept-card"><div class="emoji">📜</div><div class="concept-name">SOAP</div><div class="concept-desc">Protocolo mais antigo. Usa XML e WSDL. Ainda presente em sistemas legados e integrações bancárias.</div></div>
+          <div class="concept-card"><div class="emoji">📨</div><div class="concept-name">Mensageria</div><div class="concept-desc">Message Broker (RabbitMQ, Kafka, SQS). Desacopla produtores e consumidores. Resiliente a falhas.</div></div>
+          <div class="concept-card"><div class="emoji">🔔</div><div class="concept-name">Webhooks</div><div class="concept-desc">Sistema A notifica sistema B via HTTP POST quando evento ocorre. Integração event-driven em tempo real.</div></div>
+        </div>
+
+        <h3>Integração Batch vs Real-Time</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>Batch</th><th>Real-Time / Near Real-Time</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Quando</strong></td><td>Horário fixo (ex: todo dia às 2h)</td><td>Imediatamente após evento</td></tr>
+              <tr><td><strong>Volume</strong></td><td>Grande volume por ciclo</td><td>Pequeno volume contínuo</td></tr>
+              <tr><td><strong>Complexidade</strong></td><td>Menor</td><td>Maior (streaming, tolerância a falhas)</td></tr>
+              <tr><td><strong>Latência</strong></td><td>Horas a dias</td><td>Segundos a milissegundos</td></tr>
+              <tr><td><strong>Ferramentas</strong></td><td>Cron + scripts, SSIS, Talend</td><td>Kafka, Spark Streaming, Debezium (CDC)</td></tr>
+              <tr><td><strong>Caso Petrobras</strong></td><td>Carga noturna do ERP para DW</td><td>Monitoramento de sensores de plataforma</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — ETL & Integração</div>
+          <span class="badge badge-teal">8 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-etl"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-etl"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="nosql.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>NoSQL & Big Data</div></div>
+      </a>
+      <a href="../projetos/index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>Gestão de Projetos</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-etl','etl',[
+    'Sei as 3 fases do ETL (Extract, Transform, Load)',
+    'Entendo a diferença entre ETL e ELT',
+    'Sei o papel da área de staging no ETL',
+    'Conheço Full Load, Incremental e CDC',
+    'Entendo as operações de transformação (limpeza, padronização, agregação)',
+    'Sei os 3 tipos de SCD (Tipo 1, 2 e 3)',
+    'Conheço os padrões de integração (arquivo, API, mensageria)',
+    'Entendo batch vs real-time e quando usar cada um',
+  ]);
+
+  DC.Quiz.render('quiz-etl',[
+    { question:'A principal diferença entre ETL e ELT é:',
+      options:[
+        'ETL é usado em cloud; ELT é usado on-premises.',
+        'No ETL, a transformação ocorre antes da carga no destino; no ELT, os dados são carregados brutos e transformados no destino.',
+        'ELT não realiza transformação de dados — apenas extrai e carrega.',
+        'ETL é mais moderno que ELT.',
+        'Não há diferença técnica — são termos sinônimos.'
+      ], answer:1, explanation:'ETL: Extrai → Transforma (em servidor intermediário/staging) → Carrega no DW limpo. ELT: Extrai → Carrega (dados brutos no destino cloud) → Transforma (usando poder computacional do destino: BigQuery, Redshift, Snowflake). ELT é favorecido quando o destino tem grande capacidade de processamento e armazenar dados brutos é desejável.' },
+    { question:'A área de STAGING no processo ETL tem a função de:',
+      options:[
+        'Armazenar permanentemente os dados transformados para análise.',
+        'Substituir o Data Warehouse em ambientes de baixo custo.',
+        'Servir como zona temporária para dados extraídos das fontes, antes da transformação e carga no destino.',
+        'Executar queries analíticas dos usuários finais.',
+        'Fazer backup automático dos dados do sistema de origem.'
+      ], answer:2, explanation:'A área de staging é uma zona temporária (buffer) onde os dados extraídos das fontes são depositados antes de qualquer transformação. Vantagens: permite reprocessamento sem reextrair das fontes, facilita auditoria e debugging, desacopla a extração da transformação. Pode ser um schema específico num banco, diretório de arquivos ou banco separado.' },
+    { question:'O CDC (Change Data Capture) é uma técnica de extração que:',
+      options:[
+        'Extrai todos os dados da tabela a cada ciclo ETL.',
+        'Captura apenas as mudanças (inserts, updates, deletes) ocorridas desde a última extração, geralmente via log do banco.',
+        'Compara dois snapshots do banco e extrai as diferenças manualmente.',
+        'É exclusiva de bancos NoSQL.',
+        'Requer uma coluna "updated_at" em todas as tabelas monitoradas.'
+      ], answer:1, explanation:'CDC captura mudanças (inserts, updates, deletes) diretamente do log de transações do banco (transaction log / redo log / WAL), sem precisar de coluna de controle na tabela e sem impacto significativo na performance do banco de origem. Ferramenta popular: Debezium (open source). Ideal para integração near real-time e quando não é possível adicionar colunas de controle.' },
+    { question:'No SCD Tipo 2 (Slowly Changing Dimension), quando um funcionário muda de departamento, o que acontece no Data Warehouse?',
+      options:[
+        'O valor antigo é simplesmente sobrescrito pelo novo departamento.',
+        'Uma coluna "depto_anterior" é adicionada para guardar o valor antigo.',
+        'O registro atual é marcado como inativo (data_fim e is_current=FALSE) e um novo registro é criado com o novo departamento.',
+        'O funcionário é removido do DW e reinserido com os novos dados.',
+        'Nenhuma mudança — DW não registra mudanças históricas nas dimensões.'
+      ], answer:2, explanation:'SCD Tipo 2: preserva histórico COMPLETO. O registro antigo recebe data_fim = hoje e is_current = FALSE. Um novo registro é criado com data_inicio = hoje, is_current = TRUE e o novo departamento. Permite responder "qual era o departamento do funcionário em jan/2023?" — consulta o registro vigente naquela data. SCD Tipo 1 sobrescreve (sem histórico). SCD Tipo 3 adiciona coluna (histórico parcial).' },
+    { question:'Qual padrão de integração oferece maior DESACOPLAMENTO entre sistemas?',
+      options:[
+        'Acesso direto ao banco de dados do sistema de origem.',
+        'Transferência de arquivos CSV via FTP.',
+        'Integração via Message Broker (ex: Kafka, RabbitMQ) com comunicação assíncrona.',
+        'Chamada direta a API REST síncrona.',
+        'Compartilhamento de tabelas em banco de dados comum.'
+      ], answer:2, explanation:'Message Broker oferece máximo desacoplamento: o produtor publica mensagem e não precisa saber quem vai consumir; o consumidor processa quando disponível. Comunicação assíncrona e resiliente a falhas — se o consumidor cair, as mensagens ficam na fila. Acesso direto ao banco cria forte acoplamento de schema. API REST síncrona cria dependência de disponibilidade.' },
+    { question:'Uma empresa precisa carregar dados do ERP para o DW diariamente às 2h da manhã, processando os registros inseridos ou alterados no dia anterior. Qual estratégia de extração é mais adequada?',
+      options:[
+        'Full Load — extrai todos os dados do ERP a cada ciclo.',
+        'CDC em tempo real — captura mudanças continuamente via log.',
+        'Incremental com filtro por data — extrai registros com updated_at >= ontem.',
+        'Delta baseado em hash — compara hashes de cada registro.',
+        'Snapshot diário — tira foto de toda a tabela e compara com a anterior.'
+      ], answer:2, explanation:'Extração incremental com filtro por data (updated_at >= data_ultima_carga) é a solução mais simples e eficiente para carga diária: processa apenas o delta do dia, reduz volume transferido e tempo de processamento. Full Load seria ineficiente para tabelas grandes. CDC real-time seria superdimensionado para uma carga noturna batch. Requer que as tabelas tenham coluna de controle de modificação.' },
+    { question:'A integração via SOAP difere da integração via REST porque:',
+      options:[
+        'SOAP usa JSON; REST usa XML.',
+        'REST é mais antigo que SOAP.',
+        'SOAP é um protocolo baseado em XML com contrato WSDL; REST é um estilo arquitetural baseado em HTTP com JSON, mais simples e flexível.',
+        'SOAP é exclusivo para comunicação interna; REST para externa.',
+        'Não há diferença técnica relevante entre os dois.'
+      ], answer:2, explanation:'SOAP (Simple Object Access Protocol): protocolo formal, usa XML para mensagens, define contrato via WSDL, suporta WS-Security, transações e confiabilidade. Mais rígido e verboso. REST (Representational State Transfer): estilo arquitetural, usa HTTP (GET/POST/PUT/DELETE), geralmente JSON, stateless. Mais simples, leve e amplamente adotado em APIs modernas e microserviços.' },
+    { question:'Qual é a vantagem do ELT em relação ao ETL em ambientes de cloud computing?',
+      options:[
+        'ELT elimina a necessidade de transformação de dados.',
+        'ELT aproveita o poder computacional do destino cloud (BigQuery, Redshift) para transformar os dados, escalando elasticamente sem servidor ETL dedicado.',
+        'ELT garante maior privacidade pois os dados brutos nunca chegam ao destino.',
+        'ELT é mais barato em todos os cenários.',
+        'ELT processa dados mais lentamente que ETL, garantindo maior qualidade.'
+      ], answer:1, explanation:'No ELT, os dados brutos chegam ao destino cloud (ex: BigQuery, Snowflake) e a transformação usa o poder computacional elástico da plataforma. Vantagens cloud: escala automática para queries pesadas, pay-per-query, sem servidor ETL para gerenciar, maior flexibilidade (dados brutos disponíveis para reprocessamento). Ferramentas como dbt executam as transformações dentro do DW cloud.' },
+  ],'etl_simulado');
+});
+</script>
+</body>
+</html>

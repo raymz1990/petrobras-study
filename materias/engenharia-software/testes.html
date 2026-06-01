@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testes & Qualidade | DigitalCron Petrobras</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/materia.css">
+</head>
+<body>
+<div class="app-layout">
+  <div id="sidebar-placeholder"></div>
+  <div class="main-content" id="main-content">
+    <div id="navbar-placeholder"></div>
+
+    <div class="breadcrumb animate-fade-up">
+      <a href="../../dashboard.html">Dashboard</a><span class="sep">›</span>
+      <a href="index.html">Engenharia de Software</a><span class="sep">›</span>
+      <span>Testes & Qualidade</span>
+    </div>
+
+    <div class="materia-hero animate-fade-up delay-1">
+      <div class="materia-hero-content">
+        <div class="materia-tag">🧪 Bloco II · 2.4</div>
+        <h1 class="mb-8">Testes & <span class="gradient-text">Qualidade de Software</span></h1>
+        <p>Verificação e validação, níveis de teste, técnicas (caixa-branca, caixa-preta), testes de segurança (SAST/DAST/IAST), TDD, BDD e qualidade de software.</p>
+        <div class="materia-meta">
+          <div class="materia-meta-item"><span>⏱ ~50 min</span></div>
+          <div class="materia-meta-item"><span>🎯 Alta incidência</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cesgranrio-box animate-fade-up delay-2">
+      <div class="cesgranrio-box-header"><span class="crown">👑</span><h4>Destaques Cesgranrio — Testes</h4></div>
+      <ul>
+        <li>Verificação ("construímos certo?") vs Validação ("construímos o certo?") — inversão clássica</li>
+        <li>Ordem dos níveis: Unitário → Integração → Sistema → Aceitação</li>
+        <li>Caixa-branca = estrutura interna do código; Caixa-preta = especificação (sem ver o código)</li>
+        <li>TDD: escreve o teste ANTES do código; ciclo Red-Green-Refactor</li>
+        <li>SAST = análise estática (sem executar); DAST = análise dinâmica (em execução)</li>
+        <li>Teste de regressão: garante que novas mudanças não quebraram o que funcionava</li>
+      </ul>
+    </div>
+
+    <div class="tabs tab-group animate-fade-up delay-2">
+      <button class="tab-btn active" data-tab="vv">✅ V&V</button>
+      <button class="tab-btn" data-tab="niveis">📊 Níveis</button>
+      <button class="tab-btn" data-tab="tecnicas">🔬 Técnicas</button>
+      <button class="tab-btn" data-tab="tdd">🔄 TDD & BDD</button>
+      <button class="tab-btn" data-tab="simulado">✏️ Simulado</button>
+    </div>
+
+    <!-- V&V -->
+    <div class="tab-panel active" data-tab="vv">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(16,185,129,0.1)">✅</div>Verificação & Validação</h2>
+
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ A Distinção Fundamental (Boehm)</div>
+          <strong>Verificação:</strong> "Estamos construindo o produto CORRETAMENTE?" — conformidade com a especificação técnica. Atividade INTERNA da equipe de desenvolvimento.<br><br>
+          <strong>Validação:</strong> "Estamos construindo o produto CERTO?" — o sistema atende às necessidades REAIS do usuário/cliente. Atividade com o CLIENTE/usuário.
+        </div>
+
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Aspecto</th><th>Verificação</th><th>Validação</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Pergunta</strong></td><td>"Construímos corretamente?"</td><td>"Construímos o certo?"</td></tr>
+              <tr><td><strong>Referência</strong></td><td>Especificação de requisitos</td><td>Necessidades reais do usuário</td></tr>
+              <tr><td><strong>Quem realiza</strong></td><td>Equipe técnica (desenvolvedores, QA)</td><td>Cliente, usuários finais</td></tr>
+              <tr><td><strong>Quando</strong></td><td>Durante todo o desenvolvimento</td><td>Final ou incremental (UAT)</td></tr>
+              <tr><td><strong>Técnicas</strong></td><td>Revisão de código, testes unitários, inspeções</td><td>Teste de aceitação (UAT), demonstrações</td></tr>
+              <tr><td><strong>Objetivo</strong></td><td>Conformidade com a especificação</td><td>Adequação ao uso</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="highlight-box warn">
+          <div class="hb-title">⚠️ Como memorizar sem errar</div>
+          <strong>Veri</strong>ficação → <strong>Veri</strong>ficar a spec (especificação = interno, técnico)<br>
+          <strong>Vali</strong>dação → <strong>Vali</strong>dar com o cliente (usuário = externo, negócio)<br><br>
+          Dica alternativa: Validação tem "usuário" na resposta correta. Se a alternativa mencionar "cliente" ou "usuário final", provavelmente é Validação.
+        </div>
+
+        <h3>Teste Estático vs Dinâmico</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo</th><th>O software é executado?</th><th>Exemplos</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Estático</strong></td><td>❌ Não</td><td>Revisão de código, inspeção, walkthrough, análise estática (SAST), revisão de requisitos</td></tr>
+              <tr><td><strong>Dinâmico</strong></td><td>✅ Sim</td><td>Teste unitário, integração, sistema, aceitação, DAST, teste de performance</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Níveis -->
+    <div class="tab-panel" data-tab="niveis">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">📊</div>Níveis de Teste</h2>
+
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(139,92,246,0.15);color:var(--purple-light)">1</div>
+            <div class="step-content">
+              <h4>Teste Unitário (Unit Testing)</h4>
+              <p><strong>O que testa:</strong> Menor unidade testável do código — função, método, classe — em isolamento.<br>
+              <strong>Responsável:</strong> Desenvolvedor (escrito junto com o código).<br>
+              <strong>Isolamento:</strong> Usa mocks/stubs para simular dependências externas.<br>
+              <strong>Ferramentas:</strong> JUnit (Java), pytest (Python), Jest (JavaScript), NUnit (.NET).<br>
+              <strong>Velocidade:</strong> Muito rápido — centenas por segundo.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">2</div>
+            <div class="step-content">
+              <h4>Teste de Integração</h4>
+              <p><strong>O que testa:</strong> Interação entre módulos/componentes/serviços — interfaces e contratos.<br>
+              <strong>Responsável:</strong> Desenvolvedor ou QA.<br>
+              <strong>Detecta:</strong> Problemas de comunicação entre unidades (ex: formato de dados incorreto entre serviços).<br>
+              <strong>Abordagens:</strong> Big Bang (tudo de uma vez), Top-Down, Bottom-Up.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(212,175,55,0.15);color:var(--gold)">3</div>
+            <div class="step-content">
+              <h4>Teste de Sistema</h4>
+              <p><strong>O que testa:</strong> Sistema completo e integrado contra os requisitos especificados.<br>
+              <strong>Responsável:</strong> Time de QA (independente do desenvolvimento).<br>
+              <strong>Inclui:</strong> Testes funcionais + não-funcionais (performance, segurança, usabilidade).<br>
+              <strong>Ambiente:</strong> Staging — réplica de produção.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">4</div>
+            <div class="step-content">
+              <h4>Teste de Aceitação (UAT)</h4>
+              <p><strong>O que testa:</strong> Se o sistema atende aos critérios de aceitação de negócio.<br>
+              <strong>Responsável:</strong> Cliente / Usuários finais.<br>
+              <strong>Última fase</strong> antes do deploy em produção.<br>
+              <strong>Tipos:</strong> Alpha (ambiente controlado do fornecedor), Beta (usuários reais em produção limitada).</p>
+            </div>
+          </div>
+        </div>
+
+        <h3>Outros Tipos Importantes</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Tipo</th><th>Objetivo</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Regressão</strong></td><td>Garante que novas mudanças não quebraram funcionalidades existentes. Automatizado no CI/CD.</td></tr>
+              <tr><td><strong>Fumaça (Smoke Test)</strong></td><td>Teste rápido das funcionalidades críticas após um build — "o sistema sobe?"</td></tr>
+              <tr><td><strong>Performance / Carga</strong></td><td>Verifica comportamento sob carga: tempo de resposta, throughput, limites.</td></tr>
+              <tr><td><strong>Stress</strong></td><td>Leva o sistema além do limite para identificar ponto de falha.</td></tr>
+              <tr><td><strong>Usabilidade</strong></td><td>Avalia facilidade de uso com usuários reais observados.</td></tr>
+              <tr><td><strong>Segurança (Pentest)</strong></td><td>Simula ataques para identificar vulnerabilidades.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Técnicas -->
+    <div class="tab-panel" data-tab="tecnicas">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(212,175,55,0.1)">🔬</div>Técnicas de Teste</h2>
+
+        <h3>Caixa-Branca vs Caixa-Preta vs Caixa-Cinza</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Técnica</th><th>Conhece o código?</th><th>Base dos testes</th><th>Quem usa</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>Caixa-Branca</strong><br>(White-box / Estrutural)</td>
+                <td>✅ Sim — total</td>
+                <td>Estrutura interna: caminhos, condições, instruções, fluxos</td>
+                <td>Desenvolvedor</td>
+              </tr>
+              <tr>
+                <td><strong>Caixa-Preta</strong><br>(Black-box / Funcional)</td>
+                <td>❌ Não</td>
+                <td>Especificação/requisitos — apenas entradas e saídas esperadas</td>
+                <td>QA, usuário</td>
+              </tr>
+              <tr>
+                <td><strong>Caixa-Cinza</strong><br>(Grey-box)</td>
+                <td>⚠️ Parcial</td>
+                <td>Conhecimento parcial da implementação para guiar os testes</td>
+                <td>QA sênior</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>Técnicas de Caixa-Preta</h3>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">📊</div><div class="concept-name">Partição de Equivalência</div><div class="concept-desc">Divide entradas em classes equivalentes. Um teste por classe. Ex: salário válido (0-50k), inválido negativo, inválido acima do limite.</div></div>
+          <div class="concept-card"><div class="emoji">🎯</div><div class="concept-name">Análise de Valor Limite</div><div class="concept-desc">Testa exatamente nos limites (boundary values). Ex: para campo 1-100, testa: 0, 1, 2, 99, 100, 101.</div></div>
+          <div class="concept-card"><div class="emoji">📋</div><div class="concept-name">Tabela de Decisão</div><div class="concept-desc">Mapeia combinações de condições e ações. Garante cobertura de todas as regras de negócio.</div></div>
+          <div class="concept-card"><div class="emoji">🔄</div><div class="concept-name">Transição de Estado</div><div class="concept-desc">Testa mudanças de estado do sistema. Ex: pedido (rascunho → enviado → aprovado → pago).</div></div>
+        </div>
+
+        <h3>SAST, DAST e IAST — Testes de Segurança</h3>
+        <div class="comparison-wrap">
+          <table class="comparison-table">
+            <thead><tr><th>Técnica</th><th>Quando</th><th>Como</th><th>Vantagem principal</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><strong>SAST</strong><br>Static AST</td>
+                <td>Durante desenvolvimento (CI)</td>
+                <td>Analisa código-fonte sem executar — busca padrões de vulnerabilidade</td>
+                <td>Detecta cedo, sem executar, aponta linha do código</td>
+              </tr>
+              <tr>
+                <td><strong>DAST</strong><br>Dynamic AST</td>
+                <td>Após deploy (staging)</td>
+                <td>Testa a aplicação em execução, simulando ataques externos (black-box)</td>
+                <td>Detecta vulnerabilidades reais de runtime, sem acesso ao código</td>
+              </tr>
+              <tr>
+                <td><strong>IAST</strong><br>Interactive AST</td>
+                <td>Durante testes funcionais</td>
+                <td>Agente instrumentado dentro da aplicação em execução monitora em tempo real</td>
+                <td>Precisão de SAST + realismo de DAST, baixo falso-positivo</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TDD & BDD -->
+    <div class="tab-panel" data-tab="tdd">
+      <div class="content-section animate-fade-up">
+        <h2><div class="section-icon" style="background:rgba(139,92,246,0.1)">🔄</div>TDD e BDD</h2>
+
+        <h3>TDD — Test-Driven Development</h3>
+        <div class="highlight-box gold">
+          <div class="hb-title">⭐ TDD — Desenvolvimento Guiado por Testes</div>
+          Escreva o teste ANTES de escrever o código de produção. Ciclo: <strong>Red → Green → Refactor</strong>.
+        </div>
+
+        <div class="step-flow">
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(239,68,68,0.15);color:var(--red)">🔴</div>
+            <div class="step-content">
+              <h4>Red — Escreva um teste que falha</h4>
+              <p>Escreva um teste para a funcionalidade que ainda não existe. O teste deve falhar (vermelho) — confirma que o teste é válido.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(16,185,129,0.15);color:var(--green)">🟢</div>
+            <div class="step-content">
+              <h4>Green — Faça o teste passar</h4>
+              <p>Escreva o MÍNIMO de código necessário para fazer o teste passar (verde). Não otimize ainda.</p>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num" style="background:rgba(14,165,233,0.15);color:var(--teal)">🔵</div>
+            <div class="step-content">
+              <h4>Refactor — Melhore o código</h4>
+              <p>Refatore o código mantendo todos os testes passando. Elimine duplicações, melhore legibilidade e design.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-box info">
+          <div class="hb-title">💡 Benefícios do TDD</div>
+          Alta cobertura de testes automática, design emergente (código mais simples e testável), confiança para refatorar, documentação viva (testes descrevem comportamento esperado). Custo: maior tempo inicial de desenvolvimento.
+        </div>
+
+        <h3>BDD — Behavior-Driven Development</h3>
+        <p>Extensão do TDD que usa linguagem natural (Gherkin) para descrever comportamentos do sistema, facilitando colaboração entre desenvolvedores, QA e stakeholders de negócio.</p>
+
+        <div class="code-block"><span class="code-lang">Gherkin — BDD</span><pre>Feature: Aprovação de Orçamento
+  Como gerente financeiro
+  Quero aprovar orçamentos pelo sistema
+  Para que o processo seja auditável e rápido
+
+  Scenario: Aprovar orçamento dentro do limite
+    Given que existe um orçamento de R$ 50.000 pendente
+    And meu limite de aprovação é R$ 100.000
+    When eu aprovar o orçamento
+    Then o status deve mudar para "Aprovado"
+    And o solicitante deve receber notificação por email
+
+  Scenario: Rejeitar orçamento acima do limite
+    Given que existe um orçamento de R$ 150.000 pendente
+    And meu limite de aprovação é R$ 100.000
+    When eu tentar aprovar o orçamento
+    Then o sistema deve exibir mensagem de erro
+    And encaminhar para aprovação do nível superior</pre></div>
+
+        <h3>Qualidade de Software — ISO 25010</h3>
+        <p>O modelo de qualidade ISO 25010 (successor da ISO 9126) define características de qualidade para produtos de software:</p>
+        <div class="concept-grid">
+          <div class="concept-card"><div class="emoji">✅</div><div class="concept-name">Adequação Funcional</div><div class="concept-desc">O software faz o que deve fazer? Completude, correção e pertinência das funções.</div></div>
+          <div class="concept-card"><div class="emoji">⚡</div><div class="concept-name">Eficiência de Performance</div><div class="concept-desc">Comportamento temporal, uso de recursos e capacidade.</div></div>
+          <div class="concept-card"><div class="emoji">🔧</div><div class="concept-name">Manutenibilidade</div><div class="concept-desc">Modularidade, reusabilidade, analisabilidade, modificabilidade, testabilidade.</div></div>
+          <div class="concept-card"><div class="emoji">🛡️</div><div class="concept-name">Segurança</div><div class="concept-desc">Confidencialidade, integridade, não-repúdio, responsabilização, autenticidade.</div></div>
+          <div class="concept-card"><div class="emoji">✅</div><div class="concept-name">Confiabilidade</div><div class="concept-desc">Maturidade, disponibilidade, tolerância a falhas, recuperabilidade.</div></div>
+          <div class="concept-card"><div class="emoji">😊</div><div class="concept-name">Usabilidade</div><div class="concept-desc">Reconhecibilidade, aprendizabilidade, operabilidade, proteção contra erros.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Simulado -->
+    <div class="tab-panel" data-tab="simulado">
+      <div class="animate-fade-up">
+        <div class="section-header mb-16">
+          <div class="section-title"><span class="accent-dot"></span> Simulado — Testes & Qualidade</div>
+          <span class="badge badge-teal">8 questões · Estilo Cesgranrio</span>
+        </div>
+        <div id="quiz-testes"></div>
+      </div>
+    </div>
+
+    <div class="card animate-fade-up mt-24">
+      <div class="section-header"><div class="section-title"><span class="accent-dot"></span> Checklist</div></div>
+      <div id="checklist-testes"></div>
+    </div>
+
+    <div class="topic-nav animate-fade-up">
+      <a href="requisitos.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Anterior</div><div>Requisitos de Software</div></div>
+      </a>
+      <a href="../ux/index.html" class="next">
+        <div><div style="font-size:0.72rem;color:var(--text-muted)">Próximo</div><div>UX & Design Thinking</div></div>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+<div id="toast-container"></div>
+<script src="../../assets/js/app.js"></script>
+<script src="../../assets/js/layout.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  await DC.Layout.init('../../');
+  DC.Accordion.init(); DC.Tabs.init();
+
+  DC.Checklist.init('checklist-testes','testes',[
+    'Sei diferenciar Verificação ("construímos certo?") de Validação ("construímos o certo?")',
+    'Conheço os 4 níveis de teste e quem é responsável por cada um',
+    'Entendo a diferença entre caixa-branca e caixa-preta',
+    'Conheço as técnicas de caixa-preta (partição de equivalência, valor limite)',
+    'Sei os 3 tipos de teste de segurança: SAST, DAST e IAST',
+    'Domino o ciclo TDD: Red → Green → Refactor',
+    'Entendo o que é BDD e o formato Gherkin (Given/When/Then)',
+    'Sei o que é teste de regressão e quando é usado',
+    'Conheço as características de qualidade ISO 25010',
+  ]);
+
+  DC.Quiz.render('quiz-testes',[
+    { question:'A distinção entre Verificação e Validação, segundo Boehm, é:',
+      options:[
+        'Verificação é feita pelo cliente; Validação pela equipe técnica.',
+        'Verificação confirma conformidade com a especificação; Validação confirma adequação às necessidades reais do usuário.',
+        'Validação verifica a especificação técnica; Verificação avalia o produto com o cliente.',
+        'Ambas são sinônimas — diferem apenas no contexto de aplicação.',
+        'Verificação ocorre após o deploy; Validação ocorre antes.'
+      ], answer:1, explanation:'Verificação = "Estamos construindo o produto CORRETAMENTE?" (conforme a spec — interno, técnico). Validação = "Estamos construindo o produto CERTO?" (conforme necessidades reais — com o cliente). Memorize: veriFICação = espec(IFICAÇÃO); vaLIdação = cLIente. A Cesgranrio inverte propositalmente nas alternativas.' },
+    { question:'O teste de REGRESSÃO tem como objetivo principal:',
+      options:[
+        'Testar o sistema sob carga máxima para identificar o ponto de falha.',
+        'Garantir que novas alterações no código não introduziram defeitos nas funcionalidades que já funcionavam.',
+        'Verificar se o sistema atende aos requisitos de negócio do cliente.',
+        'Testar unidades isoladas do código em ambiente de desenvolvimento.',
+        'Identificar vulnerabilidades de segurança no código-fonte.'
+      ], answer:1, explanation:'Teste de regressão: re-executa testes existentes após mudanças para garantir que nada que funcionava foi quebrado. É automatizado no CI/CD — executado a cada commit ou build. Fundamental em projetos com muitas mudanças frequentes. Sem regressão, correções de bugs frequentemente introduzem novos bugs.' },
+    { question:'No TDD (Test-Driven Development), a ordem correta do ciclo é:',
+      options:[
+        'Green → Red → Refactor',
+        'Refactor → Red → Green',
+        'Red → Green → Refactor',
+        'Code → Test → Refactor',
+        'Design → Code → Test'
+      ], answer:2, explanation:'TDD segue o ciclo Red-Green-Refactor: RED = escreve o teste que falha (o código ainda não existe); GREEN = escreve o mínimo de código para o teste passar; REFACTOR = melhora o código mantendo todos os testes passando. A chave do TDD é escrever o TESTE ANTES do código de produção.' },
+    { question:'A técnica de teste de ANÁLISE DE VALOR LIMITE baseia-se no princípio de que:',
+      options:[
+        'Todos os valores dentro de um intervalo são equivalentes e um único teste os representa.',
+        'Os erros tendem a ocorrer nas fronteiras das partições de equivalência — nos limites dos intervalos.',
+        'Apenas valores extremos (máximo e mínimo do tipo de dado) precisam ser testados.',
+        'Os valores mais comuns no uso real do sistema devem receber mais testes.',
+        'Limites de banco de dados (tamanho de campo) são os mais importantes a testar.'
+      ], answer:1, explanation:'Análise de Valor Limite (Boundary Value Analysis): erros são mais comuns nos limites das partições. Para intervalo [1, 100], testar: 0 (abaixo), 1 (limite inferior), 2 (logo acima), 99 (logo abaixo), 100 (limite superior), 101 (acima). Complementa a Partição de Equivalência, que testa apenas um valor representativo por classe.' },
+    { question:'O DAST (Dynamic Application Security Testing) diferencia-se do SAST porque:',
+      options:[
+        'DAST analisa o código-fonte estático; SAST testa a aplicação em execução.',
+        'DAST testa a aplicação em execução, simulando ataques externos (black-box); SAST analisa o código sem executar.',
+        'SAST é mais eficaz para detecção de vulnerabilidades em produção.',
+        'DAST requer acesso ao código-fonte; SAST não.',
+        'Ambos são equivalentes — diferem apenas no fornecedor da ferramenta.'
+      ], answer:1, explanation:'SAST = ESTÁTICO = analisa código-fonte SEM executar → detecta vulnerabilidades no código (SQL injection potencial, buffer overflow). Integrado no IDE ou CI. DAST = DINÂMICO = testa a aplicação EM EXECUÇÃO → simula ataques externos, detecta vulnerabilidades de runtime (injeções reais, exposição de dados). Não precisa do código-fonte. IAST combina os dois com agente interno.' },
+    { question:'O teste de ACEITAÇÃO (UAT) diferencia-se do teste de SISTEMA porque:',
+      options:[
+        'O teste de sistema é feito pelo cliente; o UAT pela equipe de QA.',
+        'O UAT é realizado pelo cliente/usuários finais para validar critérios de negócio; o teste de sistema é feito pelo QA contra os requisitos técnicos.',
+        'O teste de sistema ocorre após o UAT na ordem de execução.',
+        'UAT testa apenas interfaces de usuário; teste de sistema testa APIs e banco de dados.',
+        'Não há diferença prática — são o mesmo teste em contextos diferentes.'
+      ], answer:1, explanation:'Ordem: Unitário → Integração → Sistema → Aceitação. Sistema: feito pela equipe de QA em ambiente staging, testa o sistema completo contra requisitos especificados. UAT: feito pelo CLIENTE/usuários finais, valida se atende às necessidades de negócio (critérios de aceitação). UAT é a última fase antes do go-live. Sistema é técnico; UAT é de negócio.' },
+    { question:'Na técnica de PARTIÇÃO DE EQUIVALÊNCIA, o objetivo é:',
+      options:[
+        'Testar todos os valores possíveis de entrada para garantir cobertura total.',
+        'Dividir os dados de entrada em classes onde todos os valores de uma classe têm o mesmo comportamento — testando um representante por classe.',
+        'Testar apenas os valores nos limites de cada intervalo válido.',
+        'Garantir que todos os caminhos do código sejam executados pelo menos uma vez.',
+        'Mapear combinações de condições e seus resultados em tabela de decisão.'
+      ], answer:1, explanation:'Partição de Equivalência: divide o domínio de entrada em classes de equivalência onde qualquer valor da classe produz o mesmo resultado/comportamento. Testa UM valor por classe (válida e inválida). Ex: campo de idade (0-150): classe válida [1-120] → testar 50; inválido negativo → testar -1; inválido acima → testar 200. Reduz drasticamente o número de casos de teste necessários.' },
+    { question:'O BDD (Behavior-Driven Development) usa a linguagem GHERKIN com o formato:',
+      options:[
+        'Red / Green / Refactor',
+        'Arrange / Act / Assert',
+        'Given / When / Then',
+        'Setup / Execute / Verify',
+        'Input / Process / Output'
+      ], answer:2, explanation:'BDD usa Gherkin: Given (dado que — pré-condição/contexto), When (quando — ação do usuário), Then (então — resultado esperado). Permite que analistas de negócio, QA e desenvolvedores descrevam comportamentos em linguagem natural. Cenários BDD se tornam testes automatizados via frameworks como Cucumber, SpecFlow, Behave.' },
+  ],'testes_simulado');
+});
+</script>
+</body>
+</html>
